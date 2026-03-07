@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compliance & Governance | First Touch Guide</title>
+  <meta name="description" content="How First Touch keeps autonomous workflows business-compliant with policy controls, auditability, and escalation rules.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="guide-page">
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html"><img class="brand-icon" src="../assets/firsttouch-icon.svg" alt="First Touch icon"><span class="brand-text">First Touch</span></a>
+      <a class="btn btn-sm" data-book-link href="#">Book Strategy Call</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section guide-hero">
+      <div class="container">
+        <p class="eyebrow">Guide 02</p>
+        <h1>Compliance and governance by design</h1>
+        <p class="hero-lead">Governance is not an add-on. In First Touch, it is built into routing, permissions, approvals, and logs from day one.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container guide-layout">
+        <aside class="guide-toc">
+          <h3>On this page</h3>
+          <a href="#model">Control model</a>
+          <a href="#permissions">Role and permission logic</a>
+          <a href="#audit">Audit architecture</a>
+          <a href="#regulatory">Regulated use scenarios</a>
+        </aside>
+
+        <article class="guide-prose">
+          <h2 id="model">Control model</h2>
+          <p>First Touch uses policy thresholds to decide if an action is autonomous, approval-required, or blocked. This keeps operational speed high without losing control.</p>
+          <ul class="guide-list">
+            <li>Policy thresholds by workflow lane and risk class.</li>
+            <li>Escalation paths mapped to specific business owners.</li>
+            <li>Safe mode fallback for partial outages or uncertain context.</li>
+          </ul>
+
+          <h2 id="permissions">Role and permission logic</h2>
+          <p>Each action is validated against role scope before execution. This allows one assistant layer to serve multiple departments without permission leakage.</p>
+          <div class="guide-kpi-grid">
+            <div class="guide-kpi-card"><strong>RBAC</strong><span>Action rights by role, team, and environment.</span></div>
+            <div class="guide-kpi-card"><strong>Approval tiers</strong><span>Thresholds for finance, legal, and operational actions.</span></div>
+            <div class="guide-kpi-card"><strong>Context boundaries</strong><span>Access only to fields needed for current task.</span></div>
+            <div class="guide-kpi-card"><strong>Emergency stop</strong><span>Immediate autonomy freeze with human override.</span></div>
+          </div>
+
+          <h2 id="audit">Audit architecture</h2>
+          <p>Every workflow step is logged as an event sequence. Teams can explain why an action happened, who approved it, and which data were used.</p>
+          <ul class="guide-list">
+            <li>Traceable timeline from intake to resolution.</li>
+            <li>Policy decision logs for every autonomy boundary.</li>
+            <li>Exportable records for compliance and internal review.</li>
+          </ul>
+
+          <h2 id="regulatory">Regulated use scenarios</h2>
+          <p>For high-accountability sectors, First Touch supports a human-in-the-loop default with selective autonomy in low-risk operations. This is usually the fastest path to measurable outcomes while preserving legal and governance standards.</p>
+          <div class="guide-cta">
+            <a class="btn" href="../index.html#offer">See pilot offer</a>
+            <a class="btn btn-ghost" href="./index.html">All guides</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid"><p><strong id="offer-name-footer">First Touch</strong> by <span id="brand-owner">Jan Kluz</span> in <span id="primary-brand">EMA AI</span> context.</p><div class="footer-links"><a id="linkedin-link" href="#" target="_blank" rel="noreferrer">LinkedIn</a><a id="contact-email" href="#">Email</a></div></div>
+    <p class="legal" id="legal-line"></p>
+  </footer>
+
+  <script src="../config.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

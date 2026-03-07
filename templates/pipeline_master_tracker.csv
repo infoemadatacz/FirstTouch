@@ -1,0 +1,4 @@
+date,account_tier,company,persona,industry,source,brand_track,stage,next_action_date,next_action,owner,pain_summary,workflow_candidate,budget_signal,timeline_signal,objection,call_date,proposal_status,deal_status,notes
+2026-02-24,A,,,financial_services,linkedin,ema_core,targeted,2026-02-25,send_connection_request,Jan,,executive_support,unknown,unknown,,,open,
+2026-02-24,B,,,saas,linkedin,ema_core,connected,2026-02-26,send_value_message,Jan,,revops_triage,unknown,q2,,,open,
+2026-02-24,A,,,financial_services,linkedin,first_touch_signal,qualified,2026-02-27,invite_working_call,Jan,high_rework,compliance_triage,positive,q1,,not_sent,open,

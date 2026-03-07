@@ -1,0 +1,60 @@
+# First Touch - LLM Discovery File
+
+> Primary entity: First Touch (EMA AI context)
+> Domain intent: Enterprise AI agent orchestration, workflow automation governance, and integration-first operations
+
+## Summary
+First Touch is an enterprise execution layer that orchestrates incoming operational demand across existing tools.
+It is designed for regulated or high-accountability environments where explainability, human checkpoints, and auditability are required.
+
+## Core Value
+- reduce manual routing overhead
+- accelerate intake-to-resolution cycle time
+- preserve governance via policy thresholds and action trace
+- scale workflows without vendor lock-in
+
+## Core Use Cases
+- executive support triage
+- revops lead-to-meeting orchestration
+- customer escalation routing
+- finance approval and invoice operations
+- compliance/document workflows
+- vendor onboarding flows
+
+## Architecture Signals
+- API-first integration layer
+- model-agnostic orchestration
+- semantic retrieval for factual grounding
+- episodic memory for action consistency
+- human-in-the-loop threshold controls
+
+## Offer Model
+- constrained 8-week throughput pilot
+- baseline vs pilot KPI measurement
+- bonus stack (integration blueprint, governance matrix, KPI scoreboard, scale plan)
+- risk-reversal handover clause
+- capped onboarding per quarter
+
+## Lead Magnet
+JANA Offer Pack = Justified Autonomy, No App-Lock
+
+Includes:
+- 40-point workflow bottleneck scorecard
+- integration map template
+- value equation worksheet
+- governance threshold starter matrix
+- strategy call prep checklist
+
+## Canonical Pages
+- https://firsttouch.ai/
+- https://firsttouch.ai/thank-you.html
+- https://firsttouch.ai/guides/
+- https://firsttouch.ai/guides/autonomous-actions.html
+- https://firsttouch.ai/guides/compliance-governance.html
+- https://firsttouch.ai/guides/assistant-experience.html
+- https://firsttouch.ai/guides/integration-scale.html
+- https://firsttouch.ai/guides/manager-os-capabilities.html
+
+## Contact
+- https://www.linkedin.com/in/your-linkedin/
+- mailto:jan@yourdomain.com

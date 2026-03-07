@@ -1,0 +1,5 @@
+date,account_tier,company,persona,linkedin_url,industry,content_lane,brand_track,ema_identity_opening,first_touch_intro_step,bridge_line_used,connection_sent,connection_accepted,post_engagement_signal,dm_step,current_status,pain_confirmed,workflow_target,call_offered,call_booked,call_date,pilot_interest,next_action,owner,notes
+2026-02-24,A,,,,,ai,first_touch_signal,TRUE,diagnostic_question,TRUE,TRUE,FALSE,FALSE,request_sent,new,FALSE,,FALSE,FALSE,,,send_follow_up_1,,
+2026-02-24,B,,,,,business,ema_core,TRUE,not_introduced,TRUE,TRUE,TRUE,TRUE,thank_you_sent,warming,FALSE,,FALSE,FALSE,,,send_value_message,,
+2026-02-24,A,,,,,ai,ema_core,TRUE,value_message,TRUE,TRUE,TRUE,TRUE,diagnostic_question,qualified,FALSE,,FALSE,FALSE,,,wait_reply,,
+2026-02-24,A,,,,,business,ema_core,TRUE,diagnostic_question,TRUE,TRUE,TRUE,TRUE,call_invited,qualified,TRUE,executive_support,TRUE,FALSE,,,follow_up_call_invite,,
