@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://firsttouch.ai/</loc>
+    <loc>https://firsttouch.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://firsttouch.ai/thank-you.html</loc>
+    <loc>https://firsttouch.app/thank-you.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://firsttouch.ai/guides/</loc>
+    <loc>https://firsttouch.app/guides/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://firsttouch.ai/guides/autonomous-actions.html</loc>
+    <loc>https://firsttouch.app/guides/autonomous-actions.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://firsttouch.ai/guides/compliance-governance.html</loc>
+    <loc>https://firsttouch.app/guides/compliance-governance.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://firsttouch.ai/guides/assistant-experience.html</loc>
+    <loc>https://firsttouch.app/guides/assistant-experience.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://firsttouch.ai/guides/integration-scale.html</loc>
+    <loc>https://firsttouch.app/guides/integration-scale.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://firsttouch.ai/guides/manager-os-capabilities.html</loc>
+    <loc>https://firsttouch.app/guides/manager-os-capabilities.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

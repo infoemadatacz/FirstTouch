@@ -3,7 +3,7 @@ window.FIRST_TOUCH_CONFIG = {
   primaryBrand: "EMA AI",
   offerName: "First Touch",
   siteName: "First Touch",
-  siteUrl: "https://firsttouch.ai/",
+  siteUrl: "https://firsttouch.app/",
 
   bookingUrl: "https://calendly.com/your-handle/first-touch-strategy-call",
   leadFormEndpoint: "",

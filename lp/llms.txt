@@ -46,14 +46,14 @@ Includes:
 - strategy call prep checklist
 
 ## Canonical Pages
-- https://firsttouch.ai/
-- https://firsttouch.ai/thank-you.html
-- https://firsttouch.ai/guides/
-- https://firsttouch.ai/guides/autonomous-actions.html
-- https://firsttouch.ai/guides/compliance-governance.html
-- https://firsttouch.ai/guides/assistant-experience.html
-- https://firsttouch.ai/guides/integration-scale.html
-- https://firsttouch.ai/guides/manager-os-capabilities.html
+- https://firsttouch.app/
+- https://firsttouch.app/thank-you.html
+- https://firsttouch.app/guides/
+- https://firsttouch.app/guides/autonomous-actions.html
+- https://firsttouch.app/guides/compliance-governance.html
+- https://firsttouch.app/guides/assistant-experience.html
+- https://firsttouch.app/guides/integration-scale.html
+- https://firsttouch.app/guides/manager-os-capabilities.html
 
 ## Contact
 - https://www.linkedin.com/in/your-linkedin/

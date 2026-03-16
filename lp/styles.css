@@ -315,7 +315,7 @@ h3 {
 
 .hero-copy h1 {
   max-width: 14ch;
-  background: linear-gradient(135deg, #fff 40%, rgba(255,255,255,0.7));
+  background: linear-gradient(135deg, #FFFFFF 40%, #c96be8 80%, #9301BB 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -483,7 +483,7 @@ h3 {
   flex-direction: column;
   justify-content: flex-end;
   gap: 0.4rem;
-  transition: border-color 0.25s, background 0.25s;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
   position: relative;
   overflow: hidden;
 }
@@ -500,6 +500,8 @@ h3 {
 .bento-cell:hover {
   background: var(--surface-2);
   border-color: var(--border-glow);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card), 0 10px 28px rgba(147, 1, 187, 0.12);
 }
 
 .bento-cell:hover::before {
@@ -619,12 +621,14 @@ h3 {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 1.2rem;
-  transition: border-color 0.25s, background 0.25s;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
 .dayflow-step:hover {
   background: var(--surface-2);
   border-color: var(--border-glow);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card), 0 10px 28px rgba(147, 1, 187, 0.12);
 }
 
 .dayflow-time {
@@ -671,11 +675,13 @@ h3 {
   flex-direction: column;
   gap: 0;
   position: relative;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
 .pricing-card:hover {
   border-color: var(--border-glow);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card), 0 20px 48px rgba(147, 1, 187, 0.16);
 }
 
 .pricing-card-featured {
@@ -821,11 +827,14 @@ h3 {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 0.75rem 1rem;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .ps-item:hover {
   border-color: var(--border-glow);
+  background: var(--surface-2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(147, 1, 187, 0.1);
 }
 
 .ps-before {
@@ -1086,8 +1095,9 @@ h3 {
 .lead-form input:focus,
 .lead-form select:focus {
   outline: none;
-  border-color: rgba(147, 1, 187, 0.5);
+  border-color: rgba(147, 1, 187, 0.55);
   background: rgba(147, 1, 187, 0.04);
+  box-shadow: 0 0 0 3px rgba(147, 1, 187, 0.14);
 }
 
 .form-status {
@@ -1403,13 +1413,15 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  transition: border-color 0.25s, background 0.25s;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
   position: relative;
 }
 
 .how-step:hover {
   background: var(--surface-2);
   border-color: var(--border-glow);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card), 0 12px 32px rgba(147, 1, 187, 0.14);
 }
 
 .how-step-num {
@@ -1592,12 +1604,14 @@ h3 {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .arch-bullet-item:hover {
   background: var(--surface-2);
   border-color: var(--border-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(147, 1, 187, 0.1);
 }
 
 .arch-bullet-icon {
@@ -1636,12 +1650,14 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: border-color 0.25s, background 0.25s;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
 .team-card:hover {
   background: var(--surface-2);
   border-color: var(--border-glow);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card), 0 16px 40px rgba(147, 1, 187, 0.15);
 }
 
 .team-card-featured {
@@ -1740,7 +1756,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  transition: border-color 0.25s, background 0.25s;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
   position: relative;
   overflow: hidden;
 }
@@ -1757,6 +1773,8 @@ h3 {
 .addon-card:hover {
   background: var(--surface-2);
   border-color: var(--border-glow);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card), 0 12px 32px rgba(147, 1, 187, 0.14);
 }
 
 .addon-card:hover::before {
@@ -1955,5 +1973,166 @@ h3 {
 
   .stats-strip-inner {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Sticky CTA Bar (Frontend Dev agent) ─────────────────────────── */
+.sticky-cta {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.875rem 1.5rem;
+  background: linear-gradient(90deg, #3b0764 0%, #6d28d9 50%, #7c3aed 100%);
+  border-top: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 -4px 32px rgba(109,40,217,0.35);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+.sticky-cta.is-visible { transform: translateY(0); }
+
+.sticky-cta__text {
+  margin: 0;
+  font-family: 'Geist', system-ui, sans-serif;
+  font-size: 0.9rem; font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  white-space: nowrap;
+}
+.sticky-cta__btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 1.25rem;
+  background: #fff; color: #6d28d9;
+  font-family: 'Geist', system-ui, sans-serif;
+  font-size: 0.875rem; font-weight: 600;
+  border-radius: 8px; text-decoration: none; white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+.sticky-cta__btn:hover { background: #f5f3ff; transform: translateY(-1px); }
+.sticky-cta__btn:active { transform: translateY(0); }
+
+.sticky-cta__close {
+  position: absolute; right: 1rem;
+  background: none; border: none;
+  color: rgba(255,255,255,0.55); cursor: pointer;
+  padding: 0.35rem; border-radius: 4px;
+  display: flex; align-items: center;
+  transition: color 0.2s;
+}
+.sticky-cta__close:hover { color: #fff; }
+
+@media (max-width: 600px) {
+  .sticky-cta { flex-direction: column; gap: 0.6rem; padding: 1rem 2.5rem 1rem 1rem; text-align: center; }
+  .sticky-cta__text { white-space: normal; font-size: 0.82rem; }
+  .sticky-cta__btn { width: 100%; justify-content: center; }
+}
+
+/* === TESTIMONIALS / SOCIAL PROOF === */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.testimonial-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.5rem;
+  right: 1.2rem;
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--violet);
+  opacity: 0.08;
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+
+.testimonial-card:hover {
+  background: var(--surface-2);
+  border-color: var(--border-glow);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card), 0 12px 32px rgba(147, 1, 187, 0.12);
+}
+
+.testimonial-card-featured {
+  background: linear-gradient(145deg, rgba(147,1,187,0.1), rgba(255,106,0,0.04), var(--surface));
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+.testimonial-stars {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: #f59e0b;
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: 0.92rem;
+  color: var(--ink-2);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(147,1,187,0.5), rgba(255,106,0,0.4));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Geist Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-1);
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+
+.testimonial-name {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink-1);
+  margin-bottom: 0.15rem;
+}
+
+.testimonial-role {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--ink-4);
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://firsttouch.ai/sitemap.xml
+Sitemap: https://firsttouch.app/sitemap.xml

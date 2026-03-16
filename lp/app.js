@@ -4,11 +4,11 @@
     primaryBrand: "EMA AI",
     offerName: "First Touch",
     siteName: "First Touch",
-    siteUrl: "https://firsttouch.ai",
+    siteUrl: "https://firsttouch.app",
     bookingUrl: "https://calendly.com/your-handle/first-touch-strategy-call",
     leadFormEndpoint: "",
     leadMagnetUrl: "./assets/jana-offer-pack.md",
-    contactEmail: "jan@yourdomain.com",
+    contactEmail: "jan@firsttouch.app",
     legalCompanyName: "EMA AI",
     legalLocation: "Prague, Czech Republic",
     linkedinUrl: "https://www.linkedin.com/",
@@ -417,4 +417,25 @@
     });
     return out;
   }
+})();
+
+// ── Sticky CTA (Frontend Dev agent) ─────────────────────────────
+(function () {
+  const bar   = document.getElementById('sticky-cta');
+  const close = document.getElementById('sticky-cta-close');
+  if (!bar) return;
+
+  let dismissed = !!sessionStorage.getItem('cta-dismissed');
+  const THRESHOLD = window.innerHeight * 0.8;
+
+  window.addEventListener('scroll', () => {
+    if (dismissed) return;
+    bar.classList.toggle('is-visible', window.scrollY > THRESHOLD);
+  }, { passive: true });
+
+  close.addEventListener('click', () => {
+    dismissed = true;
+    sessionStorage.setItem('cta-dismissed', '1');
+    bar.classList.remove('is-visible');
+  });
 })();
