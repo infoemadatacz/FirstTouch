@@ -96,6 +96,41 @@
     </section>
 
     <!-- ============================================================
+         TRUST / COMPLIANCE STRIP
+    ============================================================ -->
+    <div class="trust-strip" aria-label="Security and compliance trust signals">
+      <div class="container trust-strip-inner">
+        <span class="trust-strip-label">Built for European operators</span>
+        <div class="trust-badges" role="list">
+          <span class="trust-badge" role="listitem">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            GDPR Ready
+          </span>
+          <span class="trust-badge" role="listitem">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="4" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M4 4V3a3 3 0 0 1 6 0v1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            EU Data Residency
+          </span>
+          <span class="trust-badge" role="listitem">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2" y="2" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5 7h4M7 5v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            On-Premise / VPS
+          </span>
+          <span class="trust-badge" role="listitem">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 4h10M2 7h7M2 10h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            Full Audit Logs
+          </span>
+          <span class="trust-badge" role="listitem">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 2l1.5 3 3.5.5-2.5 2.5.5 3.5L7 10l-3 1.5.5-3.5L2 5.5l3.5-.5L7 2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            No Vendor Lock-in
+          </span>
+          <span class="trust-badge" role="listitem">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7.5l1.5 1.5 3-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            SOC 2 Aligned
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
          STATS STRIP
     ============================================================ -->
     <section class="stats-strip section-tight" id="stats">
@@ -916,17 +951,59 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <p>
-        <strong id="offer-name-footer">First Touch</strong> by <span id="brand-owner">Jan Kluz</span>
-        in <span id="primary-brand">EMA AI</span> context.
-      </p>
-      <div class="footer-links">
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+        <a class="brand footer-brand-logo" href="#top" aria-label="First Touch home">
+          <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="28" height="28">
+          <span class="brand-text">First Touch</span>
+        </a>
+        <p class="footer-tagline">The AI Chief of Staff for European B2B operators. Runs on your infrastructure — not ours.</p>
+        <div class="footer-trust-mini" aria-label="Key trust signals">
+          <span>🇪🇺 Prague · Czech Republic</span>
+          <span>GDPR Ready</span>
+          <span>On-Premise</span>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Product navigation">
+        <p class="footer-nav-title">Product</p>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#architecture">Architecture &amp; Trust</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#addons">Add-ons</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Company navigation">
+        <p class="footer-nav-title">Company</p>
+        <a href="#testimonials">Early Adopters</a>
+        <a href="#faq">FAQ</a>
         <a id="linkedin-link" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a id="contact-email" href="#">Email</a>
+        <a id="contact-email" href="#">Email Jan</a>
+      </nav>
+
+      <div class="footer-cta-block">
+        <p class="footer-nav-title">Get started</p>
+        <p class="footer-cta-desc">Book a 15-min workflow assessment — we identify your highest-friction lane and map the exact delta.</p>
+        <a class="btn btn-sm footer-cta-btn" data-book-link href="#">Book assessment →</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>
+          <strong id="offer-name-footer">First Touch</strong> by <span id="brand-owner">Jan Kluz</span>
+          &middot; <span id="primary-brand">EMA AI</span>
+          &middot; <span id="legal-line"></span>
+        </p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
     </div>
-    <p class="legal" id="legal-line"></p>
   </footer>
 
   <script id="org-schema" type="application/ld+json"></script>
@@ -958,3 +1035,4 @@
   <script src="./app.js"></script>
 </body>
 </html>
+<!-- deploy trigger -->
