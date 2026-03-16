@@ -38,16 +38,23 @@
         <span class="brand-text">First Touch</span>
       </a>
 
-      <nav class="nav-links" aria-label="Primary navigation">
+      <nav class="nav-links" id="nav-links" aria-label="Primary navigation">
         <a href="#how-it-works">How It Works</a>
         <a href="#architecture">Architecture</a>
         <a href="#teams">For Teams</a>
+        <a href="#comparison">Why First Touch</a>
         <a href="#addons">Add-ons</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </nav>
 
-      <a class="btn btn-sm" data-book-link href="#">Book 15-min Assessment</a>
+      <a class="btn btn-sm nav-cta-desktop" data-book-link href="#">Book 15-min Assessment</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
     </div>
   </header>
 
@@ -392,6 +399,115 @@
     </section>
 
     <!-- ============================================================
+         COMPARISON — FIRST TOUCH VS GENERIC AI
+    ============================================================ -->
+    <section class="section" id="comparison">
+      <div class="container">
+        <div class="section-head reveal-gsap">
+          <p class="eyebrow">Why First Touch</p>
+          <h2>Not just another AI tool. An operating layer.</h2>
+          <p class="section-sub">Generic AI tools chat. First Touch executes — with persistent memory, real integrations, and compliance controls built in.</p>
+        </div>
+
+        <div class="comparison-table reveal-gsap" role="table" aria-label="Feature comparison: First Touch vs generic AI tools">
+          <div class="comparison-header" role="row">
+            <div class="comparison-col-label" role="columnheader">Capability</div>
+            <div class="comparison-col-label comparison-col-ft" role="columnheader">First Touch</div>
+            <div class="comparison-col-label comparison-col-other" role="columnheader">Generic AI tools</div>
+          </div>
+
+          <div class="comparison-row" role="row">
+            <div class="comparison-feature" role="cell">Persistent memory — your business context survives every session</div>
+            <div class="comparison-cell comparison-yes" role="cell" aria-label="Yes">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)" stroke="#4ADE80" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="comparison-cell comparison-no" role="cell" aria-label="No">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.3"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+
+          <div class="comparison-row" role="row">
+            <div class="comparison-feature" role="cell">Autonomous multi-step workflow execution</div>
+            <div class="comparison-cell comparison-yes" role="cell" aria-label="Yes">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)" stroke="#4ADE80" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="comparison-cell comparison-no" role="cell" aria-label="No">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.3"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+
+          <div class="comparison-row" role="row">
+            <div class="comparison-feature" role="cell">Deployed on your own VPS or on-premise infrastructure</div>
+            <div class="comparison-cell comparison-yes" role="cell" aria-label="Yes">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)" stroke="#4ADE80" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="comparison-cell comparison-no" role="cell" aria-label="No">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.3"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+
+          <div class="comparison-row" role="row">
+            <div class="comparison-feature" role="cell">GDPR-ready with EU data residency by default</div>
+            <div class="comparison-cell comparison-yes" role="cell" aria-label="Yes">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)" stroke="#4ADE80" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="comparison-cell comparison-partial" role="cell" aria-label="Partial">Partial</div>
+          </div>
+
+          <div class="comparison-row" role="row">
+            <div class="comparison-feature" role="cell">Best-model routing — Claude, GPT, local Ollama per task</div>
+            <div class="comparison-cell comparison-yes" role="cell" aria-label="Yes">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)" stroke="#4ADE80" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="comparison-cell comparison-no" role="cell" aria-label="No">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.3"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+
+          <div class="comparison-row" role="row">
+            <div class="comparison-feature" role="cell">Governance threshold matrix + full audit trail</div>
+            <div class="comparison-cell comparison-yes" role="cell" aria-label="Yes">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)" stroke="#4ADE80" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="comparison-cell comparison-no" role="cell" aria-label="No">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.3"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+
+          <div class="comparison-row" role="row">
+            <div class="comparison-feature" role="cell">Meeting-to-action automation — transcribe, assign, sync calendar</div>
+            <div class="comparison-cell comparison-yes" role="cell" aria-label="Yes">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)" stroke="#4ADE80" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="comparison-cell comparison-no" role="cell" aria-label="No">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.3"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+
+          <div class="comparison-row" role="row">
+            <div class="comparison-feature" role="cell">Recurring leadership report auto-generation</div>
+            <div class="comparison-cell comparison-yes" role="cell" aria-label="Yes">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)" stroke="#4ADE80" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="comparison-cell comparison-no" role="cell" aria-label="No">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.3"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+
+          <div class="comparison-row comparison-row-last" role="row">
+            <div class="comparison-feature" role="cell">No vendor lock-in — switch or combine AI providers anytime</div>
+            <div class="comparison-cell comparison-yes" role="cell" aria-label="Yes">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)" stroke="#4ADE80" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="comparison-cell comparison-no" role="cell" aria-label="No">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.3"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          CAPABILITIES — BENTO GRID
     ============================================================ -->
     <section class="section" id="capabilities">
@@ -503,6 +619,65 @@
               <img src="./assets/integration-orchestration-map-v2.png" alt="Integration map showing AI orchestrator connected to CRM, ERP, support, and analytics systems" width="2400" height="1792" loading="lazy">
             </picture>
           </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTEXT LEARNING FLYWHEEL
+    ============================================================ -->
+    <section class="section" id="context-flywheel">
+      <div class="container">
+        <div class="flywheel-grid">
+          <figure class="visual-frame visual-flywheel reveal-gsap" aria-label="Context learning flywheel diagram">
+            <picture>
+              <source srcset="./assets/context-learning-flywheel-v2.webp" type="image/webp">
+              <img src="./assets/context-learning-flywheel-v2.png" alt="Context learning flywheel: how First Touch builds and compounds business context over time" width="1600" height="1600" loading="lazy">
+            </picture>
+          </figure>
+
+          <div class="flywheel-copy reveal-gsap">
+            <p class="eyebrow">Context-first architecture</p>
+            <h2>The assistant that gets sharper every week.</h2>
+            <p class="flywheel-lead">
+              Generic AI tools reset every session and forget your business. First Touch builds a persistent, evolving model of your company — decisions, priorities, people, and workflows — that compounds over time.
+            </p>
+
+            <div class="flywheel-steps">
+              <div class="flywheel-step">
+                <span class="flywheel-step-num">01</span>
+                <div>
+                  <strong>Capture</strong>
+                  <p>Every meeting, task, decision, and document is logged with structured business context.</p>
+                </div>
+              </div>
+              <div class="flywheel-step">
+                <span class="flywheel-step-num">02</span>
+                <div>
+                  <strong>Enrich</strong>
+                  <p>Context is linked across entities — people, projects, tools, timelines, and prior outcomes.</p>
+                </div>
+              </div>
+              <div class="flywheel-step">
+                <span class="flywheel-step-num">03</span>
+                <div>
+                  <strong>Route</strong>
+                  <p>Each new request pulls the right prior context, routed to the best model for that task type.</p>
+                </div>
+              </div>
+              <div class="flywheel-step">
+                <span class="flywheel-step-num">04</span>
+                <div>
+                  <strong>Compound</strong>
+                  <p>Week by week, accuracy and autonomous execution depth increase — always within your governance thresholds.</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="flywheel-note">
+              By month 3, early adopters report the assistant anticipates recurring needs before being asked.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -891,42 +1066,63 @@
           <details data-faq-item>
             <summary data-faq-question>Is this just a ChatGPT wrapper?</summary>
             <p data-faq-answer>
-              No. It is a model-agnostic execution layer that can use different models and tools, then take real actions.
+              No. First Touch is a model-agnostic execution layer deployed on your own infrastructure — not a chat interface pointed at a single API. It routes tasks to the best model (Claude, GPT-4, local Ollama) based on sensitivity and complexity, holds persistent business context across sessions, and takes real autonomous actions: assigning tasks, updating calendars, triggering workflows. Every action is logged with a full audit trail. A ChatGPT wrapper does none of that.
             </p>
           </details>
 
           <details data-faq-item>
             <summary data-faq-question>Can it really handle coding, writing, planning, and reporting in one place?</summary>
             <p data-faq-answer>
-              Yes. The assistant can support strategic writing, planning, coding workflows, meeting-to-action loops, and recurring KPI reporting.
+              Yes — because all of those tasks share the same underlying need: persistent business context and best-model routing. The assistant drafts strategy documents using your live company context, supports technical planning and code scaffolding, transcribes meetings and extracts action items, and auto-generates weekly leadership reports in your format. The key advantage is that context built during a planning session is immediately available when generating the follow-up report — nothing resets between tasks.
             </p>
           </details>
 
           <details data-faq-item>
             <summary data-faq-question>Do we need to replace CRM, ERP, calendar, or support systems?</summary>
             <p data-faq-answer>
-              No. First Touch sits above your current stack and orchestrates actions through integrations.
+              No — and this is by design. First Touch sits above your current stack as an orchestration layer, connecting to your existing tools through integrations rather than replacing them. Your CRM stays your CRM. Your calendar stays your calendar. The assistant reads from and writes to those systems on your behalf, meaning your team keeps using the tools they already know while the coordination overhead disappears.
             </p>
           </details>
 
           <details data-faq-item>
             <summary data-faq-question>How is compliance handled for autonomous actions?</summary>
             <p data-faq-answer>
-              Through RBAC, policy-based autonomy thresholds, human escalation controls, and complete action trails.
+              Through four layered controls. First, a governance threshold matrix defines exactly which action types the assistant can take autonomously vs. which require human approval. Second, role-based access control (RBAC) ensures users and the assistant only operate within their permitted scope. Third, every AI call and resulting action is logged in a tamper-evident audit trail — timestamped, attributed, and exportable. Fourth, sensitive data operations can be routed exclusively to local models (Ollama on your VPS), so no data ever leaves your infrastructure. GDPR-compliant DPA documentation is included from day one.
             </p>
           </details>
 
           <details data-faq-item>
             <summary data-faq-question>Who should own this internally?</summary>
             <p data-faq-answer>
-              Usually COO or RevOps as business owner, partnered with IT/Security and CEO sponsorship.
+              The most effective ownership model we've seen: COO or Head of Operations as the primary business owner (defines workflows, governs autonomy thresholds, monitors KPIs), with IT/Security as the technical sign-off authority (reviews architecture, manages VPS access, approves integration scopes), and CEO or C-suite as the executive sponsor (allocates pilot budget, unblocks integration access). This three-role structure covers the full buying committee and ensures the system gets the access it needs to deliver measurable results.
             </p>
           </details>
 
           <details data-faq-item>
             <summary data-faq-question>What is the first step before a pilot?</summary>
             <p data-faq-answer>
-              Pick one high-friction lane with visible business cost, define baseline KPIs, and map governance thresholds.
+              A 15-minute workflow assessment call — we identify the one high-friction lane with the clearest business cost (usually meeting overhead, report generation, or intake routing), define three baseline KPIs to measure before and after, and map your governance thresholds. From that call, you get a written implementation scope and a go/no-go decision framework so your team can evaluate fit without a long procurement process.
+            </p>
+          </details>
+
+          <details data-faq-item>
+            <summary data-faq-question>How long does a full deployment take?</summary>
+            <p data-faq-answer>
+              For a Starter pilot focused on one workflow lane — typically 8–14 days from contract signature to first live test. This covers VPS provisioning, context upload, integration connections, and governance configuration. Premium deployments with 3 workflow lanes and full context architecture run 3–5 weeks. The fastest path is having your IT team grant VPS access within the first 48 hours — that single dependency drives most of the variance in timelines.
+            </p>
+          </details>
+
+          <details data-faq-item>
+            <summary data-faq-question>What if we already use Microsoft 365 or Google Workspace?</summary>
+            <p data-faq-answer>
+              Both are supported as first-class integrations. First Touch connects to your calendar (Google Calendar or Outlook), reads from and writes to documents (Google Docs or SharePoint), and processes meeting recordings from Teams or Meet. You don't migrate or change tools — the assistant surfaces inside your existing workflow via Telegram while operating on data that lives in your M365 or GWS environment. All data access is scoped, logged, and reversible.
+            </p>
+          </details>
+
+          <details data-faq-item>
+            <summary data-faq-question>How does the cost compare to hiring a Chief of Staff?</summary>
+            <p data-faq-answer>
+              A senior Chief of Staff in Central Europe costs €60,000–€90,000 per year in salary alone, plus benefits, onboarding time (typically 3–6 months before full effectiveness), and the natural ceiling of one person's bandwidth. First Touch at the Premium tier is €15,000/year all-in — and it operates 24/7, handles multiple parallel workflows, never resets context, and delivers the first measurable delta within 30 days. The right framing isn't replacement: it's giving your existing leadership team the leverage of a CoS without the hiring overhead or the single-point-of-failure risk.
             </p>
           </details>
         </div>
@@ -1011,16 +1207,16 @@
   <script id="faq-schema" type="application/ld+json"></script>
   <script id="website-schema" type="application/ld+json"></script>
 
-  <!-- Sticky CTA Bar (added by Frontend Dev agent) -->
-  <div id="sticky-cta" class="sticky-cta" aria-label="Sticky call to action">
-    <p class="sticky-cta__text">Ready to reclaim 10 hours of leadership time per week?</p>
-    <a href="#pricing" class="sticky-cta__btn" id="sticky-cta-btn">
-      Book a 15-min Assessment
+  <!-- Sticky CTA Bar — mobile only, wired via data-book-link -->
+  <div id="sticky-cta" class="sticky-cta" aria-label="Book a workflow assessment">
+    <p class="sticky-cta__text">10 hours of leadership time back per week — in 30 days.</p>
+    <a data-book-link href="#" class="sticky-cta__btn" id="sticky-cta-btn" target="_blank" rel="noreferrer noopener">
+      Book Free Assessment
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
-    <button class="sticky-cta__close" id="sticky-cta-close" aria-label="Close">
+    <button class="sticky-cta__close" id="sticky-cta-close" aria-label="Dismiss">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
         <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>

@@ -419,19 +419,81 @@
   }
 })();
 
-// ── Sticky CTA (Frontend Dev agent) ─────────────────────────────
+// ── Mobile nav toggle ────────────────────────────────────────────
+(function () {
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  if (!toggle || !links) return;
+
+  // Inject mobile-only CTA button into nav
+  const mobileCta = document.createElement('a');
+  mobileCta.className = 'nav-mobile-cta';
+  mobileCta.setAttribute('data-book-link', '');
+  mobileCta.href = '#';
+  mobileCta.textContent = 'Book 15-min Assessment →';
+  links.appendChild(mobileCta);
+
+  function openNav() {
+    links.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close navigation');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    links.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', () => {
+    toggle.getAttribute('aria-expanded') === 'true' ? closeNav() : openNav();
+  });
+
+  // Close when a nav link is clicked
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeNav);
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeNav();
+  });
+
+  // Reset on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeNav();
+  }, { passive: true });
+})();
+
+// ── Sticky CTA — mobile only, appears after hero scrolls out ─────
 (function () {
   const bar   = document.getElementById('sticky-cta');
   const close = document.getElementById('sticky-cta-close');
-  if (!bar) return;
+  const hero  = document.getElementById('hero');
+  if (!bar || !close) return;
 
   let dismissed = !!sessionStorage.getItem('cta-dismissed');
-  const THRESHOLD = window.innerHeight * 0.8;
 
-  window.addEventListener('scroll', () => {
+  function show(visible) {
     if (dismissed) return;
-    bar.classList.toggle('is-visible', window.scrollY > THRESHOLD);
-  }, { passive: true });
+    bar.classList.toggle('is-visible', visible);
+  }
+
+  if (hero && typeof IntersectionObserver !== 'undefined') {
+    const obs = new IntersectionObserver(
+      ([entry]) => show(!entry.isIntersecting),
+      { threshold: 0, rootMargin: '-72px 0px 0px 0px' } // offset for sticky nav height
+    );
+    obs.observe(hero);
+  } else {
+    // Fallback: scroll threshold
+    const THRESHOLD = window.innerHeight * 0.8;
+    window.addEventListener('scroll', () => {
+      show(window.scrollY > THRESHOLD);
+    }, { passive: true });
+  }
 
   close.addEventListener('click', () => {
     dismissed = true;
