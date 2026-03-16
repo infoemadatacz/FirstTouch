@@ -1253,7 +1253,12 @@
       }
 
       // === EMAIL FORM ===
-      document.getElementById('email-form').addEventListener('submit', function(e) {
+      // TODO: Replace this with the public webhook URL once the Mac Mini has a public endpoint
+      // (e.g. via Cloudflare Tunnel or ngrok). For now, we POST to the configured URL and
+      // fall back to localStorage if the request fails (e.g. when served from Cloudflare Pages).
+      const WEBHOOK_URL = (window.SCORECARD_WEBHOOK_URL || window.location.origin) + '/webhook/scorecard';
+
+      document.getElementById('email-form').addEventListener('submit', async function(e) {
         e.preventDefault();
         const email = document.getElementById('email-input').value.trim();
         if (!email) return;
@@ -1262,16 +1267,30 @@
         const stored = JSON.parse(localStorage.getItem('ft_scorecard') || '[]');
         const latest = stored[stored.length - 1] || {};
 
-        // Store email with score
-        const leads = JSON.parse(localStorage.getItem('ft_scorecard_leads') || '[]');
-        leads.push({
+        const payload = {
           email: email,
           score: latest.score || 0,
           tier: latest.tier || '',
           answers: latest.answers || {},
           timestamp: new Date().toISOString()
-        });
+        };
+
+        // Always store in localStorage as fallback
+        const leads = JSON.parse(localStorage.getItem('ft_scorecard_leads') || '[]');
+        leads.push(payload);
         localStorage.setItem('ft_scorecard_leads', JSON.stringify(leads));
+
+        // POST to webhook (best-effort, don't block UI on failure)
+        try {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } catch (err) {
+          // Webhook unavailable — localStorage has the data as fallback
+          console.warn('Scorecard webhook POST failed (data saved to localStorage):', err.message);
+        }
 
         // Show success
         document.getElementById('email-form-wrapper').style.display = 'none';
