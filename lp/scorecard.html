@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Ops Efficiency Scorecard | FirstTouch</title>
+  <meta name="description" content="Score your team's operational efficiency in 2 minutes. Get a personalized report with actionable recommendations to eliminate bottlenecks and reclaim lost hours.">
+  <meta name="keywords" content="ops efficiency scorecard, operational efficiency assessment, team productivity audit, SOP audit, process optimization, AI operations">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Jan Kluz">
+  <meta name="theme-color" content="#9301BB">
+
+  <link rel="canonical" href="https://firsttouch.app/scorecard">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="Ops Efficiency Scorecard | How Much Is Chaos Costing You?">
+  <meta property="og:description" content="2-minute assessment. 7 questions. Get your score + personalized recommendations to fix operational bottlenecks.">
+  <meta property="og:url" content="https://firsttouch.app/scorecard">
+  <meta property="og:image" content="./assets/og-firsttouch.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ops Efficiency Scorecard | How Much Is Chaos Costing You?">
+  <meta name="twitter:description" content="2-minute assessment. 7 questions. Get your score + personalized recommendations to fix operational bottlenecks.">
+  <meta name="twitter:image" content="./assets/og-firsttouch.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* === VARIABLES === */
+    :root {
+      --violet: #9301BB;
+      --violet-light: #b44dd4;
+      --violet-glow: rgba(147, 1, 187, 0.35);
+      --orange: #FF6A00;
+      --orange-light: #ff8c3a;
+      --cyan: #00E8FF;
+
+      --bg: #0A0A0B;
+      --bg-2: #111115;
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-2: rgba(255, 255, 255, 0.07);
+      --surface-solid: #16161A;
+
+      --border: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(147, 1, 187, 0.35);
+
+      --ink-1: #FFFFFF;
+      --ink-2: rgba(255, 255, 255, 0.72);
+      --ink-3: rgba(255, 255, 255, 0.42);
+      --ink-4: rgba(255, 255, 255, 0.22);
+
+      --green: #22c55e;
+      --yellow: #eab308;
+      --red: #ef4444;
+
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+
+      --shadow-glow: 0 0 60px rgba(147, 1, 187, 0.18);
+      --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 20px 40px rgba(0, 0, 0, 0.4);
+
+      --max-w: min(720px, calc(100% - 2.2rem));
+    }
+
+    /* === RESET === */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink-2);
+      line-height: 1.6;
+      background: var(--bg);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Noise texture */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      pointer-events: none;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    p { margin: 0; }
+    h1, h2, h3 { margin: 0; line-height: 1.15; color: var(--ink-1); letter-spacing: -0.03em; }
+
+    .container {
+      width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    /* === HEADER BAR === */
+    .top-bar {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 10, 11, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .top-bar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--ink-1);
+    }
+
+    .brand svg { width: 28px; height: 28px; }
+
+    .back-link {
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--ink-1); }
+
+    /* === HERO SECTION === */
+    .hero {
+      padding: 5rem 0 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(147, 1, 187, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero .eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, var(--ink-1) 0%, var(--violet-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: var(--ink-2);
+      max-width: 540px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero .trust-signals {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: var(--ink-3);
+    }
+
+    .hero .trust-signals span::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--violet);
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* === PROGRESS BAR === */
+    .progress-wrapper {
+      padding: 1.5rem 0 0.5rem;
+      position: sticky;
+      top: 57px;
+      z-index: 90;
+      background: var(--bg);
+    }
+
+    .progress-track {
+      height: 4px;
+      background: var(--surface-2);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--violet), var(--orange));
+      border-radius: 2px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--ink-3);
+      margin-top: 0.5rem;
+    }
+
+    /* === FORM CARD === */
+    .card {
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 2rem;
+    }
+
+    /* === QUESTION STEP === */
+    .question-step {
+      display: none;
+      animation: fadeSlideIn 0.4s ease-out;
+    }
+
+    .question-step.active {
+      display: block;
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .question-number {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--violet-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .question-text {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink-1);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    /* === RADIO OPTIONS === */
+    .options-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: var(--surface);
+      font-size: 0.95rem;
+      color: var(--ink-2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .option-label:hover {
+      border-color: var(--violet-glow);
+      background: rgba(147, 1, 187, 0.06);
+    }
+
+    .option-label.selected {
+      border-color: var(--violet);
+      background: rgba(147, 1, 187, 0.1);
+      color: var(--ink-1);
+      box-shadow: 0 0 20px rgba(147, 1, 187, 0.12);
+    }
+
+    .option-label input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--ink-4);
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+      transition: all 0.2s;
+    }
+
+    .option-label.selected input[type="radio"] {
+      border-color: var(--violet);
+      background: var(--violet);
+    }
+
+    .option-label.selected input[type="radio"]::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    /* Stars for Q7 */
+    .stars-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .star-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      transition: transform 0.15s;
+    }
+
+    .star-btn:hover { transform: scale(1.15); }
+
+    .star-btn svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--ink-4);
+      transition: fill 0.2s;
+    }
+
+    .star-btn.active svg { fill: var(--orange); }
+
+    .stars-label {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      margin-top: 0.75rem;
+      min-height: 1.4em;
+    }
+
+    /* === NAV BUTTONS === */
+    .step-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--violet), #7b01a0);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(147, 1, 187, 0.3);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 30px rgba(147, 1, 187, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink-3);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      color: var(--ink-1);
+      border-color: var(--ink-4);
+    }
+
+    .btn-orange {
+      background: linear-gradient(135deg, var(--orange), #e55e00);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(255, 106, 0, 0.3);
+    }
+
+    .btn-orange:hover {
+      box-shadow: 0 6px 30px rgba(255, 106, 0, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-lg {
+      padding: 1.1rem 2.4rem;
+      font-size: 1.05rem;
+      border-radius: var(--radius-md);
+    }
+
+    /* === RESULTS === */
+    #results-section {
+      display: none;
+    }
+
+    #results-section.visible {
+      display: block;
+      animation: fadeSlideIn 0.6s ease-out;
+    }
+
+    .score-reveal {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .gauge-wrapper {
+      position: relative;
+      width: 220px;
+      height: 130px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .gauge-bg, .gauge-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 220px;
+    }
+
+    .gauge-bg circle, .gauge-fill circle {
+      fill: none;
+      stroke-width: 14;
+      stroke-linecap: round;
+    }
+
+    .gauge-bg circle {
+      stroke: var(--surface-2);
+    }
+
+    .gauge-fill circle {
+      stroke: var(--violet);
+      stroke-dasharray: 345.58;
+      stroke-dashoffset: 345.58;
+      transition: stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.3s;
+      transform: rotate(180deg);
+      transform-origin: center;
+    }
+
+    .score-number {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--ink-1);
+      letter-spacing: -0.04em;
+    }
+
+    .score-number .of-100 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink-3);
+    }
+
+    .tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .tier-badge.optimized { background: rgba(34, 197, 94, 0.12); color: var(--green); border: 1px solid rgba(34, 197, 94, 0.25); }
+    .tier-badge.room-to-improve { background: rgba(234, 179, 8, 0.12); color: var(--yellow); border: 1px solid rgba(234, 179, 8, 0.25); }
+    .tier-badge.significant-opportunity { background: rgba(239, 68, 68, 0.12); color: var(--red); border: 1px solid rgba(239, 68, 68, 0.25); }
+
+    .tier-description {
+      font-size: 1.05rem;
+      color: var(--ink-2);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Recommendations */
+    .recs-section {
+      margin-top: 2.5rem;
+    }
+
+    .recs-section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .rec-card {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.75rem;
+      transition: border-color 0.2s;
+    }
+
+    .rec-card:hover {
+      border-color: var(--violet-glow);
+    }
+
+    .rec-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      background: rgba(147, 1, 187, 0.1);
+    }
+
+    .rec-content h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .rec-content p {
+      font-size: 0.88rem;
+      color: var(--ink-3);
+      line-height: 1.5;
+    }
+
+    /* === CTA SECTION === */
+    .cta-section {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-section .subtitle {
+      color: var(--ink-3);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .cta-grid { grid-template-columns: 1fr; }
+    }
+
+    .cta-card {
+      padding: 2rem 1.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      text-align: center;
+    }
+
+    .cta-card.primary-card {
+      border-color: var(--violet-glow);
+      background: rgba(147, 1, 187, 0.05);
+      box-shadow: 0 0 40px rgba(147, 1, 187, 0.08);
+    }
+
+    .cta-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-card p {
+      font-size: 0.88rem;
+      color: var(--ink-3);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+
+    /* Email form */
+    .email-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .email-input {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--ink-1);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .email-input:focus {
+      border-color: var(--violet);
+    }
+
+    .email-input::placeholder {
+      color: var(--ink-4);
+    }
+
+    .email-success {
+      display: none;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .email-success.show { display: block; }
+
+    /* === FOOTER === */
+    .footer {
+      padding: 3rem 0 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    .footer a {
+      color: var(--ink-3);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover { color: var(--violet-light); }
+
+    .footer .powered {
+      font-size: 0.78rem;
+      color: var(--ink-4);
+      margin-top: 0.5rem;
+    }
+
+    /* === HIDDEN UTIL === */
+    .hidden { display: none !important; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 600px) {
+      .hero { padding: 3.5rem 0 2rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero .subtitle { font-size: 1rem; }
+      .card { padding: 1.75rem 1.25rem; }
+      .question-text { font-size: 1.1rem; }
+      .option-label { padding: 0.85rem 1rem; font-size: 0.9rem; }
+      .score-number { font-size: 2.8rem; }
+      .gauge-wrapper { width: 180px; height: 110px; }
+      .gauge-bg, .gauge-fill { width: 180px; height: 180px; }
+      .step-nav { flex-direction: column; }
+      .step-nav .btn { width: 100%; }
+      .email-form { flex-direction: column; }
+      .cta-grid { grid-template-columns: 1fr; }
+      .star-btn svg { width: 32px; height: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="container">
+      <a class="brand" href="https://firsttouch.app" aria-label="FirstTouch home">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#9301BB"/>
+          <path d="M9 10h14M9 16h10M9 22h7" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span>FirstTouch</span>
+      </a>
+      <a class="back-link" href="https://firsttouch.app">&larr; Back to FirstTouch</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+      <p class="eyebrow">Free 2-Minute Assessment</p>
+      <h1>How Much Is Operational Chaos Costing Your Team?</h1>
+      <p class="subtitle">Answer 7 quick questions. Get your Ops Efficiency Score with personalized, actionable recommendations you can implement this week.</p>
+      <div class="trust-signals">
+        <span>Takes 2 minutes</span>
+        <span>No signup required</span>
+        <span>Instant results</span>
+      </div>
+    </section>
+
+    <!-- Progress -->
+    <div class="progress-wrapper" id="progress-wrapper">
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-label">
+        <span id="progress-text">Question 1 of 7</span>
+        <span id="progress-pct">0%</span>
+      </div>
+    </div>
+
+    <!-- Questions -->
+    <div class="card" id="quiz-card">
+
+      <!-- Q1 -->
+      <div class="question-step active" data-step="1">
+        <div class="question-number">Question 1 of 7</div>
+        <div class="question-text">How many managers do you have?</div>
+        <div class="options-grid">
+          <label class="option-label" data-value="4">
+            <input type="radio" name="q1" value="4">
+            <span>1 - 3 managers</span>
+          </label>
+          <label class="option-label" data-value="3">
+            <input type="radio" name="q1" value="3">
+            <span>4 - 10 managers</span>
+          </label>
+          <label class="option-label" data-value="2">
+            <input type="radio" name="q1" value="2">
+            <span>11 - 25 managers</span>
+          </label>
+          <label class="option-label" data-value="1">
+            <input type="radio" name="q1" value="1">
+            <span>25+ managers</span>
+          </label>
+        </div>
+        <div class="step-nav">
+          <div></div>
+          <button class="btn btn-primary" id="next-1" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-step" data-step="2">
+        <div class="question-number">Question 2 of 7</div>
+        <div class="question-text">How many tools does your team use daily?</div>
+        <div class="options-grid">
+          <label class="option-label" data-value="4">
+            <input type="radio" name="q2" value="4">
+            <span>1 - 5 tools</span>
+          </label>
+          <label class="option-label" data-value="2">
+            <input type="radio" name="q2" value="2">
+            <span>6 - 10 tools</span>
+          </label>
+          <label class="option-label" data-value="1">
+            <input type="radio" name="q2" value="1">
+            <span>11+ tools</span>
+          </label>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-ghost" data-prev="1">&larr; Back</button>
+          <button class="btn btn-primary" id="next-2" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-step" data-step="3">
+        <div class="question-number">Question 3 of 7</div>
+        <div class="question-text">How often do people ask "where do I find X?"</div>
+        <div class="options-grid">
+          <label class="option-label" data-value="1">
+            <input type="radio" name="q3" value="1">
+            <span>Multiple times daily</span>
+          </label>
+          <label class="option-label" data-value="2">
+            <input type="radio" name="q3" value="2">
+            <span>Daily</span>
+          </label>
+          <label class="option-label" data-value="3">
+            <input type="radio" name="q3" value="3">
+            <span>Weekly</span>
+          </label>
+          <label class="option-label" data-value="4">
+            <input type="radio" name="q3" value="4">
+            <span>Rarely</span>
+          </label>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-ghost" data-prev="2">&larr; Back</button>
+          <button class="btn btn-primary" id="next-3" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question-step" data-step="4">
+        <div class="question-number">Question 4 of 7</div>
+        <div class="question-text">How long to onboard a new team member to full productivity?</div>
+        <div class="options-grid">
+          <label class="option-label" data-value="4">
+            <input type="radio" name="q4" value="4">
+            <span>Days</span>
+          </label>
+          <label class="option-label" data-value="3">
+            <input type="radio" name="q4" value="3">
+            <span>1 - 2 weeks</span>
+          </label>
+          <label class="option-label" data-value="2">
+            <input type="radio" name="q4" value="2">
+            <span>1 - 3 months</span>
+          </label>
+          <label class="option-label" data-value="1">
+            <input type="radio" name="q4" value="1">
+            <span>3+ months</span>
+          </label>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-ghost" data-prev="3">&larr; Back</button>
+          <button class="btn btn-primary" id="next-4" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question-step" data-step="5">
+        <div class="question-number">Question 5 of 7</div>
+        <div class="question-text">Do you have a single source of truth for SOPs and processes?</div>
+        <div class="options-grid">
+          <label class="option-label" data-value="4">
+            <input type="radio" name="q5" value="4">
+            <span>Yes — documented and up to date</span>
+          </label>
+          <label class="option-label" data-value="2">
+            <input type="radio" name="q5" value="2">
+            <span>Partially — scattered across tools</span>
+          </label>
+          <label class="option-label" data-value="1">
+            <input type="radio" name="q5" value="1">
+            <span>No — knowledge lives in people's heads</span>
+          </label>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-ghost" data-prev="4">&larr; Back</button>
+          <button class="btn btn-primary" id="next-5" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="question-step" data-step="6">
+        <div class="question-number">Question 6 of 7</div>
+        <div class="question-text">Hours per week your ops team spends on internal Q&A and firefighting?</div>
+        <div class="options-grid">
+          <label class="option-label" data-value="4">
+            <input type="radio" name="q6" value="4">
+            <span>0 - 2 hours</span>
+          </label>
+          <label class="option-label" data-value="3">
+            <input type="radio" name="q6" value="3">
+            <span>3 - 5 hours</span>
+          </label>
+          <label class="option-label" data-value="2">
+            <input type="radio" name="q6" value="2">
+            <span>6 - 10 hours</span>
+          </label>
+          <label class="option-label" data-value="1">
+            <input type="radio" name="q6" value="1">
+            <span>11+ hours</span>
+          </label>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-ghost" data-prev="5">&larr; Back</button>
+          <button class="btn btn-primary" id="next-6" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Q7 — Stars -->
+      <div class="question-step" data-step="7">
+        <div class="question-number">Question 7 of 7</div>
+        <div class="question-text">Rate your cross-department visibility</div>
+        <p style="color: var(--ink-3); font-size: 0.9rem; margin-bottom: 1.25rem;">How well can any manager see what other departments are working on?</p>
+        <div class="stars-row" id="stars-row">
+          <button class="star-btn" data-star="1" type="button" aria-label="1 star">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </button>
+          <button class="star-btn" data-star="2" type="button" aria-label="2 stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </button>
+          <button class="star-btn" data-star="3" type="button" aria-label="3 stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </button>
+          <button class="star-btn" data-star="4" type="button" aria-label="4 stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </button>
+          <button class="star-btn" data-star="5" type="button" aria-label="5 stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </button>
+        </div>
+        <div class="stars-label" id="stars-label"></div>
+        <div class="step-nav">
+          <button class="btn btn-ghost" data-prev="6">&larr; Back</button>
+          <button class="btn btn-orange btn-lg" id="submit-btn" disabled>See My Score &rarr;</button>
+        </div>
+      </div>
+
+    </div><!-- /quiz-card -->
+
+    <!-- Results Section -->
+    <div id="results-section">
+      <div class="card">
+        <div class="score-reveal">
+          <div class="gauge-wrapper">
+            <svg class="gauge-bg" viewBox="0 0 220 220">
+              <circle cx="110" cy="110" r="96" stroke-dasharray="301.59" stroke-dashoffset="-150.8" />
+            </svg>
+            <svg class="gauge-fill" viewBox="0 0 220 220">
+              <circle id="gauge-arc" cx="110" cy="110" r="96" />
+            </svg>
+            <div class="score-number">
+              <span id="score-value">0</span><span class="of-100">/100</span>
+            </div>
+          </div>
+
+          <div id="tier-badge" class="tier-badge"></div>
+          <h2 id="tier-title" style="margin-bottom: 0.75rem;"></h2>
+          <p class="tier-description" id="tier-desc"></p>
+        </div>
+
+        <div class="recs-section">
+          <h2>Your Personalized Recommendations</h2>
+          <div id="recs-list"></div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2>Ready to Fix These Gaps?</h2>
+        <p class="subtitle">Two ways to take the next step:</p>
+
+        <div class="cta-grid">
+          <div class="cta-card primary-card">
+            <h3>Talk to an Expert</h3>
+            <p>15-minute call. We'll walk through your score, identify the biggest leverage point, and show you what "optimized" looks like.</p>
+            <a class="btn btn-primary btn-lg" href="https://calendly.com/jan-kluz-firsttouch/15min" target="_blank" rel="noopener">Book Your Free Call &rarr;</a>
+          </div>
+          <div class="cta-card">
+            <h3>Get Your Full Report</h3>
+            <p>We'll email you a detailed breakdown with benchmarks, cost-of-chaos calculations, and a 30-day action plan.</p>
+            <div id="email-form-wrapper">
+              <form class="email-form" id="email-form">
+                <input class="email-input" type="email" placeholder="you@company.com" required id="email-input" autocomplete="email">
+                <button class="btn btn-orange" type="submit">Send Report</button>
+              </form>
+            </div>
+            <div class="email-success" id="email-success">Sent! Check your inbox shortly.</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /results-section -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <a href="https://firsttouch.app">Powered by FirstTouch</a>
+      <p class="powered">AI-powered operations for teams that move fast</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // === STATE ===
+      const TOTAL_STEPS = 7;
+      let currentStep = 1;
+      let answers = {};
+      let starRating = 0;
+
+      // === DOM REFS ===
+      const progressFill = document.getElementById('progress-fill');
+      const progressText = document.getElementById('progress-text');
+      const progressPct = document.getElementById('progress-pct');
+      const progressWrapper = document.getElementById('progress-wrapper');
+      const quizCard = document.getElementById('quiz-card');
+      const resultsSection = document.getElementById('results-section');
+
+      // === OPTION CLICK HANDLING ===
+      document.querySelectorAll('.option-label').forEach(label => {
+        label.addEventListener('click', function() {
+          const step = this.closest('.question-step').dataset.step;
+          // Deselect siblings
+          this.closest('.options-grid').querySelectorAll('.option-label').forEach(l => l.classList.remove('selected'));
+          this.classList.add('selected');
+          this.querySelector('input').checked = true;
+          answers['q' + step] = parseInt(this.dataset.value);
+          // Enable next/submit
+          const nextBtn = document.getElementById(step === '7' ? 'submit-btn' : 'next-' + step);
+          if (nextBtn) nextBtn.disabled = false;
+        });
+      });
+
+      // === STARS ===
+      const starsLabels = ['', 'No visibility — complete silos', 'Minimal — only through meetings', 'Moderate — some shared dashboards', 'Good — most info accessible', 'Excellent — full real-time transparency'];
+      const starsRow = document.getElementById('stars-row');
+      const starsLabelEl = document.getElementById('stars-label');
+
+      starsRow.querySelectorAll('.star-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          starRating = parseInt(this.dataset.star);
+          answers.q7 = starRating;
+          starsRow.querySelectorAll('.star-btn').forEach((b, i) => {
+            b.classList.toggle('active', i < starRating);
+          });
+          starsLabelEl.textContent = starsLabels[starRating];
+          document.getElementById('submit-btn').disabled = false;
+        });
+      });
+
+      // === NAVIGATION ===
+      function goToStep(step) {
+        document.querySelectorAll('.question-step').forEach(s => s.classList.remove('active'));
+        const target = document.querySelector(`.question-step[data-step="${step}"]`);
+        if (target) {
+          target.classList.add('active');
+          currentStep = step;
+          updateProgress();
+        }
+      }
+
+      function updateProgress() {
+        const answeredCount = Object.keys(answers).length;
+        const pct = Math.round((answeredCount / TOTAL_STEPS) * 100);
+        progressFill.style.width = pct + '%';
+        progressText.textContent = `Question ${currentStep} of ${TOTAL_STEPS}`;
+        progressPct.textContent = pct + '%';
+      }
+
+      // Next buttons
+      for (let i = 1; i < TOTAL_STEPS; i++) {
+        const btn = document.getElementById('next-' + i);
+        if (btn) {
+          btn.addEventListener('click', () => goToStep(i + 1));
+        }
+      }
+
+      // Back buttons
+      document.querySelectorAll('[data-prev]').forEach(btn => {
+        btn.addEventListener('click', function() {
+          goToStep(parseInt(this.dataset.prev));
+        });
+      });
+
+      // === SCORING ===
+      function calculateScore() {
+        // Each question: value 1-4 (or 1-5 for stars)
+        // Normalize to 0-100
+        // Q1-Q6: max 4 each = 24, Q7: max 5 = 5, total max = 29
+        let raw = 0;
+        for (let i = 1; i <= 7; i++) {
+          raw += (answers['q' + i] || 0);
+        }
+        const maxRaw = 4 + 4 + 4 + 4 + 4 + 4 + 5; // 29
+        return Math.round((raw / maxRaw) * 100);
+      }
+
+      function getTier(score) {
+        if (score >= 80) return 'optimized';
+        if (score >= 40) return 'room-to-improve';
+        return 'significant-opportunity';
+      }
+
+      const tierData = {
+        'optimized': {
+          label: 'Optimized',
+          icon: '&#9889;',
+          title: 'Your Operations Are Running Strong',
+          desc: 'Your team is well-organized with solid processes. The opportunity now is to automate what is working and scale without adding headcount.',
+          recs: [
+            { icon: '&#9881;', title: 'Automate recurring reports', text: 'You likely still have manual weekly/monthly reports. An AI assistant can generate and distribute these automatically, saving 3-5 hours/week per manager.' },
+            { icon: '&#128640;', title: 'Implement predictive workflows', text: 'With your data already organized, you are ready for AI-driven alerts — flagging anomalies, missed deadlines, or budget deviations before they become problems.' },
+            { icon: '&#128200;', title: 'Scale with AI delegation', text: 'Your SOPs are solid. Now train an AI to handle the first 80% of internal Q&A, freeing your ops team to focus on strategic work.' }
+          ]
+        },
+        'room-to-improve': {
+          label: 'Room to Improve',
+          icon: '&#128736;',
+          title: 'Solid Foundation, Clear Growth Path',
+          desc: 'You have some good systems in place, but information gaps and tool fragmentation are creating hidden costs. A few targeted fixes will unlock significant efficiency.',
+          recs: [
+            { icon: '&#128218;', title: 'Centralize your knowledge base', text: 'Your team is wasting hours searching across tools. Create one source of truth for SOPs, processes, and FAQs — then make it searchable with AI.' },
+            { icon: '&#128279;', title: 'Consolidate your tool stack', text: 'Every additional tool adds context-switching overhead. Audit which tools overlap and create integration bridges for the rest. Target: one hub, not 10 tabs.' },
+            { icon: '&#9201;', title: 'Cut onboarding time by 60%', text: 'Build an AI-powered onboarding flow that answers new hire questions instantly, surfaces relevant docs, and tracks completion — no more shadowing for weeks.' }
+          ]
+        },
+        'significant-opportunity': {
+          label: 'Significant Opportunity',
+          icon: '&#128680;',
+          title: 'You Are Leaving Serious Time (and Money) on the Table',
+          desc: 'Your team is spending a large portion of every week on avoidable overhead — searching for info, answering repeat questions, and context-switching between tools. The good news: the ROI of fixing this is massive.',
+          recs: [
+            { icon: '&#128293;', title: 'Stop the "Where do I find X" problem today', text: 'This single issue can cost 5-10 hours/week across your team. Deploy a simple AI Q&A bot connected to your docs — you will see results in days, not months.' },
+            { icon: '&#128203;', title: 'Document your top 20 processes', text: 'Start with the 20 most-repeated tasks. Even rough documentation cuts repeat questions by 70% and makes onboarding 3x faster.' },
+            { icon: '&#128176;', title: 'Calculate your real cost of chaos', text: 'At 10+ hours/week of internal firefighting across your team, you are likely spending the equivalent of a full-time salary on operational friction. This is your biggest quick win.' }
+          ]
+        }
+      };
+
+      // === SUBMIT ===
+      document.getElementById('submit-btn').addEventListener('click', function() {
+        const score = calculateScore();
+        const tier = getTier(score);
+        const data = tierData[tier];
+
+        // Hide quiz, show results
+        quizCard.classList.add('hidden');
+        progressWrapper.classList.add('hidden');
+        resultsSection.classList.add('visible');
+
+        // Scroll to top of results
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Animate score number
+        const scoreEl = document.getElementById('score-value');
+        animateNumber(scoreEl, 0, score, 1800);
+
+        // Animate gauge
+        const gaugeArc = document.getElementById('gauge-arc');
+        // Semi-circle: circumference of half circle = pi * r = 301.59
+        const halfCircumference = Math.PI * 96; // ~301.59
+        const offset = halfCircumference - (halfCircumference * (score / 100));
+        setTimeout(() => {
+          gaugeArc.style.strokeDasharray = halfCircumference;
+          gaugeArc.style.strokeDashoffset = offset;
+          // Color based on tier
+          if (tier === 'optimized') gaugeArc.style.stroke = 'var(--green)';
+          else if (tier === 'room-to-improve') gaugeArc.style.stroke = 'var(--yellow)';
+          else gaugeArc.style.stroke = 'var(--red)';
+        }, 100);
+
+        // Tier badge
+        const badge = document.getElementById('tier-badge');
+        badge.className = 'tier-badge ' + tier;
+        badge.innerHTML = data.icon + ' ' + data.label;
+
+        document.getElementById('tier-title').textContent = data.title;
+        document.getElementById('tier-desc').textContent = data.desc;
+
+        // Recommendations
+        const recsList = document.getElementById('recs-list');
+        recsList.innerHTML = '';
+        data.recs.forEach((rec, i) => {
+          const card = document.createElement('div');
+          card.className = 'rec-card';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(12px)';
+          card.innerHTML = `
+            <div class="rec-icon">${rec.icon}</div>
+            <div class="rec-content">
+              <h3>${rec.title}</h3>
+              <p>${rec.text}</p>
+            </div>
+          `;
+          recsList.appendChild(card);
+          // Stagger animation
+          setTimeout(() => {
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 800 + (i * 200));
+        });
+
+        // Store in localStorage
+        const stored = JSON.parse(localStorage.getItem('ft_scorecard') || '[]');
+        stored.push({
+          score: score,
+          tier: tier,
+          answers: { ...answers },
+          timestamp: new Date().toISOString()
+        });
+        localStorage.setItem('ft_scorecard', JSON.stringify(stored));
+      });
+
+      // === ANIMATE NUMBER ===
+      function animateNumber(el, from, to, duration) {
+        const start = performance.now();
+        function tick(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(from + (to - from) * eased);
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      // === EMAIL FORM ===
+      document.getElementById('email-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('email-input').value.trim();
+        if (!email) return;
+
+        // Get latest score from localStorage
+        const stored = JSON.parse(localStorage.getItem('ft_scorecard') || '[]');
+        const latest = stored[stored.length - 1] || {};
+
+        // Store email with score
+        const leads = JSON.parse(localStorage.getItem('ft_scorecard_leads') || '[]');
+        leads.push({
+          email: email,
+          score: latest.score || 0,
+          tier: latest.tier || '',
+          answers: latest.answers || {},
+          timestamp: new Date().toISOString()
+        });
+        localStorage.setItem('ft_scorecard_leads', JSON.stringify(leads));
+
+        // Show success
+        document.getElementById('email-form-wrapper').style.display = 'none';
+        document.getElementById('email-success').classList.add('show');
+      });
+
+      // Init progress
+      updateProgress();
+    })();
+  </script>
+
+</body>
+</html>
