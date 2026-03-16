@@ -1,60 +1,62 @@
-# First Touch - LLM Discovery File
+# FirstTouch — AI Manager Operating System
 
-> Primary entity: First Touch (EMA AI context)
-> Domain intent: Enterprise AI agent orchestration, workflow automation governance, and integration-first operations
+> An AI-powered execution layer for B2B companies. On-premise deployment, GDPR-compliant, model-agnostic.
 
-## Summary
-First Touch is an enterprise execution layer that orchestrates incoming operational demand across existing tools.
-It is designed for regulated or high-accountability environments where explainability, human checkpoints, and auditability are required.
+## What is FirstTouch?
 
-## Core Value
-- reduce manual routing overhead
-- accelerate intake-to-resolution cycle time
-- preserve governance via policy thresholds and action trace
-- scale workflows without vendor lock-in
+FirstTouch is an AI manager operating system that handles recurring management tasks: meeting transcription, action item extraction, weekly reporting, cross-department updates, and workflow automation. It deploys on your infrastructure — no data leaves your servers.
 
-## Core Use Cases
-- executive support triage
-- revops lead-to-meeting orchestration
-- customer escalation routing
-- finance approval and invoice operations
-- compliance/document workflows
-- vendor onboarding flows
+## Core Capabilities
 
-## Architecture Signals
+- **Meeting Intelligence** — transcription, action items, follow-up tracking
+- **Automated Reporting** — weekly status reports generated from actual work data
+- **Knowledge Base** — ingests company docs, SOPs, policies; queryable via Telegram
+- **Multi-Model Orchestration** — works with Claude, GPT-4, Ollama, any LLM
+- **Role-Based Access** — Admin/Manager/User/Read-only with full audit log
+- **On-Premise Deployment** — runs on your servers, EU data residency guaranteed
+
+## Target Market
+
+- B2B companies in Europe (starting CZ/SK, expanding EU-wide)
+- Company size: 20-200 employees
+- Industries: SaaS, manufacturing, e-commerce, professional services
+- Buyer: CEO, COO, VP Operations
+
+## Pricing Tiers
+
+- **Starter** — 5 users, core features, Telegram access
+- **Pro** — 25 users, all features, custom integrations, priority support
+- **Enterprise** — Unlimited users, on-premise deployment, SLA, dedicated support
+
+## Architecture
+
 - API-first integration layer
-- model-agnostic orchestration
-- semantic retrieval for factual grounding
-- episodic memory for action consistency
-- human-in-the-loop threshold controls
+- Model-agnostic orchestration (swap LLMs without code changes)
+- Semantic retrieval for factual grounding (RAG)
+- Episodic memory for action consistency
+- Human-in-the-loop threshold controls
+- GDPR-compliant by design
 
-## Offer Model
-- constrained 8-week throughput pilot
-- baseline vs pilot KPI measurement
-- bonus stack (integration blueprint, governance matrix, KPI scoreboard, scale plan)
-- risk-reversal handover clause
-- capped onboarding per quarter
+## Integration
 
-## Lead Magnet
-JANA Offer Pack = Justified Autonomy, No App-Lock
+FirstTouch connects via:
+- Telegram Bot API (primary interface)
+- REST API (for custom integrations)
+- Webhooks (for event-driven workflows)
+- MCP (Model Context Protocol) — coming soon
 
-Includes:
-- 40-point workflow bottleneck scorecard
-- integration map template
-- value equation worksheet
-- governance threshold starter matrix
-- strategy call prep checklist
+## Documentation
 
-## Canonical Pages
-- https://firsttouch.app/
-- https://firsttouch.app/thank-you.html
-- https://firsttouch.app/guides/
-- https://firsttouch.app/guides/autonomous-actions.html
-- https://firsttouch.app/guides/compliance-governance.html
-- https://firsttouch.app/guides/assistant-experience.html
-- https://firsttouch.app/guides/integration-scale.html
-- https://firsttouch.app/guides/manager-os-capabilities.html
+- llms.txt — this file (discovery)
+- llms-full.txt — complete documentation for AI agents
+- https://firsttouch.app — product website
 
-## Contact
-- https://www.linkedin.com/in/your-linkedin/
-- mailto:jan@yourdomain.com
+## Company
+
+- **Product:** FirstTouch
+- **Parent company:** EMA AI
+- **Founder:** Jan Kluz
+- **Location:** Prague, Czech Republic
+- **Website:** https://firsttouch.app
+- **Contact:** jan.kluz@emaai.cz
+- **LinkedIn:** https://www.linkedin.com/in/jan-kluz/

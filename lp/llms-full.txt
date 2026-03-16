@@ -1,0 +1,207 @@
+# FirstTouch — Complete Documentation for AI Agents
+# Version: 1.0 | Updated: 2026-03-16
+
+## PRODUCT OVERVIEW
+
+FirstTouch is an AI manager operating system for B2B companies (20-200 employees) in Europe. It automates recurring management tasks: meeting transcription, weekly reporting, knowledge base queries, cross-department updates, and workflow orchestration.
+
+Key differentiator: deploys on customer infrastructure. No data leaves their servers. Full GDPR compliance. Model-agnostic — works with Claude, GPT-4, Ollama, or any LLM.
+
+Primary interface: Telegram Bot. Secondary: REST API, Webhooks.
+
+## FEATURES
+
+### Meeting Intelligence
+- Real-time transcription of meetings (Zoom, Teams, Google Meet)
+- Automatic action item extraction with assignee detection
+- Follow-up tracking and reminder generation
+- Meeting summary distribution via Telegram
+
+### Automated Reporting
+- Weekly status reports generated from actual work data (not self-reported)
+- Cross-department activity summaries
+- KPI tracking with trend analysis
+- Custom report templates per role
+
+### Knowledge Base (RAG)
+- Ingest company documents: SOPs, policies, contracts, product docs
+- Natural language queries via Telegram: "What's our refund policy for enterprise clients?"
+- Role-level access control — users see only what they're authorized to see
+- Auto-updating: new documents ingested automatically from connected sources
+- Supported formats: PDF, DOCX, MD, TXT, HTML, Google Docs
+
+### Workflow Automation
+- Trigger-based actions: "When a deal closes, generate onboarding checklist"
+- Approval workflows with human-in-the-loop checkpoints
+- Multi-step sequences with conditional logic
+- Integration with external tools via webhooks
+
+### Multi-Model Orchestration
+- Route tasks to the best model: coding → Claude, summarization → GPT-4, embeddings → local model
+- Automatic failover between models
+- Cost optimization: use local models for simple tasks, cloud models for complex ones
+- No vendor lock-in — swap models without code changes
+
+### Security & Compliance
+- On-premise deployment: all data stays on customer infrastructure
+- EU data residency guaranteed
+- GDPR-compliant by design: data minimization, right to deletion, audit logging
+- Role-based access: Admin, Manager, User, Read-only
+- Full audit trail: every query, response, and action logged
+- SOC 2 aligned practices
+
+## ARCHITECTURE
+
+```
+[User] → [Telegram Bot] → [FirstTouch API]
+                                ↓
+                    [Orchestration Engine]
+                    /        |         \
+            [LLM Router] [RAG Engine] [Action Engine]
+               ↓              ↓            ↓
+        [Claude/GPT/Ollama] [Vector DB] [Webhooks/APIs]
+```
+
+Components:
+- **API Gateway** — REST API, authentication, rate limiting
+- **Orchestration Engine** — task routing, context management, memory
+- **LLM Router** — model selection based on task type, cost, latency
+- **RAG Engine** — document ingestion, embedding, semantic search
+- **Action Engine** — webhook triggers, approval workflows, notifications
+- **Vector Database** — document embeddings for knowledge base queries
+- **Audit Logger** — full trace of all operations
+
+## DEPLOYMENT
+
+### On-Premise (recommended for enterprise)
+- Docker Compose or Kubernetes
+- Minimum: 4 CPU, 16GB RAM, 100GB storage
+- Supports: Ubuntu 22.04+, RHEL 8+, any Docker-compatible OS
+- Local LLM option: Ollama with open-source models (no cloud dependency)
+
+### Cloud (for smaller teams)
+- Managed deployment on EU infrastructure (Hetzner, OVH)
+- Data stays in EU (Frankfurt or Prague datacenter)
+- Automatic updates and monitoring
+
+### Setup Timeline
+- Day 1: Infrastructure setup, Telegram bot connection
+- Day 2-3: Document ingestion, knowledge base seeding
+- Day 4-5: Role configuration, workflow setup
+- Week 2: Team onboarding, feedback loop
+
+## PRICING
+
+| Tier | Users | Features | Price |
+|------|-------|----------|-------|
+| Starter | Up to 5 | Core features, Telegram, basic reporting | Contact sales |
+| Pro | Up to 25 | All features, custom integrations, priority support | Contact sales |
+| Enterprise | Unlimited | On-premise, SLA, dedicated support, custom models | Contact sales |
+
+All tiers include: 14-day pilot, setup assistance, training session.
+
+## API REFERENCE
+
+### Authentication
+All API requests require Bearer token in Authorization header.
+```
+Authorization: Bearer ft_your_api_key_here
+```
+
+### Endpoints
+
+POST /api/v1/query
+- Send a natural language query to the knowledge base
+- Body: { "query": "string", "user_id": "string", "context": "string" }
+- Response: { "answer": "string", "sources": [], "confidence": float }
+
+POST /api/v1/meeting/transcribe
+- Submit meeting audio for transcription
+- Body: multipart/form-data with audio file
+- Response: { "transcript": "string", "action_items": [], "summary": "string" }
+
+GET /api/v1/reports/weekly
+- Generate weekly report for specified team/department
+- Params: ?team=engineering&week=2026-W12
+- Response: { "report": "string", "metrics": {}, "highlights": [] }
+
+POST /api/v1/workflow/trigger
+- Trigger a workflow by name
+- Body: { "workflow": "string", "params": {} }
+- Response: { "execution_id": "string", "status": "running" }
+
+GET /api/v1/status
+- Health check and system status
+- Response: { "status": "ok", "version": "string", "uptime": int }
+
+### Webhooks
+FirstTouch can send webhooks for events:
+- meeting.transcribed — meeting transcription completed
+- report.generated — weekly report ready
+- workflow.completed — workflow execution finished
+- approval.required — human approval needed
+
+Webhook payload:
+```json
+{
+  "event": "meeting.transcribed",
+  "timestamp": "2026-03-16T12:00:00Z",
+  "data": { ... }
+}
+```
+
+## INTEGRATION EXAMPLES
+
+### Telegram Bot Setup
+1. Create bot via @BotFather
+2. Set webhook: POST /api/v1/telegram/webhook with bot token
+3. Users interact via Telegram — no app installation needed
+
+### Slack Integration
+- Incoming webhooks for report delivery
+- Slash commands for queries: /ft ask "What's our Q1 pipeline?"
+
+### CRM Integration (HubSpot, Pipedrive)
+- Webhook triggers on deal stage changes
+- Automatic meeting summary logging to CRM contacts
+- Lead scoring enrichment from meeting insights
+
+## COMPETITIVE POSITIONING
+
+vs ChatGPT/Claude direct:
+- FirstTouch knows YOUR data, not just the internet
+- Role-based access (ChatGPT is all-or-nothing)
+- On-premise option (no data to OpenAI/Anthropic)
+- Workflow automation (not just Q&A)
+
+vs Lindy.ai / Beam AI:
+- EU-first: GDPR compliant, EU data residency
+- On-premise deployment option
+- Model-agnostic (not locked to one provider)
+- Telegram-native (no separate app)
+
+vs Building in-house:
+- 2-week deployment vs 6-month build
+- Maintained and updated continuously
+- Multi-model orchestration out of the box
+- Fraction of the cost of a dedicated AI team
+
+## COMPANY
+
+- Product: FirstTouch
+- Parent: EMA AI
+- Founder: Jan Kluz
+- Location: Prague, Czech Republic
+- Website: https://firsttouch.app
+- Contact: jan.kluz@emaai.cz
+- LinkedIn: https://www.linkedin.com/in/jan-kluz/
+
+## MCP (Model Context Protocol) — Coming Soon
+
+FirstTouch will expose an MCP server allowing AI agents to:
+- Query the knowledge base programmatically
+- Trigger workflows
+- Read reports and meeting summaries
+- Manage user permissions
+
+This enables AI-to-AI integration: external agents can use FirstTouch as a tool.
