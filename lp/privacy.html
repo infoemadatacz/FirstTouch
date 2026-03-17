@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Privacy Policy | First Touch</title>
+  <meta name="description" content="First Touch Privacy Policy — how we collect, use, and protect your personal data in accordance with GDPR.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://firsttouch.app/privacy">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Plausible Analytics — GDPR-compliant, no cookie consent required -->
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    .legal-page-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .legal-page-layout {
+        grid-template-columns: 1fr;
+      }
+      .legal-toc {
+        display: none;
+      }
+    }
+    .legal-toc {
+      position: sticky;
+      top: 5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      padding: 1.2rem;
+    }
+    .legal-toc h3 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+      margin: 0 0 0.8rem;
+    }
+    .legal-toc a {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--ink-2);
+      text-decoration: none;
+      padding: 0.22rem 0;
+      border-left: 2px solid transparent;
+      padding-left: 0.6rem;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .legal-toc a:hover {
+      color: var(--violet);
+      border-left-color: var(--violet);
+    }
+    .legal-prose {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface-solid);
+      padding: 2rem;
+    }
+    .legal-prose h2 {
+      margin: 2rem 0 0.6rem;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      padding-top: 0.4rem;
+      border-top: 1px solid var(--border);
+    }
+    .legal-prose h2:first-of-type {
+      margin-top: 0;
+      border-top: none;
+    }
+    .legal-prose h3 {
+      font-size: 0.95rem;
+      color: var(--ink-1);
+      margin: 1.2rem 0 0.4rem;
+    }
+    .legal-prose p {
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin: 0.5rem 0;
+    }
+    .legal-prose ul {
+      margin: 0.5rem 0;
+      padding-left: 1.2rem;
+      display: grid;
+      gap: 0.3rem;
+    }
+    .legal-prose ul li {
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+    .legal-prose table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0.8rem 0;
+    }
+    .legal-prose th {
+      text-align: left;
+      padding: 0.5rem 0.7rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--ink-1);
+      font-weight: 600;
+    }
+    .legal-prose td {
+      padding: 0.5rem 0.7rem;
+      border: 1px solid var(--border);
+      color: var(--ink-2);
+      vertical-align: top;
+    }
+    .legal-meta {
+      font-size: 0.82rem;
+      color: var(--ink-3);
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .legal-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .legal-highlight {
+      background: color-mix(in srgb, var(--violet) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--violet) 25%, transparent);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin: 1rem 0;
+    }
+    .legal-highlight p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    a.legal-email {
+      color: var(--violet);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    a.legal-email:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="guide-page">
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="./index.html" aria-label="First Touch home">
+        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="32" height="32">
+        <span class="brand-text">First Touch</span>
+      </a>
+      <a class="btn btn-sm" href="./index.html">Back to Home</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section guide-hero">
+      <div class="container">
+        <p class="eyebrow">Legal</p>
+        <h1>Privacy Policy</h1>
+        <p class="hero-lead">How First Touch collects, uses, and protects your personal data — in plain language, in full compliance with GDPR.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="legal-page-layout">
+
+          <aside class="legal-toc" aria-label="Table of contents">
+            <h3>On this page</h3>
+            <a href="#controller">1. Who we are</a>
+            <a href="#data-collected">2. Data we collect</a>
+            <a href="#use">3. How we use it</a>
+            <a href="#retention">4. Retention</a>
+            <a href="#processors">5. Sub-processors</a>
+            <a href="#rights">6. Your GDPR rights</a>
+            <a href="#security">7. Security</a>
+            <a href="#children">8. Children</a>
+            <a href="#changes">9. Changes</a>
+            <a href="#contact">10. Contact</a>
+          </aside>
+
+          <article class="legal-prose">
+            <div class="legal-meta">
+              <span><strong>Effective date:</strong>&nbsp;17 March 2026</span>
+              <span><strong>Last updated:</strong>&nbsp;17 March 2026</span>
+            </div>
+
+            <div class="legal-highlight">
+              <p><strong>Short version:</strong> We collect only what is necessary to respond to your inquiry. We do not sell your data. We do not use advertising trackers. All processing is GDPR-compliant.</p>
+            </div>
+
+            <h2 id="controller">1. Who We Are</h2>
+            <p>First Touch ("we", "us", "our") is operated by <strong>Jan Kluz</strong>, founder of First Touch.</p>
+            <table>
+              <tr><th>Item</th><th>Details</th></tr>
+              <tr><td>Website</td><td><a class="legal-email" href="https://firsttouch.app">https://firsttouch.app</a></td></tr>
+              <tr><td>Contact email</td><td><a class="legal-email" href="mailto:jan@firsttouch.app">jan@firsttouch.app</a></td></tr>
+              <tr><td>Registered address</td><td>Czech Republic, European Union</td></tr>
+              <tr><td>Role under GDPR</td><td>Data Controller (Article 4(7) GDPR)</td></tr>
+            </table>
+
+            <h2 id="data-collected">2. What Data We Collect</h2>
+
+            <h3>2.1 Contact Form</h3>
+            <p>When you submit our contact form, we collect:</p>
+            <ul>
+              <li>Full name</li>
+              <li>Business email address</li>
+              <li>Company name (optional)</li>
+              <li>Message content</li>
+            </ul>
+            <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR — processing necessary to take pre-contractual steps at your request; and/or Art. 6(1)(f) — our legitimate interest in responding to business inquiries.</p>
+
+            <h3>2.2 Analytics</h3>
+            <p>We use <strong>Plausible Analytics</strong>, a privacy-first analytics platform that does not use cookies, does not collect personal identifiers, and stores aggregate data only. No cookie consent banner is required under EU law for this tool.</p>
+
+            <h3>2.3 Server Logs</h3>
+            <p><strong>Cloudflare Pages</strong>, our hosting infrastructure, automatically logs IP addresses and HTTP request metadata for security, abuse prevention, and performance purposes. These logs are not used for marketing and are subject to Cloudflare's own retention policies (typically 30 days).</p>
+
+            <h2 id="use">3. How We Use Your Data</h2>
+            <p>We use collected personal data solely to:</p>
+            <ul>
+              <li>Respond to your inquiry or service request</li>
+              <li>Send product updates if you have explicitly opted in</li>
+              <li>Improve our website (aggregate, anonymised analytics only)</li>
+              <li>Comply with applicable legal obligations</li>
+            </ul>
+            <p>We do <strong>not</strong> sell your personal data. We do <strong>not</strong> share your personal data with third parties for their own marketing purposes.</p>
+
+            <h2 id="retention">4. Data Retention</h2>
+            <table>
+              <tr><th>Data type</th><th>Retention period</th><th>Rationale</th></tr>
+              <tr><td>Contact form submissions</td><td>2 years from last contact</td><td>Standard B2B sales cycle</td></tr>
+              <tr><td>Server / access logs</td><td>30 days</td><td>Cloudflare default; security only</td></tr>
+              <tr><td>Analytics data</td><td>12 months rolling (aggregate)</td><td>Website optimisation</td></tr>
+            </table>
+            <p>After the applicable retention period, data is permanently and securely deleted.</p>
+
+            <h2 id="processors">5. Third-Party Sub-processors</h2>
+            <p>We engage the following sub-processors. All transfers to non-EEA countries are covered by appropriate safeguards under Article 46 GDPR.</p>
+            <table>
+              <tr><th>Processor</th><th>Purpose</th><th>Location</th><th>Transfer mechanism</th></tr>
+              <tr><td>Cloudflare, Inc.</td><td>Hosting, CDN, DDoS protection, WAF</td><td>USA</td><td>Standard Contractual Clauses (SCCs)</td></tr>
+              <tr><td>Plausible Analytics OÜ</td><td>Privacy-safe website analytics</td><td>Estonia (EU)</td><td>Intra-EU — no transfer</td></tr>
+              <tr><td>Email provider (Fastmail / Google Workspace)</td><td>Receiving and storing contact inquiries</td><td>EU / USA</td><td>SCCs or EU adequacy decision</td></tr>
+            </table>
+            <p>We review sub-processor agreements regularly and will update this list if processors change.</p>
+
+            <h2 id="rights">6. Your Rights Under GDPR</h2>
+            <p>As a data subject in the EU/EEA, you have the following rights:</p>
+            <table>
+              <tr><th>Right</th><th>What it means</th></tr>
+              <tr><td><strong>Access</strong> (Art. 15)</td><td>Request a copy of all personal data we hold about you.</td></tr>
+              <tr><td><strong>Rectification</strong> (Art. 16)</td><td>Correct inaccurate or incomplete personal data.</td></tr>
+              <tr><td><strong>Erasure</strong> (Art. 17)</td><td>Request deletion of your data ("right to be forgotten").</td></tr>
+              <tr><td><strong>Restriction</strong> (Art. 18)</td><td>Limit how we process your data while a dispute is resolved.</td></tr>
+              <tr><td><strong>Portability</strong> (Art. 20)</td><td>Receive your data in a structured, machine-readable format.</td></tr>
+              <tr><td><strong>Object</strong> (Art. 21)</td><td>Opt out of processing based on legitimate interests.</td></tr>
+              <tr><td><strong>Withdraw consent</strong> (Art. 7(3))</td><td>Withdraw consent at any time where processing is consent-based.</td></tr>
+            </table>
+            <p>To exercise any right, email <a class="legal-email" href="mailto:jan@firsttouch.app">jan@firsttouch.app</a>. We will respond within <strong>30 days</strong> (extendable by up to 60 days for complex requests, with notice).</p>
+            <div class="legal-highlight">
+              <p>You also have the right to lodge a complaint with your national supervisory authority. In the Czech Republic: <strong>Úřad pro ochranu osobních údajů (UOOU)</strong> — <a class="legal-email" href="https://www.uoou.cz" target="_blank" rel="noreferrer noopener">www.uoou.cz</a>. If you are based in another EU member state, contact the supervisory authority of your country of residence.</p>
+            </div>
+
+            <h2 id="security">7. Data Security</h2>
+            <p>We implement appropriate technical and organisational measures (TOMs) as required by Article 32 GDPR, including:</p>
+            <ul>
+              <li>TLS 1.2+ / HTTPS encryption for all data in transit</li>
+              <li>Cloudflare WAF and DDoS protection layer</li>
+              <li>Access controls: data accessible only to authorised personnel</li>
+              <li>No storage of contact data in publicly accessible systems</li>
+            </ul>
+            <p>No method of internet transmission is 100% secure. In the event of a personal data breach, we will notify the relevant supervisory authority within <strong>72 hours</strong> (Article 33 GDPR) and affected data subjects where required by Article 34 GDPR.</p>
+
+            <h2 id="children">8. Children's Data</h2>
+            <p>First Touch is a B2B service for business professionals. We do not knowingly collect personal data from individuals under 16 years of age. If you believe a child has submitted data to us, please contact us immediately at <a class="legal-email" href="mailto:jan@firsttouch.app">jan@firsttouch.app</a> and we will delete it promptly.</p>
+
+            <h2 id="changes">9. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy to reflect changes in our practices or applicable law. Material changes will be communicated via the website. The "Last updated" date at the top of this page reflects the most recent revision. Continued use of the website after changes are posted constitutes acknowledgement of the updated policy.</p>
+
+            <h2 id="contact">10. Contact</h2>
+            <p>For any questions, requests, or concerns regarding this Privacy Policy or your personal data:</p>
+            <table>
+              <tr><th>Method</th><th>Details</th></tr>
+              <tr><td>Email</td><td><a class="legal-email" href="mailto:jan@firsttouch.app">jan@firsttouch.app</a></td></tr>
+              <tr><td>Website</td><td><a class="legal-email" href="https://firsttouch.app">https://firsttouch.app</a></td></tr>
+              <tr><td>Controller</td><td>Jan Kluz, First Touch, Czech Republic</td></tr>
+            </table>
+            <p>We aim to respond to all privacy-related enquiries within 5 business days and to fulfill rights requests within 30 calendar days.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>
+          <strong>First Touch</strong> &middot; Jan Kluz &middot; Czech Republic
+        </p>
+        <div class="footer-links">
+          <a href="./privacy.html" aria-current="page">Privacy Policy</a>
+          <a href="./terms.html">Terms of Service</a>
+          <a href="./index.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

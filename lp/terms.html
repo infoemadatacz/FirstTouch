@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Terms of Service | First Touch</title>
+  <meta name="description" content="First Touch Terms of Service — the rules governing use of firsttouch.app and the First Touch platform.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://firsttouch.app/terms">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Plausible Analytics — GDPR-compliant, no cookie consent required -->
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    .legal-page-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .legal-page-layout {
+        grid-template-columns: 1fr;
+      }
+      .legal-toc {
+        display: none;
+      }
+    }
+    .legal-toc {
+      position: sticky;
+      top: 5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      padding: 1.2rem;
+    }
+    .legal-toc h3 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+      margin: 0 0 0.8rem;
+    }
+    .legal-toc a {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--ink-2);
+      text-decoration: none;
+      padding: 0.22rem 0;
+      border-left: 2px solid transparent;
+      padding-left: 0.6rem;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .legal-toc a:hover {
+      color: var(--violet);
+      border-left-color: var(--violet);
+    }
+    .legal-prose {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface-solid);
+      padding: 2rem;
+    }
+    .legal-prose h2 {
+      margin: 2rem 0 0.6rem;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      padding-top: 0.4rem;
+      border-top: 1px solid var(--border);
+    }
+    .legal-prose h2:first-of-type {
+      margin-top: 0;
+      border-top: none;
+    }
+    .legal-prose h3 {
+      font-size: 0.95rem;
+      color: var(--ink-1);
+      margin: 1.2rem 0 0.4rem;
+    }
+    .legal-prose p {
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin: 0.5rem 0;
+    }
+    .legal-prose ul {
+      margin: 0.5rem 0;
+      padding-left: 1.2rem;
+      display: grid;
+      gap: 0.3rem;
+    }
+    .legal-prose ul li {
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+    .legal-prose table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0.8rem 0;
+    }
+    .legal-prose th {
+      text-align: left;
+      padding: 0.5rem 0.7rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--ink-1);
+      font-weight: 600;
+    }
+    .legal-prose td {
+      padding: 0.5rem 0.7rem;
+      border: 1px solid var(--border);
+      color: var(--ink-2);
+      vertical-align: top;
+    }
+    .legal-meta {
+      font-size: 0.82rem;
+      color: var(--ink-3);
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .legal-highlight {
+      background: color-mix(in srgb, var(--violet) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--violet) 25%, transparent);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin: 1rem 0;
+    }
+    .legal-highlight p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    a.legal-email {
+      color: var(--violet);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    a.legal-email:hover {
+      text-decoration: underline;
+    }
+    .legal-prose strong.caps {
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body class="guide-page">
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="./index.html" aria-label="First Touch home">
+        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="32" height="32">
+        <span class="brand-text">First Touch</span>
+      </a>
+      <a class="btn btn-sm" href="./index.html">Back to Home</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section guide-hero">
+      <div class="container">
+        <p class="eyebrow">Legal</p>
+        <h1>Terms of Service</h1>
+        <p class="hero-lead">The rules governing your use of https://firsttouch.app and the First Touch platform. Please read these before using our services.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="legal-page-layout">
+
+          <aside class="legal-toc" aria-label="Table of contents">
+            <h3>On this page</h3>
+            <a href="#agreement">1. Agreement</a>
+            <a href="#service">2. Description of Service</a>
+            <a href="#acceptable-use">3. Acceptable Use</a>
+            <a href="#ip">4. Intellectual Property</a>
+            <a href="#contact-form">5. Contact Form</a>
+            <a href="#disclaimers">6. Disclaimers</a>
+            <a href="#liability">7. Limitation of Liability</a>
+            <a href="#third-parties">8. Third-Party Links</a>
+            <a href="#governing-law">9. Governing Law</a>
+            <a href="#changes">10. Changes to Terms</a>
+            <a href="#contact">11. Contact</a>
+          </aside>
+
+          <article class="legal-prose">
+            <div class="legal-meta">
+              <span><strong>Effective date:</strong>&nbsp;17 March 2026</span>
+              <span><strong>Last updated:</strong>&nbsp;17 March 2026</span>
+            </div>
+
+            <div class="legal-highlight">
+              <p><strong>Short version:</strong> Use our website and services lawfully and honestly. We own our content. We are not liable for consequential damages. Czech law governs. Questions go to <a class="legal-email" href="mailto:jan@firsttouch.app">jan@firsttouch.app</a>.</p>
+            </div>
+
+            <h2 id="agreement">1. Agreement to Terms</h2>
+            <p>By accessing or using <a class="legal-email" href="https://firsttouch.app">https://firsttouch.app</a> ("the Website") or any First Touch services ("the Service"), you agree to be bound by these Terms of Service ("Terms").</p>
+            <p>If you do not agree to these Terms, you must not use the Website or the Service.</p>
+            <p>The Service is provided by <strong>Jan Kluz</strong>, operating as First Touch, Czech Republic (<a class="legal-email" href="mailto:jan@firsttouch.app">jan@firsttouch.app</a>).</p>
+
+            <h2 id="service">2. Description of Service</h2>
+            <p>First Touch provides an AI assistant platform for B2B customers, including:</p>
+            <ul>
+              <li>Deployment of context-aware AI assistants for businesses and teams</li>
+              <li>Integration with internal documents, business data, and external tools</li>
+              <li>Role-based access control and data privacy infrastructure</li>
+              <li>Managed onboarding, configuration, and ongoing support</li>
+            </ul>
+            <p>Access to the full First Touch product requires a separate, written service agreement. The website (firsttouch.app) serves as a marketing and information presence. Submitting a contact form does not itself constitute a service agreement.</p>
+
+            <h2 id="acceptable-use">3. Acceptable Use</h2>
+            <p>You agree not to:</p>
+            <ul>
+              <li>Use the Website or Service for any unlawful purpose or in violation of any applicable laws or regulations</li>
+              <li>Attempt to gain unauthorised access to any part of the Website, its infrastructure, or systems associated with the Service</li>
+              <li>Scrape, crawl, or automate requests in a manner that disrupts, overloads, or impairs service operation</li>
+              <li>Misrepresent your identity, role, or affiliation when communicating with First Touch</li>
+              <li>Upload, transmit, or distribute malware, spam, or any harmful or malicious code</li>
+              <li>Reverse-engineer, decompile, or attempt to extract source code from any part of the Service</li>
+              <li>Use the Service to process data in violation of applicable data protection laws, including GDPR</li>
+            </ul>
+            <p>We reserve the right to suspend or terminate access for any user who violates these provisions, without notice where immediate action is required.</p>
+
+            <h2 id="ip">4. Intellectual Property</h2>
+            <p>All content on this Website — including but not limited to text, design, graphics, the First Touch name, logo, and trade marks — is the property of Jan Kluz / First Touch and is protected by applicable intellectual property law, including Czech copyright law and EU trade mark regulations.</p>
+            <p>You may not reproduce, distribute, modify, create derivative works from, publicly display, or exploit any content from this Website without prior written permission from First Touch.</p>
+            <p>Nothing in these Terms transfers any intellectual property rights to you. Limited, non-exclusive, non-transferable permission to view the Website for personal or internal business evaluation purposes is granted for the duration of your use.</p>
+
+            <h2 id="contact-form">5. Contact Form and Communications</h2>
+            <p>Submitting the contact form constitutes a request for information or services. It does not create a binding contract or guarantee of service delivery. We will make reasonable efforts to respond within <strong>2 business days</strong>.</p>
+            <p>By submitting the contact form, you confirm that:</p>
+            <ul>
+              <li>The information you provide is accurate and not misleading</li>
+              <li>You are authorised to act on behalf of any company you represent</li>
+              <li>You consent to us using that information to respond to your inquiry as described in our <a class="legal-email" href="./privacy.html">Privacy Policy</a></li>
+            </ul>
+
+            <h2 id="disclaimers">6. Disclaimers</h2>
+            <p>The Website and its content are provided <strong class="caps">"as is"</strong> and <strong class="caps">"as available"</strong> without warranties of any kind, express or implied, including but not limited to:</p>
+            <ul>
+              <li>Fitness for a particular purpose</li>
+              <li>Merchantability</li>
+              <li>Uninterrupted, timely, or error-free availability</li>
+              <li>Accuracy, completeness, or reliability of any information presented</li>
+            </ul>
+            <p>We reserve the right to modify, suspend, or discontinue any part of the Website or Service at any time, with or without notice, and without liability to you.</p>
+            <p>Product descriptions, feature lists, and pricing information on the Website are indicative and subject to change. Definitive terms are established in a signed service agreement.</p>
+
+            <h2 id="liability">7. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by applicable law, Jan Kluz / First Touch shall not be liable for any:</p>
+            <ul>
+              <li>Indirect, incidental, special, consequential, or punitive damages</li>
+              <li>Loss of profits, revenue, data, business opportunities, or goodwill</li>
+              <li>Damages arising from your reliance on Website content</li>
+              <li>Damages arising from unauthorised access to or alteration of your communications</li>
+            </ul>
+            <p>These limitations apply whether the claim arises in contract, tort (including negligence), strict liability, or any other legal theory, and whether or not we have been advised of the possibility of such damages.</p>
+            <p>Our total aggregate liability for any claim arising from or relating to these Terms or the use of the Website shall not exceed <strong>€100 EUR</strong> or the total amount paid by you to First Touch in the 12 months preceding the claim, whichever is the greater amount.</p>
+            <div class="legal-highlight">
+              <p><strong>Nothing in these Terms excludes or limits liability for:</strong> death or personal injury caused by negligence; fraud or fraudulent misrepresentation; or any other liability that cannot be excluded or limited by Czech or applicable EU law.</p>
+            </div>
+
+            <h2 id="third-parties">8. Third-Party Links and Services</h2>
+            <p>The Website may contain links to third-party websites, tools, or services. We have no control over and assume no responsibility for the content, privacy practices, accuracy, or terms of any third-party site. Inclusion of a link does not imply endorsement by First Touch.</p>
+            <p>Your interactions with third-party sites are governed exclusively by their terms and policies.</p>
+
+            <h2 id="governing-law">9. Governing Law and Jurisdiction</h2>
+            <p>These Terms and any dispute arising from or in connection with them shall be governed by and construed in accordance with the laws of the <strong>Czech Republic</strong>, without regard to its conflict of law principles.</p>
+            <p>Any disputes shall be subject to the exclusive jurisdiction of the competent courts of the Czech Republic.</p>
+            <div class="legal-highlight">
+              <p><strong>EU consumer rights:</strong> If you are a consumer (not acting in a business capacity) resident in another EU member state, you retain the right to bring proceedings in your country of residence and to benefit from mandatory consumer protection provisions of your local law. The European Commission provides an Online Dispute Resolution platform at <a class="legal-email" href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noreferrer noopener">ec.europa.eu/consumers/odr</a>.</p>
+            </div>
+
+            <h2 id="changes">10. Changes to These Terms</h2>
+            <p>We may update these Terms at any time to reflect changes in our practices, legal requirements, or business operations. We will post the updated Terms on this page with a revised "Last updated" date.</p>
+            <p>For material changes, we will provide reasonable notice (e.g. a notice on the Website). Continued use of the Website after changes are posted constitutes acceptance of the revised Terms.</p>
+            <p>We recommend reviewing this page periodically.</p>
+
+            <h2 id="contact">11. Contact</h2>
+            <p>For questions, concerns, or notices regarding these Terms:</p>
+            <table>
+              <tr><th>Method</th><th>Details</th></tr>
+              <tr><td>Email</td><td><a class="legal-email" href="mailto:jan@firsttouch.app">jan@firsttouch.app</a></td></tr>
+              <tr><td>Website</td><td><a class="legal-email" href="https://firsttouch.app">https://firsttouch.app</a></td></tr>
+              <tr><td>Operator</td><td>Jan Kluz, First Touch, Czech Republic</td></tr>
+            </table>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>
+          <strong>First Touch</strong> &middot; Jan Kluz &middot; Czech Republic
+        </p>
+        <div class="footer-links">
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html" aria-current="page">Terms of Service</a>
+          <a href="./index.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
