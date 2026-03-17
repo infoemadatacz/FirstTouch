@@ -20,7 +20,7 @@
   --ink-1: #FFFFFF;
   --ink-2: rgba(255, 255, 255, 0.72);
   --ink-3: rgba(255, 255, 255, 0.50); /* bumped from 0.42 → 0.50 for WCAG AA body contrast */
-  --ink-4: rgba(255, 255, 255, 0.48); /* was 0.22 — bumped to ~4.5:1 WCAG AA */
+  --ink-4: rgba(255, 255, 255, 0.58); /* Fix #3: bumped from 0.48 → 0.58 for WCAG AA 4.5:1 on #0A0A0B */
 
   --radius-lg: 24px;
   --radius-md: 16px;
@@ -791,7 +791,7 @@ h3 {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card), 0 0 80px rgba(147, 1, 187, 0.12);
 }
 
 .visual-frame picture {
@@ -1419,7 +1419,7 @@ h3 {
 }
 
 .pricing-section-label {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.09em;
@@ -1442,6 +1442,45 @@ h3 {
 }
 
 /* Comparison table */
+/* Fix #6: Pricing compare scroll wrapper — adds right-side fade hint on mobile */
+.pricing-compare-scroll-wrap {
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .pricing-compare-scroll-wrap {
+    overflow: hidden;
+  }
+  .pricing-compare-scroll-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 48px;
+    background: linear-gradient(to right, transparent, var(--bg, #0A0A0B));
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity 0.2s;
+  }
+  .pricing-compare-scroll-wrap.scrolled-end::after {
+    opacity: 0;
+  }
+}
+
+.table-scroll-hint {
+  display: none;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--ink-4);
+  margin-top: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 480px) {
+  .table-scroll-hint { display: block; }
+}
+
 .pricing-compare {
   margin-top: 2.5rem;
   border: 1px solid var(--border);
@@ -2329,7 +2368,7 @@ h3 {
 }
 
 .logo-mark-meta {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--ink-4);
   white-space: nowrap;
 }
@@ -3035,7 +3074,7 @@ h3 {
 }
 
 .arch-diagram-title {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--ink-4);
@@ -3208,7 +3247,7 @@ h3 {
 
 .team-card-badge {
   display: inline-flex;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -3499,10 +3538,11 @@ h3 {
 }
 
 /* Prevent sticky CTA bar from obscuring bottom-page content on mobile.
-   :has() is supported Chrome 105+, Safari 15.4+, Firefox 121+ */
+   :has() is supported Chrome 105+, Safari 15.4+, Firefox 121+
+   Safe-area offset included for iPhone notch/home-indicator. */
 @media (max-width: 900px) {
   body:has(#sticky-cta.is-visible) main {
-    padding-bottom: 80px;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -3648,7 +3688,14 @@ h3 {
   }
 
   .nav-links {
-    display: none;
+    /* Use visibility/opacity instead of display:none so CSS can transition.
+       display:none cannot be transitioned — drawer appeared/disappeared instantly.
+       pointer-events:none prevents accidental taps while hidden. */
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
     position: fixed;
     inset: 72px 0 0 0;
     background: rgba(10, 10, 11, 0.97);
@@ -3661,10 +3708,15 @@ h3 {
     z-index: 59;
     border-top: 1px solid var(--border);
     overflow-y: auto;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0.22s;
   }
 
   .nav-links.is-open {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition: opacity 0.22s ease, transform 0.22s ease;
   }
 
   .nav-links a {
@@ -3824,7 +3876,7 @@ h3 {
 
 @media (max-width: 480px) {
   .container {
-    width: min(1180px, calc(100% - 1.4rem));
+    width: min(1180px, calc(100% - 2rem)); /* 16px each side — meets Apple HIG / Material min */
   }
 
   .pricing-grid {
@@ -3884,15 +3936,24 @@ h3 {
     object-position: top;
   }
 
-  /* Hero subline: smaller font on tight screens */
+  /* Fix #4: Hero subline — bump to 14px minimum for readability */
   .hero-subline {
-    font-size: 0.84rem;
+    font-size: 0.875rem; /* was 0.84rem (13.4px) → now 14px */
   }
 
-  /* Testimonial result badges: allow wrapping so they don't overflow card */
+  /* Fix #4: Testimonial badges — bump to 12px WCAG minimum */
   .testimonial-result,
   .testimonial-verified {
-    font-size: 0.68rem;
+    font-size: 0.75rem; /* was 0.68rem (10.88px) → now 12px */
+  }
+
+  /* Fix #4: Visual caption and sticky CTA text — bump to 14px minimum */
+  .visual-caption {
+    font-size: 0.875rem; /* was 0.82rem */
+  }
+
+  .sticky-cta__text {
+    font-size: 0.875rem; /* was 0.82rem */
   }
 
   /* Reduce section-cta padding on small phones */
@@ -3924,16 +3985,16 @@ h3 {
 
   /* Visual caption: tighter padding on small phones */
   .visual-caption {
-    font-size: 0.82rem;
+    font-size: 0.82rem; /* overridden to 0.875rem at 480px above */
     padding: 0.65rem 0.8rem;
   }
 }
 
 /* ── Very small screens (≤360px) — Galaxy S series, iPhone SE ────── */
 @media (max-width: 360px) {
-  /* Container: tighter side margins */
+  /* Container: tighter side margins — 14px each side (acceptable at 360px) */
   .container {
-    width: min(1180px, calc(100% - 1rem));
+    width: min(1180px, calc(100% - 1.75rem));
   }
 
   /* h1 scales down further */
@@ -3954,10 +4015,10 @@ h3 {
     text-align: center;
   }
 
-  /* Hero cap strip: smaller tags */
+  /* Hero cap strip: 12px minimum — below 12px WCAG AA is borderline at low-opacity ink */
   .hero-cap-strip span {
-    font-size: 0.72rem;
-    padding: 0.22rem 0.45rem;
+    font-size: 0.75rem; /* 12px minimum; was 0.72rem = 11.52px */
+    padding: 0.2rem 0.4rem;
   }
 
   /* Pricing card: tightest padding */
@@ -4066,8 +4127,33 @@ h3 {
 
 @media (max-width: 600px) {
   .sticky-cta { flex-direction: column; gap: 0.6rem; padding: 1rem 2.5rem 1rem 1rem; text-align: center; }
-  .sticky-cta__text { white-space: normal; font-size: 0.82rem; }
+  .sticky-cta__text { white-space: normal; font-size: 0.875rem; }
   .sticky-cta__btn { width: 100%; justify-content: center; }
+}
+
+/* Fix #5: Short viewports (iPhone SE landscape, Galaxy Fold) — collapse to single row
+   to avoid eating 26% of viewport height with fixed chrome */
+@media (max-width: 600px) and (max-height: 680px) {
+  .sticky-cta {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    padding: 0.6rem 2.5rem 0.6rem 0.75rem;
+    text-align: left;
+  }
+  .sticky-cta__text {
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+  }
+  .sticky-cta__btn {
+    width: auto;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    flex-shrink: 0;
+  }
 }
 
 /* === TESTIMONIAL HERO QUOTE === */
@@ -5486,7 +5572,7 @@ summary:focus-visible {
   .thq-stat-label {
     white-space: normal;
     text-align: right;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -5629,7 +5715,7 @@ html {
   height: 30px;
   border-radius: 50%;
   border: 2px solid var(--bg);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #fff;
   font-family: "Geist", sans-serif;
@@ -5774,5 +5860,300 @@ html {
 
   .hero-lead {
     max-width: 58ch;
+  }
+}
+
+/* ============================================================
+   SPRINT 1 MOBILE UX FIXES — deploy target 2026-03-19
+   Source: UX audit ux-researcher-2026-03-16T20-09-57-197Z
+   Fixes 1,3,4,5,6,9 applied here. 2,7,8 already in base CSS.
+   ============================================================ */
+
+/* Fix 1a: Compact sticky CTA at ≤480px — keep row layout so height
+   stays ~50px and the first-fold gains ~50px of visible content.
+   The ≤600px rule stacks to column; this override reverts at 480px. */
+@media (max-width: 480px) {
+  .sticky-cta {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0.7rem 3rem 0.7rem 1rem;
+    padding-bottom: max(0.7rem, env(safe-area-inset-bottom, 0px));
+    gap: 0.75rem;
+    text-align: left;
+  }
+
+  .sticky-cta__text {
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 155px;
+  }
+
+  .sticky-cta__btn {
+    width: auto;
+    flex-shrink: 0;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Fix 1b: Correct body padding-bottom at ≤600px when sticky CTA is
+   visible. At 600px the CTA stacks vertically (~116px real height);
+   the 900px rule only allocates 80px, cutting off the last ~36px of
+   page content (FAQ last answer, footer first line). */
+@media (max-width: 600px) {
+  body:has(#sticky-cta.is-visible) main {
+    padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Fix 1c: At ≤480px the CTA is row-compact again (~50px),
+   so we can restore a smaller bottom padding. */
+@media (max-width: 480px) {
+  body:has(#sticky-cta.is-visible) main {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Fix 3: Limit hero capability pills to 3 on mobile.
+   Showing 6 tags wraps to 3–4 lines (~80px) and buries the CTA.
+   Keep only the top 3 trust signals: private infra, GDPR, no lock-in. */
+@media (max-width: 640px) {
+  .hero-cap-strip span:nth-child(n+4) {
+    display: none;
+  }
+}
+
+/* Fix 4: Reduce section vertical padding at ≤480px from 2.8rem to
+   2.5rem. With 19 major sections that's ~57px saved (~0.6 viewport
+   height), measurably reducing scroll depth to pricing. */
+@media (max-width: 480px) {
+  .section {
+    padding: 2.5rem 0;
+  }
+}
+
+/* Fix 5: Hide hero subline at ≤480px. The capability strip directly
+   below covers the same ground (8-day deploy, GDPR, infrastructure).
+   Hiding the subline recovers ~1.5 lines of first-fold real estate. */
+@media (max-width: 480px) {
+  .hero-subline {
+    display: none;
+  }
+}
+
+/* Fix 6: Compact nav bar height from 72px → 60px at ≤480px.
+   Combined with Fix 1 and 5, recovers ~62px of visible first-fold
+   content at 375px, enough to show the full H1 and primary CTA. */
+@media (max-width: 480px) {
+  .nav-wrap {
+    min-height: 60px;
+  }
+
+  .nav-links {
+    inset: 60px 0 0 0;
+  }
+}
+
+/* Fix 9: Comparison table — collapse to 2 columns at ≤560px.
+   At 375px the 3-col layout renders the feature column at only ~177px,
+   causing 3–4 line wraps per row. Drop the "Generic AI" column and
+   show only the First Touch checkmarks as a focused checklist. */
+@media (max-width: 560px) {
+  .comparison-header {
+    display: none;
+  }
+
+  .comparison-row {
+    grid-template-columns: 1fr 32px;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Hide the "Generic AI" (3rd / last) column cell in each row */
+  .comparison-row > .comparison-cell:last-child {
+    display: none;
+  }
+
+  .comparison-feature {
+    font-size: 0.86rem;
+  }
+}
+
+/* Fix 8: -webkit-backdrop-filter on .site-header for iOS Safari ≤14.
+   Without it, older Safari falls back to opaque background
+   (heavy visual weight on scroll). The nav overlay already has both. */
+.site-header {
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Fix 4 (nav backdrop): semi-transparent overlay behind mobile nav drawer.
+   z-index 55 = below .nav-links (59) and .nav-toggle (70), above page content.
+   Hidden by default, fades in when drawer opens. */
+@media (max-width: 860px) {
+  .nav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 55;
+    opacity: 0;
+    transition: opacity 0.22s ease;
+  }
+
+  .nav-backdrop.is-visible {
+    display: block;
+    opacity: 1;
+  }
+}
+
+/* Nav open: lock body scroll on iOS Safari (position:fixed required — overflow:hidden alone doesn't stop touch scroll on iOS) */
+body.nav-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Calendly booking modal ──────────────────────────────────── */
+.calendly-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.calendly-modal[hidden] {
+  display: none;
+}
+
+.calendly-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.calendly-modal__panel {
+  position: relative;
+  z-index: 1;
+  background: #16161A;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(147, 1, 187, 0.3);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 740px;
+  height: min(88vh, 760px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(147, 1, 187, 0.15);
+  animation: modal-slide-in 0.28s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+}
+
+.calendly-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem 0.875rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+}
+
+.calendly-modal__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  letter-spacing: -0.01em;
+}
+
+.calendly-modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.calendly-modal__close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--ink-1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.calendly-modal__embed {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.calendly-modal__embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.calendly-modal__loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--ink-3);
+  font-size: 0.875rem;
+}
+
+.calendly-modal__loader-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(147, 1, 187, 0.25);
+  border-top-color: var(--violet);
+  border-radius: 50%;
+  animation: modal-spin 0.8s linear infinite;
+}
+
+@keyframes modal-slide-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes modal-spin {
+  to { transform: rotate(360deg); }
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 540px) {
+  .calendly-modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .calendly-modal__panel {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    height: 92svh;
+    height: 92vh;
+    animation-name: modal-slide-up;
+  }
+  @keyframes modal-slide-up {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: none; }
   }
 }

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Page Not Found | First Touch</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Return to First Touch — the AI execution engine for European B2B teams.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --violet: #9301BB;
+      --violet-light: #c026d3;
+      --bg: #09090b;
+      --bg-2: #111115;
+      --ink-1: #f4f4f5;
+      --ink-2: #a1a1aa;
+      --ink-3: #71717a;
+      --ink-4: #52525b;
+      --radius: 12px;
+    }
+
+    html { height: 100%; }
+
+    body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--ink-1);
+      font-family: 'Geist', system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient gradient */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(147,1,187,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(192,38,211,0.12) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    /* Brand */
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      margin-bottom: 3rem;
+    }
+    .brand-icon { width: 32px; height: 32px; }
+    .brand-text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink-1);
+      letter-spacing: -0.01em;
+    }
+
+    /* Error code */
+    .error-code {
+      font-family: 'Geist Mono', monospace;
+      font-size: clamp(5rem, 20vw, 8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #fff 0%, var(--violet-light) 50%, var(--violet) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.25rem, 4vw, 1.75rem);
+      font-weight: 700;
+      color: var(--ink-1);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .desc {
+      font-size: 1rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Actions */
+    .actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius);
+      font-family: 'Geist', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--violet) 0%, var(--violet-light) 100%);
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(147,1,187,0.35);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink-2);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .btn-ghost:hover { color: var(--ink-1); border-color: rgba(255,255,255,0.2); }
+
+    /* Footer note */
+    .footer-note {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: var(--ink-4);
+    }
+    .footer-note a {
+      color: var(--violet-light);
+      text-decoration: none;
+    }
+    .footer-note a:hover { text-decoration: underline; }
+
+    @media (min-width: 480px) {
+      .actions {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <a class="brand" href="/">
+      <img class="brand-icon" src="/assets/firsttouch-icon.svg" alt="First Touch" width="32" height="32">
+      <span class="brand-text">First Touch</span>
+    </a>
+
+    <div class="error-code" aria-hidden="true">404</div>
+
+    <h1>This page doesn't exist.</h1>
+    <p class="desc">The URL may have changed or the page was removed. The homepage has everything you need.</p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="/">Back to Home &rarr;</a>
+      <a class="btn btn-ghost" href="/blog">Read the Blog</a>
+    </div>
+
+    <p class="footer-note">
+      Something broken? Email <a href="mailto:james@firsttouch.app">james@firsttouch.app</a>
+    </p>
+  </div>
+</body>
+</html>

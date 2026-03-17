@@ -6,11 +6,11 @@ window.FIRST_TOUCH_CONFIG = {
   siteUrl: "https://firsttouch.app/",
 
   // Calendly 15-min assessment booking — update slug here if URL changes
-  bookingUrl: "https://calendly.com/jan-kluz-firsttouch/15min",
+  bookingUrl: "https://calendly.com/james-harrington-firsttouch/15min",
   // Lead form backend — Cloudflare Pages Function (functions/api/leads.js)
   // Requires RESEND_API_KEY set in Cloudflare Pages > Settings > Env Vars
   leadFormEndpoint: "/api/leads",
-  leadMagnetUrl: "./assets/strategy-toolkit.md",
+  leadMagnetUrl: "./assets/jana-offer-pack.md",
 
   contactEmail: "james@firsttouch.app",
   legalCompanyName: "First Touch",

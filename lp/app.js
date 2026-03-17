@@ -5,13 +5,13 @@
     offerName: "First Touch",
     siteName: "First Touch",
     siteUrl: "https://firsttouch.app",
-    bookingUrl: "https://calendly.com/jan-kluz-firsttouch/15min",
-    leadFormEndpoint: "",
+    bookingUrl: "https://calendly.com/james-harrington-firsttouch/15min",
+    leadFormEndpoint: "/api/leads",
     leadMagnetUrl: "./assets/strategy-toolkit.md",
     contactEmail: "james@firsttouch.app",
     legalCompanyName: "First Touch",
     legalLocation: "London, United Kingdom",
-    linkedinUrl: "https://www.linkedin.com/",
+    linkedinUrl: "https://www.linkedin.com/company/firsttouch-ai/",
     seoTitle: "First Touch | All-in-One AI Manager OS for Execution",
     seoDescription: "First Touch is an all-in-one AI manager operating system: global context, best-model orchestration, action workflows, meeting transcription, planning, coding support, and recurring reporting.",
     seoKeywords: [
@@ -26,12 +26,14 @@
       "business compliant AI assistant",
       "AI planning writing coding reporting"
     ],
-    ogImageUrl: "./assets/og-firsttouch.jpg"
+    ogImageUrl: "https://firsttouch.app/assets/og-firsttouch.jpg"
   };
 
   const cfg = Object.assign({}, defaults, window.FIRST_TOUCH_CONFIG || {});
 
+  captureTrafficSource();
   wireGlobalLinks();
+  wireCalendlyModal();
   wireFooterText();
   wireLeadForm();
   wireThankYou();
@@ -40,16 +42,152 @@
   wireLenis();
   wireGsapAnimations();
   wireAnalytics();
+  wireCalendlyPostMessage();
 
   function wireGlobalLinks() {
+    // href stays "#" — click is intercepted by wireCalendlyModal()
     document.querySelectorAll("[data-book-link]").forEach((el) => {
-      el.setAttribute("href", cfg.bookingUrl);
-      el.setAttribute("target", "_blank");
-      el.setAttribute("rel", "noreferrer noopener");
+      el.setAttribute("href", "#");
+      el.setAttribute("aria-haspopup", "dialog");
+      el.removeAttribute("target");
+      el.removeAttribute("rel");
     });
     // Fallback mailto links — shown as secondary CTAs when Calendly is unsuitable
     document.querySelectorAll("[data-mailto-link]").forEach((el) => {
       el.setAttribute("href", "mailto:" + cfg.contactEmail + "?subject=First%20Touch%20Inquiry");
+    });
+  }
+
+  // ── Traffic source capture ────────────────────────────────────
+  // Runs once per session. UTMs are canonical; falls back to referrer bucketing.
+  // Stored in sessionStorage so it survives modal open/close without re-reading.
+  function captureTrafficSource() {
+    if (sessionStorage.getItem("ft_traffic_source")) return; // already set this session
+    var params = new URLSearchParams(window.location.search);
+    var source = params.get("utm_source");
+    var medium = params.get("utm_medium");
+
+    if (source) {
+      // Normalise: lowercase, trim, combine with medium when it adds signal
+      source = source.toLowerCase().trim();
+      if (medium) {
+        medium = medium.toLowerCase().trim();
+        // e.g. "google / cpc", "linkedin / sponsored"
+        source = source + " / " + medium;
+      }
+      sessionStorage.setItem("ft_traffic_source", source);
+      return;
+    }
+
+    // No UTMs — bucket referrer
+    var ref = document.referrer;
+    if (!ref) {
+      sessionStorage.setItem("ft_traffic_source", "direct");
+      return;
+    }
+    var referrerBuckets = [
+      [/google\./i,    "google / organic"],
+      [/bing\./i,      "bing / organic"],
+      [/linkedin\./i,  "linkedin / organic"],
+      [/twitter\.com|t\.co/i, "twitter"],
+      [/facebook\./i,  "facebook"],
+      [/instagram\./i, "instagram"],
+      [/t\.me|telegram\./i, "telegram"],
+      [/substack\./i,  "substack"],
+      [/producthunt\./i, "product-hunt"],
+      [/firsttouch\.app/i, "internal"]
+    ];
+    for (var i = 0; i < referrerBuckets.length; i++) {
+      if (referrerBuckets[i][0].test(ref)) {
+        sessionStorage.setItem("ft_traffic_source", referrerBuckets[i][1]);
+        return;
+      }
+    }
+    // Known domain but not bucketed → use hostname
+    try {
+      var hostname = new URL(ref).hostname.replace(/^www\./, "");
+      sessionStorage.setItem("ft_traffic_source", "referral / " + hostname);
+    } catch (e) {
+      sessionStorage.setItem("ft_traffic_source", "referral / unknown");
+    }
+  }
+
+  function getTrafficSource() {
+    return sessionStorage.getItem("ft_traffic_source") || "unknown";
+  }
+
+  function wireCalendlyModal() {
+    var modal = document.getElementById("calendly-modal");
+    var embedEl = document.getElementById("calendly-embed");
+    if (!modal || !embedEl) return;
+
+    var iframeCreated = false;
+    var lastFocused = null;
+
+    function openModal() {
+      if (!iframeCreated) {
+        // Show spinner while Calendly loads
+        embedEl.innerHTML =
+          '<div class="calendly-modal__loader">' +
+            '<div class="calendly-modal__loader-spinner"></div>' +
+            '<span>Loading calendar…</span>' +
+          '</div>';
+
+        var iframe = document.createElement("iframe");
+        iframe.src = cfg.bookingUrl +
+          "?embed_domain=firsttouch.app&embed_type=Inline" +
+          "&hide_landing_page_details=1&hide_gdpr_banner=1&background_color=16161A&text_color=ffffff&primary_color=9301BB";
+        iframe.title = "Book a 15-min strategy call with First Touch";
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.style.opacity = "0";
+        iframe.style.transition = "opacity 0.3s ease";
+        iframe.addEventListener("load", function () {
+          var loader = embedEl.querySelector(".calendly-modal__loader");
+          if (loader) loader.remove();
+          iframe.style.opacity = "1";
+        });
+        embedEl.appendChild(iframe);
+        iframeCreated = true;
+      }
+
+      lastFocused = document.activeElement;
+      modal.removeAttribute("hidden");
+      document.body.classList.add("modal-open");
+
+      // Focus close button for keyboard users
+      var closeBtn = document.getElementById("calendly-modal-close");
+      if (closeBtn) closeBtn.focus();
+
+      if (typeof window.plausible === "function") {
+        window.plausible("Calendly Modal Open", { props: { traffic_source: getTrafficSource() } });
+      }
+    }
+
+    function closeModal() {
+      modal.setAttribute("hidden", "");
+      document.body.classList.remove("modal-open");
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    // Open modal on any [data-book-link] click
+    document.addEventListener("click", function (e) {
+      var bookEl = e.target.closest("[data-book-link]");
+      if (bookEl) {
+        e.preventDefault();
+        openModal();
+        return;
+      }
+      // Close on backdrop or close button
+      if (e.target.closest("#calendly-modal-close") || e.target.id === "calendly-modal-backdrop") {
+        closeModal();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.hasAttribute("hidden")) {
+        closeModal();
+      }
     });
   }
 
@@ -60,7 +198,7 @@
       var bookEl = e.target.closest("[data-book-link]");
       if (bookEl) {
         var loc = resolveCtaLocation(bookEl);
-        window.plausible("Calendly CTA Click", { props: { location: loc } });
+        window.plausible("Calendly CTA Click", { props: { location: loc, traffic_source: getTrafficSource() } });
       }
 
       // ── 2. Mailto link clicks
@@ -118,7 +256,12 @@
         "nav-links":    "nav",
         "lead-capture": "lead-capture-section",
         "pricing":      "pricing",
-        "footer":       "footer"
+        "footer":       "footer",
+        "teams":        "teams-section",
+        "cta":          "cta-section",
+        "offer":        "offer-section",
+        "addons":       "addons-section",
+        "faq":          "faq-section"
       };
       return locationMap[id] || id;
     }
@@ -137,12 +280,14 @@
     const legalEl = document.getElementById("legal-line");
     const offerEl = document.getElementById("offer-name-footer");
     const linkedinEl = document.getElementById("linkedin-link");
+    const founderLinkedinEl = document.getElementById("linkedin-founder-link");
     const emailEl = document.getElementById("contact-email");
 
     if (ownerEl) ownerEl.textContent = cfg.brandOwner;
     if (brandEl) brandEl.textContent = cfg.primaryBrand;
     if (offerEl) offerEl.textContent = cfg.offerName;
     if (linkedinEl) linkedinEl.href = cfg.linkedinUrl;
+    if (founderLinkedinEl) founderLinkedinEl.href = cfg.founderLinkedinUrl;
     if (emailEl) emailEl.href = "mailto:" + cfg.contactEmail;
     if (legalEl) legalEl.textContent = cfg.legalCompanyName + " | " + cfg.legalLocation;
   }
@@ -226,7 +371,7 @@
 
         window.location.href = "./thank-you.html?email=" + encodeURIComponent(email);
       } catch (error) {
-        setStatus(error.message || "Something went wrong. Please try again or email jan@firsttouch.app.", true);
+        setStatus(error.message || "Something went wrong. Please try again or email james@firsttouch.app.", true);
         setLoading(false);
       }
     });
@@ -268,7 +413,7 @@
     function setLoading(loading) {
       if (!submitBtn) return;
       submitBtn.disabled = loading;
-      submitBtn.textContent = loading ? "Sending…" : "Send me the JANA Pack";
+      submitBtn.textContent = loading ? "Sending…" : "Send me the Toolkit";
     }
 
     function setStatus(text, isError) {
@@ -281,13 +426,25 @@
 
   function wireThankYou() {
     const dl = document.getElementById("direct-download");
-    if (dl) dl.href = cfg.leadMagnetUrl;
+    if (dl && cfg.leadMagnetUrl) {
+      dl.href = cfg.leadMagnetUrl;
+      // Force browser download rather than navigating to the file
+      dl.setAttribute("download", "jana-offer-pack.md");
+      dl.setAttribute("rel", "noopener");
+
+      // Track download clicks
+      dl.addEventListener("click", function () {
+        if (typeof window.plausible === "function") {
+          window.plausible("Lead Magnet Download", { props: { file: "jana-offer-pack" } });
+        }
+      });
+    }
 
     const params = new URLSearchParams(window.location.search);
     const thanksMessage = document.getElementById("thanks-message");
     const email = params.get("email");
     if (thanksMessage && email) {
-      thanksMessage.textContent = "Thanks. We captured " + email + ". Download your JANA Offer Pack below and bring one workflow to the strategy call.";
+      thanksMessage.textContent = "Thanks — we've captured " + email + ". Download your JANA Offer Pack below and bring one workflow to the strategy call.";
     }
   }
 
@@ -445,6 +602,11 @@
 
   function wireLenis() {
     if (typeof Lenis === "undefined") return;
+    // Fix #1: Skip Lenis on touch devices — native scroll is faster and matches OS physics.
+    // Also skip if user prefers reduced motion.
+    const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (isTouchDevice || prefersReduced) return;
 
     const lenis = new Lenis({
       duration: 1.2,
@@ -464,6 +626,15 @@
   }
 
   function wireGsapAnimations() {
+    // Fix #2: Respect prefers-reduced-motion — CSS rules exist but JS animations override them.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll(".reveal-gsap").forEach(function (el) {
+        el.style.opacity = "1";
+        el.style.transform = "none";
+      });
+      return;
+    }
+
     if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
       // Fallback: show all hidden elements
       document.querySelectorAll(".reveal-gsap").forEach(function (el) {
@@ -603,6 +774,33 @@
     });
   }
 
+  // ── Calendly postMessage listener ────────────────────────────
+  // Fires "Calendly Booking Confirmed" when the user completes a booking inside the iframe.
+  // Calendly dispatches window.postMessage({ event: "calendly.event_scheduled", payload: {...} })
+  // after the confirmation screen is shown.
+  function wireCalendlyPostMessage() {
+    window.addEventListener("message", function (e) {
+      if (!e.data || typeof e.data !== "object") return;
+      var eventName = e.data.event;
+      if (!eventName || typeof eventName !== "string") return;
+
+      var source = getTrafficSource();
+
+      if (eventName === "calendly.event_scheduled") {
+        if (typeof window.plausible === "function") {
+          window.plausible("Calendly Booking Confirmed", { props: { traffic_source: source } });
+        }
+      }
+
+      // Also track when user reaches time selection step (modal engaged, not just opened)
+      if (eventName === "calendly.date_and_time_selected") {
+        if (typeof window.plausible === "function") {
+          window.plausible("Calendly Time Selected", { props: { traffic_source: source } });
+        }
+      }
+    });
+  }
+
   function setMetaByName(name, content) {
     if (!content) return;
     const el = document.querySelector('meta[name="' + name + '"]');
@@ -641,23 +839,42 @@
   mobileCta.textContent = 'Book 15-min Assessment →';
   links.appendChild(mobileCta);
 
+  // Backdrop: semi-transparent overlay behind the nav drawer.
+  // Clicking it closes the drawer (tap-outside-to-close UX).
+  const backdrop = document.createElement('div');
+  backdrop.className = 'nav-backdrop';
+  backdrop.setAttribute('aria-hidden', 'true');
+  links.insertAdjacentElement('afterend', backdrop);
+
+  let _navScrollY = 0;
+
   function openNav() {
     links.classList.add('is-open');
+    backdrop.classList.add('is-visible');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close navigation');
-    document.body.style.overflow = 'hidden';
+    // Fix: use position:fixed to prevent scroll-behind on iOS Safari
+    _navScrollY = window.scrollY;
+    document.body.style.top = '-' + _navScrollY + 'px';
+    document.body.classList.add('nav-open');
   }
 
   function closeNav() {
     links.classList.remove('is-open');
+    backdrop.classList.remove('is-visible');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open navigation');
-    document.body.style.overflow = '';
+    document.body.classList.remove('nav-open');
+    document.body.style.top = '';
+    window.scrollTo(0, _navScrollY);
   }
 
   toggle.addEventListener('click', () => {
     toggle.getAttribute('aria-expanded') === 'true' ? closeNav() : openNav();
   });
+
+  // Tap backdrop to close
+  backdrop.addEventListener('click', closeNav);
 
   // Close when a nav link is clicked
   links.querySelectorAll('a').forEach(a => {

@@ -25,6 +25,8 @@
   <meta name="twitter:description" content="One assistant for coding, writing, planning, meeting transcripts, actions, and recurring management reporting.">
   <meta name="twitter:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
 
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -57,6 +59,7 @@
         <a href="#pricing">Pricing</a>
         <a href="#team">Team</a>
         <a href="#faq">FAQ</a>
+        <a href="/blog">Blog</a>
         <a class="nav-mobile-cta" data-book-link href="#">Book 15-min Assessment &rarr;</a>
       </nav>
 
@@ -81,15 +84,15 @@
           <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>AI Execution Engine &nbsp;·&nbsp; EU &amp; UK &nbsp;·&nbsp; Live in 8 Days</p>
           <h1>Not another chatbot. An AI that executes.</h1>
           <p class="hero-lead">
-            One Telegram message triggers a chain of autonomous actions: meetings transcribed, reports written, prospects followed up, multi-step workflows completed — on your own private server, zero vendor lock-in.
+            One message triggers it all — meetings transcribed, reports sent, workflows done. Your server, your data, GDPR-compliant.
           </p>
-          <p class="hero-subline">8-day deployment &nbsp;·&nbsp; Measurable ROI in 3 weeks &nbsp;·&nbsp; Your data, your server</p>
+          <p class="hero-subline">8-day deployment · Measurable ROI in 3 weeks · Your data, your server</p>
 
           <div class="hero-actions">
             <div class="hero-cta-group">
               <a class="btn btn-hero-cta" data-book-link href="#">Book Free 15-Min Strategy Call &rarr;</a>
               <p class="hero-cta-micro">No commitment &nbsp;·&nbsp; Custom AI roadmap &nbsp;·&nbsp; Live in 8 days</p>
-              <p class="hero-cta-fallback">Prefer email? <a data-mailto-link href="mailto:jan@firsttouch.app?subject=First%20Touch%20Inquiry">jan@firsttouch.app</a></p>
+              <p class="hero-cta-fallback">Prefer email? <a data-mailto-link href="mailto:james@firsttouch.app?subject=First%20Touch%20Inquiry">james@firsttouch.app</a></p>
             </div>
             <a class="btn btn-ghost" href="#how-it-works">See how it works &darr;</a>
           </div>
@@ -116,8 +119,19 @@
 
         <aside class="hero-visual" aria-label="First Touch orchestration visual">
           <figure class="visual-frame visual-hero">
+            <!-- Fix #8: Added sizes attribute so browsers download correctly-sized asset on mobile.
+                 Generate variants: npx sharp-cli -i hero-telegram-orchestration.webp -o hero-telegram-orchestration-400w.webp resize 400
+                 Until variants exist the full asset is used as fallback — no regression. -->
             <picture>
-              <source srcset="./assets/hero-telegram-orchestration.webp" type="image/webp">
+              <source
+                type="image/webp"
+                srcset="
+                  ./assets/hero-telegram-orchestration-400w.webp 400w,
+                  ./assets/hero-telegram-orchestration-800w.webp 800w,
+                  ./assets/hero-telegram-orchestration.webp      2752w
+                "
+                sizes="(max-width: 480px) 100vw, (max-width: 1100px) 100vw, 50vw"
+              >
               <img src="./assets/hero-telegram-orchestration.png" alt="Founder controlling enterprise operations from Telegram through AI agent orchestration" width="2752" height="1536" loading="eager" fetchpriority="high" decoding="sync">
             </picture>
           </figure>
@@ -1067,10 +1081,11 @@
         </div>
 
         <p class="pricing-fallback-note reveal-gsap">
-          Not ready to schedule? Email Jan directly: <a data-mailto-link href="mailto:jan@firsttouch.app?subject=First%20Touch%20Inquiry">jan@firsttouch.app</a>
+          Not ready to schedule? Email us: <a data-mailto-link href="mailto:james@firsttouch.app?subject=First%20Touch%20Inquiry">james@firsttouch.app</a>
         </p>
 
-        <!-- Feature comparison table -->
+        <!-- Fix #6: Scroll wrapper adds right-side fade hint on mobile when table overflows -->
+        <div class="pricing-compare-scroll-wrap">
         <div class="pricing-compare reveal-gsap">
           <div class="pricing-compare-header">
             <div>Feature</div>
@@ -1168,6 +1183,9 @@
             <div class="compare-yes">✓ Full €500</div>
           </div>
         </div>
+
+        </div><!-- /.pricing-compare-scroll-wrap -->
+        <p class="table-scroll-hint" aria-hidden="true">← Scroll to compare →</p>
 
         <p class="pricing-note reveal-gsap">
           All plans include GDPR-compliant DPA documentation, full audit trail, and first-30-day ROI review.
@@ -1615,15 +1633,277 @@
     </div>
   </footer>
 
-  <script id="org-schema" type="application/ld+json"></script>
-  <script id="software-schema" type="application/ld+json"></script>
-  <script id="faq-schema" type="application/ld+json"></script>
-  <script id="breadcrumb-schema" type="application/ld+json"></script>
+  <script id="software-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "First Touch",
+    "url": "https://firsttouch.app",
+    "description": "First Touch is an all-in-one AI manager operating system: global context, best-model orchestration, action workflows, meeting transcription, planning, coding support, and recurring management reporting — deployed on your own infrastructure.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Telegram",
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "B2B",
+      "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 20, "maxValue": 200 }
+    },
+    "featureList": [
+      "Persistent global business context",
+      "Multi-model orchestration (Claude, GPT-4, Ollama)",
+      "Meeting transcription and automated action items",
+      "Autonomous workflow execution",
+      "Executive KPI scoreboard",
+      "GDPR-compliant audit trail",
+      "Role-based access control (RBAC)",
+      "M365 and Google Workspace integrations"
+    ],
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Pilot",
+        "price": "500",
+        "priceCurrency": "EUR",
+        "description": "14-day live pilot: 1 workflow deployed in 8 days, meeting transcription + action items, GDPR DPA, daily async support, ROI measurement framework. Full €500 credited toward Month 1 of any plan.",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "500",
+          "priceCurrency": "EUR",
+          "billingDuration": "P14D"
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Starter",
+        "price": "400",
+        "priceCurrency": "EUR",
+        "description": "1 integrated workflow lane, meeting transcription + action items, basic reporting template, GDPR-compliant DPA documentation, email support. One-time setup fee: €2,500.",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "400",
+          "priceCurrency": "EUR",
+          "billingDuration": "P1M"
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Premium",
+        "price": "1250",
+        "priceCurrency": "EUR",
+        "description": "Full AI Chief of Staff: 3 integrated workflow lanes, global context + semantic memory, executive KPI scoreboard, autonomy governance matrix, quarterly model optimization, priority support. One-time setup: €7,500.",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "1250",
+          "priceCurrency": "EUR",
+          "billingDuration": "P1M"
+        }
+      }
+    ],
+    "provider": {
+      "@type": "Organization",
+      "name": "First Touch",
+      "url": "https://firsttouch.app"
+    }
+  }
+  </script>
+
+  <script id="faq-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this just a ChatGPT wrapper?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. First Touch is a model-agnostic execution layer deployed on your own infrastructure — not a chat interface pointed at a single API. It routes tasks to the best model (Claude, GPT-4, local Ollama) based on sensitivity and complexity, holds persistent business context across sessions, and takes real autonomous actions: assigning tasks, updating calendars, triggering workflows. Every action is logged with a full audit trail. A ChatGPT wrapper does none of that."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can it really handle coding, writing, planning, and reporting in one place?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — because all of those tasks share the same underlying need: persistent business context and best-model routing. The assistant drafts strategy documents using your live company context, supports technical planning and code scaffolding, transcribes meetings and extracts action items, and auto-generates weekly leadership reports in your format. Context built during a planning session is immediately available when generating the follow-up report — nothing resets between tasks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do we need to replace CRM, ERP, calendar, or support systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — and this is by design. First Touch sits above your current stack as an orchestration layer, connecting to your existing tools through integrations rather than replacing them. Your CRM stays your CRM. Your calendar stays your calendar. The assistant reads from and writes to those systems on your behalf, meaning your team keeps using the tools they already know while the coordination overhead disappears."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is compliance handled for autonomous actions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Through four layered controls. First, a governance threshold matrix defines exactly which action types the assistant can take autonomously vs. which require human approval. Second, role-based access control (RBAC) ensures users and the assistant only operate within their permitted scope. Third, every AI call and resulting action is logged in a tamper-evident audit trail — timestamped, attributed, and exportable. Fourth, sensitive data operations can be routed exclusively to local models (Ollama on your VPS), so no data ever leaves your infrastructure. GDPR-compliant DPA documentation is included from day one."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who should own this internally?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most effective ownership model: COO or Head of Operations as the primary business owner (defines workflows, governs autonomy thresholds, monitors KPIs), with IT/Security as the technical sign-off authority (reviews architecture, manages VPS access, approves integration scopes), and CEO or C-suite as the executive sponsor (allocates pilot budget, unblocks integration access)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the first step before a pilot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A 15-minute workflow assessment call — we identify the one high-friction lane with the clearest business cost (usually meeting overhead, report generation, or intake routing), define three baseline KPIs to measure before and after, and map your governance thresholds. From that call, you get a written implementation scope and a go/no-go decision framework so your team can evaluate fit without a long procurement process."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a full deployment take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a Starter pilot focused on one workflow lane — typically 8–14 days from contract signature to first live test. This covers VPS provisioning, context upload, integration connections, and governance configuration. Premium deployments with 3 workflow lanes and full context architecture run 3–5 weeks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if we already use Microsoft 365 or Google Workspace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both are supported as first-class integrations. First Touch connects to your calendar (Google Calendar or Outlook), reads from and writes to documents (Google Docs or SharePoint), and processes meeting recordings from Teams or Meet. You don't migrate or change tools — the assistant surfaces inside your existing workflow via Telegram while operating on data that lives in your M365 or GWS environment. All data access is scoped, logged, and reversible."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the cost compare to hiring a Chief of Staff?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A senior Chief of Staff in Central Europe costs €60,000–€90,000 per year in salary alone, plus benefits and 3–6 months onboarding. First Touch at the Premium tier is €15,000/year all-in — operating 24/7, handling multiple parallel workflows, never resetting context, and delivering the first measurable delta within 30 days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is our data handled — GDPR and EU compliance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All data remains within your infrastructure — VPS, private cloud, or your own servers. We do not store client data on our systems. A GDPR-compliant Data Processing Agreement (DPA) is included in every plan. Enterprise customers can opt for EU-resident infrastructure with full data residency documentation. We operate under EU law and accommodate DSGVO / GDPR requirements for any EU jurisdiction."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What exactly is the Pilot — and how does the €500 credit work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Pilot is a 14-day live engagement: we deploy one real workflow inside your business (e.g. meeting transcription + follow-up, or a reporting automation), you see actual output, and we measure time saved together. The flat €500 fee covers setup and daily support during the pilot. If you then move to Starter or Premium, the full €500 is credited against your Month 1 invoice. If you decide not to proceed, you keep everything deployed."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script id="org-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "First Touch",
+    "url": "https://firsttouch.app",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://firsttouch.app/assets/firsttouch-icon.svg",
+      "width": 32,
+      "height": 32
+    },
+    "image": "https://firsttouch.app/assets/og-firsttouch.jpg",
+    "description": "First Touch is an all-in-one AI manager operating system for B2B companies in Europe — persistent business context, multi-model orchestration, autonomous workflow execution, and GDPR-compliant governance controls.",
+    "founder": {
+      "@type": "Person",
+      "name": "James Harrington",
+      "jobTitle": "CEO",
+      "email": "james@firsttouch.app"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "London",
+      "addressCountry": "GB"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "james@firsttouch.app",
+      "contactType": "sales",
+      "areaServed": ["GB", "EU"],
+      "availableLanguage": "English"
+    },
+    "areaServed": ["GB", "EU"],
+    "knowsAbout": [
+      "AI workflow automation",
+      "Enterprise AI assistant",
+      "GDPR-compliant AI",
+      "Multi-model AI orchestration",
+      "Executive productivity software"
+    ]
+  }
+  </script>
+
+  <script id="breadcrumb-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://firsttouch.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "How It Works",
+        "item": "https://firsttouch.app/#how-it-works"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Pricing",
+        "item": "https://firsttouch.app/#pricing"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "FAQ",
+        "item": "https://firsttouch.app/#faq"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Calendly inline booking modal — opened by any [data-book-link] CTA -->
+  <div id="calendly-modal" class="calendly-modal" role="dialog" aria-modal="true" aria-label="Book a 15-min strategy call" hidden>
+    <div class="calendly-modal__backdrop" id="calendly-modal-backdrop"></div>
+    <div class="calendly-modal__panel">
+      <div class="calendly-modal__header">
+        <span class="calendly-modal__title">Book a Free 15-Min Strategy Call</span>
+        <button class="calendly-modal__close" id="calendly-modal-close" aria-label="Close booking modal">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="calendly-modal__embed" id="calendly-embed">
+        <!-- iframe injected on first open to avoid render-blocking Calendly on page load -->
+      </div>
+    </div>
+  </div>
 
   <!-- Sticky CTA Bar — mobile only, wired via data-book-link -->
   <div id="sticky-cta" class="sticky-cta" aria-label="Book a workflow assessment">
     <p class="sticky-cta__text">10 hours of leadership time back per week — in 30 days.</p>
-    <a data-book-link href="#" class="sticky-cta__btn" id="sticky-cta-btn" target="_blank" rel="noreferrer noopener">
+    <a data-book-link href="#" class="sticky-cta__btn" id="sticky-cta-btn">
       Book Free Assessment
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
