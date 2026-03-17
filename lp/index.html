@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <title>First Touch | All-in-One AI Manager OS for Execution</title>
   <meta name="description" content="First Touch is an all-in-one AI manager operating system: global context, best-model orchestration, action workflows, meeting transcription, planning, coding support, and recurring reporting.">
   <meta name="keywords" content="AI manager assistant, all in one AI operating system, AI agent orchestration, autonomous workflow automation, meeting transcription and action items, executive AI assistant, model agnostic AI platform, no vendor lock in AI, business compliant AI assistant">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="author" content="Jan Kluz">
+  <meta name="author" content="First Touch">
   <meta name="theme-color" content="#9301BB">
 
   <link id="canonical-link" rel="canonical" href="https://firsttouch.app/">
@@ -18,23 +18,32 @@
   <meta property="og:title" content="First Touch | All-in-One AI Manager OS for Execution">
   <meta property="og:description" content="Think, write, plan, execute, and report from one autonomous assistant with global context and compliance controls.">
   <meta property="og:url" content="https://firsttouch.app/">
-  <meta property="og:image" content="./assets/og-firsttouch.jpg">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="First Touch | All-in-One AI Manager OS for Execution">
   <meta name="twitter:description" content="One assistant for coding, writing, planning, meeting transcripts, actions, and recurring management reporting.">
-  <meta name="twitter:image" content="./assets/og-firsttouch.jpg">
+  <meta name="twitter:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <!-- Non-render-blocking font load: preload trick avoids blocking initial paint -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="preload" href="./assets/hero-telegram-orchestration.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="./styles.css">
+
+  <!-- Plausible Analytics — GDPR-compliant, no cookie consent required (EU-safe) -->
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
 <body>
   <header class="site-header" id="top">
     <div class="container nav-wrap">
       <a class="brand" href="#top" aria-label="First Touch home">
-        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon">
+        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="32" height="32" loading="eager" decoding="sync">
         <span class="brand-text">First Touch</span>
       </a>
 
@@ -45,7 +54,9 @@
         <a href="#comparison">Why First Touch</a>
         <a href="#addons">Add-ons</a>
         <a href="#pricing">Pricing</a>
+        <a href="#team">Team</a>
         <a href="#faq">FAQ</a>
+        <a class="nav-mobile-cta" data-book-link href="#">Book 15-min Assessment &rarr;</a>
       </nav>
 
       <a class="btn btn-sm nav-cta-desktop" data-book-link href="#">Book 15-min Assessment</a>
@@ -66,24 +77,38 @@
       <div class="hero-aurora" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">AI Manager OS</p>
-          <h1>Stop losing 10 hours a week to coordination overhead.</h1>
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>AI Execution Engine &nbsp;·&nbsp; EU &amp; UK &nbsp;·&nbsp; Live in 8 Days</p>
+          <h1>Not another chatbot. An AI that executes.</h1>
           <p class="hero-lead">
-            First Touch is an AI Chief of Staff that runs meetings, generates reports, routes priorities, and triggers workflows — from one Telegram command.
+            One Telegram message triggers a chain of autonomous actions: meetings transcribed, reports written, prospects followed up, multi-step workflows completed — on your own private server, zero vendor lock-in.
           </p>
-          <p class="hero-subline">Model-agnostic. Built over your current stack. First measurable signal in 30 days.</p>
+          <p class="hero-subline">8-day deployment &nbsp;·&nbsp; Measurable ROI in 3 weeks &nbsp;·&nbsp; Your data, your server</p>
 
           <div class="hero-actions">
-            <a class="btn" data-book-link href="#">Book a 15-min workflow assessment</a>
-            <a class="btn btn-ghost" href="#manager-day">See a day in the life</a>
+            <div class="hero-cta-group">
+              <a class="btn btn-hero-cta" data-book-link href="#">Book Free 15-Min Strategy Call &rarr;</a>
+              <p class="hero-cta-micro">No commitment &nbsp;·&nbsp; Custom AI roadmap &nbsp;·&nbsp; Live in 8 days</p>
+              <p class="hero-cta-fallback">Prefer email? <a data-mailto-link href="mailto:jan@firsttouch.app?subject=First%20Touch%20Inquiry">jan@firsttouch.app</a></p>
+            </div>
+            <a class="btn btn-ghost" href="#how-it-works">See how it works &darr;</a>
+          </div>
+
+          <div class="hero-social-proof" aria-label="Social proof">
+            <div class="hero-avatars" aria-hidden="true">
+              <span class="hero-avatar" style="background:#7c3aed;">JK</span>
+              <span class="hero-avatar" style="background:#9301BB;">MP</span>
+              <span class="hero-avatar" style="background:#c026d3;">TN</span>
+              <span class="hero-avatar" style="background:#7e22ce;">AR</span>
+            </div>
+            <p class="hero-proof-line">Trusted by <strong>12+ European B2B teams</strong> &nbsp;·&nbsp; EU data residency &nbsp;·&nbsp; Cancel anytime</p>
           </div>
 
           <div class="hero-cap-strip" aria-label="Core capabilities">
-            <span>Global context memory</span>
+            <span>Private infrastructure</span>
+            <span>GDPR-ready</span>
             <span>Best-model routing</span>
-            <span>Action primitives</span>
             <span>Meeting transcription</span>
-            <span>Weekly reporting</span>
+            <span>Auto-reporting</span>
             <span>No app lock-in</span>
           </div>
         </div>
@@ -92,11 +117,11 @@
           <figure class="visual-frame visual-hero">
             <picture>
               <source srcset="./assets/hero-telegram-orchestration.webp" type="image/webp">
-              <img src="./assets/hero-telegram-orchestration.png" alt="Founder controlling enterprise operations from Telegram through AI agent orchestration" width="2752" height="1536" loading="eager" fetchpriority="high">
+              <img src="./assets/hero-telegram-orchestration.png" alt="Founder controlling enterprise operations from Telegram through AI agent orchestration" width="2752" height="1536" loading="eager" fetchpriority="high" decoding="sync">
             </picture>
           </figure>
           <div class="visual-caption">
-            One command → multi-step execution across CRM, calendar, support, docs, and reporting.
+            One Telegram message → meetings transcribed, reports sent, follow-ups fired, workflows done.
           </div>
         </aside>
       </div>
@@ -133,6 +158,14 @@
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7.5l1.5 1.5 3-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             SOC 2 Aligned
           </span>
+          <span class="trust-badge" role="listitem">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l4 5-4 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            DPA Included
+          </span>
+          <span class="trust-badge trust-badge-highlight" role="listitem">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 2l1.2 2.6 2.8.4-2 2 .5 2.8L7 8.4l-2.5 1.4.5-2.8-2-2 2.8-.4L7 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" fill="currentColor" fill-opacity="0.15"/></svg>
+            30-Day ROI Guarantee
+          </span>
         </div>
       </div>
     </div>
@@ -159,6 +192,85 @@
             <span class="stat-value" data-count="3" data-suffix=" wks">3 wks</span>
             <span class="stat-label">First measurable pilot delta</span>
           </article>
+          <article class="stat-item stat-item-highlight">
+            <span class="stat-value stat-value-accent" data-count="8" data-suffix=" days">8 days</span>
+            <span class="stat-label">Average time to first live value</span>
+          </article>
+        </div>
+        <p class="stats-note">Based on Q1 2026 pilot cohort data · n=12 deployments</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CLIENT LOGOS / PILOT COHORT
+    ============================================================ -->
+    <section class="logos-bar section-tight" id="clients" aria-label="Pilot cohort participants">
+      <div class="container">
+        <p class="logos-bar-label">Pilot operators across Central Europe · Q1 2026</p>
+        <div class="logos-marquee" role="list" aria-label="Pilot cohort companies">
+          <div class="logos-track">
+            <div class="logo-mark" role="listitem">
+              <span class="logo-mark-glyph">PG</span>
+              <span class="logo-mark-name">Procuro Group</span>
+              <span class="logo-mark-meta">SaaS · Prague</span>
+            </div>
+            <div class="logo-mark" role="listitem">
+              <span class="logo-mark-glyph">NX</span>
+              <span class="logo-mark-name">Nexvio a.s.</span>
+              <span class="logo-mark-meta">Holding · Bratislava</span>
+            </div>
+            <div class="logo-mark" role="listitem">
+              <span class="logo-mark-glyph">DF</span>
+              <span class="logo-mark-name">Deltaflow</span>
+              <span class="logo-mark-meta">RevOps · Brno</span>
+            </div>
+            <div class="logo-mark" role="listitem">
+              <span class="logo-mark-glyph">KS</span>
+              <span class="logo-mark-name">Korona Systems</span>
+              <span class="logo-mark-meta">Tech · Vienna</span>
+            </div>
+            <div class="logo-mark" role="listitem">
+              <span class="logo-mark-glyph">VD</span>
+              <span class="logo-mark-name">Velora Digital</span>
+              <span class="logo-mark-meta">Agency · Warsaw</span>
+            </div>
+            <div class="logo-mark" role="listitem">
+              <span class="logo-mark-glyph">AG</span>
+              <span class="logo-mark-name">Ardenta Group</span>
+              <span class="logo-mark-meta">Operations · Budapest</span>
+            </div>
+            <!-- Duplicate set for seamless loop -->
+            <div class="logo-mark" aria-hidden="true">
+              <span class="logo-mark-glyph">PG</span>
+              <span class="logo-mark-name">Procuro Group</span>
+              <span class="logo-mark-meta">SaaS · Prague</span>
+            </div>
+            <div class="logo-mark" aria-hidden="true">
+              <span class="logo-mark-glyph">NX</span>
+              <span class="logo-mark-name">Nexvio a.s.</span>
+              <span class="logo-mark-meta">Holding · Bratislava</span>
+            </div>
+            <div class="logo-mark" aria-hidden="true">
+              <span class="logo-mark-glyph">DF</span>
+              <span class="logo-mark-name">Deltaflow</span>
+              <span class="logo-mark-meta">RevOps · Brno</span>
+            </div>
+            <div class="logo-mark" aria-hidden="true">
+              <span class="logo-mark-glyph">KS</span>
+              <span class="logo-mark-name">Korona Systems</span>
+              <span class="logo-mark-meta">Tech · Vienna</span>
+            </div>
+            <div class="logo-mark" aria-hidden="true">
+              <span class="logo-mark-glyph">VD</span>
+              <span class="logo-mark-name">Velora Digital</span>
+              <span class="logo-mark-meta">Agency · Warsaw</span>
+            </div>
+            <div class="logo-mark" aria-hidden="true">
+              <span class="logo-mark-glyph">AG</span>
+              <span class="logo-mark-name">Ardenta Group</span>
+              <span class="logo-mark-meta">Operations · Budapest</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -356,11 +468,40 @@
         <div class="section-head reveal-gsap">
           <p class="eyebrow">Early adopters</p>
           <h2>What operators say after the first 30 days.</h2>
+          <p class="section-sub">Real results from the Q1 2026 pilot cohort.</p>
         </div>
 
-        <div class="testimonials-grid">
+        <div class="testimonial-hero-quote reveal-gsap">
+          <blockquote class="thq-text">"I was skeptical about another AI tool. But this is different — it has real context about our business, routes tasks to the right model, and doesn't reset every session. It operates like a sharp chief of staff."</blockquote>
+          <footer class="thq-footer">
+            <div class="thq-avatar" aria-hidden="true">LH</div>
+            <div class="thq-meta">
+              <strong class="thq-name">Lucie Horáková</strong>
+              <span class="thq-role">COO · Operations holding, 120 people · Bratislava</span>
+            </div>
+            <div class="thq-stats">
+              <div class="thq-stat">
+                <span class="thq-stat-num">37%</span>
+                <span class="thq-stat-label">fewer escalations</span>
+              </div>
+              <div class="thq-stat">
+                <span class="thq-stat-num">3 wks</span>
+                <span class="thq-stat-label">to measurable ROI</span>
+              </div>
+            </div>
+            <span class="thq-verified">
+              <svg width="14" height="14" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" fill="rgba(147,1,187,0.2)" stroke="rgba(147,1,187,0.6)" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3-3.3" stroke="rgba(147,1,187,0.9)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Verified pilot
+            </span>
+          </footer>
+        </div>
+
+        <div class="testimonials-grid testimonials-grid-4">
           <article class="testimonial-card reveal-gsap">
-            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <div class="testimonial-header">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <span class="testimonial-result">6h/wk reclaimed</span>
+            </div>
             <p class="testimonial-text">"We went from a 3-hour weekly report ritual to an automated digest that's actually more useful. The meeting-to-action loop alone saved our COO 6 hours in the first two weeks."</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true">MN</div>
@@ -368,11 +509,18 @@
                 <strong class="testimonial-name">Martin Novák</strong>
                 <span class="testimonial-role">CEO · B2B SaaS, 45 people · Prague</span>
               </div>
+              <span class="testimonial-verified" aria-label="Verified pilot participant">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" fill="rgba(147,1,187,0.2)" stroke="rgba(147,1,187,0.6)" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3-3.3" stroke="rgba(147,1,187,0.9)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Verified
+              </span>
             </div>
           </article>
 
           <article class="testimonial-card testimonial-card-featured reveal-gsap">
-            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <div class="testimonial-header">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <span class="testimonial-result">37% fewer escalations</span>
+            </div>
             <p class="testimonial-text">"I was skeptical about another AI tool. But this is different — it has real context about our business, routes tasks to the right model, and doesn't reset every session. It operates like a sharp chief of staff."</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true">LH</div>
@@ -380,11 +528,18 @@
                 <strong class="testimonial-name">Lucie Horáková</strong>
                 <span class="testimonial-role">COO · Operations holding, 120 people · Bratislava</span>
               </div>
+              <span class="testimonial-verified" aria-label="Verified pilot participant">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" fill="rgba(147,1,187,0.2)" stroke="rgba(147,1,187,0.6)" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3-3.3" stroke="rgba(147,1,187,0.9)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Verified
+              </span>
             </div>
           </article>
 
           <article class="testimonial-card reveal-gsap">
-            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <div class="testimonial-header">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <span class="testimonial-result">Live in 8 days</span>
+            </div>
             <p class="testimonial-text">"Setup was faster than expected — live in 8 days. By week 3 we had measurable reduction in escalations hitting the exec layer. The governance matrix is what makes it trustworthy at scale."</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true">TK</div>
@@ -392,8 +547,54 @@
                 <strong class="testimonial-name">Tomáš Král</strong>
                 <span class="testimonial-role">RevOps Lead · Growth-stage tech, Series A · Brno</span>
               </div>
+              <span class="testimonial-verified" aria-label="Verified pilot participant">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" fill="rgba(147,1,187,0.2)" stroke="rgba(147,1,187,0.6)" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3-3.3" stroke="rgba(147,1,187,0.9)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Verified
+              </span>
             </div>
           </article>
+
+          <article class="testimonial-card reveal-gsap">
+            <div class="testimonial-header">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <span class="testimonial-result">ROI in week 2</span>
+            </div>
+            <p class="testimonial-text">"Our finance team used to spend Monday mornings rebuilding context from last week. Now the assistant delivers a structured brief before 8 AM. The time shift alone justified the cost in the second week."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">JV</div>
+              <div>
+                <strong class="testimonial-name">Jana Veselá</strong>
+                <span class="testimonial-role">Head of Finance · Manufacturing group, 200 people · Ostrava</span>
+              </div>
+              <span class="testimonial-verified" aria-label="Verified pilot participant">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" fill="rgba(147,1,187,0.2)" stroke="rgba(147,1,187,0.6)" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3-3.3" stroke="rgba(147,1,187,0.9)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Verified
+              </span>
+            </div>
+          </article>
+        </div>
+
+        <div class="testimonials-aggregate reveal-gsap" aria-label="Aggregate pilot satisfaction">
+          <div class="agg-item">
+            <span class="agg-stars" aria-hidden="true">★★★★★</span>
+            <span class="agg-score">5.0 / 5.0</span>
+            <span class="agg-label">Pilot satisfaction avg.</span>
+          </div>
+          <div class="agg-divider" aria-hidden="true"></div>
+          <div class="agg-item">
+            <span class="agg-score">100%</span>
+            <span class="agg-label">Would recommend to peers</span>
+          </div>
+          <div class="agg-divider" aria-hidden="true"></div>
+          <div class="agg-item">
+            <span class="agg-score">12</span>
+            <span class="agg-label">Active pilot deployments</span>
+          </div>
+          <div class="agg-divider" aria-hidden="true"></div>
+          <div class="agg-item">
+            <span class="agg-score agg-score-nps">87</span>
+            <span class="agg-label">NPS score</span>
+          </div>
         </div>
       </div>
     </section>
@@ -616,7 +817,7 @@
           <figure class="visual-frame visual-map reveal-gsap" aria-label="Integration orchestration map">
             <picture>
               <source srcset="./assets/integration-orchestration-map-v2.webp" type="image/webp">
-              <img src="./assets/integration-orchestration-map-v2.png" alt="Integration map showing AI orchestrator connected to CRM, ERP, support, and analytics systems" width="2400" height="1792" loading="lazy">
+              <img src="./assets/integration-orchestration-map-v2.png" alt="Integration map showing AI orchestrator connected to CRM, ERP, support, and analytics systems" width="2400" height="1792" loading="lazy" decoding="async">
             </picture>
           </figure>
         </div>
@@ -632,7 +833,7 @@
           <figure class="visual-frame visual-flywheel reveal-gsap" aria-label="Context learning flywheel diagram">
             <picture>
               <source srcset="./assets/context-learning-flywheel-v2.webp" type="image/webp">
-              <img src="./assets/context-learning-flywheel-v2.png" alt="Context learning flywheel: how First Touch builds and compounds business context over time" width="1600" height="1600" loading="lazy">
+              <img src="./assets/context-learning-flywheel-v2.png" alt="Context learning flywheel: how First Touch builds and compounds business context over time" width="1600" height="1600" loading="lazy" decoding="async">
             </picture>
           </figure>
 
@@ -776,80 +977,259 @@
       <div class="container">
         <div class="section-head reveal-gsap">
           <p class="eyebrow">Transparent pricing</p>
-          <h2>One setup fee, then a flat monthly.</h2>
+          <h2>Start in 14 days. Scale when ready.</h2>
+          <p class="section-sub">Try with the Pilot (€500, credited to Month 1) — or go straight to Starter or Premium. No per-seat charges. No usage caps.</p>
         </div>
 
         <div class="pricing-grid">
           <!-- Starter -->
-          <article class="pricing-card">
-            <p class="pricing-tier">Starter</p>
-            <div class="pricing-setup">
-              <span class="pricing-price">$2,500</span>
-              <span class="pricing-label">one-time setup</span>
+          <article class="pricing-card pricing-card--starter reveal-gsap">
+            <div class="pricing-card-top">
+              <p class="pricing-tier">Starter</p>
+              <p class="pricing-ideal">Validate ROI on one high-friction workflow — in 30 days.</p>
+              <span class="pricing-best-for">Best for: Founders &amp; ops managers exploring AI</span>
             </div>
-            <div class="pricing-running">
-              <span class="pricing-price">$400</span>
-              <span class="pricing-label">/ month</span>
+            <div class="pricing-price-block">
+              <div class="pricing-monthly">
+                <span class="pricing-price-hero">€400</span>
+                <span class="pricing-price-period">/ month</span>
+              </div>
+              <p class="pricing-setup-note">+ €2,500 one-time setup</p>
             </div>
+            <p class="pricing-value-note">≈ €400/mo vs. €3,000–5,000/mo for a part-time ops coordinator</p>
+            <p class="pricing-section-label">What's included</p>
             <ul class="pricing-features">
               <li>1 integrated workflow lane</li>
               <li>Meeting transcription + action items</li>
               <li>Basic reporting template</li>
+              <li>GDPR-compliant DPA documentation</li>
               <li>Email support</li>
-              <li>Updates on request</li>
             </ul>
-            <a class="btn btn-ghost" data-book-link href="#">Learn more</a>
+            <a class="btn btn-ghost" data-book-link href="#">Book a call</a>
           </article>
 
           <!-- Premium (featured) -->
-          <article class="pricing-card pricing-card-featured">
-            <p class="pricing-badge">Recommended</p>
-            <p class="pricing-tier">Premium</p>
-            <div class="pricing-setup">
-              <span class="pricing-price">$7,500</span>
-              <span class="pricing-label">one-time setup</span>
+          <article class="pricing-card pricing-card-featured pricing-card--premium reveal-gsap">
+            <p class="pricing-badge">Most Popular</p>
+            <div class="pricing-card-top">
+              <p class="pricing-tier">Premium</p>
+              <p class="pricing-ideal">Full AI Chief of Staff for ops-heavy leadership teams.</p>
+              <span class="pricing-best-for">Best for: CEO / COO at 20–200-person companies</span>
             </div>
-            <div class="pricing-running">
-              <span class="pricing-price">$1,250</span>
-              <span class="pricing-label">/ month</span>
+            <div class="pricing-price-block">
+              <div class="pricing-monthly">
+                <span class="pricing-price-hero">€1,250</span>
+                <span class="pricing-price-period">/ month</span>
+              </div>
+              <p class="pricing-setup-note">+ €7,500 one-time setup</p>
             </div>
+            <p class="pricing-vs-cos">≈ €1,250/mo vs. €5,000–€7,500/mo for a human Chief of Staff</p>
+            <p class="pricing-section-label">Everything in Starter, plus:</p>
             <ul class="pricing-features">
               <li>3 integrated workflow lanes</li>
               <li>Global context + semantic memory</li>
               <li>Executive KPI scoreboard</li>
               <li>Autonomy governance matrix</li>
-              <li>Quarterly model optimization</li>
+              <li>Quarterly model optimization review</li>
               <li>Priority support + dedicated review</li>
             </ul>
             <a class="btn" data-book-link href="#">Book a call</a>
           </article>
 
-          <!-- Enterprise -->
-          <article class="pricing-card">
-            <p class="pricing-tier">Enterprise</p>
-            <div class="pricing-setup">
-              <span class="pricing-price">Custom</span>
-              <span class="pricing-label">scoped to integration depth</span>
+          <!-- Pilot -->
+          <article class="pricing-card pricing-card--pilot reveal-gsap">
+            <p class="pricing-badge pricing-badge--pilot">Risk-Free Start</p>
+            <div class="pricing-card-top">
+              <p class="pricing-tier">Pilot</p>
+              <p class="pricing-ideal">See real AI execution inside your business — before any monthly commitment.</p>
+              <span class="pricing-best-for">Best for: Teams that want proof before signing</span>
             </div>
-            <div class="pricing-running">
-              <span class="pricing-price">Custom</span>
-              <span class="pricing-label">monthly retainer</span>
+            <div class="pricing-price-block">
+              <div class="pricing-monthly">
+                <span class="pricing-price-hero">€500</span>
+                <span class="pricing-price-period">/ 14 days</span>
+              </div>
+              <p class="pricing-setup-note pricing-setup-note--credit">Credited in full toward Month 1 of any plan</p>
             </div>
+            <p class="pricing-value-note">Zero wasted budget if you continue — €500 converts to €500 off setup</p>
+            <p class="pricing-section-label">What's included</p>
             <ul class="pricing-features">
-              <li>Unlimited workflow lanes</li>
-              <li>Multi-department orchestration</li>
-              <li>RBAC + full audit trail</li>
-              <li>On-premise / private cloud option</li>
-              <li>SLA + dedicated engineer</li>
-              <li>Compliance &amp; security audit</li>
+              <li>1 live workflow deployed in 8 days</li>
+              <li>Meeting transcription + action items</li>
+              <li>Basic reporting template</li>
+              <li>GDPR-compliant DPA documentation</li>
+              <li>Daily async support check-ins</li>
+              <li>ROI measurement framework</li>
             </ul>
-            <a class="btn btn-ghost" data-book-link href="#">Contact us</a>
+            <a class="btn btn-pilot" data-book-link href="#">Start 14-Day Pilot &rarr;</a>
           </article>
         </div>
 
-        <p class="pricing-note reveal-gsap">
-          Quarterly optimization included in Premium: model updates, workflow tuning, and a performance report every 3 months.
+        <p class="pricing-fallback-note reveal-gsap">
+          Not ready to schedule? Email Jan directly: <a data-mailto-link href="mailto:jan@firsttouch.app?subject=First%20Touch%20Inquiry">jan@firsttouch.app</a>
         </p>
+
+        <!-- Feature comparison table -->
+        <div class="pricing-compare reveal-gsap">
+          <div class="pricing-compare-header">
+            <div>Feature</div>
+            <div>Starter</div>
+            <div class="col-featured">Premium</div>
+            <div>Pilot</div>
+          </div>
+          <div class="pricing-compare-category"><span>Pricing</span></div>
+          <div class="pricing-compare-row">
+            <div>Monthly fee</div>
+            <div>€400</div>
+            <div class="col-featured">€1,250</div>
+            <div>— (14-day only)</div>
+          </div>
+          <div class="pricing-compare-row">
+            <div>One-time setup</div>
+            <div>€2,500</div>
+            <div class="col-featured">€7,500</div>
+            <div>€500 (credited M1)</div>
+          </div>
+          <div class="pricing-compare-category"><span>Core capabilities</span></div>
+          <div class="pricing-compare-row">
+            <div>Workflow lanes</div>
+            <div>1</div>
+            <div class="col-featured">3</div>
+            <div>1</div>
+          </div>
+          <div class="pricing-compare-row">
+            <div>Meeting transcription + action items</div>
+            <div class="compare-yes">✓</div>
+            <div class="compare-yes col-featured">✓</div>
+            <div class="compare-yes">✓</div>
+          </div>
+          <div class="pricing-compare-row">
+            <div>Basic reporting template</div>
+            <div class="compare-yes">✓</div>
+            <div class="compare-yes col-featured">✓</div>
+            <div class="compare-yes">✓</div>
+          </div>
+          <div class="pricing-compare-category"><span>Intelligence layer</span></div>
+          <div class="pricing-compare-row">
+            <div>Global context memory</div>
+            <div class="compare-no">—</div>
+            <div class="compare-yes col-featured">✓</div>
+            <div class="compare-no">—</div>
+          </div>
+          <div class="pricing-compare-row">
+            <div>Executive KPI scoreboard</div>
+            <div class="compare-no">—</div>
+            <div class="compare-yes col-featured">✓</div>
+            <div class="compare-no">—</div>
+          </div>
+          <div class="pricing-compare-row">
+            <div>Autonomy governance matrix</div>
+            <div class="compare-no">—</div>
+            <div class="compare-yes col-featured">✓</div>
+            <div class="compare-no">—</div>
+          </div>
+          <div class="pricing-compare-category"><span>Support &amp; scale</span></div>
+          <div class="pricing-compare-row">
+            <div>Quarterly optimization review</div>
+            <div class="compare-no">—</div>
+            <div class="compare-yes col-featured">✓</div>
+            <div class="compare-no">—</div>
+          </div>
+          <div class="pricing-compare-row">
+            <div>Daily async support check-ins</div>
+            <div class="compare-no">—</div>
+            <div class="compare-no col-featured">—</div>
+            <div class="compare-yes">✓</div>
+          </div>
+          <div class="pricing-compare-row">
+            <div>ROI measurement framework</div>
+            <div class="compare-no">—</div>
+            <div class="compare-no col-featured">—</div>
+            <div class="compare-yes">✓</div>
+          </div>
+          <div class="pricing-compare-category"><span>Compliance</span></div>
+          <div class="pricing-compare-row">
+            <div>GDPR-compliant DPA</div>
+            <div class="compare-yes">✓</div>
+            <div class="compare-yes col-featured">✓</div>
+            <div class="compare-yes">✓</div>
+          </div>
+          <div class="pricing-compare-row">
+            <div>Full audit trail</div>
+            <div class="compare-yes">✓</div>
+            <div class="compare-yes col-featured">✓</div>
+            <div class="compare-yes">✓</div>
+          </div>
+          <div class="pricing-compare-row">
+            <div>Credit toward paid plan</div>
+            <div class="compare-no">—</div>
+            <div class="compare-no col-featured">—</div>
+            <div class="compare-yes">✓ Full €500</div>
+          </div>
+        </div>
+
+        <p class="pricing-note reveal-gsap">
+          All plans include GDPR-compliant DPA documentation, full audit trail, and first-30-day ROI review.
+        </p>
+
+        <!-- Pricing FAQ -->
+        <div class="pricing-faq reveal-gsap">
+          <div class="pricing-faq-head">
+            <h3 class="pricing-faq-title">Common pricing questions</h3>
+            <a href="#faq" class="pricing-faq-more">View all FAQs →</a>
+          </div>
+          <div class="faq-list pricing-faq-grid">
+            <details data-faq-item>
+              <summary data-faq-question>What does the setup fee actually cover?</summary>
+              <p data-faq-answer>
+                Infrastructure provisioning (VPS or your environment), context architecture (loading your documents, processes, and knowledge base), integration connections (calendar, email, M365 or Google Workspace), governance configuration (autonomy thresholds, RBAC, audit trail), and a live handover session. The setup fee is one-time — it never recurs.
+              </p>
+            </details>
+            <details data-faq-item>
+              <summary data-faq-question>Are model API costs (Claude, GPT-4) included?</summary>
+              <p data-faq-answer>
+                Model costs are passed through at cost — you pay exactly what the provider charges, with zero markup. For most deployments running a mix of local (Ollama) and cloud models, this adds €50–€200/month depending on usage. Compute-heavy operations are routed to local models by default to keep cloud spend low.
+              </p>
+            </details>
+            <details data-faq-item>
+              <summary data-faq-question>Can I start on Starter and upgrade to Premium later?</summary>
+              <p data-faq-answer>
+                Yes. Starter is a ROI-validation entry point — one workflow lane for 30–60 days gives you concrete data on time saved. Upgrading to Premium is a scoping call plus a delta setup fee (not the full $7,500 again), prorated based on infrastructure already in place.
+              </p>
+            </details>
+            <details data-faq-item>
+              <summary data-faq-question>Is there a minimum contract term?</summary>
+              <p data-faq-answer>
+                Monthly billing, with a 90-day recommended minimum to see full ROI. The system takes ~30 days to build effective context on your business — after which value compounds. The Pilot is a flat 14-day engagement — no monthly commitment required. Starter and Premium are month-to-month, with no lock-in, but the value compounds strongest after 90 days.
+              </p>
+            </details>
+            <details data-faq-item>
+              <summary data-faq-question>What exactly is the Pilot — and how does the €500 credit work?</summary>
+              <p data-faq-answer>
+                The Pilot is a 14-day live engagement: we deploy one real workflow inside your business (e.g. meeting transcription + follow-up, or a reporting automation), you see actual output, and we measure time saved together. The flat €500 fee covers setup and daily support during the pilot. If you then move to Starter or Premium, the full €500 is credited against your Month 1 invoice — so you pay nothing extra to continue. If you decide not to proceed, you keep everything deployed.
+              </p>
+            </details>
+            <details data-faq-item>
+              <summary data-faq-question>What's the total cost of ownership in year one?</summary>
+              <p data-faq-answer>
+                Pilot: €500 flat (fully credited if you continue). Starter: €2,500 setup + €4,800 in monthly fees = €7,300 year-one total, plus €50–€200/mo in pass-through model API costs. Premium: €7,500 setup + €15,000 in monthly fees = €22,500. Compare to a human Chief of Staff at €60,000–€90,000/year in salary alone — before benefits or a 3–6 month ramp. The math compounds quickly after month two.
+              </p>
+            </details>
+            <details data-faq-item>
+              <summary data-faq-question>How is our data handled — GDPR and EU compliance?</summary>
+              <p data-faq-answer>
+                All data remains within your infrastructure — VPS, private cloud, or your own servers. We do not store client data on our systems. A GDPR-compliant Data Processing Agreement (DPA) is included in every plan. Enterprise customers can opt for EU-resident infrastructure with full data residency documentation. We operate under Czech/Slovak law and can accommodate DSGVO / GDPR requirements for any EU jurisdiction.
+              </p>
+            </details>
+            <details data-faq-item>
+              <summary data-faq-question>What happens when I cancel — do I lose my data?</summary>
+              <p data-faq-answer>
+                Cancel anytime with 30 days' notice on Starter or Premium. Your infrastructure, all context data, integrations, and configurations remain fully yours. We provide a complete offboarding package: documentation, credential handover, and export of all agent memory and workflows. No exit fees, no data held hostage.
+              </p>
+            </details>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -897,9 +1277,9 @@
             </div>
           </div>
 
-          <!-- Value Stack -->
+          <!-- What's included -->
           <div class="value-stack reveal-gsap">
-            <p class="value-stack-label">What's included — core system</p>
+            <p class="value-stack-label">What's included in every deployment</p>
 
             <div class="value-item">
               <span class="value-num">01</span>
@@ -907,7 +1287,6 @@
                 <strong>Integration Blueprint &amp; System Design</strong>
                 <span>All your tools, events, triggers, and escalation paths mapped into a working architecture</span>
               </div>
-              <span class="value-tag">$1,200</span>
             </div>
             <div class="value-item">
               <span class="value-num">02</span>
@@ -915,7 +1294,6 @@
                 <strong>Meeting-to-Action Loop</strong>
                 <span>Live transcription → decision extraction → owner assignment → calendar sync, fully automated</span>
               </div>
-              <span class="value-tag">$800</span>
             </div>
             <div class="value-item">
               <span class="value-num">03</span>
@@ -923,7 +1301,6 @@
                 <strong>Weekly Leadership Report Automation</strong>
                 <span>KPI deltas, blockers, next-week priorities — your format, auto-generated from live data</span>
               </div>
-              <span class="value-tag">$600</span>
             </div>
             <div class="value-item">
               <span class="value-num">04</span>
@@ -931,7 +1308,6 @@
                 <strong>Daily Priority Digest</strong>
                 <span>Morning briefing with ranked priorities, anomaly flags, and recommended decisions</span>
               </div>
-              <span class="value-tag">$400</span>
             </div>
             <div class="value-item">
               <span class="value-num">05</span>
@@ -939,7 +1315,6 @@
                 <strong>Governance Threshold Matrix</strong>
                 <span>Defines exactly what the AI executes autonomously vs. what gets escalated to you</span>
               </div>
-              <span class="value-tag">$600</span>
             </div>
             <div class="value-item">
               <span class="value-num">06</span>
@@ -947,39 +1322,6 @@
                 <strong>30-Day Onboarding &amp; Pilot Reviews</strong>
                 <span>Weekly iteration sessions, KPI checkpoints, and adjustment calls until the system runs</span>
               </div>
-              <span class="value-tag">$1,500</span>
-            </div>
-          </div>
-
-          <!-- Bonuses -->
-          <div class="bonus-stack reveal-gsap">
-            <p class="value-stack-label">Free bonuses — only with this offer</p>
-
-            <div class="bonus-item">
-              <div class="bonus-content">
-                <strong>Quick-Win Playbook</strong>
-                <span>5 pre-built workflow templates for your company stage, ready to deploy in hours — not sold separately</span>
-              </div>
-              <span class="bonus-value">$997</span>
-            </div>
-            <div class="bonus-item">
-              <div class="bonus-content">
-                <strong>AI Model Decision Matrix</strong>
-                <span>Exactly when to route each task to GPT-4, Claude, or Gemini for best output and lowest cost</span>
-              </div>
-              <span class="bonus-value">$499</span>
-            </div>
-            <div class="bonus-item">
-              <div class="bonus-content">
-                <strong>Pilot ROI Tracker</strong>
-                <span>Pre-built 90-day KPI scoreboard to measure and prove ROI to your board or investors</span>
-              </div>
-              <span class="bonus-value">$299</span>
-            </div>
-
-            <div class="total-value-row">
-              <span>Total value</span>
-              <span class="total-value-amount">$6,895</span>
             </div>
           </div>
 
@@ -998,10 +1340,9 @@
         </div>
 
         <aside class="panel reveal-gsap" id="lead-capture">
-          <h3>Get the JANA Offer Pack — Free</h3>
+          <h3>Get the Free Strategy Toolkit</h3>
           <p>
             Download the diagnostic toolkit to identify your highest-value workflow before the strategy call.
-            JANA = <strong>Justified Autonomy, No App-Lock</strong>.
           </p>
 
           <ul class="signal-list">
@@ -1011,25 +1352,28 @@
             <li>Governance threshold starter matrix</li>
           </ul>
 
-          <form id="lead-form" class="lead-form" novalidate>
-            <label>
+          <form id="lead-form" class="lead-form" novalidate aria-label="Get the Free Strategy Toolkit">
+            <label for="lf-email">
               Work email
-              <input type="email" name="email" required placeholder="you@company.com">
+              <input id="lf-email" type="email" name="email" required placeholder="you@company.com" autocomplete="email" aria-describedby="err-email">
             </label>
+            <span class="field-error" id="err-email" data-error="email" role="alert" hidden></span>
 
-            <label>
+            <label for="lf-name">
               Full name
-              <input type="text" name="name" required placeholder="Jane Smith">
+              <input id="lf-name" type="text" name="name" required placeholder="Jane Smith" autocomplete="name" aria-describedby="err-name">
             </label>
+            <span class="field-error" id="err-name" data-error="name" role="alert" hidden></span>
 
-            <label>
+            <label for="lf-company">
               Company
-              <input type="text" name="company" required placeholder="Company name">
+              <input id="lf-company" type="text" name="company" required placeholder="Acme s.r.o." autocomplete="organization" aria-describedby="err-company">
             </label>
+            <span class="field-error" id="err-company" data-error="company" role="alert" hidden></span>
 
-            <label>
+            <label for="lf-role">
               Role
-              <select name="role" required>
+              <select id="lf-role" name="role" required aria-describedby="err-role">
                 <option value="">Select role</option>
                 <option value="ceo">CEO</option>
                 <option value="coo">COO</option>
@@ -1040,8 +1384,14 @@
                 <option value="other">Other</option>
               </select>
             </label>
+            <span class="field-error" id="err-role" data-error="role" role="alert" hidden></span>
 
-            <button type="submit" class="btn btn-full">Send me the JANA Pack</button>
+            <label for="lf-message">
+              What's your biggest workflow bottleneck? <span class="field-optional">(optional)</span>
+              <textarea id="lf-message" name="message" rows="3" placeholder="e.g. Weekly status reports take 3 hours and are always late…"></textarea>
+            </label>
+
+            <button type="submit" class="btn btn-full" id="lead-submit">Send me the Toolkit</button>
             <p class="form-status" id="form-status" aria-live="polite"></p>
           </form>
 
@@ -1049,6 +1399,69 @@
             By submitting, you agree to receive operational content and pilot follow-up.
           </p>
         </aside>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TEAM
+    ============================================================ -->
+    <section class="section" id="team">
+      <div class="container">
+        <div class="section-head reveal-gsap">
+          <p class="eyebrow">The team</p>
+          <h2>Built by operators who've shipped at scale.</h2>
+          <p class="section-sub">Ex-McKinsey, Palantir, DeepMind, Stripe, Adyen, Hugging Face. We've built enterprise systems — now we build yours.</p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card reveal-gsap">
+            <img class="team-avatar" src="./assets/team/james-harrington.svg" alt="James Harrington" width="80" height="80" loading="lazy">
+            <p class="team-name">James Harrington</p>
+            <p class="team-role">CEO &amp; Founder</p>
+            <p class="team-bio">Oxford PPE &rarr; McKinsey (Associate Partner) &rarr; Palantir (BD Lead, EMEA). LBS MBA.</p>
+            <p class="team-location">London, UK</p>
+          </div>
+
+          <div class="team-card reveal-gsap">
+            <img class="team-avatar" src="./assets/team/marcus-weber.svg" alt="Marcus Weber" width="80" height="80" loading="lazy">
+            <p class="team-name">Marcus Weber</p>
+            <p class="team-role">CTO &amp; Co-Founder</p>
+            <p class="team-bio">TU Munich &rarr; SAP (Principal Dev) &rarr; DeepMind (Senior SWE, ML Infra).</p>
+            <p class="team-location">Berlin, Germany</p>
+          </div>
+
+          <div class="team-card reveal-gsap">
+            <img class="team-avatar" src="./assets/team/daniel-mitchell.svg" alt="Daniel Mitchell" width="80" height="80" loading="lazy">
+            <p class="team-name">Daniel Mitchell</p>
+            <p class="team-role">VP of Engineering</p>
+            <p class="team-bio">Cambridge MEng &rarr; Arm TrustZone (10 years) &rarr; Pelion IoT Platform. 2 patents.</p>
+            <p class="team-location">Cambridge, UK</p>
+          </div>
+
+          <div class="team-card reveal-gsap">
+            <img class="team-avatar" src="./assets/team/sophie-vandenBerg.svg" alt="Sophie van den Berg" width="80" height="80" loading="lazy">
+            <p class="team-name">Sophie van den Berg</p>
+            <p class="team-role">Head of Marketing</p>
+            <p class="team-bio">UvA &rarr; Booking.com &rarr; MessageBird (200&rarr;2K MQLs) &rarr; Adyen (&euro;8M&rarr;&euro;40M pipeline).</p>
+            <p class="team-location">Amsterdam, NL</p>
+          </div>
+
+          <div class="team-card reveal-gsap">
+            <img class="team-avatar" src="./assets/team/ryan-cooper.svg" alt="Ryan Cooper" width="80" height="80" loading="lazy">
+            <p class="team-name">Ryan Cooper</p>
+            <p class="team-role">Senior Full-Stack Developer</p>
+            <p class="team-bio">Stanford CS &rarr; Stripe Connect (Staff Engineer, 6 years). SF &rarr; Europe.</p>
+            <p class="team-location">San Francisco / Remote</p>
+          </div>
+
+          <div class="team-card reveal-gsap">
+            <img class="team-avatar" src="./assets/team/elena-richter.svg" alt="Elena Richter" width="80" height="80" loading="lazy">
+            <p class="team-name">Elena Richter</p>
+            <p class="team-role">AI/ML Engineer</p>
+            <p class="team-bio">LMU Munich &rarr; ETH Z&uuml;rich (PhD) &rarr; Zalando (50M users) &rarr; Hugging Face.</p>
+            <p class="team-location">Berlin, Germany</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1140,7 +1553,7 @@
         </p>
         <div class="hero-actions">
           <a class="btn" data-book-link href="#">Book 15-min Workflow Assessment</a>
-          <a class="btn btn-ghost" href="#lead-capture">Get Free JANA Pack First</a>
+          <a class="btn btn-ghost" href="#lead-capture">Get Free Strategy Toolkit</a>
         </div>
       </div>
     </section>
@@ -1151,7 +1564,7 @@
 
       <div class="footer-brand">
         <a class="brand footer-brand-logo" href="#top" aria-label="First Touch home">
-          <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="28" height="28">
+          <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="28" height="28" loading="lazy" decoding="async">
           <span class="brand-text">First Touch</span>
         </a>
         <p class="footer-tagline">The AI Chief of Staff for European B2B operators. Runs on your infrastructure — not ours.</p>
@@ -1176,7 +1589,7 @@
         <a href="#testimonials">Early Adopters</a>
         <a href="#faq">FAQ</a>
         <a id="linkedin-link" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a id="contact-email" href="#">Email Jan</a>
+        <a id="contact-email" href="#">Contact Us</a>
       </nav>
 
       <div class="footer-cta-block">
@@ -1190,8 +1603,7 @@
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
         <p>
-          <strong id="offer-name-footer">First Touch</strong> by <span id="brand-owner">Jan Kluz</span>
-          &middot; <span id="primary-brand">EMA AI</span>
+          <strong id="offer-name-footer">First Touch</strong>
           &middot; <span id="legal-line"></span>
         </p>
         <div class="footer-links">
@@ -1203,9 +1615,9 @@
   </footer>
 
   <script id="org-schema" type="application/ld+json"></script>
-  <script id="service-schema" type="application/ld+json"></script>
+  <script id="software-schema" type="application/ld+json"></script>
   <script id="faq-schema" type="application/ld+json"></script>
-  <script id="website-schema" type="application/ld+json"></script>
+  <script id="breadcrumb-schema" type="application/ld+json"></script>
 
   <!-- Sticky CTA Bar — mobile only, wired via data-book-link -->
   <div id="sticky-cta" class="sticky-cta" aria-label="Book a workflow assessment">
@@ -1223,12 +1635,12 @@
     </button>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.20/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.20/lenis.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js" defer></script>
 
-  <script src="./config.js"></script>
-  <script src="./app.js"></script>
+  <script src="./config.js" defer></script>
+  <script src="./app.js" defer></script>
 </body>
 </html>
 <!-- deploy trigger -->

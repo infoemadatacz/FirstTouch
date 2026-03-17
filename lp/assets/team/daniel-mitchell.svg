@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="bg-dm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00897B"/>
+      <stop offset="100%" stop-color="#7B1FA2"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="url(#bg-dm)"/>
+  <!-- Triangle accents -->
+  <polygon points="100,30 155,120 45,120" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <polygon points="100,42 145,115 55,115" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <polygon points="100,54 135,110 65,110" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+  <!-- Inverted subtle triangle -->
+  <polygon points="100,170 150,90 50,90" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.8"/>
+  <!-- Initials -->
+  <text x="100" y="108" font-family="'Helvetica Neue', Arial, sans-serif" font-size="52" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" letter-spacing="2">DM</text>
+</svg>

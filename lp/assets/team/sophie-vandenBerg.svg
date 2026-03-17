@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="bg-sb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E91E8C"/>
+      <stop offset="100%" stop-color="#9301BB"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="url(#bg-sb)"/>
+  <!-- Diamond accents -->
+  <polygon points="100,25 155,100 100,175 45,100" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+  <polygon points="100,40 145,100 100,160 55,100" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <polygon points="100,55 135,100 100,145 65,100" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+  <!-- Small diamond detail -->
+  <polygon points="100,70 120,100 100,130 80,100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+  <!-- Initials -->
+  <text x="100" y="108" font-family="'Helvetica Neue', Arial, sans-serif" font-size="52" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" letter-spacing="2">SB</text>
+</svg>

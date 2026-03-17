@@ -39,6 +39,7 @@
   wireStructuredData();
   wireLenis();
   wireGsapAnimations();
+  wireAnalytics();
 
   function wireGlobalLinks() {
     document.querySelectorAll("[data-book-link]").forEach((el) => {
@@ -46,6 +47,51 @@
       el.setAttribute("target", "_blank");
       el.setAttribute("rel", "noreferrer noopener");
     });
+    // Fallback mailto links — shown as secondary CTAs when Calendly is unsuitable
+    document.querySelectorAll("[data-mailto-link]").forEach((el) => {
+      el.setAttribute("href", "mailto:" + cfg.contactEmail + "?subject=First%20Touch%20Inquiry");
+    });
+  }
+
+  function wireAnalytics() {
+    if (typeof window.plausible !== "function") return;
+
+    // Track Calendly CTA clicks with location context
+    document.querySelectorAll("[data-book-link]").forEach((el) => {
+      el.addEventListener("click", function () {
+        var location = resolveCtaLocation(el);
+        window.plausible("Calendly CTA Click", { props: { location: location } });
+      });
+    });
+  }
+
+  // Walk up the DOM to determine where a CTA was clicked
+  function resolveCtaLocation(el) {
+    // Explicit override wins
+    if (el.dataset.ctaLocation) return el.dataset.ctaLocation;
+
+    // Closest landmark with an id (section, header, div[id])
+    var landmark = el.closest("[id]");
+    if (landmark) {
+      var id = landmark.id;
+      var locationMap = {
+        "hero":         "hero",
+        "sticky-cta":   "sticky-bar",
+        "top":          "nav",
+        "nav-links":    "nav",
+        "lead-capture": "lead-capture-section",
+        "pricing":      "pricing",
+        "footer":       "footer"
+      };
+      return locationMap[id] || id;
+    }
+
+    // Fallback: check class hints
+    if (el.classList.contains("nav-cta-desktop")) return "nav";
+    if (el.classList.contains("nav-mobile-cta"))  return "nav-mobile";
+    if (el.classList.contains("footer-cta-btn"))  return "footer";
+
+    return "unknown";
   }
 
   function wireFooterText() {
@@ -67,66 +113,132 @@
   function wireLeadForm() {
     const leadForm = document.getElementById("lead-form");
     const formStatus = document.getElementById("form-status");
+    const submitBtn = document.getElementById("lead-submit");
     if (!leadForm) return;
+
+    // Field-level validation config: [fieldName, label, validator]
+    const REQUIRED_FIELDS = [
+      { name: "email",   label: "Work email",  validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : "Enter a valid work email." },
+      { name: "name",    label: "Full name",   validate: (v) => v.length >= 2 ? null : "Enter your full name." },
+      { name: "company", label: "Company",     validate: (v) => v.length >= 1 ? null : "Enter your company name." },
+      { name: "role",    label: "Role",        validate: (v) => v ? null : "Select your role." }
+    ];
 
     leadForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const formData = new FormData(leadForm);
+      clearAllErrors();
 
-      const email = String(formData.get("email") || "").trim();
-      const name = String(formData.get("name") || "").trim();
-      const company = String(formData.get("company") || "").trim();
-      const role = String(formData.get("role") || "").trim();
+      const email   = String(leadForm.elements["email"]?.value   || "").trim();
+      const name    = String(leadForm.elements["name"]?.value    || "").trim();
+      const company = String(leadForm.elements["company"]?.value || "").trim();
+      const role    = String(leadForm.elements["role"]?.value    || "").trim();
+      const message = String(leadForm.elements["message"]?.value || "").trim();
 
-      if (!email || !name || !company || !role) {
-        setStatus("Please fill all required fields.", true);
-        return;
+      // Field-level validation
+      let hasErrors = false;
+      for (const field of REQUIRED_FIELDS) {
+        const value = String(leadForm.elements[field.name]?.value || "").trim();
+        const error = field.validate(value);
+        if (error) {
+          showFieldError(field.name, error);
+          hasErrors = true;
+        }
       }
+      if (hasErrors) return;
+
+      setLoading(true);
+      setStatus("", false);
 
       const utm = readUtmParams();
-      Object.entries(utm).forEach(([k, v]) => formData.append(k, v));
-      formData.append("source", "first-touch-lp");
-      formData.append("page_url", window.location.href);
-      formData.append("timestamp", new Date().toISOString());
-
-      setStatus("Submitting...", false);
+      const payload = {
+        email,
+        name,
+        company,
+        role,
+        message,
+        source: "first-touch-lp",
+        page_url: window.location.href,
+        timestamp: new Date().toISOString(),
+        ...utm
+      };
 
       try {
         if (cfg.leadFormEndpoint) {
           const response = await fetch(cfg.leadFormEndpoint, {
             method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" }
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(payload)
           });
 
           if (!response.ok) {
-            throw new Error("Lead endpoint returned non-OK response");
+            const body = await response.json().catch(() => ({}));
+            throw new Error(body.error || "Submission failed (" + response.status + ").");
           }
         } else {
-          const localLead = {
-            email,
-            name,
-            company,
-            role,
-            source: "first-touch-lp",
-            timestamp: new Date().toISOString(),
-            utm
-          };
-          window.localStorage.setItem("first_touch_last_lead", JSON.stringify(localLead));
+          // Offline fallback — persist locally so no lead is lost during dev
+          window.localStorage.setItem("first_touch_last_lead", JSON.stringify(payload));
         }
 
-        const next = "./thank-you.html?email=" + encodeURIComponent(email);
-        window.location.href = next;
+        // Track successful lead form submission before navigating away
+        if (typeof window.plausible === "function") {
+          window.plausible("Lead Form Submit", { props: { role: role } });
+        }
+
+        window.location.href = "./thank-you.html?email=" + encodeURIComponent(email);
       } catch (error) {
-        setStatus("Submission failed. Check lead endpoint in config.js.", true);
+        setStatus(error.message || "Something went wrong. Please try again or email jan@firsttouch.app.", true);
+        setLoading(false);
       }
     });
+
+    // Real-time: clear field error on input
+    leadForm.addEventListener("input", (e) => {
+      const name = e.target.name;
+      if (name) clearFieldError(name);
+    });
+
+    function showFieldError(fieldName, msg) {
+      const errorEl = leadForm.querySelector("[data-error='" + fieldName + "']");
+      if (errorEl) {
+        errorEl.textContent = msg;
+        errorEl.hidden = false;
+      }
+      const input = leadForm.elements[fieldName];
+      if (input) input.setAttribute("aria-invalid", "true");
+    }
+
+    function clearFieldError(fieldName) {
+      const errorEl = leadForm.querySelector("[data-error='" + fieldName + "']");
+      if (errorEl) {
+        errorEl.textContent = "";
+        errorEl.hidden = true;
+      }
+      const input = leadForm.elements[fieldName];
+      if (input) input.removeAttribute("aria-invalid");
+    }
+
+    function clearAllErrors() {
+      leadForm.querySelectorAll("[data-error]").forEach((el) => {
+        el.textContent = "";
+        el.hidden = true;
+      });
+      Array.from(leadForm.elements).forEach((el) => el.removeAttribute("aria-invalid"));
+    }
+
+    function setLoading(loading) {
+      if (!submitBtn) return;
+      submitBtn.disabled = loading;
+      submitBtn.textContent = loading ? "Sending…" : "Send me the JANA Pack";
+    }
 
     function setStatus(text, isError) {
       if (!formStatus) return;
       formStatus.textContent = text;
       formStatus.classList.remove("error", "ok");
-      formStatus.classList.add(isError ? "error" : "ok");
+      if (text) formStatus.classList.add(isError ? "error" : "ok");
     }
   }
 
@@ -164,9 +276,9 @@
 
   function wireStructuredData() {
     const orgSchemaEl = document.getElementById("org-schema");
-    const serviceSchemaEl = document.getElementById("service-schema");
+    const softwareSchemaEl = document.getElementById("software-schema");
     const faqSchemaEl = document.getElementById("faq-schema");
-    const websiteSchemaEl = document.getElementById("website-schema");
+    const breadcrumbSchemaEl = document.getElementById("breadcrumb-schema");
 
     if (orgSchemaEl) {
       orgSchemaEl.textContent = JSON.stringify({
@@ -174,29 +286,71 @@
         "@type": "Organization",
         name: cfg.primaryBrand,
         url: cfg.siteUrl,
-        founder: cfg.brandOwner,
+        logo: "https://firsttouch.app/assets/firsttouch-logo.svg",
+        email: cfg.contactEmail,
+        foundingDate: "2024",
+        legalName: cfg.legalCompanyName,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Prague",
+          addressCountry: "CZ"
+        },
+        founder: {
+          "@type": "Person",
+          name: "Jan Kluz",
+          email: cfg.contactEmail
+        },
         sameAs: [cfg.linkedinUrl]
       });
     }
 
-    if (serviceSchemaEl) {
-      serviceSchemaEl.textContent = JSON.stringify({
+    if (softwareSchemaEl) {
+      softwareSchemaEl.textContent = JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Service",
-        name: cfg.offerName,
-        serviceType: "AI Manager Operating System",
-        provider: {
-          "@type": "Organization",
-          name: cfg.primaryBrand
-        },
-        areaServed: "Europe",
+        "@type": "SoftwareApplication",
+        name: cfg.primaryBrand,
+        applicationCategory: "BusinessApplication",
+        applicationSubCategory: "AI Assistant",
+        operatingSystem: "Web, Telegram",
         description: cfg.seoDescription,
         url: cfg.siteUrl,
+        screenshot: cfg.ogImageUrl,
+        featureList: [
+          "AI agent orchestration",
+          "Meeting transcription and action items",
+          "Autonomous workflow automation",
+          "Multi-model AI routing (Claude, GPT-4, Gemini)",
+          "Role-level access control",
+          "Compliance-ready data handling",
+          "Recurring management reporting",
+          "Telegram interface",
+          "Document and knowledge base integration"
+        ],
         offers: {
           "@type": "Offer",
+          price: "500",
+          priceCurrency: "EUR",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "500",
+            priceCurrency: "EUR",
+            name: "Pilot"
+          },
           url: cfg.bookingUrl,
           availability: "https://schema.org/InStock"
-        }
+        },
+        provider: {
+          "@type": "Organization",
+          name: cfg.primaryBrand,
+          url: cfg.siteUrl
+        },
+        audience: {
+          "@type": "BusinessAudience",
+          audienceType: "B2B",
+          geographicArea: "Europe"
+        },
+        softwareVersion: "1.0",
+        releaseNotes: cfg.siteUrl
       });
     }
 
@@ -224,13 +378,30 @@
       });
     }
 
-    if (websiteSchemaEl) {
-      websiteSchemaEl.textContent = JSON.stringify({
+    if (breadcrumbSchemaEl) {
+      breadcrumbSchemaEl.textContent = JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        name: cfg.siteName,
-        url: cfg.siteUrl,
-        description: cfg.seoDescription
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: cfg.siteUrl
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Guides",
+            item: cfg.siteUrl + "guides/"
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Autonomous Actions",
+            item: cfg.siteUrl + "guides/autonomous-actions.html"
+          }
+        ]
       });
     }
   }
