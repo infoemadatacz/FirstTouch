@@ -12,9 +12,9 @@ window.FIRST_TOUCH_CONFIG = {
   leadFormEndpoint: "/api/leads",
   leadMagnetUrl: "./assets/strategy-toolkit.md",
 
-  contactEmail: "jan@firsttouch.app",
-  legalCompanyName: "EMA AI",
-  legalLocation: "Prague, Czech Republic",
+  contactEmail: "james@firsttouch.app",
+  legalCompanyName: "First Touch",
+  legalLocation: "London, United Kingdom",
   linkedinUrl: "https://www.linkedin.com/company/firsttouch-ai/",
 
   seoTitle: "First Touch | All-in-One AI Manager OS for Execution",

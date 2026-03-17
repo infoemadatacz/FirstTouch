@@ -36,7 +36,8 @@
   <link rel="stylesheet" href="./styles.css">
 
   <!-- Plausible Analytics — GDPR-compliant, no cookie consent required (EU-safe) -->
-  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.tagged-events.js"></script>
+  <!-- script.outbound-links.tagged-events.js: auto-tracks outbound clicks + supports custom JS events + tagged HTML events -->
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
   <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
 <body>
@@ -206,13 +207,13 @@
     ============================================================ -->
     <section class="logos-bar section-tight" id="clients" aria-label="Pilot cohort participants">
       <div class="container">
-        <p class="logos-bar-label">Pilot operators across Central Europe · Q1 2026</p>
+        <p class="logos-bar-label">Pilot operators across Europe · Q1 2026</p>
         <div class="logos-marquee" role="list" aria-label="Pilot cohort companies">
           <div class="logos-track">
             <div class="logo-mark" role="listitem">
               <span class="logo-mark-glyph">PG</span>
               <span class="logo-mark-name">Procuro Group</span>
-              <span class="logo-mark-meta">SaaS · Prague</span>
+              <span class="logo-mark-meta">SaaS · London</span>
             </div>
             <div class="logo-mark" role="listitem">
               <span class="logo-mark-glyph">NX</span>
@@ -243,7 +244,7 @@
             <div class="logo-mark" aria-hidden="true">
               <span class="logo-mark-glyph">PG</span>
               <span class="logo-mark-name">Procuro Group</span>
-              <span class="logo-mark-meta">SaaS · Prague</span>
+              <span class="logo-mark-meta">SaaS · London</span>
             </div>
             <div class="logo-mark" aria-hidden="true">
               <span class="logo-mark-glyph">NX</span>
@@ -504,10 +505,10 @@
             </div>
             <p class="testimonial-text">"We went from a 3-hour weekly report ritual to an automated digest that's actually more useful. The meeting-to-action loop alone saved our COO 6 hours in the first two weeks."</p>
             <div class="testimonial-author">
-              <div class="testimonial-avatar" aria-hidden="true">MN</div>
+              <div class="testimonial-avatar" aria-hidden="true">TE</div>
               <div>
-                <strong class="testimonial-name">Martin Novák</strong>
-                <span class="testimonial-role">CEO · B2B SaaS, 45 people · Prague</span>
+                <strong class="testimonial-name">Thomas Eriksen</strong>
+                <span class="testimonial-role">CEO · B2B SaaS, 45 people · Berlin</span>
               </div>
               <span class="testimonial-verified" aria-label="Verified pilot participant">
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" fill="rgba(147,1,187,0.2)" stroke="rgba(147,1,187,0.6)" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3-3.3" stroke="rgba(147,1,187,0.9)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1218,7 +1219,7 @@
             <details data-faq-item>
               <summary data-faq-question>How is our data handled — GDPR and EU compliance?</summary>
               <p data-faq-answer>
-                All data remains within your infrastructure — VPS, private cloud, or your own servers. We do not store client data on our systems. A GDPR-compliant Data Processing Agreement (DPA) is included in every plan. Enterprise customers can opt for EU-resident infrastructure with full data residency documentation. We operate under Czech/Slovak law and can accommodate DSGVO / GDPR requirements for any EU jurisdiction.
+                All data remains within your infrastructure — VPS, private cloud, or your own servers. We do not store client data on our systems. A GDPR-compliant Data Processing Agreement (DPA) is included in every plan. Enterprise customers can opt for EU-resident infrastructure with full data residency documentation. We operate under EU law and accommodate DSGVO / GDPR requirements for any EU jurisdiction.
               </p>
             </details>
             <details data-faq-item>
@@ -1367,7 +1368,7 @@
 
             <label for="lf-company">
               Company
-              <input id="lf-company" type="text" name="company" required placeholder="Acme s.r.o." autocomplete="organization" aria-describedby="err-company">
+              <input id="lf-company" type="text" name="company" required placeholder="Acme GmbH" autocomplete="organization" aria-describedby="err-company">
             </label>
             <span class="field-error" id="err-company" data-error="company" role="alert" hidden></span>
 
@@ -1569,7 +1570,7 @@
         </a>
         <p class="footer-tagline">The AI Chief of Staff for European B2B operators. Runs on your infrastructure — not ours.</p>
         <div class="footer-trust-mini" aria-label="Key trust signals">
-          <span>🇪🇺 Prague · Czech Republic</span>
+          <span>🇪🇺 London · European Operations</span>
           <span>GDPR Ready</span>
           <span>On-Premise</span>
         </div>

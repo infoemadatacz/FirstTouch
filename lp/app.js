@@ -1,16 +1,16 @@
 (function () {
   const defaults = {
-    brandOwner: "Jan Kluz",
-    primaryBrand: "EMA AI",
+    brandOwner: "First Touch",
+    primaryBrand: "First Touch",
     offerName: "First Touch",
     siteName: "First Touch",
     siteUrl: "https://firsttouch.app",
     bookingUrl: "https://calendly.com/jan-kluz-firsttouch/15min",
     leadFormEndpoint: "",
-    leadMagnetUrl: "./assets/jana-offer-pack.md",
-    contactEmail: "jan.kluz@firsttouch.app",
-    legalCompanyName: "EMA AI",
-    legalLocation: "Prague, Czech Republic",
+    leadMagnetUrl: "./assets/strategy-toolkit.md",
+    contactEmail: "james@firsttouch.app",
+    legalCompanyName: "First Touch",
+    legalLocation: "London, United Kingdom",
     linkedinUrl: "https://www.linkedin.com/",
     seoTitle: "First Touch | All-in-One AI Manager OS for Execution",
     seoDescription: "First Touch is an all-in-one AI manager operating system: global context, best-model orchestration, action workflows, meeting transcription, planning, coding support, and recurring reporting.",
@@ -54,15 +54,52 @@
   }
 
   function wireAnalytics() {
-    if (typeof window.plausible !== "function") return;
+    // ── 1. Calendly CTA clicks — event delegation catches dynamically-injected CTAs
+    //    (e.g. mobile nav CTA added by the second IIFE after this runs)
+    document.addEventListener("click", function (e) {
+      var bookEl = e.target.closest("[data-book-link]");
+      if (bookEl) {
+        var loc = resolveCtaLocation(bookEl);
+        window.plausible("Calendly CTA Click", { props: { location: loc } });
+      }
 
-    // Track Calendly CTA clicks with location context
-    document.querySelectorAll("[data-book-link]").forEach((el) => {
-      el.addEventListener("click", function () {
-        var location = resolveCtaLocation(el);
-        window.plausible("Calendly CTA Click", { props: { location: location } });
-      });
+      // ── 2. Mailto link clicks
+      if (e.target.closest("[data-mailto-link]")) {
+        window.plausible("Mailto Click", {});
+      }
+
+      // ── 3. Sticky CTA dismissal
+      if (e.target.closest("#sticky-cta-close")) {
+        window.plausible("Sticky CTA Dismissed", {});
+      }
     });
+
+    // ── 4. Lead form start — first field interaction (funnel entry step)
+    var leadForm = document.getElementById("lead-form");
+    if (leadForm) {
+      var formStartFired = false;
+      leadForm.addEventListener("focusin", function () {
+        if (!formStartFired) {
+          formStartFired = true;
+          window.plausible("Lead Form Start", {});
+        }
+      });
+    }
+
+    // ── 5. Scroll depth milestones — 25 / 50 / 75 / 90 %
+    var scrollMilestones = [25, 50, 75, 90];
+    var firedMilestones = {};
+    window.addEventListener("scroll", function () {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) return;
+      var pct = Math.round((window.scrollY / docHeight) * 100);
+      scrollMilestones.forEach(function (m) {
+        if (!firedMilestones[m] && pct >= m) {
+          firedMilestones[m] = true;
+          window.plausible("Scroll Depth", { props: { depth: m + "%" } });
+        }
+      });
+    }, { passive: true });
   }
 
   // Walk up the DOM to determine where a CTA was clicked
@@ -292,12 +329,12 @@
         legalName: cfg.legalCompanyName,
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Prague",
-          addressCountry: "CZ"
+          addressLocality: "London",
+          addressCountry: "GB"
         },
         founder: {
           "@type": "Person",
-          name: "Jan Kluz",
+          name: "James Harrington",
           email: cfg.contactEmail
         },
         sameAs: [cfg.linkedinUrl]
