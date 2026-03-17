@@ -148,6 +148,12 @@ h1 {
   line-height: 1.06;
 }
 
+/* P0 Fix: when Lenis is active, CSS smooth-scroll causes double-animation
+   on anchor clicks. Lenis owns all scroll physics on desktop. */
+html.lenis-active {
+  scroll-behavior: auto;
+}
+
 h2 {
   font-size: clamp(1.7rem, 3vw, 2.8rem);
   font-weight: 700;
@@ -3758,8 +3764,11 @@ h3 {
     transform: translateY(-1px);
   }
 
+  /* P0 Fix: clamp min 2rem → 2.2rem — on 375px, 7vw=26px falls below the old
+     2rem(32px) min, which was too small for a hero heading. 2.2rem(35.2px)
+     ensures a legible, impactful H1 across all phones without excess wrapping. */
   h1 {
-    font-size: clamp(2rem, 7vw, 3rem);
+    font-size: clamp(2.2rem, 7vw, 3rem);
   }
 }
 
@@ -5860,6 +5869,47 @@ html {
 
   .hero-lead {
     max-width: 58ch;
+  }
+}
+
+/* ============================================================
+   P0 MOBILE FIXES — deployed 2026-03-17
+   Fixes: Lenis CSS (index.html head), H1 font-size, CTA above fold
+   ============================================================ */
+
+/* P0-A: H1 font-size — 2.4rem base is too large at 375px (3 lines × 41px = 123px).
+   Reduce clamp min to 1.9rem so H1 uses vw-scaled size in 375-480 range.
+   At 375px: 8vw = 30px (1.875rem) → clamped to 1.9rem = 30.4px → saves ~8px/line × 3 = ~24px.
+   At 480px: 8vw = 38.4px = 2.4rem → hits max, no change. */
+@media (max-width: 480px) {
+  h1 {
+    font-size: clamp(1.9rem, 8vw, 2.4rem);
+  }
+}
+
+/* P0-B: CTA above fold — tighten hero vertical rhythm at ≤480px.
+   Combined with P0-A this recovers ~55px before the primary CTA button,
+   ensuring "Book Free 15-Min Strategy Call" is visible without scrolling
+   on iPhone 8 (375×667) and iPhone SE 3rd gen (375×667). */
+@media (max-width: 480px) {
+  /* Hero section top padding: 2.5rem → 1.5rem saves 16px */
+  .hero {
+    padding-top: 1.5rem;
+  }
+
+  /* hero-lead margin: 1.1rem → 0.65rem saves 7px */
+  .hero-lead {
+    margin-top: 0.65rem;
+  }
+
+  /* hero-actions margin: 1.6rem → 1rem saves 10px */
+  .hero-actions {
+    margin-top: 1rem;
+  }
+
+  /* hero-copy top padding: 1rem → 0 saves 16px (nav already provides clearance) */
+  .hero-copy {
+    padding-top: 0;
   }
 }
 

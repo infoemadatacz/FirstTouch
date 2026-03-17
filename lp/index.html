@@ -25,12 +25,35 @@
   <meta name="twitter:description" content="One assistant for coding, writing, planning, meeting transcripts, actions, and recurring management reporting.">
   <meta name="twitter:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
 
+  <!-- Extended OG / social tags -->
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="First Touch — AI Chief of Staff for European B2B operators. Runs on your infrastructure, GDPR-compliant.">
+
+  <!-- Geo signals for EU/UK B2B targeting -->
+  <meta name="geo.region" content="GB-ENG">
+  <meta name="geo.placename" content="London, United Kingdom">
+  <meta name="geo.position" content="51.5074;-0.1278">
+  <meta name="ICBM" content="51.5074, -0.1278">
+
+  <!-- Conversion / trust signals -->
+  <meta name="application-name" content="First Touch">
+  <meta name="category" content="Business Software, AI Assistant, Workflow Automation">
+  <meta name="classification" content="B2B SaaS">
+  <meta name="target" content="business owners, COO, operations manager, CEO, team leaders">
+  <meta name="coverage" content="Europe, United Kingdom, European Union">
+  <meta name="rating" content="safe for work">
+  <meta name="revisit-after" content="7 days">
+
   <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <!-- Lenis smooth scroll CSS — required for lenis-smooth / lenis-stopped class behaviour -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.20/lenis.min.css">
   <!-- Non-render-blocking font load: preload trick avoids blocking initial paint -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
@@ -1705,7 +1728,45 @@
       "@type": "Organization",
       "name": "First Touch",
       "url": "https://firsttouch.app"
-    }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "4",
+      "reviewCount": "4"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Thomas Eriksen" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "We went from a 3-hour weekly report ritual to an automated digest that's actually more useful. The meeting-to-action loop alone saved our COO 6 hours in the first two weeks.",
+        "datePublished": "2026-03-01"
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lucie Horáková" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "I was skeptical about another AI tool. But this is different — it has real context about our business, routes tasks to the right model, and doesn't reset every session. It operates like a sharp chief of staff.",
+        "datePublished": "2026-03-01"
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Tomáš Král" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Setup was faster than expected — live in 8 days. By week 3 we had measurable reduction in escalations hitting the exec layer. The governance matrix is what makes it trustworthy at scale.",
+        "datePublished": "2026-03-01"
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Jana Veselá" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Our finance team used to spend Monday mornings rebuilding context from last week. Now the assistant delivers a structured brief before 8 AM. The time shift alone justified the cost in the second week.",
+        "datePublished": "2026-03-01"
+      }
+    ]
   }
   </script>
 
@@ -1845,7 +1906,30 @@
       "GDPR-compliant AI",
       "Multi-model AI orchestration",
       "Executive productivity software"
-    ]
+    ],
+    "legalName": "First Touch",
+    "sameAs": [
+      "https://www.linkedin.com/company/firsttouch-ai/"
+    ],
+    "privacyPolicy": "https://firsttouch.app/privacy",
+    "termsOfService": "https://firsttouch.app/terms",
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "name": "Book Free 15-Min AI Workflow Assessment",
+      "description": "15-minute strategy call to identify your highest-friction workflow and define ROI baseline",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://calendly.com/james-harrington-firsttouch/15min",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      },
+      "result": {
+        "@type": "Reservation",
+        "name": "AI Workflow Assessment Call with James Harrington"
+      }
+    }
   }
   </script>
 
@@ -1877,8 +1961,46 @@
         "position": 4,
         "name": "FAQ",
         "item": "https://firsttouch.app/#faq"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Privacy Policy",
+        "item": "https://firsttouch.app/privacy"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "Terms of Service",
+        "item": "https://firsttouch.app/terms"
       }
     ]
+  }
+  </script>
+
+  <!-- WebSite schema — enables Google Sitelinks Searchbox signal -->
+  <script id="website-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://firsttouch.app/#website",
+    "url": "https://firsttouch.app/",
+    "name": "First Touch",
+    "description": "AI Chief of Staff for European B2B operators — deployed on your infrastructure, GDPR-compliant, live in 8 days.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "First Touch",
+      "url": "https://firsttouch.app"
+    },
+    "inLanguage": "en-GB",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://firsttouch.app/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
 
