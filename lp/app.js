@@ -36,6 +36,7 @@
   wireCalendlyModal();
   wireFooterText();
   wireLeadForm();
+  wireHeroEmailForm();
   wireThankYou();
   wireSeoTags();
   wireStructuredData();
@@ -45,12 +46,14 @@
   wireCalendlyPostMessage();
 
   function wireGlobalLinks() {
-    // href stays "#" — click is intercepted by wireCalendlyModal()
+    // Set real Calendly URL as href — JS clicks are intercepted by wireCalendlyModal()
+    // and open the inline modal (e.preventDefault stops navigation).
+    // No-JS fallback: user follows the direct Calendly link in a new tab.
     document.querySelectorAll("[data-book-link]").forEach((el) => {
-      el.setAttribute("href", "#");
+      el.setAttribute("href", cfg.bookingUrl);
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener noreferrer");
       el.setAttribute("aria-haspopup", "dialog");
-      el.removeAttribute("target");
-      el.removeAttribute("rel");
     });
     // Fallback mailto links — shown as secondary CTAs when Calendly is unsuitable
     document.querySelectorAll("[data-mailto-link]").forEach((el) => {
@@ -292,6 +295,63 @@
     if (legalEl) legalEl.textContent = cfg.legalCompanyName + " | " + cfg.legalLocation;
   }
 
+  function wireHeroEmailForm() {
+    const heroForm = document.getElementById("hero-email-form");
+    if (!heroForm) return;
+
+    const heroInput = document.getElementById("hero-email-input");
+    const heroError = document.getElementById("hero-email-error");
+    const heroBtn   = heroForm.querySelector(".hero-email-btn");
+
+    heroForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = (heroInput ? heroInput.value : "").trim();
+
+      // Clear previous error
+      if (heroError) { heroError.hidden = true; heroError.textContent = ""; }
+      if (heroInput) heroInput.removeAttribute("aria-invalid");
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (heroError) { heroError.textContent = "Enter a valid work email."; heroError.hidden = false; }
+        if (heroInput) { heroInput.setAttribute("aria-invalid", "true"); heroInput.focus(); }
+        return;
+      }
+
+      // Pre-fill email in the main lead form
+      const mainEmailInput = document.getElementById("lf-email");
+      if (mainEmailInput) mainEmailInput.value = email;
+
+      // Track in analytics
+      if (typeof window.plausible === "function") {
+        window.plausible("Hero Email Capture", { props: { traffic_source: getTrafficSource() } });
+      }
+
+      // Disable button briefly to show progress
+      if (heroBtn) { heroBtn.disabled = true; heroBtn.textContent = "Almost there…"; }
+
+      // Scroll to the full form and focus the name field
+      const panel = document.getElementById("lead-capture");
+      if (panel) {
+        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+        setTimeout(function () {
+          const nameInput = document.getElementById("lf-name");
+          if (nameInput) nameInput.focus();
+          if (heroBtn) { heroBtn.disabled = false; heroBtn.textContent = "Get Free Toolkit →"; }
+        }, 700);
+      } else {
+        if (heroBtn) { heroBtn.disabled = false; heroBtn.textContent = "Get Free Toolkit →"; }
+      }
+    });
+
+    // Clear error on input
+    if (heroInput) {
+      heroInput.addEventListener("input", function () {
+        if (heroError) { heroError.hidden = true; heroError.textContent = ""; }
+        heroInput.removeAttribute("aria-invalid");
+      });
+    }
+  }
+
   function wireLeadForm() {
     const leadForm = document.getElementById("lead-form");
     const formStatus = document.getElementById("form-status");
@@ -429,13 +489,13 @@
     if (dl && cfg.leadMagnetUrl) {
       dl.href = cfg.leadMagnetUrl;
       // Force browser download rather than navigating to the file
-      dl.setAttribute("download", "jana-offer-pack.md");
+      dl.setAttribute("download", "strategy-toolkit.md");
       dl.setAttribute("rel", "noopener");
 
       // Track download clicks
       dl.addEventListener("click", function () {
         if (typeof window.plausible === "function") {
-          window.plausible("Lead Magnet Download", { props: { file: "jana-offer-pack" } });
+          window.plausible("Lead Magnet Download", { props: { file: "strategy-toolkit" } });
         }
       });
     }
@@ -444,7 +504,7 @@
     const thanksMessage = document.getElementById("thanks-message");
     const email = params.get("email");
     if (thanksMessage && email) {
-      thanksMessage.textContent = "Thanks — we've captured " + email + ". Download your JANA Offer Pack below and bring one workflow to the strategy call.";
+      thanksMessage.textContent = "Thanks — we've captured " + email + ". Download your Strategy Toolkit below and bring one workflow to the strategy call.";
     }
   }
 
@@ -603,10 +663,15 @@
   function wireLenis() {
     if (typeof Lenis === "undefined") return;
     // Fix #1: Skip Lenis on touch devices — native scroll is faster and matches OS physics.
-    // Also skip if user prefers reduced motion.
+    // Also skip if user prefers reduced motion or viewport is mobile-width.
     const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (isTouchDevice || prefersReduced) return;
+    const isMobileWidth = window.matchMedia("(max-width: 900px)").matches;
+    if (isTouchDevice || prefersReduced || isMobileWidth) return;
+
+    // P0 Fix: disable CSS scroll-behavior:smooth while Lenis handles scrolling
+    // to prevent double-animation on anchor link clicks.
+    document.documentElement.classList.add("lenis-active");
 
     const lenis = new Lenis({
       duration: 1.2,
