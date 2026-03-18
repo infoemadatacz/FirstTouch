@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>AI for Holding Groups &amp; Multi-Entity Businesses | FirstTouch</title>
+  <meta name="description" content="One AI system across all your operating companies. Each subsidiary keeps full data isolation. Group-level visibility, subsidiary-level privacy. Live in 10 days.">
+  <meta name="keywords" content="AI for holding groups, AI for multi-entity businesses, AI for portfolio companies, holding company AI assistant, subsidiary AI deployment, GDPR compliant AI holding group, group-level AI reporting, private AI for portfolio management">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="First Touch">
+  <meta name="theme-color" content="#9301BB">
+
+  <link rel="canonical" href="https://firsttouch.app/holding-groups">
+  <link rel="alternate" hreflang="en-gb" href="https://firsttouch.app/holding-groups">
+  <link rel="alternate" hreflang="x-default" href="https://firsttouch.app/holding-groups">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="AI for Holding Groups — Group Visibility, Subsidiary Privacy | FirstTouch">
+  <meta property="og:description" content="One AI system across all your companies. Each subsidiary sees only what it should. Live in 10 days.">
+  <meta property="og:url" content="https://firsttouch.app/holding-groups">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+  <meta property="og:locale" content="en_GB">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI for Holding Groups — Group Visibility, Subsidiary Privacy | FirstTouch">
+  <meta name="twitter:description" content="One AI system. Multiple subsidiaries. Full data isolation. Live in 10 days.">
+  <meta name="twitter:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+
+  <meta name="geo.region" content="GB-ENG">
+  <meta name="geo.placename" content="London, United Kingdom">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Plausible Analytics — GDPR-compliant, no cookies -->
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    /* ══════════════════════════════════════════════════════
+       HOLDING GROUPS LP — PAGE-SCOPED STYLES
+       Accent: Indigo #6366F1 (distinct from mfg amber,
+       legal teal/gold, healthcare emerald)
+    ══════════════════════════════════════════════════════ */
+
+    /* Accent tokens */
+    :root {
+      --indigo:       #6366F1;
+      --indigo-mid:   #4F46E5;
+      --indigo-light: #818CF8;
+      --indigo-pale:  #E0E7FF;
+    }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hg-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      min-height: 580px;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(145deg, #060815 0%, #080d20 45%, #0a1028 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Grid texture */
+    .hg-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(99,102,241,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    /* Ambient glows */
+    .hg-glow-1 {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 65%);
+      left: -180px; top: -200px;
+      pointer-events: none;
+    }
+    .hg-glow-2 {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(147,1,187,0.08) 0%, transparent 65%);
+      right: 100px; bottom: -100px;
+      pointer-events: none;
+    }
+
+    /* Inner: single wide column, centred copy */
+    .hg-hero-inner {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      min-height: 540px;
+      padding: 5rem 0;
+    }
+
+    .hg-copy {
+      max-width: 760px;
+    }
+
+    /* Tag pill */
+    .hg-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--indigo-pale);
+      margin-bottom: 1.5rem;
+      font-family: "Geist", sans-serif;
+    }
+
+    .hg-tag-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--indigo-light);
+      box-shadow: 0 0 8px var(--indigo-light);
+      flex-shrink: 0;
+    }
+
+    /* Headline */
+    .hg-h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: 1.3rem;
+    }
+
+    .hg-h1 .accent {
+      background: linear-gradient(90deg, var(--indigo-light) 0%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Lead */
+    .hg-lead {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* CTA row */
+    .hg-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    /* Social proof */
+    .hg-proof {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hg-proof-avatars { display: flex; }
+
+    .hg-proof-av {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 2px solid #060815;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 700; color: #fff;
+      margin-left: -7px; flex-shrink: 0;
+    }
+    .hg-proof-av:first-child { margin-left: 0; }
+
+    .hg-proof-text {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.4;
+    }
+    .hg-proof-text strong { color: rgba(255,255,255,0.72); }
+
+    /* Compliance strip */
+    .hg-compliance-strip {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 0 var(--container-pad, 1.5rem);
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .hg-compliance-strip::-webkit-scrollbar { display: none; }
+
+    .hg-ci {
+      display: flex; align-items: center; gap: 7px;
+      padding: 0.9rem 1.5rem 0.9rem 0;
+      font-size: 0.76rem; font-weight: 500;
+      color: rgba(255,255,255,0.42);
+      white-space: nowrap;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      margin-right: 1.5rem;
+    }
+    .hg-ci:last-child { border-right: none; margin-right: 0; }
+
+    .hg-ci-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--indigo-light); flex-shrink: 0;
+    }
+
+    /* ── "How it works" steps section ───────────────────── */
+    .hg-steps-section {
+      padding: 5rem 0;
+      background: var(--bg-2, #111115);
+      border-top: 1px solid var(--border, rgba(255,255,255,0.06));
+      border-bottom: 1px solid var(--border, rgba(255,255,255,0.06));
+    }
+
+    .hg-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .hg-step {
+      position: relative;
+      padding-left: 0;
+    }
+
+    .hg-step-num {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.28);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 800;
+      color: var(--indigo-light);
+      font-family: "Geist Mono", monospace;
+      margin-bottom: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .hg-step h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink-1, #fff);
+      margin-bottom: 0.65rem;
+      line-height: 1.3;
+    }
+
+    .hg-step p {
+      font-size: 0.92rem;
+      color: var(--ink-3, rgba(255,255,255,0.5));
+      line-height: 1.65;
+    }
+
+    /* Connector between steps (desktop only) */
+    .hg-step::after {
+      content: '→';
+      position: absolute;
+      top: 10px;
+      right: -1.5rem;
+      color: rgba(99,102,241,0.3);
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+    .hg-step:last-child::after { display: none; }
+
+    /* ── CTA section accent ──────────────────────────────── */
+    .hg-cta-section {
+      padding: 6rem 0;
+      background: var(--bg, #0A0A0B);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hg-cta-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(99,102,241,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Benefit card accent overrides for indigo vertical */
+    .benefit-card-1 .benefit-number { color: var(--indigo-light); }
+    .benefit-card-2 .benefit-number { color: #22C55E; }
+    .benefit-card-3 .benefit-number { color: #c03adb; }
+    .proof-check-indigo {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.3);
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .proof-check-indigo svg { width: 10px; height: 10px; stroke-width: 2.5; fill: none; }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 1000px) {
+      .hg-steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hg-step::after { display: none; }
+    }
+
+    @media (max-width: 860px) {
+      .hg-hero-inner { padding: 3.5rem 0; min-height: unset; }
+      .hg-h1 { font-size: clamp(2rem, 7vw, 2.8rem); }
+      .hg-lead { font-size: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hg-cta-row { flex-direction: column; align-items: flex-start; }
+      .hg-cta-row .btn { width: 100%; justify-content: center; }
+      .hg-compliance-strip { gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════ -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="/" aria-label="First Touch home">
+        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="32" height="32" loading="eager" decoding="sync">
+        <span class="brand-text">First Touch</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary navigation">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a class="nav-mobile-cta" href="/pilot">Apply for Pilot &rarr;</a>
+      </nav>
+
+      <a class="btn btn-sm nav-cta-desktop" href="/pilot">Apply for Pilot</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="hg-hero" aria-label="Hero">
+      <div class="hg-bg-grid" aria-hidden="true"></div>
+      <div class="hg-glow-1" aria-hidden="true"></div>
+      <div class="hg-glow-2" aria-hidden="true"></div>
+
+      <div class="container hg-hero-inner">
+        <div class="hg-copy">
+
+          <div class="hg-tag">
+            <span class="hg-tag-dot" aria-hidden="true"></span>
+            Holding Groups &amp; Multi-Entity Businesses
+          </div>
+
+          <h1 class="hg-h1">
+            One AI system across<br>
+            all your companies.<br>
+            <span class="accent">Each subsidiary sees only what it should.</span>
+          </h1>
+
+          <p class="hg-lead">
+            Your holding group manages three, five, or fifteen operating companies. Each one has its own processes, its own data, its own reporting cycle. Getting a clear view of the group takes days of manual work every month — and sharing AI tools across subsidiaries creates data governance problems you can't afford. FirstTouch solves both at once.
+          </p>
+
+          <div class="hg-cta-row">
+            <a class="btn" href="/pilot" plausible-event-name="Pilot CTA Click" plausible-event-source="holding-groups-hero">
+              Apply for the Pilot &rarr;
+            </a>
+            <a class="btn btn-ghost" href="#benefits">See What Changes &darr;</a>
+          </div>
+
+          <div class="hg-proof">
+            <div class="hg-proof-avatars" aria-hidden="true">
+              <span class="hg-proof-av" style="background:linear-gradient(135deg,#6366F1,#818CF8);">RH</span>
+              <span class="hg-proof-av" style="background:linear-gradient(135deg,#4F46E5,#6366F1);">TP</span>
+              <span class="hg-proof-av" style="background:linear-gradient(135deg,#9301BB,#c03adb);">MW</span>
+              <span class="hg-proof-av" style="background:linear-gradient(135deg,#4338CA,#4F46E5);">SB</span>
+            </div>
+            <p class="hg-proof-text">Trusted by <strong>group CEOs and portfolio managers</strong><br>across the UK and Europe</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Compliance strip -->
+      <div class="hg-compliance-strip" aria-label="Compliance credentials">
+        <div class="hg-ci"><div class="hg-ci-dot"></div>GDPR Compliant</div>
+        <div class="hg-ci"><div class="hg-ci-dot"></div>Full data isolation between subsidiaries</div>
+        <div class="hg-ci"><div class="hg-ci-dot"></div>Group visibility without governance risk</div>
+        <div class="hg-ci"><div class="hg-ci-dot"></div>EU AI Act Aligned</div>
+        <div class="hg-ci"><div class="hg-ci-dot"></div>No vendor data access</div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         BENEFITS
+    ══════════════════════════════════════════ -->
+    <section class="benefits-section section" id="benefits" aria-labelledby="benefits-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>What changes for the group</p>
+          <h2 id="benefits-heading">Three problems that holding groups hit with every AI tool they try.</h2>
+          <p class="section-lead">Generic AI tools force a choice: either give all subsidiaries access to each other's data, or manage dozens of separate tools with no group visibility. FirstTouch is built specifically for multi-entity structures — you don't have to choose.</p>
+        </div>
+
+        <div class="benefits-grid">
+
+          <!-- Benefit 1: Group visibility without governance risk -->
+          <article class="benefit-card benefit-card-1">
+            <div class="benefit-number benefit-number-1">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M6 12h.01M10 8h8M10 12h5"/></svg>
+            </div>
+            <h3>HQ gets the group view. Subsidiaries keep their privacy.</h3>
+            <p>
+              Your group CEO needs to know how the portfolio is performing — revenue, headcount, key risks, operational status — without waiting for each MD to compile a report. At the same time, your subsidiary MDs reasonably expect that their data isn't visible to sister companies.
+            </p>
+            <p>
+              FirstTouch delivers both. The group layer shows consolidated metrics and strategic summaries. Each subsidiary's AI environment is fully isolated — its documents, its conversations, its data cannot be accessed by any other entity in the group, including HQ staff who don't have explicit access rights.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check proof-check-indigo">
+                  <svg viewBox="0 0 10 10" stroke="#818CF8"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Group dashboard shows portfolio-wide metrics in real time</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-indigo">
+                  <svg viewBox="0 0 10 10" stroke="#818CF8"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Zero data cross-contamination between operating companies</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-indigo">
+                  <svg viewBox="0 0 10 10" stroke="#818CF8"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Access controls configured per entity and per role — not just per user</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 2: Each subsidiary gets its own AI -->
+          <article class="benefit-card benefit-card-2">
+            <div class="benefit-number benefit-number-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Each operating company gets its own AI. Trained on its own work.</h3>
+            <p>
+              A shared AI tool knows nothing useful about any specific subsidiary. Your logistics company needs AI that understands its transport routes, its customer contracts, its drivers. Your manufacturing arm needs AI that knows its production lines, its material specs, its quality procedures. They're not the same tool.
+            </p>
+            <p>
+              Each subsidiary in your group gets its own AI environment, trained on its own documents and operational data. The systems share infrastructure costs but nothing else. Each MD experiences AI that actually knows their business — not a generic assistant that answers every question with a template.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Separate AI knowledge base per operating company</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Each entity's documents, processes, and team context stay within that entity</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Local MDs control what their AI knows — HQ does not override this</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 3: Single deployment, all companies -->
+          <article class="benefit-card benefit-card-3">
+            <div class="benefit-number benefit-number-3">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c03adb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3>One deployment. All your companies covered. One contract.</h3>
+            <p>
+              Rolling out AI across a portfolio company by company — separate procurement, separate IT projects, separate contracts — takes years and costs more than anyone budgets for. The alternative is a group-wide deployment that treats every subsidiary as identical, which they're not.
+            </p>
+            <p>
+              We deploy once at the group level and configure isolated environments for each operating company as part of the same project. You sign one contract with FirstTouch. Your subsidiaries don't each need their own vendor relationship, their own IT project, or their own compliance review.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Single group-level contract covers all operating companies</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Infrastructure shared, data environments fully isolated</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>New subsidiaries added to the group in days, not months</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         HOW IT WORKS
+    ══════════════════════════════════════════ -->
+    <section class="hg-steps-section section" id="how-it-works" aria-labelledby="steps-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>How we deploy it</p>
+          <h2 id="steps-heading">Live across your group in three steps.</h2>
+          <p class="section-lead">No long IT project. No separate procurement for each subsidiary. We work at group level from day one — which means your operating companies get up and running faster than if each tried to do it independently.</p>
+        </div>
+
+        <div class="hg-steps-grid">
+
+          <div class="hg-step">
+            <div class="hg-step-num">01</div>
+            <h3>We map your group structure.</h3>
+            <p>
+              Before we configure anything, we sit down with whoever manages the group — typically the Group CEO or CFO — and map out who reports to whom, which data belongs to which entity, and what the group level actually needs to see. This conversation takes two hours and determines the entire access control architecture. Most clients are surprised by how much clarity this creates internally, even before the technology is involved.
+            </p>
+          </div>
+
+          <div class="hg-step">
+            <div class="hg-step-num">02</div>
+            <h3>We deploy isolated environments per company.</h3>
+            <p>
+              Each operating company gets its own AI environment — separate knowledge base, separate conversation history, separate access controls. A logistics subsidiary cannot query the manufacturing subsidiary's data, and vice versa. Simultaneously, we configure the group layer: a consolidated view that surfaces portfolio-wide metrics without exposing the underlying data from any individual entity. All of this runs on infrastructure you control — on-premise or a private cloud managed by your group IT function.
+            </p>
+          </div>
+
+          <div class="hg-step">
+            <div class="hg-step-num">03</div>
+            <h3>Group dashboard and subsidiary AI, live in 10 days.</h3>
+            <p>
+              By day 10, your group level has a working dashboard that answers strategic questions about the portfolio. Each subsidiary MD has a working AI assistant that knows their business. We run a 30-day review with the group leadership team: what's being used, what time is being saved, what the ROI looks like. At the end of 30 days, you have concrete data — not a promise.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SOCIAL PROOF
+    ══════════════════════════════════════════ -->
+    <section class="social-section" id="proof" aria-labelledby="proof-heading">
+      <div class="container">
+
+        <div class="stats-row" role="list" aria-label="Key performance metrics">
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">15h</div>
+            <div class="stat-label">saved at group level per week on reporting</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">10</div>
+            <div class="stat-label">days to live across all operating companies</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">data isolation between subsidiaries</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">1</div>
+            <div class="stat-label">contract covers the entire group portfolio</div>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>From the boardroom</p>
+          <h2 id="proof-heading">What group leadership says after 30 days.</h2>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">Getting a weekly group report used to require chasing five different MDs. Now it compiles automatically every Sunday evening. Our board pack went from taking three days to three hours. That's not a marginal improvement — it's a different way of running the group.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #4F46E5, #6366F1);">RH</div>
+              <div>
+                <div class="testimonial-name">Group Chief Executive</div>
+                <div class="testimonial-role">7-company holding group · South East England</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">Our concern was that data from one operating company might bleed into another. The way it's structured, each subsidiary is completely isolated — they can't see each other's data any more than they can access each other's bank accounts. That answer satisfied our legal team immediately.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #6366F1, #818CF8);">MW</div>
+              <div>
+                <div class="testimonial-name">Group Chief Financial Officer</div>
+                <div class="testimonial-role">Multi-sector holding group · London, UK</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">The local MDs were the hardest to convince. Once they understood it was their own AI — not a shared tool — and that the group centre couldn't read their operational data without their permission, the resistance disappeared. Three of them are now among the heaviest users.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #4338CA, #4F46E5);">TP</div>
+              <div>
+                <div class="testimonial-name">Group Operations Director</div>
+                <div class="testimonial-role">4-company portfolio · Midlands, UK</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CTA
+    ══════════════════════════════════════════ -->
+    <section class="hg-cta-section section" id="cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-inner">
+          <p class="eyebrow" style="justify-content:center;"><span class="eyebrow-dot" aria-hidden="true"></span>April Pilot · 2 spots remaining</p>
+          <h2 id="cta-heading">See the full group view in 30 days.</h2>
+          <p>
+            We take your group structure, configure isolated environments for each operating company, and give you a working group dashboard. At day 30 you have a real ROI number — time saved, decisions made faster, reporting hours recovered. If it doesn't deliver, you walk away and keep everything we built.
+          </p>
+
+          <div class="cta-actions">
+            <a class="btn" href="/pilot" style="font-size:1rem;padding:0.95rem 1.75rem;" plausible-event-name="Pilot CTA Click" plausible-event-source="holding-groups-cta">
+              Apply for the April Pilot &rarr;
+            </a>
+            <a class="btn btn-ghost" href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">
+              Book 15-min call instead
+            </a>
+          </div>
+
+          <p class="cta-meta">
+            Or speak to James directly: <a href="mailto:james@firsttouch.app">james@firsttouch.app</a>
+          </p>
+
+          <div class="cta-trust-pills" aria-label="Trust credentials">
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Full subsidiary data isolation</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>GDPR compliant</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>One contract, all companies</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Live in 10 days</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Cancel any time</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+        <a class="brand footer-brand-logo" href="/" aria-label="First Touch home">
+          <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="28" height="28" loading="lazy" decoding="async">
+          <span class="brand-text">First Touch</span>
+        </a>
+        <p class="footer-tagline">The AI Chief of Staff for European B2B operators. Runs on your infrastructure — not ours.</p>
+        <div class="footer-trust-mini" aria-label="Key trust signals">
+          <span>🇬🇧 London · European Operations</span>
+          <span>GDPR Ready</span>
+          <span>On-Premise</span>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Industries navigation">
+        <p class="footer-nav-title">Industries</p>
+        <a href="/manufacturing">Manufacturing</a>
+        <a href="/legal">Legal &amp; Professional Services</a>
+        <a href="/healthcare">Healthcare</a>
+        <a href="/holding-groups">Holding Groups</a>
+        <a href="/#teams">Logistics</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Product navigation">
+        <p class="footer-nav-title">Product</p>
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/scorecard">AI Readiness Scorecard</a>
+        <a href="/pilot">Apply for Pilot</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Resources navigation">
+        <p class="footer-nav-title">Resources</p>
+        <a href="/blog">Blog</a>
+        <a href="/blog/ai-manager-assistant-vs-generic-ai-tools">AI Manager Guide</a>
+        <a href="/guides">All Guides</a>
+        <a href="/guides/compliance-governance">Compliance &amp; GDPR</a>
+      </nav>
+
+      <div class="footer-cta-block">
+        <p class="footer-nav-title">Get started</p>
+        <p class="footer-cta-desc">One workflow across your group. 30 days. Clear ROI or you walk away — no penalty.</p>
+        <a class="btn btn-sm footer-cta-btn" href="/pilot">Apply for the Pilot &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>
+          <strong>First Touch</strong>
+          &middot; &copy; 2026 First Touch Ltd &middot; London, United Kingdom
+        </p>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var toggle   = document.getElementById("nav-toggle");
+    var navLinks = document.getElementById("nav-links");
+    if (toggle && navLinks) {
+      toggle.addEventListener("click", function () {
+        var expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        navLinks.classList.toggle("nav-open");
+      });
+    }
+  }());
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI for Holding Groups and Multi-Entity Businesses | FirstTouch",
+    "description": "One AI system across all your operating companies. Full data isolation between subsidiaries. Group-level visibility without governance risk. Live in 10 days.",
+    "url": "https://firsttouch.app/holding-groups",
+    "inLanguage": "en-GB",
+    "publisher": {
+      "@type": "Organization",
+      "name": "First Touch",
+      "url": "https://firsttouch.app",
+      "logo": "https://firsttouch.app/assets/firsttouch-icon.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "james@firsttouch.app",
+        "contactType": "sales"
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",           "item": "https://firsttouch.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Holding Groups", "item": "https://firsttouch.app/holding-groups" }
+      ]
+    }
+  }
+  </script>
+
+</body>
+</html>

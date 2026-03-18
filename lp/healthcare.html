@@ -209,7 +209,7 @@
     }
     .hc-proof-text strong { color: rgba(255,255,255,0.72); }
 
-    /* ── Right: clinical illustration ── */
+    /* ── Right: hero visual (Sprint 5 brand handoff) ── */
     .hc-illustration {
       position: relative;
       width: 100%;
@@ -217,253 +217,166 @@
       overflow: hidden;
     }
 
-    /* Central AI hub */
-    .hc-ai-hub {
+    /* ── Brand hero visual — scene container ── */
+    .hcv-scene {
+      position: relative;
+      width: 560px;
+      height: 560px;
+      margin: 18px auto 0;
+    }
+
+    /* Boundary ring */
+    .hcv-boundary {
       position: absolute;
-      width: 88px; height: 88px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #0D9488, #14B8A6);
+      inset: 0;
+      border-radius: 50%;
+    }
+    .hcv-br-outer {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1px solid rgba(14,165,233,0.2);
+    }
+    .hcv-br-inner {
+      position: absolute; inset: 18px; border-radius: 50%;
+      border: 1px dashed rgba(14,165,233,0.13);
+      animation: hcv-rotate-ring 52s linear infinite;
+    }
+    .hcv-br-glow {
+      position: absolute; inset: 42px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(3,105,161,0.07) 0%, transparent 70%);
+    }
+    @keyframes hcv-rotate-ring {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .hcv-boundary-label {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: #071820;
+      padding: 0 10px;
+      font-size: 8.5px; font-weight: 700; letter-spacing: 1.8px;
+      text-transform: uppercase; color: #7DD3FC;
+      white-space: nowrap; z-index: 30;
+      font-family: "Geist Mono", monospace;
+    }
+
+    /* Central hub */
+    .hcv-hub {
+      position: absolute;
+      width: 118px; height: 118px;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      display: flex; align-items: center; justify-content: center;
       z-index: 20;
+    }
+    .hcv-hub-body {
+      width: 118px; height: 118px;
+      background: linear-gradient(145deg, #0c1e38, #122540);
+      border: 1px solid rgba(14,165,233,0.32);
+      border-radius: 18px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 9px;
       box-shadow:
-        0 0 0 1px rgba(20,184,166,0.35),
-        0 20px 60px rgba(13,148,136,0.5),
-        0 0 100px rgba(13,148,136,0.18);
+        0 0 0 9px rgba(14,165,233,0.04),
+        0 0 0 20px rgba(14,165,233,0.02),
+        0 18px 52px rgba(3,105,161,0.32);
+      position: relative;
     }
-
-    .hc-ai-hub::before {
-      content: '';
-      position: absolute;
-      inset: -14px;
-      border-radius: 30px;
-      border: 1px solid rgba(13,148,136,0.28);
-      animation: hc-hub-ring 3s ease-in-out infinite;
+    /* Medical cross — brand icon */
+    .hcv-cross {
+      position: relative; width: 34px; height: 34px; margin-bottom: -2px;
     }
-    .hc-ai-hub::after {
-      content: '';
-      position: absolute;
-      inset: -28px;
-      border-radius: 38px;
-      border: 1px solid rgba(13,148,136,0.13);
-      animation: hc-hub-ring 3s ease-in-out 0.8s infinite;
+    .hcv-cross::before, .hcv-cross::after {
+      content: ''; position: absolute;
+      background: linear-gradient(135deg, #7DD3FC, #34D399);
+      border-radius: 3px;
     }
-
-    @keyframes hc-hub-ring {
-      0%   { transform: scale(1);   opacity: 1; }
-      100% { transform: scale(1.3); opacity: 0; }
-    }
-
-    .hc-ai-label {
-      font-size: 10px; font-weight: 800;
-      letter-spacing: 1px;
-      color: white; text-align: center; line-height: 1.2;
+    .hcv-cross::before { width: 8px; height: 30px; top: 2px; left: 50%; transform: translateX(-50%); }
+    .hcv-cross::after  { width: 30px; height: 8px; left: 2px; top: 50%; transform: translateY(-50%); }
+    .hcv-hub-label {
+      font-size: 9.5px; font-weight: 800; letter-spacing: 1.4px;
+      text-transform: uppercase; color: #7DD3FC;
       font-family: "Geist", sans-serif;
     }
-    .hc-ai-label span { display: block; font-size: 17px; letter-spacing: 0; }
+    .hcv-hub-ai-chip {
+      position: absolute; top: -11px; right: -11px;
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, #7C3AED, #A78BFA);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9.5px; font-weight: 900; color: white;
+      box-shadow: 0 4px 12px rgba(124,58,237,0.5);
+      border: 1.5px solid rgba(167,139,250,0.3);
+      font-family: "Geist", sans-serif;
+    }
 
-    /* Clinical nodes */
-    .hc-node {
+    /* Data nodes */
+    .hcv-node {
       position: absolute;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 6px; z-index: 10;
+    }
+    .hcv-node-icon {
       border-radius: 13px;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      gap: 7px;
+      gap: 4px; border: 1px solid;
+      width: 62px; height: 62px;
     }
-
-    .hc-node-icon { font-size: 20px; line-height: 1; }
-
-    .hc-node-label {
-      font-size: 9.5px; font-weight: 600;
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
-      text-align: center; line-height: 1.3;
+    .hcv-node-emoji { font-size: 20px; line-height: 1; }
+    .hcv-node-label {
+      font-size: 9.5px; font-weight: 700; text-align: center;
+      line-height: 1.25; letter-spacing: 0.2px;
       font-family: "Geist", sans-serif;
     }
-
-    .hc-node-idle {
-      background: rgba(255,255,255,0.035);
-      border: 1px solid rgba(255,255,255,0.07);
-      color: rgba(255,255,255,0.35);
-    }
-    .hc-node-idle .hc-node-label { color: rgba(255,255,255,0.28); }
-
-    .hc-node-active {
-      background: linear-gradient(135deg, rgba(13,148,136,0.16), rgba(13,148,136,0.04));
-      border: 1px solid rgba(20,184,166,0.35);
-      color: #99F6E4;
-      box-shadow: 0 8px 24px rgba(13,148,136,0.12);
-      animation: hc-node-pulse 3s ease-in-out infinite;
-    }
-    .hc-node-active .hc-node-label { color: #99F6E4; }
-
-    .hc-node-secure {
-      background: linear-gradient(135deg, rgba(147,1,187,0.18), rgba(147,1,187,0.04));
-      border: 1px solid rgba(192,58,219,0.28);
-      color: #c03adb;
-      box-shadow: 0 8px 24px rgba(147,1,187,0.14);
-    }
-    .hc-node-secure .hc-node-label { color: #d580e8; }
-
-    @keyframes hc-node-pulse {
-      0%, 100% { box-shadow: 0 8px 24px rgba(13,148,136,0.12); }
-      50%       { box-shadow: 0 12px 36px rgba(13,148,136,0.28); }
-    }
-
+    /* Node colour variants */
+    .hcv-nd-blue .hcv-node-icon  { background: rgba(14,165,233,0.1);   border-color: rgba(14,165,233,0.3); }
+    .hcv-nd-blue .hcv-node-label { color: #7DD3FC; }
+    .hcv-nd-green .hcv-node-icon  { background: rgba(5,150,105,0.1);   border-color: rgba(52,211,153,0.28); }
+    .hcv-nd-green .hcv-node-label { color: #34D399; }
+    .hcv-nd-purple .hcv-node-icon  { background: rgba(124,58,237,0.12); border-color: rgba(167,139,250,0.28); }
+    .hcv-nd-purple .hcv-node-label { color: #A78BFA; }
     /* Node positions */
-    .hc-n1 { width: 104px; height: 84px; top: 70px;    left: 100px; }
-    .hc-n2 { width: 104px; height: 84px; top: 70px;    left: 240px; animation-delay: 0.5s; }
-    .hc-n3 { width: 104px; height: 84px; top: 70px;    left: 380px; }
-    .hc-n4 { width: 104px; height: 84px; bottom: 70px; left: 100px; animation-delay: 1s; }
-    .hc-n5 { width: 104px; height: 84px; bottom: 70px; left: 240px; }
-    .hc-n6 { width: 104px; height: 84px; bottom: 70px; left: 380px; animation-delay: 1.5s; }
-    .hc-n7 { width: 94px;  height: 84px; top: 50%;     right: 36px; transform: translateY(-115%); }
-    .hc-n8 { width: 94px;  height: 84px; top: 50%;     right: 36px; transform: translateY(15%); }
+    .hcv-nd-top    { top: 22px;   left: 50%; transform: translateX(-50%); }
+    .hcv-nd-right  { top: 50%;   right: 18px; transform: translateY(-50%); }
+    .hcv-nd-bottom { bottom: 22px; left: 50%; transform: translateX(-50%); }
+    .hcv-nd-left   { top: 50%;   left: 18px; transform: translateY(-50%); }
+    .hcv-nd-tr     { top: 70px;  right: 68px; }
+    .hcv-nd-bl     { bottom: 70px; left: 68px; }
 
-    /* Connector lines */
-    .hc-connectors { position: absolute; inset: 0; z-index: 1; }
-
-    .hc-flow-line {
-      position: absolute;
-      background: linear-gradient(90deg, transparent, rgba(13,148,136,0.13), rgba(20,184,166,0.36), rgba(13,148,136,0.13), transparent);
-      border-radius: 2px;
-      overflow: hidden;
+    /* SVG connector layer */
+    .hcv-svg-layer {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
     }
-
-    .hc-flow-line::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -56px;
-      width: 56px; height: 100%;
-      background: linear-gradient(90deg, transparent, #14B8A6, #99F6E4, transparent);
-      animation: hc-flow-particle 2.5s linear infinite;
-    }
-
-    @keyframes hc-flow-particle {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(calc(100% + 112px)); }
-    }
-
-    .hc-fl-h1 { height: 1px; width: 110px; top: 112px; left: 200px; }
-    .hc-fl-h2 { height: 1px; width: 110px; top: 112px; left: 340px; animation-delay: 0.4s; }
-    .hc-fl-h4 { height: 1px; width: 110px; bottom: 112px; left: 200px; animation-delay: 0.6s; }
-    .hc-fl-h5 { height: 1px; width: 110px; bottom: 112px; left: 340px; animation-delay: 1.0s; }
-
-    .hc-fl-v1 {
-      width: 1px; height: 190px; left: 152px; top: 154px;
-      background: linear-gradient(180deg, transparent, rgba(13,148,136,0.15), rgba(20,184,166,0.3), rgba(13,148,136,0.15), transparent);
-      animation-delay: 0.3s;
-    }
-    .hc-fl-v1::after {
-      width: 100%; left: 0; top: -36px; height: 36px;
-      background: linear-gradient(180deg, transparent, #14B8A6, transparent);
-      animation: hc-flow-particle-v 2.5s linear 0.3s infinite;
-    }
-
-    .hc-fl-v2 {
-      width: 1px; height: 190px; left: 292px; top: 154px;
-      background: linear-gradient(180deg, transparent, rgba(147,1,187,0.14), rgba(147,1,187,0.38), rgba(147,1,187,0.14), transparent);
-      animation-delay: 0.9s;
-    }
-    .hc-fl-v2::after {
-      width: 100%; left: 0; top: -36px; height: 36px;
-      background: linear-gradient(180deg, transparent, #9301BB, transparent);
-      animation: hc-flow-particle-v 2.5s linear 0.9s infinite;
-    }
-
-    .hc-fl-v3 {
-      width: 1px; height: 190px; left: 432px; top: 154px;
-      background: linear-gradient(180deg, transparent, rgba(13,148,136,0.15), rgba(20,184,166,0.3), rgba(13,148,136,0.15), transparent);
-      animation-delay: 0.6s;
-    }
-    .hc-fl-v3::after {
-      width: 100%; left: 0; top: -36px; height: 36px;
-      background: linear-gradient(180deg, transparent, #14B8A6, transparent);
-      animation: hc-flow-particle-v 2.5s linear 0.6s infinite;
-    }
-
-    @keyframes hc-flow-particle-v {
-      0%   { transform: translateY(0); }
-      100% { transform: translateY(calc(100% + 72px)); }
-    }
-
-    /* Metrics widget */
-    .hc-metrics-bar {
-      position: absolute;
-      bottom: 128px; right: 48px;
-      width: 210px;
-      background: rgba(0,0,0,0.32);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px;
-      padding: 13px 15px;
-      z-index: 20;
-      font-family: "Geist", sans-serif;
-    }
-
-    .hc-mbar-label {
-      font-size: 9.5px; font-weight: 700;
-      letter-spacing: 0.9px; text-transform: uppercase;
-      color: rgba(255,255,255,0.32); margin-bottom: 9px;
-    }
-
-    .hc-mbar-metric {
-      font-size: 24px; font-weight: 800;
-      color: #99F6E4; letter-spacing: -0.5px; line-height: 1; margin-bottom: 5px;
-    }
-
-    .hc-mbar-sub { font-size: 10px; color: rgba(255,255,255,0.38); margin-bottom: 9px; }
-
-    .hc-mbar-progress {
-      height: 3px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden;
-    }
-
-    .hc-mbar-fill {
-      height: 100%; width: 72%;
-      background: linear-gradient(90deg, #0D9488, #14B8A6);
-      border-radius: 2px;
-      animation: hc-bar-fill 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes hc-bar-fill { from { width: 58%; } to { width: 80%; } }
 
     /* Status chip */
-    .hc-status-chip {
-      position: absolute; top: 40px; right: 40px;
-      display: flex; align-items: center; gap: 7px;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(34,197,94,0.28);
-      border-radius: 20px; padding: 6px 13px;
-      z-index: 20; font-family: "Geist", sans-serif;
+    .hcv-status-chip {
+      position: absolute; bottom: 30px; right: 24px;
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(0,0,0,0.48);
+      border: 1px solid rgba(52,211,153,0.28);
+      border-radius: 20px; padding: 7px 13px; z-index: 25;
     }
-
-    .hc-status-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: #22C55E;
-      animation: hc-status-blink 2s ease-in-out infinite;
+    .hcv-sc-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #34D399; box-shadow: 0 0 6px #34D399;
+      animation: hcv-blink 2.5s ease-in-out infinite;
     }
+    @keyframes hcv-blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .hcv-sc-text { font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,0.65); font-family: "Geist", sans-serif; }
 
-    @keyframes hc-status-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-
-    .hc-status-text { font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.2px; }
-
-    /* Insight bubble */
-    .hc-insight-bubble {
-      position: absolute; top: 148px; right: 40px;
-      width: 200px;
-      background: linear-gradient(135deg, rgba(13,148,136,0.2), rgba(13,148,136,0.05));
-      border: 1px solid rgba(20,184,166,0.3);
-      border-radius: 12px; padding: 11px 13px;
-      z-index: 20; font-family: "Geist", sans-serif;
+    /* Insight badge */
+    .hcv-insight-badge {
+      position: absolute; top: 44px; right: 24px;
+      width: 188px;
+      background: rgba(5,150,105,0.09);
+      border: 1px solid rgba(52,211,153,0.25);
+      border-radius: 11px; padding: 11px 13px; z-index: 25;
     }
-
-    .hc-bubble-title {
-      font-size: 9.5px; font-weight: 700; color: #14B8A6;
-      letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 5px;
+    .hcv-ib-label {
+      font-size: 8.5px; font-weight: 700; letter-spacing: 1.4px;
+      text-transform: uppercase; color: #34D399; margin-bottom: 5px;
+      font-family: "Geist", sans-serif;
     }
-
-    .hc-bubble-body { font-size: 11.5px; color: rgba(255,255,255,0.6); line-height: 1.4; }
-    .hc-bubble-body strong { color: #fff; }
+    .hcv-ib-body { font-size: 11.5px; color: rgba(255,255,255,0.6); line-height: 1.4; }
+    .hcv-ib-body strong { color: #fff; }
 
     /* Compliance strip */
     .hc-compliance-strip {
@@ -630,6 +543,96 @@
       color: var(--ink-3);
       line-height: 1.4;
     }
+
+    /* ── Compliance visual card — from social card asset ── */
+    .hc-compliance-card {
+      background: linear-gradient(150deg, #060f1e 0%, #070d1e 50%, #040c18 100%);
+      border: 1px solid rgba(14,165,233,0.15);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      margin: 0 0 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hc-compliance-card::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(14,165,233,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .hc-cc-inner {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .hc-cc-stat {
+      text-align: center;
+    }
+    .hc-cc-eyebrow {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #7DD3FC;
+      margin-bottom: 0.5rem;
+      font-family: "Geist", sans-serif;
+    }
+    .hc-cc-zero {
+      font-size: clamp(4rem, 7vw, 6.5rem);
+      font-weight: 900; line-height: 0.9;
+      letter-spacing: -0.06em;
+      background: linear-gradient(135deg, #fff 20%, rgba(255,255,255,0.55));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hc-cc-zero-sub {
+      font-size: 1.05rem; font-weight: 700; color: #7DD3FC;
+      line-height: 1.2; margin-top: 0.3rem;
+      font-family: "Geist", sans-serif;
+    }
+    .hc-cc-zero-desc {
+      font-size: 0.8rem; color: rgba(255,255,255,0.4);
+      font-style: italic; margin-top: 0.25rem;
+      font-family: "Geist", sans-serif;
+    }
+    .hc-cc-compare {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .hc-cc-col {
+      border-radius: 10px; padding: 1rem 1.1rem; border: 1px solid;
+    }
+    .hc-cc-col-risk {
+      background: rgba(239,68,68,0.05); border-color: rgba(239,68,68,0.18);
+    }
+    .hc-cc-col-safe {
+      background: rgba(16,185,129,0.06); border-color: rgba(110,231,183,0.2);
+    }
+    .hc-cc-col-head {
+      display: flex; align-items: center; gap: 7px;
+      margin-bottom: 0.6rem;
+    }
+    .hc-cc-col-dot {
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+    }
+    .hc-cc-col-risk .hc-cc-col-dot { background: #F87171; box-shadow: 0 0 5px #F87171; }
+    .hc-cc-col-safe .hc-cc-col-dot { background: #10B981; box-shadow: 0 0 5px #10B981; }
+    .hc-cc-col-title {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; font-family: "Geist", sans-serif;
+    }
+    .hc-cc-col-risk .hc-cc-col-title { color: #F87171; }
+    .hc-cc-col-safe .hc-cc-col-title { color: #6EE7B7; }
+    .hc-cc-item {
+      display: flex; align-items: flex-start; gap: 6px;
+      font-size: 0.8rem; color: rgba(255,255,255,0.52);
+      line-height: 1.4; margin-bottom: 4px;
+      font-family: "Geist", sans-serif;
+    }
+    .hc-cc-item:last-child { margin-bottom: 0; }
+    .hc-cc-mark-risk { color: #F87171; flex-shrink: 0; }
+    .hc-cc-mark-safe { color: #10B981; flex-shrink: 0; }
 
     .hc-testimonials-grid {
       display: grid;
@@ -908,81 +911,125 @@
           </div>
         </div>
 
-        <!-- Right: clinical illustration (CSS-only) -->
-        <aside class="hc-illustration" aria-label="AI-assisted clinical admin diagram" aria-hidden="true">
-          <div class="hc-status-chip">
-            <div class="hc-status-dot"></div>
-            <span class="hc-status-text">AI System Active</span>
-          </div>
+        <!-- Right: brand hero visual — Sprint 5 handoff -->
+        <aside class="hc-illustration" aria-label="Patient data stays inside your infrastructure — visualisation" aria-hidden="true">
 
-          <div class="hc-insight-bubble">
-            <div class="hc-bubble-title">AI Insight</div>
-            <div class="hc-bubble-body">Admin backlog reduced by <strong>54%</strong> this week. 3 referral letters drafted, awaiting sign-off.</div>
-          </div>
-
-          <!-- Flow lines -->
-          <div class="hc-connectors">
-            <div class="hc-flow-line hc-fl-h1"></div>
-            <div class="hc-flow-line hc-fl-h2"></div>
-            <div class="hc-flow-line hc-fl-h4"></div>
-            <div class="hc-flow-line hc-fl-h5"></div>
-            <div class="hc-flow-line hc-fl-v1"></div>
-            <div class="hc-flow-line hc-fl-v2"></div>
-            <div class="hc-flow-line hc-fl-v3"></div>
-          </div>
-
-          <!-- Central AI hub -->
-          <div class="hc-ai-hub">
-            <div class="hc-ai-label">
-              <span>🏥</span>
-              AI
+          <div class="hcv-scene">
+            <!-- Secure perimeter ring -->
+            <div class="hcv-boundary">
+              <div class="hcv-br-outer"></div>
+              <div class="hcv-br-inner"></div>
+              <div class="hcv-br-glow"></div>
             </div>
-          </div>
+            <div class="hcv-boundary-label">NHS-Grade Secure Perimeter · Zero External Data Transfer</div>
 
-          <!-- Clinical nodes -->
-          <div class="hc-node hc-node-active hc-n1">
-            <div class="hc-node-icon">📋</div>
-            <div class="hc-node-label">Patient<br>Records</div>
-          </div>
-          <div class="hc-node hc-node-active hc-n2">
-            <div class="hc-node-icon">📅</div>
-            <div class="hc-node-label">Appoint-<br>ments</div>
-          </div>
-          <div class="hc-node hc-node-idle hc-n3">
-            <div class="hc-node-icon">📄</div>
-            <div class="hc-node-label">Referral<br>Letters</div>
-          </div>
-          <div class="hc-node hc-node-idle hc-n4">
-            <div class="hc-node-icon">🔒</div>
-            <div class="hc-node-label">GDPR<br>Audit Log</div>
-          </div>
-          <div class="hc-node hc-node-active hc-n5">
-            <div class="hc-node-icon">📊</div>
-            <div class="hc-node-label">CQC<br>Reports</div>
-          </div>
-          <div class="hc-node hc-node-idle hc-n6">
-            <div class="hc-node-icon">💊</div>
-            <div class="hc-node-label">Clinical<br>Protocols</div>
-          </div>
-          <div class="hc-node hc-node-secure hc-n7">
-            <div class="hc-node-icon">🛡️</div>
-            <div class="hc-node-label">On-Premise<br>Only</div>
-          </div>
-          <div class="hc-node hc-node-idle hc-n8">
-            <div class="hc-node-icon">✅</div>
-            <div class="hc-node-label">Compliance<br>Check</div>
-          </div>
+            <!-- SVG connector paths — all flows inward to hub at (280,280) -->
+            <svg class="hcv-svg-layer" viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg">
+              <!-- Top → hub -->
+              <path d="M280,112 Q280,190 280,228" fill="none" stroke="rgba(14,165,233,0.25)" stroke-width="1"/>
+              <!-- Right → hub -->
+              <path d="M448,280 Q390,280 332,280" fill="none" stroke="rgba(52,211,153,0.22)" stroke-width="1"/>
+              <!-- Bottom → hub -->
+              <path d="M280,448 Q280,376 280,332" fill="none" stroke="rgba(14,165,233,0.25)" stroke-width="1"/>
+              <!-- Left → hub -->
+              <path d="M112,280 Q170,280 228,280" fill="none" stroke="rgba(167,139,250,0.22)" stroke-width="1"/>
+              <!-- Top-right → hub -->
+              <path d="M400,140 Q345,212 304,256" fill="none" stroke="rgba(14,165,233,0.18)" stroke-width="1"/>
+              <!-- Bottom-left → hub -->
+              <path d="M160,420 Q215,348 260,308" fill="none" stroke="rgba(52,211,153,0.18)" stroke-width="1"/>
 
-          <!-- Metrics widget -->
-          <div class="hc-metrics-bar">
-            <div class="hc-mbar-label">Admin Time Saved</div>
-            <div class="hc-mbar-metric">4.2h</div>
-            <div class="hc-mbar-sub">per staff member, per week</div>
-            <div class="hc-mbar-progress">
-              <div class="hc-mbar-fill"></div>
+              <!-- Animated data particles — inward flow -->
+              <circle r="3" fill="#7DD3FC" opacity="0.9">
+                <animateMotion dur="2.0s" repeatCount="indefinite">
+                  <mpath href="#hcv-p-top"/>
+                </animateMotion>
+              </circle>
+              <path id="hcv-p-top" d="M280,112 Q280,190 280,228" visibility="hidden"/>
+
+              <circle r="3" fill="#34D399" opacity="0.85">
+                <animateMotion dur="1.7s" repeatCount="indefinite" begin="0.4s">
+                  <mpath href="#hcv-p-right"/>
+                </animateMotion>
+              </circle>
+              <path id="hcv-p-right" d="M448,280 Q390,280 332,280" visibility="hidden"/>
+
+              <circle r="3" fill="#7DD3FC" opacity="0.85">
+                <animateMotion dur="2.3s" repeatCount="indefinite" begin="0.8s">
+                  <mpath href="#hcv-p-bottom"/>
+                </animateMotion>
+              </circle>
+              <path id="hcv-p-bottom" d="M280,448 Q280,376 280,332" visibility="hidden"/>
+
+              <circle r="3" fill="#A78BFA" opacity="0.85">
+                <animateMotion dur="1.9s" repeatCount="indefinite" begin="0.2s">
+                  <mpath href="#hcv-p-left"/>
+                </animateMotion>
+              </circle>
+              <path id="hcv-p-left" d="M112,280 Q170,280 228,280" visibility="hidden"/>
+
+              <circle r="2.5" fill="#7DD3FC" opacity="0.7">
+                <animateMotion dur="2.5s" repeatCount="indefinite" begin="1.0s">
+                  <mpath href="#hcv-p-tr"/>
+                </animateMotion>
+              </circle>
+              <path id="hcv-p-tr" d="M400,140 Q345,212 304,256" visibility="hidden"/>
+
+              <circle r="2.5" fill="#34D399" opacity="0.7">
+                <animateMotion dur="2.7s" repeatCount="indefinite" begin="1.4s">
+                  <mpath href="#hcv-p-bl"/>
+                </animateMotion>
+              </circle>
+              <path id="hcv-p-bl" d="M160,420 Q215,348 260,308" visibility="hidden"/>
+            </svg>
+
+            <!-- Central AI hub -->
+            <div class="hcv-hub">
+              <div class="hcv-hub-body">
+                <div class="hcv-hub-ai-chip">AI</div>
+                <div class="hcv-cross"></div>
+                <div class="hcv-hub-label">Private AI</div>
+              </div>
             </div>
-          </div>
 
+            <!-- Data nodes -->
+            <div class="hcv-node hcv-nd-top hcv-nd-blue">
+              <div class="hcv-node-icon"><span class="hcv-node-emoji">📋</span></div>
+              <div class="hcv-node-label">Patient<br>Records</div>
+            </div>
+            <div class="hcv-node hcv-nd-right hcv-nd-green">
+              <div class="hcv-node-icon"><span class="hcv-node-emoji">🧪</span></div>
+              <div class="hcv-node-label">Lab<br>Results</div>
+            </div>
+            <div class="hcv-node hcv-nd-bottom hcv-nd-blue">
+              <div class="hcv-node-icon"><span class="hcv-node-emoji">💊</span></div>
+              <div class="hcv-node-label">Prescriptions<br>&amp; Notes</div>
+            </div>
+            <div class="hcv-node hcv-nd-left hcv-nd-purple">
+              <div class="hcv-node-icon"><span class="hcv-node-emoji">🗂</span></div>
+              <div class="hcv-node-label">Referral<br>Docs</div>
+            </div>
+            <div class="hcv-node hcv-nd-tr hcv-nd-green">
+              <div class="hcv-node-icon"><span class="hcv-node-emoji">📊</span></div>
+              <div class="hcv-node-label">CQC<br>Audit</div>
+            </div>
+            <div class="hcv-node hcv-nd-bl hcv-nd-purple">
+              <div class="hcv-node-icon"><span class="hcv-node-emoji">📅</span></div>
+              <div class="hcv-node-label">Scheduling<br>Data</div>
+            </div>
+
+            <!-- AI output badge -->
+            <div class="hcv-insight-badge">
+              <div class="hcv-ib-label">AI Output</div>
+              <div class="hcv-ib-body">Patient summary ready. <strong>3 flagged items</strong> for review before afternoon rounds. All data on-site.</div>
+            </div>
+
+            <!-- Status chip -->
+            <div class="hcv-status-chip">
+              <div class="hcv-sc-dot"></div>
+              <span class="hcv-sc-text">Zero patient data leaves your network</span>
+            </div>
+
+          </div><!-- /hcv-scene -->
         </aside>
       </div>
 
@@ -1142,6 +1189,40 @@
           </div>
         </div>
 
+        <!-- Compliance visual — from Sprint 5 healthcare social card asset -->
+        <div class="hc-compliance-card" aria-label="Patient data compliance comparison">
+          <div class="hc-cc-inner">
+            <div class="hc-cc-stat">
+              <p class="hc-cc-eyebrow">When AI runs on your infrastructure</p>
+              <div class="hc-cc-zero">0</div>
+              <div class="hc-cc-zero-sub">patient records<br>sent to a third party.</div>
+              <div class="hc-cc-zero-desc">No processor agreements. No ICO exposure.</div>
+            </div>
+            <div class="hc-cc-compare">
+              <div class="hc-cc-col hc-cc-col-risk">
+                <div class="hc-cc-col-head">
+                  <div class="hc-cc-col-dot"></div>
+                  <div class="hc-cc-col-title">Standard AI Tools</div>
+                </div>
+                <div class="hc-cc-item"><span class="hc-cc-mark-risk">✗</span> Patient data sent to third-party servers</div>
+                <div class="hc-cc-item"><span class="hc-cc-mark-risk">✗</span> GDPR Art.&nbsp;28 processor agreement required</div>
+                <div class="hc-cc-item"><span class="hc-cc-mark-risk">✗</span> DPIA mandatory before use</div>
+                <div class="hc-cc-item"><span class="hc-cc-mark-risk">✗</span> ICO notification risk on breach</div>
+              </div>
+              <div class="hc-cc-col hc-cc-col-safe">
+                <div class="hc-cc-col-head">
+                  <div class="hc-cc-col-dot"></div>
+                  <div class="hc-cc-col-title">FirstTouch</div>
+                </div>
+                <div class="hc-cc-item"><span class="hc-cc-mark-safe">✓</span> AI runs inside your own infrastructure</div>
+                <div class="hc-cc-item"><span class="hc-cc-mark-safe">✓</span> No third-party processing — no Art.&nbsp;28</div>
+                <div class="hc-cc-item"><span class="hc-cc-mark-safe">✓</span> NHS DSP Toolkit compatible</div>
+                <div class="hc-cc-item"><span class="hc-cc-mark-safe">✓</span> Zero external data transfer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="section-head">
           <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>From practice managers</p>
           <h2 id="proof-heading">What healthcare teams say after 30 days.</h2>
@@ -1251,10 +1332,10 @@
       <nav class="footer-nav" aria-label="Industries navigation">
         <p class="footer-nav-title">Industries</p>
         <a href="/manufacturing">Manufacturing</a>
+        <a href="/legal">Legal &amp; Professional Services</a>
         <a href="/healthcare" aria-current="page">Healthcare</a>
+        <a href="/holding-groups">Holding Groups</a>
         <a href="/#teams">Logistics</a>
-        <a href="/#teams">Legal</a>
-        <a href="/#teams">Consulting</a>
       </nav>
 
       <nav class="footer-nav" aria-label="Product navigation">

@@ -35,6 +35,14 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Target: AI for holding groups, multi-entity AI, portfolio company AI — 390/mo combined -->
+  <url>
+    <loc>https://firsttouch.app/holding-groups</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- ===================== KEYWORD LANDING PAGES ===================== -->
   <!-- Primary: ai chief of staff — 2,900 searches/mo, Medium difficulty -->
   <url>
