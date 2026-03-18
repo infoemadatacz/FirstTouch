@@ -44,6 +44,7 @@
   wireGsapAnimations();
   wireAnalytics();
   wireCalendlyPostMessage();
+  initGA4(cfg.ga4MeasurementId);
 
   function wireGlobalLinks() {
     // Set real Calendly URL as href — JS clicks are intercepted by wireCalendlyModal()
@@ -164,6 +165,7 @@
       if (typeof window.plausible === "function") {
         window.plausible("Calendly Modal Open", { props: { traffic_source: getTrafficSource() } });
       }
+      ga4Event("calendly_open", { traffic_source: getTrafficSource() });
     }
 
     function closeModal() {
@@ -202,16 +204,19 @@
       if (bookEl) {
         var loc = resolveCtaLocation(bookEl);
         window.plausible("Calendly CTA Click", { props: { location: loc, traffic_source: getTrafficSource() } });
+        ga4Event("cta_click", { cta_location: loc, traffic_source: getTrafficSource() });
       }
 
       // ── 2. Mailto link clicks
       if (e.target.closest("[data-mailto-link]")) {
         window.plausible("Mailto Click", {});
+        ga4Event("mailto_click", {});
       }
 
       // ── 3. Sticky CTA dismissal
       if (e.target.closest("#sticky-cta-close")) {
         window.plausible("Sticky CTA Dismissed", {});
+        ga4Event("sticky_cta_dismissed", {});
       }
     });
 
@@ -223,6 +228,7 @@
         if (!formStartFired) {
           formStartFired = true;
           window.plausible("Lead Form Start", {});
+          ga4Event("form_start", { form_id: "lead-form" });
         }
       });
     }
@@ -238,6 +244,7 @@
         if (!firedMilestones[m] && pct >= m) {
           firedMilestones[m] = true;
           window.plausible("Scroll Depth", { props: { depth: m + "%" } });
+          ga4Event("scroll_depth", { percent_scrolled: m });
         }
       });
     }, { passive: true });
@@ -325,6 +332,7 @@
       if (typeof window.plausible === "function") {
         window.plausible("Hero Email Capture", { props: { traffic_source: getTrafficSource() } });
       }
+      ga4Event("hero_email_capture", { traffic_source: getTrafficSource() });
 
       // Disable button briefly to show progress
       if (heroBtn) { heroBtn.disabled = true; heroBtn.textContent = "Almost there…"; }
@@ -361,8 +369,6 @@
     // Field-level validation config: [fieldName, label, validator]
     const REQUIRED_FIELDS = [
       { name: "email",   label: "Work email",  validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : "Enter a valid work email." },
-      { name: "name",    label: "Full name",   validate: (v) => v.length >= 2 ? null : "Enter your full name." },
-      { name: "company", label: "Company",     validate: (v) => v.length >= 1 ? null : "Enter your company name." },
       { name: "role",    label: "Role",        validate: (v) => v ? null : "Select your role." }
     ];
 
@@ -371,8 +377,6 @@
       clearAllErrors();
 
       const email   = String(leadForm.elements["email"]?.value   || "").trim();
-      const name    = String(leadForm.elements["name"]?.value    || "").trim();
-      const company = String(leadForm.elements["company"]?.value || "").trim();
       const role    = String(leadForm.elements["role"]?.value    || "").trim();
       const message = String(leadForm.elements["message"]?.value || "").trim();
 
@@ -394,8 +398,6 @@
       const utm = readUtmParams();
       const payload = {
         email,
-        name,
-        company,
         role,
         message,
         source: "first-touch-lp",
@@ -428,6 +430,14 @@
         if (typeof window.plausible === "function") {
           window.plausible("Lead Form Submit", { props: { role: role } });
         }
+        // GA4: generate_lead is a recommended conversion event
+        ga4Event("generate_lead", {
+          role: role,
+          traffic_source: getTrafficSource(),
+          // currency / value are optional but help GA4 model lead quality
+          currency: "GBP",
+          value: 0
+        });
 
         window.location.href = "./thank-you.html?email=" + encodeURIComponent(email);
       } catch (error) {
@@ -497,6 +507,7 @@
         if (typeof window.plausible === "function") {
           window.plausible("Lead Magnet Download", { props: { file: "strategy-toolkit" } });
         }
+        ga4Event("file_download", { file_name: "strategy-toolkit.md" });
       });
     }
 
@@ -855,6 +866,8 @@
         if (typeof window.plausible === "function") {
           window.plausible("Calendly Booking Confirmed", { props: { traffic_source: source } });
         }
+        // GA4: schedule is the recommended event for appointment/demo bookings
+        ga4Event("schedule", { traffic_source: source });
       }
 
       // Also track when user reaches time selection step (modal engaged, not just opened)
@@ -862,8 +875,42 @@
         if (typeof window.plausible === "function") {
           window.plausible("Calendly Time Selected", { props: { traffic_source: source } });
         }
+        ga4Event("calendly_time_selected", { traffic_source: source });
       }
     });
+  }
+
+  // ── Google Analytics 4 ───────────────────────────────────────────
+  // Dynamically loads gtag.js and initialises GA4 with the measurement ID
+  // from config. If ga4MeasurementId is falsy or the placeholder string,
+  // GA4 is silently skipped so Plausible remains the sole tracker on dev/staging.
+  function initGA4(measurementId) {
+    if (!measurementId || measurementId === "G-XXXXXXXXXX") return;
+
+    // Inject dataLayer stub + gtag script
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId, {
+      // Respect existing Plausible / cookie-free tracking preference
+      // GA4 does set cookies — ensure cookie consent banner is in place for EU traffic
+      send_page_view: true,
+      // Forward UTM params captured by captureTrafficSource() as custom dimensions
+      campaign_source:  (new URLSearchParams(window.location.search)).get("utm_source")   || undefined,
+      campaign_medium:  (new URLSearchParams(window.location.search)).get("utm_medium")   || undefined,
+      campaign_name:    (new URLSearchParams(window.location.search)).get("utm_campaign") || undefined
+    });
+
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + measurementId;
+    document.head.appendChild(script);
+  }
+
+  // Safe GA4 event helper — no-ops if gtag hasn't been initialised
+  function ga4Event(eventName, params) {
+    if (typeof window.gtag !== "function") return;
+    window.gtag("event", eventName, params || {});
   }
 
   function setMetaByName(name, content) {

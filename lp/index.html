@@ -48,6 +48,8 @@
 
   <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.js"></script>
 
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -108,23 +110,25 @@
           <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>AI Chief of Staff &amp; AI Manager Assistant &nbsp;·&nbsp; EU &amp; UK &nbsp;·&nbsp; GDPR-Compliant &nbsp;·&nbsp; Live in 8 Days</p>
           <h1>Your AI Chief of Staff for European Business.</h1>
           <p class="hero-lead">
-            One message triggers it all — meetings transcribed, reports sent, workflows done. Your server, your data, GDPR-compliant.
+            One message on Telegram — your AI chief of staff handles the rest. Meetings transcribed, reports sent, follow-ups fired, workflows executed. GDPR-compliant, deployed on your server, live in 8 days.
           </p>
-          <p class="hero-subline">8-day deployment · Measurable ROI in 3 weeks · Your data, your server</p>
+          <p class="hero-subline"><span class="hero-subline-check" aria-hidden="true">✓</span> 8-day deployment &nbsp;<span class="hero-subline-check" aria-hidden="true">✓</span> ROI in 3 weeks &nbsp;<span class="hero-subline-check" aria-hidden="true">✓</span> Your server, your data</p>
 
           <div class="hero-actions">
             <div class="hero-cta-group">
-              <a class="btn btn-hero-cta" data-book-link href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">Book Free 15-Min Strategy Call &rarr;</a>
+              <span class="hero-urgency"><span class="hero-urgency-dot" aria-hidden="true"></span>Only 2 pilot spots left in March — 1 already taken</span>
+              <a class="btn btn-hero-cta" data-book-link href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">Book Your Free 15-Min Assessment &rarr;</a>
               <p class="hero-cta-micro">No commitment &nbsp;·&nbsp; Custom AI roadmap &nbsp;·&nbsp; Live in 8 days</p>
               <p class="hero-cta-fallback">Prefer email? <a data-mailto-link href="mailto:james@firsttouch.app?subject=First%20Touch%20Inquiry">james@firsttouch.app</a></p>
             </div>
-            <a class="btn btn-ghost" href="#lead-capture">Get Free Strategy Toolkit &darr;</a>
+            <a class="btn btn-ghost" href="#how-it-works">See How It Works &darr;</a>
           </div>
 
           <!-- Hero inline email capture — pre-fills main form and scrolls down -->
           <form id="hero-email-form" class="hero-email-form" novalidate aria-label="Get the Free Strategy Toolkit">
+            <p class="hero-email-label">Or get your free AI workflow guide:</p>
             <div class="hero-email-row">
-              <label for="hero-email-input" class="sr-only">Work email</label>
+              <label for="hero-email-input" class="sr-only">Work email address</label>
               <input
                 id="hero-email-input"
                 type="email"
@@ -135,10 +139,10 @@
                 class="hero-email-input"
                 aria-describedby="hero-email-error"
               >
-              <button type="submit" class="btn hero-email-btn">Get Free Toolkit &rarr;</button>
+              <button type="submit" class="btn hero-email-btn" aria-label="Get free AI workflow guide">Get Free Guide &rarr;</button>
             </div>
             <span id="hero-email-error" class="hero-email-error" role="alert" hidden></span>
-            <p class="hero-email-hint">Free diagnostic toolkit &nbsp;·&nbsp; No spam &nbsp;·&nbsp; GDPR-safe</p>
+            <p class="hero-email-hint">Workflow diagnostic + AI use-case map &nbsp;·&nbsp; No spam &nbsp;·&nbsp; GDPR-safe</p>
           </form>
 
           <div class="hero-social-proof" aria-label="Social proof">
@@ -1424,18 +1428,6 @@
               <input id="lf-email" type="email" name="email" required placeholder="you@company.com" autocomplete="email" aria-describedby="err-email">
             </label>
             <span class="field-error" id="err-email" data-error="email" role="alert" hidden></span>
-
-            <label for="lf-name">
-              Full name
-              <input id="lf-name" type="text" name="name" required placeholder="Jane Smith" autocomplete="name" aria-describedby="err-name">
-            </label>
-            <span class="field-error" id="err-name" data-error="name" role="alert" hidden></span>
-
-            <label for="lf-company">
-              Company
-              <input id="lf-company" type="text" name="company" required placeholder="Acme GmbH" autocomplete="organization" aria-describedby="err-company">
-            </label>
-            <span class="field-error" id="err-company" data-error="company" role="alert" hidden></span>
 
             <label for="lf-role">
               Role

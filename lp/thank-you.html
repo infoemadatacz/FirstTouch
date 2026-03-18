@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Thank You | First Touch</title>
-  <meta name="description" content="Thank you for requesting the JANA Offer Pack. Book your strategy call with First Touch.">
+  <meta name="description" content="Thank you for requesting the Strategy Toolkit. Book your strategy call with First Touch.">
   <meta name="robots" content="noindex, follow">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,11 +28,11 @@
       </a>
 
       <p class="eyebrow">Request received</p>
-      <h1>Your JANA Offer Pack is ready.</h1>
+      <h1>Your Strategy Toolkit is ready.</h1>
       <p id="thanks-message">Check your inbox in a minute. If it does not arrive, download it directly below.</p>
 
       <div class="hero-actions">
-        <a id="direct-download" class="btn" href="#">Download JANA Offer Pack</a>
+        <a id="direct-download" class="btn" href="./assets/strategy-toolkit.md" download="strategy-toolkit.md" rel="noopener">Download Strategy Toolkit</a>
         <a class="btn btn-ghost" data-book-link href="#">Book strategy call</a>
       </div>
 
@@ -44,6 +44,24 @@
       <a class="tiny-back" href="./index.html">Back to landing page</a>
     </div>
   </main>
+
+  <!-- Calendly inline booking modal — opened by any [data-book-link] CTA -->
+  <div id="calendly-modal" class="calendly-modal" role="dialog" aria-modal="true" aria-label="Book a 15-min strategy call" hidden>
+    <div class="calendly-modal__backdrop" id="calendly-modal-backdrop"></div>
+    <div class="calendly-modal__panel">
+      <div class="calendly-modal__header">
+        <span class="calendly-modal__title">Book a Free 15-Min Strategy Call</span>
+        <button class="calendly-modal__close" id="calendly-modal-close" aria-label="Close booking modal">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="calendly-modal__embed" id="calendly-embed">
+        <!-- iframe injected on first open to avoid render-blocking Calendly on page load -->
+      </div>
+    </div>
+  </div>
 
   <script src="./config.js"></script>
   <script src="./app.js"></script>
