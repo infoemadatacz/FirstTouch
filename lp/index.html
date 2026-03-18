@@ -12,6 +12,9 @@
   <meta name="theme-color" content="#9301BB">
 
   <link id="canonical-link" rel="canonical" href="https://firsttouch.app/">
+  <link rel="alternate" hreflang="en-gb" href="https://firsttouch.app/">
+  <link rel="alternate" hreflang="en" href="https://firsttouch.app/">
+  <link rel="alternate" hreflang="x-default" href="https://firsttouch.app/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="First Touch">
@@ -46,10 +49,6 @@
   <meta name="rating" content="safe for work">
   <meta name="revisit-after" content="7 days">
 
-  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.js"></script>
-
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -68,6 +67,50 @@
   <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
 <body>
+
+  <!-- ── PoC announcement bar (Sprint 10) ── -->
+  <div id="poc-bar" style="
+    position:sticky;top:0;z-index:999;
+    background:linear-gradient(90deg,#06020f 0%,#0d0220 40%,#060f1a 100%);
+    border-bottom:1px solid rgba(6,182,212,0.2);
+    box-shadow:0 1px 24px rgba(6,182,212,0.08);
+  ">
+    <a href="/proof-of-concept"
+       onclick="plausible('PoC Bar Click')"
+       style="
+         display:flex;align-items:center;justify-content:center;gap:14px;
+         padding:11px 20px;
+         text-decoration:none;
+         font-family:'Geist',system-ui,sans-serif;
+         font-size:14px;font-weight:500;
+         color:rgba(255,255,255,0.72);
+         letter-spacing:-0.1px;
+       ">
+      <span style="
+        display:inline-flex;align-items:center;gap:6px;
+        background:rgba(34,197,94,0.1);
+        border:1px solid rgba(34,197,94,0.25);
+        border-radius:20px;padding:3px 10px;
+        font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+        color:#4ADE80;flex-shrink:0;
+      ">FREE</span>
+      <span>Free 2-week proof of concept — your AI, your servers, no contract.</span>
+      <span style="
+        color:#67E8F9;font-weight:600;
+        display:inline-flex;align-items:center;gap:5px;
+        white-space:nowrap;
+      ">Start here &rarr;</span>
+      <button id="poc-bar-close" aria-label="Dismiss announcement"
+        onclick="event.preventDefault();event.stopPropagation();document.getElementById('poc-bar').style.display='none';sessionStorage.setItem('poc-bar-closed','1')"
+        style="
+          margin-left:8px;background:none;border:none;cursor:pointer;
+          color:rgba(255,255,255,0.3);font-size:16px;line-height:1;
+          padding:2px 4px;flex-shrink:0;
+        " title="Dismiss">&times;</button>
+    </a>
+  </div>
+  <script>if(sessionStorage.getItem('poc-bar-closed')==='1'){var b=document.getElementById('poc-bar');if(b)b.style.display='none';}</script>
+
   <header class="site-header" id="top">
     <div class="container nav-wrap">
       <a class="brand" href="#top" aria-label="First Touch home">
@@ -86,6 +129,7 @@
         <a href="#faq">FAQ</a>
         <a href="/blog">Blog</a>
         <a href="/guides">Guides</a>
+        <a href="/proof-of-concept" style="color:#67E8F9;font-weight:600;">Free PoC</a>
         <a class="nav-mobile-cta" data-book-link href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">Book 15-min Assessment &rarr;</a>
       </nav>
 
@@ -98,6 +142,22 @@
       </button>
     </div>
   </header>
+
+  <!-- PoC Banner — prominent callout above the hero -->
+  <div style="background:linear-gradient(90deg,rgba(6,182,212,0.10),rgba(124,58,237,0.10));border-bottom:1px solid rgba(6,182,212,0.18);padding:0.65rem 1rem;text-align:center;font-size:0.82rem;color:rgba(255,255,255,0.65);">
+    <span style="display:inline-flex;align-items:center;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
+      <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 7px rgba(74,222,128,0.7);animation:poc-banner-pulse 2.4s ease-in-out infinite;flex-shrink:0;"></span>
+      <strong style="color:#67E8F9;">New: Free 2-Week Proof of Concept.</strong>
+      We set it up in your business &mdash; you judge the results. No cost, no contract.
+      &nbsp;<a href="/proof-of-concept" style="color:#A78BFA;font-weight:700;text-decoration:underline;text-underline-offset:2px;">See how it works &rarr;</a>
+    </span>
+  </div>
+  <style>
+    @keyframes poc-banner-pulse {
+      0%,100%{opacity:1;transform:scale(1);}
+      50%{opacity:0.5;transform:scale(1.3);}
+    }
+  </style>
 
   <main>
     <!-- ============================================================
@@ -116,7 +176,7 @@
 
           <div class="hero-actions">
             <div class="hero-cta-group">
-              <span class="hero-urgency"><span class="hero-urgency-dot" aria-hidden="true"></span>Only 2 pilot spots left in March — 1 already taken</span>
+              <span class="hero-urgency"><span class="hero-urgency-dot" aria-hidden="true"></span>Only 2 pilot spots available in April — 1 already reserved</span>
               <a class="btn btn-hero-cta" data-book-link href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">Book Your Free 15-Min Assessment &rarr;</a>
               <p class="hero-cta-micro">No commitment &nbsp;·&nbsp; Custom AI roadmap &nbsp;·&nbsp; Live in 8 days</p>
               <p class="hero-cta-fallback">Prefer email? <a data-mailto-link href="mailto:james@firsttouch.app?subject=First%20Touch%20Inquiry">james@firsttouch.app</a></p>
@@ -234,6 +294,25 @@
     </div>
 
     <!-- ============================================================
+         INDUSTRY VERTICALS BAR
+    ============================================================ -->
+    <div class="industry-bar" aria-label="Industries we serve">
+      <div class="container industry-bar-inner">
+        <span class="industry-bar-label">Proven across traditional industries</span>
+        <div class="industry-chips" role="list">
+          <a class="industry-chip" href="/manufacturing" role="listitem">🏭 Manufacturing</a>
+          <span class="industry-chip" role="listitem">🚚 Logistics</span>
+          <a class="industry-chip" href="/legal" role="listitem">⚖️ Legal</a>
+          <span class="industry-chip" role="listitem">💼 Consulting</span>
+          <a class="industry-chip" href="/healthcare" role="listitem">🏥 Healthcare</a>
+          <a class="industry-chip" href="/construction" role="listitem">🏗️ Construction</a>
+          <span class="industry-chip" role="listitem">🛒 Retail</span>
+          <a class="industry-chip" href="/holding-groups" role="listitem">🏢 Holding Groups</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
          STATS STRIP
     ============================================================ -->
     <section class="stats-strip section-tight" id="stats">
@@ -286,7 +365,7 @@
             <div class="logo-mark" role="listitem">
               <span class="logo-mark-glyph">DF</span>
               <span class="logo-mark-name">Deltaflow</span>
-              <span class="logo-mark-meta">RevOps · Brno</span>
+              <span class="logo-mark-meta">RevOps · Berlin</span>
             </div>
             <div class="logo-mark" role="listitem">
               <span class="logo-mark-glyph">KS</span>
@@ -317,7 +396,7 @@
             <div class="logo-mark" aria-hidden="true">
               <span class="logo-mark-glyph">DF</span>
               <span class="logo-mark-name">Deltaflow</span>
-              <span class="logo-mark-meta">RevOps · Brno</span>
+              <span class="logo-mark-meta">RevOps · Berlin</span>
             </div>
             <div class="logo-mark" aria-hidden="true">
               <span class="logo-mark-glyph">KS</span>
@@ -584,14 +663,14 @@
           <article class="testimonial-card testimonial-card-featured reveal-gsap">
             <div class="testimonial-header">
               <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <span class="testimonial-result">37% fewer escalations</span>
+              <span class="testimonial-result">12h/wk saved in ops overhead</span>
             </div>
-            <p class="testimonial-text">"I was skeptical about another AI tool. But this is different — it has real context about our business, routes tasks to the right model, and doesn't reset every session. It operates like a sharp chief of staff."</p>
+            <p class="testimonial-text">"Our production planning team was buried in manual status updates every morning. Now the assistant pulls from our ERP, flags anomalies, and sends a structured brief before the shift starts. GDPR was non-negotiable for us — it runs on our own server, full stop."</p>
             <div class="testimonial-author">
-              <div class="testimonial-avatar" aria-hidden="true">LH</div>
+              <div class="testimonial-avatar" aria-hidden="true">MB</div>
               <div>
-                <strong class="testimonial-name">Lucie Horáková</strong>
-                <span class="testimonial-role">COO · Operations holding, 120 people · Bratislava</span>
+                <strong class="testimonial-name">Marcus Blum</strong>
+                <span class="testimonial-role">Operations Director · Precision manufacturing, 180 people · Munich</span>
               </div>
               <span class="testimonial-verified" aria-label="Verified pilot participant">
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" fill="rgba(147,1,187,0.2)" stroke="rgba(147,1,187,0.6)" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3-3.3" stroke="rgba(147,1,187,0.9)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -609,8 +688,8 @@
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true">TK</div>
               <div>
-                <strong class="testimonial-name">Tomáš Král</strong>
-                <span class="testimonial-role">RevOps Lead · Growth-stage tech, Series A · Brno</span>
+                <strong class="testimonial-name">Thomas König</strong>
+                <span class="testimonial-role">RevOps Lead · Growth-stage SaaS, Series A · Berlin</span>
               </div>
               <span class="testimonial-verified" aria-label="Verified pilot participant">
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.5" fill="rgba(147,1,187,0.2)" stroke="rgba(147,1,187,0.6)" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3-3.3" stroke="rgba(147,1,187,0.9)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1047,6 +1126,15 @@
           <p class="section-sub">Try with the Pilot (€500, credited to Month 1) — or go straight to Starter or Premium. No per-seat charges. No usage caps.</p>
         </div>
 
+        <!-- Pilot entry callout — surfaced above pricing grid so buyers find lowest-risk entry point first -->
+        <div class="pilot-entry-callout reveal-gsap" aria-label="Pilot entry point">
+          <div class="pilot-entry-callout__inner">
+            <span class="pilot-entry-callout__badge">New to First Touch?</span>
+            <p class="pilot-entry-callout__text">Start with the <strong>14-Day Pilot (€500)</strong> — see real AI execution inside your business before any ongoing commitment. Full €500 credited to Month 1 if you continue.</p>
+            <a class="pilot-entry-callout__link" href="#pilot-card">See Pilot details &darr;</a>
+          </div>
+        </div>
+
         <div class="pricing-grid">
           <!-- Starter -->
           <article class="pricing-card pricing-card--starter reveal-gsap">
@@ -1103,7 +1191,7 @@
           </article>
 
           <!-- Pilot -->
-          <article class="pricing-card pricing-card--pilot reveal-gsap">
+          <article class="pricing-card pricing-card--pilot reveal-gsap" id="pilot-card">
             <p class="pricing-badge pricing-badge--pilot">Risk-Free Start</p>
             <div class="pricing-card-top">
               <p class="pricing-tier">Pilot</p>
@@ -1633,6 +1721,15 @@
         </div>
       </div>
 
+      <nav class="footer-nav" aria-label="Industries navigation">
+        <p class="footer-nav-title">Industries</p>
+        <a href="/manufacturing">Manufacturing</a>
+        <a href="/legal">Legal &amp; Professional Services</a>
+        <a href="/healthcare">Healthcare</a>
+        <a href="/construction">Construction</a>
+        <a href="/holding-groups">Holding Groups</a>
+      </nav>
+
       <nav class="footer-nav" aria-label="Product navigation">
         <p class="footer-nav-title">Product</p>
         <a href="#how-it-works">How It Works</a>
@@ -1682,6 +1779,61 @@
       </div>
     </div>
   </footer>
+
+  <script id="org-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "First Touch",
+    "url": "https://firsttouch.app",
+    "logo": "https://firsttouch.app/assets/firsttouch-icon.svg",
+    "description": "First Touch helps traditional European businesses adopt AI with full GDPR compliance — deployed on your own infrastructure, live in 8 days.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "London",
+      "addressRegion": "England",
+      "addressCountry": "GB"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "james@firsttouch.app",
+      "availableLanguage": ["English"]
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "James Harrington",
+      "jobTitle": "CEO & Founder"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/firsttouch-ai/"
+    ],
+    "areaServed": ["GB", "EU"],
+    "knowsAbout": [
+      "AI assistant for business",
+      "GDPR compliant AI",
+      "workflow automation",
+      "enterprise AI deployment",
+      "AI chief of staff",
+      "private AI deployment"
+    ]
+  }
+  </script>
+
+  <script id="website-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "First Touch",
+    "url": "https://firsttouch.app",
+    "description": "AI Chief of Staff for European Business — GDPR-Compliant, Private Deployment. Live in 8 days.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "First Touch",
+      "url": "https://firsttouch.app"
+    }
+  }
+  </script>
 
   <script id="software-schema" type="application/ld+json">
   {
@@ -1781,7 +1933,7 @@
       },
       {
         "@type": "Review",
-        "author": { "@type": "Person", "name": "Tomáš Král" },
+        "author": { "@type": "Person", "name": "Thomas König" },
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "reviewBody": "Setup was faster than expected — live in 8 days. By week 3 we had measurable reduction in escalations hitting the exec layer. The governance matrix is what makes it trustworthy at scale.",
         "datePublished": "2026-03-01"
@@ -1888,6 +2040,46 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The Pilot is a 14-day live engagement: we deploy one real workflow inside your business (e.g. meeting transcription + follow-up, or a reporting automation), you see actual output, and we measure time saved together. The flat €500 fee covers setup and daily support during the pilot. If you then move to Starter or Premium, the full €500 is credited against your Month 1 invoice. If you decide not to proceed, you keep everything deployed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the setup fee actually cover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Infrastructure provisioning (VPS or your environment), context architecture (loading your documents, processes, and knowledge base), integration connections (calendar, email, M365 or Google Workspace), governance configuration (autonomy thresholds, RBAC, audit trail), and a live handover session. The setup fee is one-time — it never recurs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are model API costs (Claude, GPT-4) included in the monthly fee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Model costs are passed through at cost — you pay exactly what the provider charges, with zero markup. For most deployments running a mix of local (Ollama) and cloud models, this adds €50–€200/month depending on usage. Compute-heavy operations are routed to local models by default to keep cloud spend low."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a minimum contract term?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Monthly billing, with a 90-day recommended minimum to see full ROI. The system takes approximately 30 days to build effective context on your business — after which value compounds. The Pilot is a flat 14-day engagement with no monthly commitment required. Starter and Premium are month-to-month with no lock-in, but value compounds strongest after 90 days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the total cost of ownership in year one?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pilot: €500 flat (fully credited if you continue). Starter: €2,500 setup + €4,800 in monthly fees = €7,300 year-one total, plus €50–€200/month in pass-through model API costs. Premium: €7,500 setup + €15,000 in monthly fees = €22,500 year one. Compare to a human Chief of Staff at €60,000–€90,000/year in salary alone — before benefits or a 3–6 month ramp. The math compounds quickly after month two."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens when I cancel — do I lose my data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cancel anytime with 30 days' notice on Starter or Premium. Your infrastructure, all context data, integrations, and configurations remain fully yours. We provide a complete offboarding package: documentation, credential handover, and export of all agent memory and workflows. No exit fees, no data held hostage."
         }
       }
     ]
@@ -2000,6 +2192,49 @@
         "position": 6,
         "name": "Terms of Service",
         "item": "https://firsttouch.app/terms"
+      }
+    ]
+  }
+  </script>
+
+  <!-- HowTo schema — targets "how to deploy AI assistant" queries; maps to the 3-step section -->
+  <script id="howto-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Deploy an AI Chief of Staff in 8 Days",
+    "description": "Deploy a GDPR-compliant AI manager assistant on your own infrastructure in 3 steps — no IT overhaul required.",
+    "totalTime": "P8D",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "EUR",
+      "value": "500"
+    },
+    "tool": [
+      { "@type": "HowToTool", "name": "VPS or private server" },
+      { "@type": "HowToTool", "name": "Telegram" }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Deploy on your infrastructure",
+        "text": "We install the AI assistant on your VPS or private server. Local models run inside your infrastructure — no data leaves your environment.",
+        "position": "1",
+        "url": "https://firsttouch.app/#how-it-works"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Connect your context",
+        "text": "We integrate with your documents, projects, and tools. The assistant learns your company context and builds a persistent memory layer.",
+        "position": "2",
+        "url": "https://firsttouch.app/#how-it-works"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Operate via Telegram",
+        "text": "Communicate through Telegram. The assistant acts, delegates, and reports — no new apps to learn. Live within 8 days.",
+        "position": "3",
+        "url": "https://firsttouch.app/#how-it-works"
       }
     ]
   }
