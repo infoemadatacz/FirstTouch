@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Free 2-Week AI Proof of Concept — See It Working Before You Spend Anything | FirstTouch</title>
+  <meta name="description" content="Try FirstTouch in your business for two weeks, completely free. We set it up, you use it with your real documents, and you decide. No cost, no commitment, no IT project required.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="author" content="First Touch">
+  <meta name="theme-color" content="#9301BB">
+
+  <link rel="canonical" href="https://firsttouch.app/proof-of-concept">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="Free 2-Week AI Proof of Concept — FirstTouch">
+  <meta property="og:description" content="30-day AI pilot for European businesses. GDPR-compliant, deployed on your server. Only 2 spots available in April.">
+  <meta property="og:url" content="https://firsttouch.app/pilot">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Plausible Analytics — GDPR-compliant, no cookie consent required -->
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    /* ── Pilot page layout ────────────────────────────────────────── */
+    .pilot-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pilot-main {
+      flex: 1;
+      padding: 4rem 0 6rem;
+    }
+
+    .pilot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* ── Hero background — grid texture + ambient glows ──────────── */
+    .pilot-aurora {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 70% 50% at 65% 15%, rgba(124, 58, 237, 0.13) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 20% 75%, rgba(147, 1, 187, 0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+    }
+
+    /* Subtle grid texture overlay */
+    .pilot-grid-texture {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(124, 58, 237, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 58, 237, 0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+
+    /* ── Left column — hero copy ──────────────────────────────────── */
+    .pilot-copy {
+      position: sticky;
+      top: 6rem;
+    }
+
+    /* Eyebrow pill — new branded style */
+    .pilot-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(124, 58, 237, 0.14);
+      border: 1px solid rgba(167, 139, 250, 0.32);
+      border-radius: 24px;
+      padding: 7px 16px;
+      width: fit-content;
+      margin-bottom: 1.4rem;
+    }
+
+    .pilot-pill .pp-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 8px #22C55E;
+      flex-shrink: 0;
+    }
+
+    .pilot-pill span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(221, 214, 254, 0.9);
+    }
+
+    /* Headline with gradient accent */
+    .pilot-copy h1 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.08;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-hl {
+      background: linear-gradient(90deg, #A78BFA, #67E8F9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .pilot-copy .lead {
+      font-size: 1.03rem;
+      color: var(--ink-3);
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Trust badges strip — directly below headline ────────────── */
+    /* Sprint 4: upgraded to horizontal strip layout per brand-designer handoff */
+    .pilot-trust-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .ptb {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: background 0.2s;
+    }
+
+    .ptb::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      opacity: 0;
+      transition: opacity 0.25s;
+      border-radius: 0 0 2px 2px;
+    }
+
+    .ptb:hover::before { opacity: 1; }
+
+    .ptb-gdpr {
+      background: rgba(34, 197, 94, 0.06);
+      border-color: rgba(34, 197, 94, 0.22);
+    }
+    .ptb-gdpr::before { background: #22C55E; }
+
+    .ptb-infra {
+      background: rgba(124, 58, 237, 0.08);
+      border-color: rgba(124, 58, 237, 0.24);
+    }
+    .ptb-infra::before { background: #A78BFA; }
+
+    .ptb-pilot {
+      background: rgba(6, 182, 212, 0.06);
+      border-color: rgba(6, 182, 212, 0.22);
+    }
+    .ptb-pilot::before { background: #06B6D4; }
+
+    .ptb-nolock {
+      background: rgba(245, 158, 11, 0.06);
+      border-color: rgba(245, 158, 11, 0.2);
+    }
+    .ptb-nolock::before { background: #F59E0B; }
+
+    /* Icons: upgraded from 36px → 44px per brand-designer spec */
+    .ptb-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .ptb-gdpr  .ptb-icon  { background: rgba(34,  197, 94,  0.12); border: 1px solid rgba(34,  197, 94,  0.25); }
+    .ptb-infra .ptb-icon  { background: rgba(124, 58,  237, 0.12); border: 1px solid rgba(124, 58,  237, 0.25); }
+    .ptb-pilot .ptb-icon  { background: rgba(6,   182, 212, 0.1);  border: 1px solid rgba(6,   182, 212, 0.25); }
+    .ptb-nolock .ptb-icon { background: rgba(245, 158, 11,  0.1);  border: 1px solid rgba(245, 158, 11,  0.22); }
+
+    .ptb-label {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .ptb-label .ptb-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink-1);
+      line-height: 1.3;
+      margin-bottom: 2px;
+      letter-spacing: -0.01em;
+    }
+
+    .ptb-label .ptb-sub {
+      font-size: 0.69rem;
+      color: var(--ink-3);
+      line-height: 1.4;
+    }
+
+    .ptb-check {
+      font-size: 0.82rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+
+    .ptb-gdpr   .ptb-check { color: #86EFAC; }
+    .ptb-infra  .ptb-check { color: #A78BFA; }
+    .ptb-pilot  .ptb-check { color: #06B6D4; }
+    .ptb-nolock .ptb-check { color: #F59E0B; }
+
+    /* ── Infrastructure visual — Sprint 4 upgrade (560px scene) ─── */
+    .pilot-visual {
+      margin-bottom: 1.75rem;
+    }
+
+    .visual-scene {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 1;
+    }
+
+    /* Perimeter boundary ring */
+    .perimeter {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(124, 58, 237, 0.25);
+    }
+
+    .perimeter::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(124, 58, 237, 0.18);
+      animation: vs-spin 40s linear infinite;
+    }
+
+    .perimeter::after {
+      content: '';
+      position: absolute;
+      inset: 30px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    @keyframes vs-spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .perimeter-label {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg);
+      padding: 0 10px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(167, 139, 250, 0.7);
+      white-space: nowrap;
+      z-index: 20;
+    }
+
+    /* Central server hub — Sprint 4: enlarged to 27% of scene */
+    .server-hub {
+      position: absolute;
+      width: 27%;
+      height: 27%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 15;
+    }
+
+    .server-body {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #1e0a40, #2d1a60);
+      border: 1px solid rgba(167, 139, 250, 0.35);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow:
+        0 0 0 8px rgba(124, 58, 237, 0.06),
+        0 0 0 18px rgba(124, 58, 237, 0.03),
+        0 24px 60px rgba(124, 58, 237, 0.35);
+      position: relative;
+    }
+
+    .server-slots {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .server-slot {
+      width: 60px;
+      height: 7px;
+      background: rgba(167, 139, 250, 0.12);
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .server-slot::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      height: 100%;
+      background: linear-gradient(90deg, #7C3AED, #A78BFA);
+      border-radius: 3px;
+      animation: slot-fill 3s ease-in-out infinite alternate;
+    }
+
+    .server-slot:nth-child(1)::after { width: 85%; animation-delay: 0s; }
+    .server-slot:nth-child(2)::after { width: 60%; animation-delay: 0.4s; }
+    .server-slot:nth-child(3)::after { width: 75%; animation-delay: 0.8s; }
+
+    @keyframes slot-fill {
+      from { opacity: 0.4; }
+      to   { opacity: 1; }
+    }
+
+    .server-label {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #A78BFA;
+    }
+
+    .server-ai-badge {
+      position: absolute;
+      top: -10px; right: -10px;
+      width: 26px; height: 26px;
+      background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 900;
+      color: white;
+      box-shadow: 0 3px 10px rgba(124, 58, 237, 0.5);
+      border: 1.5px solid rgba(167, 139, 250, 0.3);
+    }
+
+    /* Data nodes positioned around center */
+    .data-node {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      z-index: 10;
+    }
+
+    /* Node bubbles: Sprint 4 upgrade — 72px with outer glow ring */
+    .node-bubble {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      border: 1px solid;
+      position: relative;
+    }
+
+    /* Outer glow ring (brand-designer spec) */
+    .node-bubble::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 20px;
+      border: 1px solid;
+      opacity: 0.2;
+    }
+
+    .node-purple .node-bubble::after { border-color: #A78BFA; }
+    .node-teal   .node-bubble::after { border-color: #06B6D4; }
+    .node-green  .node-bubble::after { border-color: #22C55E; }
+    .node-amber  .node-bubble::after { border-color: #F59E0B; }
+
+    .node-text {
+      font-size: 0.61rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    .node-purple .node-bubble { background: rgba(124,58,237,0.14); border-color: rgba(124,58,237,0.32); }
+    .node-purple .node-text   { color: #A78BFA; }
+    .node-teal   .node-bubble { background: rgba(6,182,212,0.11);  border-color: rgba(6,182,212,0.28); }
+    .node-teal   .node-text   { color: #67E8F9; }
+    .node-green  .node-bubble { background: rgba(34,197,94,0.1);   border-color: rgba(34,197,94,0.26); }
+    .node-green  .node-text   { color: #86EFAC; }
+    .node-amber  .node-bubble { background: rgba(245,158,11,0.1);  border-color: rgba(245,158,11,0.26); }
+    .node-amber  .node-text   { color: #FDE68A; }
+
+    /* Node positions — calibrated for 560px scene (brand-designer Sprint 4) */
+    .node-top    { top: 5.7%;   left: 50%; transform: translateX(-50%); }
+    .node-right  { top: 50%;    right: 5%; transform: translateY(-50%); }
+    .node-bottom { bottom: 5.7%; left: 50%; transform: translateX(-50%); }
+    .node-left   { top: 50%;    left: 5%; transform: translateY(-50%); }
+    .node-tr     { top: 15.7%;  right: 12.9%; }
+    .node-bl     { bottom: 15.7%; left: 12.9%; }
+
+    /* SVG connector lines */
+    .connectors-svg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Status chip */
+    .vs-status-chip {
+      position: absolute;
+      bottom: 6%;
+      right: 6%;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(34, 197, 94, 0.28);
+      border-radius: 20px;
+      padding: 5px 12px;
+      z-index: 20;
+    }
+
+    .vs-status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 6px #22C55E;
+      animation: vs-blink 2.5s ease-in-out infinite;
+    }
+
+    @keyframes vs-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    .vs-status-text {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      white-space: nowrap;
+    }
+
+    /* Ghost external elements */
+    .external-ghost {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.2;
+      z-index: 3;
+    }
+
+    .ghost-bubble {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      position: relative;
+    }
+
+    .ghost-bubble::before,
+    .ghost-bubble::after {
+      content: '';
+      position: absolute;
+      background: rgba(239, 68, 68, 0.65);
+      border-radius: 2px;
+    }
+    .ghost-bubble::before { width: 1.5px; height: 65%; transform: rotate(45deg); }
+    .ghost-bubble::after  { width: 1.5px; height: 65%; transform: rotate(-45deg); }
+
+    .ghost-label {
+      font-size: 0.58rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.28);
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    .ghost-1 { top: -5%; right: -8%; }
+    .ghost-2 { bottom: 8%; right: -10%; }
+
+    /* ── Social proof ─────────────────────────────────────────────── */
+    .pilot-social-proof {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .pilot-proof-avatars {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .pilot-proof-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #fff;
+      margin-left: -8px;
+    }
+
+    .pilot-proof-text {
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      line-height: 1.45;
+    }
+
+    .pilot-proof-text strong {
+      color: var(--ink-1);
+    }
+
+    /* ── Right column — form ─────────────────────────────────────── */
+    .pilot-form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pilot-form-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--violet), #c03adb, var(--orange));
+    }
+
+    .pilot-form-header {
+      margin-bottom: 1.75rem;
+    }
+
+    .pilot-form-header h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .pilot-form-header p {
+      font-size: 0.88rem;
+      color: var(--ink-3);
+      line-height: 1.55;
+    }
+
+    .pilot-urgency {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 106, 0, 0.1);
+      border: 1px solid rgba(255, 106, 0, 0.25);
+      border-radius: 6px;
+      padding: 0.38rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--orange);
+      margin-bottom: 1.25rem;
+    }
+
+    .pilot-urgency-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: pulse-orange 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-orange {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    /* ── Form fields ─────────────────────────────────────────────── */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.42rem;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+
+    .field label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      letter-spacing: 0.01em;
+    }
+
+    .field label .required {
+      color: var(--violet);
+      margin-left: 2px;
+    }
+
+    .field input,
+    .field select {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--ink-1);
+      font-family: "Geist", sans-serif;
+      font-size: 0.92rem;
+      line-height: 1;
+      padding: 0.75rem 0.95rem;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+      width: 100%;
+      min-height: 44px;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .field input::placeholder {
+      color: rgba(255, 255, 255, 0.28);
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: rgba(147, 1, 187, 0.6);
+      box-shadow: 0 0 0 3px rgba(147, 1, 187, 0.12);
+    }
+
+    .field input[aria-invalid="true"],
+    .field select[aria-invalid="true"] {
+      border-color: rgba(239, 68, 68, 0.7);
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+
+    .field-error {
+      font-size: 0.76rem;
+      color: #f87171;
+      line-height: 1.4;
+      display: none;
+    }
+
+    .field-error.visible {
+      display: block;
+    }
+
+    /* Custom select arrow */
+    .select-wrap {
+      position: relative;
+    }
+
+    .select-wrap::after {
+      content: "";
+      position: absolute;
+      right: 0.95rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid rgba(255, 255, 255, 0.42);
+      pointer-events: none;
+    }
+
+    .select-wrap select {
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .select-wrap select option {
+      background: var(--bg-2);
+      color: var(--ink-1);
+    }
+
+    /* ── Submit button ───────────────────────────────────────────── */
+    /* White text on #9301BB → contrast ratio ~6.9:1 ✓ WCAG AA */
+    .pilot-submit {
+      width: 100%;
+      padding: 0.95rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .pilot-submit .btn-spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    .pilot-submit.loading .btn-spinner {
+      display: inline-block;
+    }
+
+    .pilot-submit.loading .btn-label {
+      display: none;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .pilot-form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--ink-3);
+    }
+
+    .pilot-form-footer svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--ink-3);
+      fill: none;
+      stroke-width: 2;
+      flex-shrink: 0;
+    }
+
+    /* ── Form error banner ───────────────────────────────────────── */
+    .form-error-banner {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      font-size: 0.84rem;
+      color: #fca5a5;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .form-error-banner.visible {
+      display: block;
+    }
+
+    /* ── Confirmation state ──────────────────────────────────────── */
+    .pilot-confirm {
+      display: none;
+      text-align: center;
+      padding: 1rem 0.5rem;
+    }
+
+    .pilot-confirm.visible {
+      display: block;
+    }
+
+    .pilot-form-card.submitted .pilot-form-inner {
+      display: none;
+    }
+
+    .pilot-form-card.submitted .pilot-confirm {
+      display: block;
+    }
+
+    .confirm-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(147, 1, 187, 0.12);
+      border: 1px solid rgba(147, 1, 187, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+
+    .confirm-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--violet);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .confirm-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink-1);
+      margin-bottom: 0.75rem;
+    }
+
+    .confirm-body {
+      font-size: 0.93rem;
+      color: var(--ink-3);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+      max-width: 34ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .confirm-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .confirm-actions .btn {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+
+    .confirm-meta {
+      margin-top: 1.25rem;
+      font-size: 0.78rem;
+      color: var(--ink-4);
+    }
+
+    .confirm-meta a {
+      color: var(--violet);
+      text-decoration: none;
+    }
+
+    .confirm-meta a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Pilot page footer ───────────────────────────────────────── */
+    .pilot-footer {
+      padding: 1.75rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .pilot-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .pilot-footer-copy {
+      font-size: 0.8rem;
+      color: var(--ink-4);
+    }
+
+    .pilot-footer-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .pilot-footer-links a {
+      font-size: 0.8rem;
+      color: var(--ink-4);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .pilot-footer-links a:hover {
+      color: var(--ink-2);
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .pilot-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      /* On mobile: form comes first for above-fold visibility */
+      .pilot-form-card {
+        order: -1;
+      }
+
+      .pilot-copy {
+        position: static;
+      }
+
+      .pilot-main {
+        padding: 2rem 0 4rem;
+      }
+
+      /* Hide the large visual illustration on mobile — form stays above fold */
+      .pilot-visual {
+        display: none;
+      }
+
+      /* Trust badges: keep 2×2 grid, slightly smaller */
+      .pilot-trust-row {
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 960px) and (min-width: 861px) {
+      /* On tablet: keep desktop layout but reduce visual size */
+      .visual-scene {
+        max-width: 380px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .pilot-form-card {
+        padding: 1.5rem;
+      }
+
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pilot-footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      /* Single-column trust badges on very small screens */
+      .pilot-trust-row {
+        grid-template-columns: 1fr;
+      }
+
+      .ptb-label .ptb-sub {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="pilot-aurora" aria-hidden="true"></div>
+  <div class="pilot-grid-texture" aria-hidden="true"></div>
+
+  <!-- ── Header ──────────────────────────────────────────────────── -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="/" aria-label="First Touch home">
+        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="32" height="32" loading="eager" decoding="sync">
+        <span class="brand-text">First Touch</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation" style="gap:1rem;">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-sm nav-cta-desktop" href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">Book Assessment</a>
+    </div>
+  </header>
+
+  <!-- ── Main ────────────────────────────────────────────────────── -->
+  <main class="pilot-main">
+    <div class="container">
+      <div class="pilot-grid">
+
+        <!-- ── Left column: hero copy + trust badges + visual ──── -->
+        <div class="pilot-copy">
+
+          <!-- Pill badge -->
+          <div class="pilot-pill">
+            <div class="pp-dot"></div>
+            <span>Pilot Programme &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; 2 Spots Left</span>
+          </div>
+
+          <!-- Headline with gradient accent -->
+          <h1>See it working in your business<br><span class="hero-hl">before you spend a penny.</span></h1>
+
+          <p class="lead">Free 2-week proof of concept — your AI, your data, no contract. We set it up, your team uses it on real work, you decide.</p>
+
+          <!-- ── Trust badges row — directly below headline (Sprint 4) ── -->
+          <div class="pilot-trust-row" aria-label="Pilot programme guarantees">
+
+            <div class="ptb ptb-gdpr">
+              <div class="ptb-icon">🛡</div>
+              <div class="ptb-label">
+                <div class="ptb-title">GDPR Compliant</div>
+                <div class="ptb-sub">By design. EU AI Act aligned.</div>
+              </div>
+              <div class="ptb-check" aria-label="included">✓</div>
+            </div>
+
+            <div class="ptb ptb-infra">
+              <div class="ptb-icon">🖥</div>
+              <div class="ptb-label">
+                <div class="ptb-title">Data on Your Infrastructure</div>
+                <div class="ptb-sub">No vendor access. No cloud transfer.</div>
+              </div>
+              <div class="ptb-check" aria-label="included">✓</div>
+            </div>
+
+            <div class="ptb ptb-pilot">
+              <div class="ptb-icon">📅</div>
+              <div class="ptb-label">
+                <div class="ptb-title">30-Day Pilot</div>
+                <div class="ptb-sub">Live in 5–7 days. Full ROI report at day 30.</div>
+              </div>
+              <div class="ptb-check" aria-label="included">✓</div>
+            </div>
+
+            <div class="ptb ptb-nolock">
+              <div class="ptb-icon">🔓</div>
+              <div class="ptb-label">
+                <div class="ptb-title">No Lock-In</div>
+                <div class="ptb-sub">Cancel after the pilot. No long contracts.</div>
+              </div>
+              <div class="ptb-check" aria-label="included">✓</div>
+            </div>
+
+          </div><!-- /pilot-trust-row -->
+
+          <!-- ── Infrastructure visual illustration ─────────── -->
+          <div class="pilot-visual" aria-hidden="true">
+            <div class="visual-scene">
+
+              <!-- Perimeter boundary ring -->
+              <div class="perimeter">
+                <div class="perimeter-label">Your Infrastructure · Your Control</div>
+              </div>
+
+              <!-- SVG connector lines with animated data particles -->
+              <svg class="connectors-svg" viewBox="0 0 460 460" fill="none" aria-hidden="true">
+                <!-- top → center -->
+                <path stroke="rgba(124,58,237,0.28)" stroke-width="1" fill="none" d="M230,115 Q230,175 230,195"/>
+                <!-- right → center -->
+                <path stroke="rgba(6,182,212,0.23)"  stroke-width="1" fill="none" d="M370,230 Q315,230 270,230"/>
+                <!-- bottom → center -->
+                <path stroke="rgba(34,197,94,0.23)"  stroke-width="1" fill="none" d="M230,345 Q230,295 230,265"/>
+                <!-- left → center -->
+                <path stroke="rgba(245,158,11,0.23)" stroke-width="1" fill="none" d="M88,230 Q148,230 190,230"/>
+                <!-- top-right → center -->
+                <path stroke="rgba(124,58,237,0.15)" stroke-width="1" fill="none" d="M325,132 Q280,180 254,210" />
+                <!-- bottom-left → center -->
+                <path stroke="rgba(6,182,212,0.15)"  stroke-width="1" fill="none" d="M135,328 Q183,280 205,250" />
+
+                <!-- Hidden paths for animateMotion -->
+                <path id="vp-top"    d="M230,115 Q230,175 230,195" visibility="hidden"/>
+                <path id="vp-right"  d="M370,230 Q315,230 270,230" visibility="hidden"/>
+                <path id="vp-bottom" d="M230,345 Q230,295 230,265" visibility="hidden"/>
+                <path id="vp-left"   d="M88,230 Q148,230 190,230"  visibility="hidden"/>
+                <path id="vp-tr"     d="M325,132 Q280,180 254,210" visibility="hidden"/>
+                <path id="vp-bl"     d="M135,328 Q183,280 205,250" visibility="hidden"/>
+
+                <!-- Animated particles flowing inward -->
+                <circle r="3" fill="#A78BFA" opacity="0.9">
+                  <animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#vp-top"/></animateMotion>
+                </circle>
+                <circle r="3" fill="#67E8F9" opacity="0.9">
+                  <animateMotion dur="1.8s" repeatCount="indefinite" begin="0.5s"><mpath href="#vp-right"/></animateMotion>
+                </circle>
+                <circle r="3" fill="#86EFAC" opacity="0.9">
+                  <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.9s"><mpath href="#vp-bottom"/></animateMotion>
+                </circle>
+                <circle r="3" fill="#FDE68A" opacity="0.9">
+                  <animateMotion dur="2.0s" repeatCount="indefinite" begin="0.3s"><mpath href="#vp-left"/></animateMotion>
+                </circle>
+                <circle r="2" fill="#A78BFA" opacity="0.7">
+                  <animateMotion dur="2.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#vp-tr"/></animateMotion>
+                </circle>
+                <circle r="2" fill="#67E8F9" opacity="0.7">
+                  <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.7s"><mpath href="#vp-bl"/></animateMotion>
+                </circle>
+              </svg>
+
+              <!-- Central server hub -->
+              <div class="server-hub">
+                <div class="server-body">
+                  <div class="server-ai-badge">AI</div>
+                  <div class="server-slots">
+                    <div class="server-slot"></div>
+                    <div class="server-slot"></div>
+                    <div class="server-slot"></div>
+                  </div>
+                  <div class="server-label">Your Server</div>
+                </div>
+              </div>
+
+              <!-- Data nodes — content flowing inward -->
+              <div class="data-node node-top node-purple">
+                <div class="node-bubble">📄</div>
+                <div class="node-text">Company<br>Docs</div>
+              </div>
+              <div class="data-node node-right node-teal">
+                <div class="node-bubble">📊</div>
+                <div class="node-text">Reports &<br>Data</div>
+              </div>
+              <div class="data-node node-bottom node-green">
+                <div class="node-bubble">👥</div>
+                <div class="node-text">Team<br>Workflows</div>
+              </div>
+              <div class="data-node node-left node-amber">
+                <div class="node-bubble">🔒</div>
+                <div class="node-text">Sensitive<br>Records</div>
+              </div>
+              <div class="data-node node-tr node-purple">
+                <div class="node-bubble">📧</div>
+                <div class="node-text">Internal<br>Comms</div>
+              </div>
+              <div class="data-node node-bl node-teal">
+                <div class="node-bubble">⚙️</div>
+                <div class="node-text">Operations<br>Systems</div>
+              </div>
+
+              <!-- Ghosted cloud services (NOT connected) -->
+              <div class="external-ghost ghost-1">
+                <div class="ghost-bubble">☁️</div>
+                <div class="ghost-label">3rd Party<br>Cloud</div>
+              </div>
+              <div class="external-ghost ghost-2">
+                <div class="ghost-bubble">🤖</div>
+                <div class="ghost-label">Generic<br>ChatGPT</div>
+              </div>
+
+              <!-- Live status chip -->
+              <div class="vs-status-chip">
+                <div class="vs-status-dot"></div>
+                <span class="vs-status-text">Zero data leaves your infrastructure</span>
+              </div>
+
+            </div><!-- /visual-scene -->
+          </div><!-- /pilot-visual -->
+
+          <!-- Social proof -->
+          <div class="pilot-social-proof">
+            <div class="pilot-proof-avatars" aria-hidden="true">
+              <span class="pilot-proof-avatar" style="background:#7c3aed;">MK</span>
+              <span class="pilot-proof-avatar" style="background:#9301BB;">SL</span>
+              <span class="pilot-proof-avatar" style="background:#c026d3;">AR</span>
+              <span class="pilot-proof-avatar" style="background:#7e22ce;">DT</span>
+            </div>
+            <p class="pilot-proof-text">Trusted by <strong>12+ European B2B teams</strong><br>across manufacturing, legal, and logistics</p>
+          </div>
+
+        </div><!-- /pilot-copy -->
+
+        <!-- ── Right column: lead capture form ────────────────── -->
+        <div class="pilot-form-card" id="pilot-form-card" role="region" aria-label="Pilot application form">
+
+          <!-- Confirmation state (hidden until submitted) -->
+          <div class="pilot-confirm" id="pilot-confirm" aria-live="polite" aria-hidden="true">
+            <div class="confirm-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="4,12 9,17 20,7"/></svg>
+            </div>
+            <p class="confirm-title">Application received.</p>
+            <p class="confirm-body" id="confirm-name-text">
+              James will review your details and get back to you within one business day.
+            </p>
+            <div class="confirm-actions">
+              <a class="btn" href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">
+                Skip the queue — book 15 min now &rarr;
+              </a>
+              <a class="btn btn-ghost" href="/">Back to main site</a>
+            </div>
+            <p class="confirm-meta">
+              Questions? Email James directly at <a href="mailto:james@firsttouch.app">james@firsttouch.app</a>
+            </p>
+          </div>
+
+          <!-- Form inner (hidden after submit) -->
+          <div class="pilot-form-inner" id="pilot-form-inner">
+            <div class="pilot-urgency" aria-live="polite">
+              <span class="pilot-urgency-dot" aria-hidden="true"></span>
+              Only 2 pilot spots available in April
+            </div>
+
+            <div class="pilot-form-header">
+              <h2>Start your free 2-week proof of concept</h2>
+              <p>Takes 60 seconds. James reviews every application personally.</p>
+            </div>
+
+            <div class="form-error-banner" id="form-error-banner" role="alert"></div>
+
+            <form id="pilot-form" novalidate aria-label="Pilot application">
+              <div class="field-group">
+
+                <div class="field-row">
+                  <div class="field">
+                    <label for="pilot-name">
+                      Your name <span class="required" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="pilot-name"
+                      name="name"
+                      autocomplete="name"
+                      placeholder="James Smith"
+                      required
+                      aria-required="true"
+                      aria-describedby="pilot-name-error"
+                    >
+                    <span class="field-error" id="pilot-name-error" role="alert"></span>
+                  </div>
+
+                  <div class="field">
+                    <label for="pilot-company">
+                      Company <span class="required" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="pilot-company"
+                      name="company"
+                      autocomplete="organization"
+                      placeholder="Acme Ltd"
+                      required
+                      aria-required="true"
+                      aria-describedby="pilot-company-error"
+                    >
+                    <span class="field-error" id="pilot-company-error" role="alert"></span>
+                  </div>
+                </div>
+
+                <div class="field-row">
+                  <div class="field">
+                    <label for="pilot-role">
+                      Your role <span class="required" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="pilot-role"
+                      name="role"
+                      autocomplete="organization-title"
+                      placeholder="CEO / COO / Operations"
+                      required
+                      aria-required="true"
+                      aria-describedby="pilot-role-error"
+                    >
+                    <span class="field-error" id="pilot-role-error" role="alert"></span>
+                  </div>
+
+                  <div class="field">
+                    <label for="pilot-size">
+                      Company size <span class="required" aria-hidden="true">*</span>
+                    </label>
+                    <div class="select-wrap">
+                      <select
+                        id="pilot-size"
+                        name="company_size"
+                        required
+                        aria-required="true"
+                        aria-describedby="pilot-size-error"
+                      >
+                        <option value="" disabled selected>Select size</option>
+                        <option value="50-200">50 – 200 employees</option>
+                        <option value="200-500">200 – 500 employees</option>
+                        <option value="500+">500+ employees</option>
+                      </select>
+                    </div>
+                    <span class="field-error" id="pilot-size-error" role="alert"></span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="pilot-email">
+                    Work email <span class="required" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="pilot-email"
+                    name="email"
+                    autocomplete="email"
+                    placeholder="you@company.com"
+                    required
+                    aria-required="true"
+                    aria-describedby="pilot-email-error"
+                    inputmode="email"
+                  >
+                  <span class="field-error" id="pilot-email-error" role="alert"></span>
+                </div>
+
+              </div>
+
+              <button type="submit" class="btn pilot-submit" id="pilot-submit" aria-label="Submit pilot application">
+                <span class="btn-label">Start my free 2 weeks &rarr;</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+
+              <p class="pilot-form-footer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                No spam &nbsp;·&nbsp; GDPR-compliant &nbsp;·&nbsp; Data stays yours
+              </p>
+            </form>
+          </div>
+        </div><!-- /pilot-form-card -->
+
+      </div><!-- /pilot-grid -->
+    </div><!-- /container -->
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────────── -->
+  <footer class="pilot-footer">
+    <div class="container pilot-footer-inner">
+      <span class="pilot-footer-copy">&copy; 2026 First Touch &nbsp;·&nbsp; London, United Kingdom</span>
+      <nav class="pilot-footer-links" aria-label="Footer links">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:james@firsttouch.app">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    "use strict";
+
+    var LEAD_ENDPOINT = "/api/leads";
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    var form       = document.getElementById("pilot-form");
+    var card       = document.getElementById("pilot-form-card");
+    var formInner  = document.getElementById("pilot-form-inner");
+    var confirmEl  = document.getElementById("pilot-confirm");
+    var submitBtn  = document.getElementById("pilot-submit");
+    var errorBanner = document.getElementById("form-error-banner");
+
+    var fields = {
+      name:         { el: document.getElementById("pilot-name"),    err: document.getElementById("pilot-name-error"),    validate: validateText("Full name is required") },
+      company:      { el: document.getElementById("pilot-company"), err: document.getElementById("pilot-company-error"), validate: validateText("Company name is required") },
+      role:         { el: document.getElementById("pilot-role"),    err: document.getElementById("pilot-role-error"),    validate: validateText("Your role is required") },
+      company_size: { el: document.getElementById("pilot-size"),    err: document.getElementById("pilot-size-error"),    validate: validateSelect("Please select your company size") },
+      email:        { el: document.getElementById("pilot-email"),   err: document.getElementById("pilot-email-error"),   validate: validateEmail() },
+    };
+
+    // ── Helpers ──────────────────────────────────────────────────
+    function validateText(msg) {
+      return function (val) { return val.trim().length > 0 ? null : msg; };
+    }
+
+    function validateSelect(msg) {
+      return function (val) { return val ? null : msg; };
+    }
+
+    function validateEmail() {
+      return function (val) {
+        if (!val.trim()) return "Work email is required";
+        if (!EMAIL_RE.test(val.trim())) return "Please enter a valid email address";
+        return null;
+      };
+    }
+
+    function showFieldError(key, msg) {
+      var f = fields[key];
+      f.err.textContent = msg;
+      f.err.classList.add("visible");
+      f.el.setAttribute("aria-invalid", "true");
+    }
+
+    function clearFieldError(key) {
+      var f = fields[key];
+      f.err.textContent = "";
+      f.err.classList.remove("visible");
+      f.el.removeAttribute("aria-invalid");
+    }
+
+    function validateAll() {
+      var valid = true;
+      Object.keys(fields).forEach(function (key) {
+        var f = fields[key];
+        var err = f.validate(f.el.value);
+        if (err) {
+          showFieldError(key, err);
+          valid = false;
+        } else {
+          clearFieldError(key);
+        }
+      });
+      return valid;
+    }
+
+    function getUtmParams() {
+      var params = new URLSearchParams(window.location.search);
+      var keys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+      var out = {};
+      keys.forEach(function (k) {
+        var v = params.get(k);
+        if (v) out[k] = v;
+      });
+      return out;
+    }
+
+    function getTrafficSource() {
+      return sessionStorage.getItem("ft_traffic_source") || "unknown";
+    }
+
+    function setLoading(on) {
+      submitBtn.disabled = on;
+      submitBtn.setAttribute("aria-busy", on ? "true" : "false");
+      if (on) {
+        submitBtn.classList.add("loading");
+      } else {
+        submitBtn.classList.remove("loading");
+      }
+    }
+
+    function showBanner(msg) {
+      errorBanner.textContent = msg;
+      errorBanner.classList.add("visible");
+      errorBanner.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function hideBanner() {
+      errorBanner.textContent = "";
+      errorBanner.classList.remove("visible");
+    }
+
+    function showConfirmation(name) {
+      card.classList.add("submitted");
+      confirmEl.setAttribute("aria-hidden", "false");
+
+      var first = (name || "").split(" ")[0];
+      if (first) {
+        document.getElementById("confirm-name-text").textContent =
+          first + ", James will review your details and get back to you within one business day.";
+      }
+
+      card.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      if (typeof window.plausible === "function") {
+        window.plausible("Pilot Application Submitted");
+      }
+    }
+
+    // ── Inline validation on blur ─────────────────────────────────
+    Object.keys(fields).forEach(function (key) {
+      var f = fields[key];
+      f.el.addEventListener("blur", function () {
+        var err = f.validate(f.el.value);
+        if (err) {
+          showFieldError(key, err);
+        } else {
+          clearFieldError(key);
+        }
+      });
+      f.el.addEventListener("input", function () {
+        if (f.el.getAttribute("aria-invalid") === "true") {
+          var err = f.validate(f.el.value);
+          if (!err) clearFieldError(key);
+        }
+      });
+    });
+
+    // ── Form submit ───────────────────────────────────────────────
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      hideBanner();
+
+      if (!validateAll()) {
+        var firstInvalid = Object.keys(fields).find(function (k) {
+          return fields[k].el.getAttribute("aria-invalid") === "true";
+        });
+        if (firstInvalid) fields[firstInvalid].el.focus();
+        return;
+      }
+
+      setLoading(true);
+
+      var payload = Object.assign(
+        {
+          name:         fields.name.el.value.trim(),
+          company:      fields.company.el.value.trim(),
+          role:         fields.role.el.value.trim(),
+          company_size: fields.company_size.el.value,
+          email:        fields.email.el.value.trim().toLowerCase(),
+          source:       "pilot-page",
+          page_url:     window.location.href,
+          timestamp:    new Date().toISOString(),
+          traffic_source: getTrafficSource(),
+        },
+        getUtmParams()
+      );
+
+      fetch(LEAD_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          if (!res.ok && res.status !== 200) {
+            return res.json().catch(function () { return {}; }).then(function (body) {
+              throw new Error(body.error || "Server error (" + res.status + ")");
+            });
+          }
+          return res.json();
+        })
+        .then(function () {
+          showConfirmation(payload.name);
+        })
+        .catch(function (err) {
+          setLoading(false);
+          var msg = (err && err.message) || "Something went wrong. Please try again or email james@firsttouch.app.";
+          showBanner(msg);
+          console.error("[pilot-form] submission error:", err);
+        });
+    });
+
+  }());
+  </script>
+</body>
+</html>
