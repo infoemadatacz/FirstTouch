@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>AI for Construction Companies — RAMS, HSE &amp; Compliance | FirstTouch</title>
+  <meta name="description" content="AI that knows your RAMS, permits, HSE requirements, and tender history — deployed on your own infrastructure. Site managers save 11+ hours a week. Live in 8 days.">
+  <meta name="keywords" content="AI for construction, AI for construction companies, RAMS AI assistant, HSE compliance AI, CDM compliance AI, tender documentation AI, site manager AI, construction AI UK, on-premise AI construction">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="First Touch">
+  <meta name="theme-color" content="#9301BB">
+
+  <link rel="canonical" href="https://firsttouch.app/construction">
+  <link rel="alternate" hreflang="en-gb" href="https://firsttouch.app/construction">
+  <link rel="alternate" hreflang="x-default" href="https://firsttouch.app/construction">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="AI for Construction — RAMS, HSE &amp; Compliance | FirstTouch">
+  <meta property="og:description" content="Every RAMS, permit, and tender document — found in seconds. CDM compliance tracked across all sites. Live in 8 days on your own server.">
+  <meta property="og:url" content="https://firsttouch.app/construction">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+  <meta property="og:locale" content="en_GB">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI for Construction — RAMS, HSE &amp; Compliance | FirstTouch">
+  <meta name="twitter:description" content="Site managers save 11+ hours a week. Every document on demand. CDM compliance tracked. Live in 8 days.">
+  <meta name="twitter:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+
+  <meta name="geo.region" content="GB-ENG">
+  <meta name="geo.placename" content="London, United Kingdom">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Plausible Analytics — GDPR-compliant, no cookies -->
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    /* ══════════════════════════════════════════════════════
+       CONSTRUCTION LP — PAGE-SCOPED STYLES
+       Accent: Amber #F59E0B / #FBBF24
+       Visual: Sprint 7 document hub (RAMS/HSE/Permits/Tender/Diary/Certs)
+    ══════════════════════════════════════════════════════ */
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .con-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      min-height: 640px;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(150deg, #050810 0%, #08101e 45%, #050c18 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Blueprint-style amber grid — engineering precision */
+    .con-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(251,191,36,0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(251,191,36,0.028) 1px, transparent 1px),
+        linear-gradient(rgba(251,191,36,0.048) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(251,191,36,0.048) 1px, transparent 1px);
+      background-size: 48px 48px, 48px 48px, 240px 240px, 240px 240px;
+      pointer-events: none;
+    }
+
+    /* Ground / footer line */
+    .con-ground {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(251,191,36,0.1) 20%,
+        rgba(167,139,250,0.08) 50%, rgba(251,191,36,0.1) 80%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Ambient glows */
+    .con-glow-l {
+      position: absolute; width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.09) 0%, transparent 60%);
+      top: -350px; left: -100px; pointer-events: none;
+    }
+    .con-glow-c {
+      position: absolute; width: 900px; height: 900px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,0.045) 0%, transparent 55%);
+      top: -400px; left: 50%; transform: translateX(-50%); pointer-events: none;
+    }
+    .con-glow-r {
+      position: absolute; width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 60%);
+      bottom: -150px; right: 150px; pointer-events: none;
+    }
+
+    /* Two-column hero grid */
+    .con-hero-grid {
+      display: grid;
+      grid-template-columns: 520px 1fr;
+      align-items: center;
+      min-height: 596px;
+      gap: 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Left: copy */
+    .con-copy {
+      padding: 5.5rem 0 5.5rem 0;
+      position: relative;
+    }
+
+    /* Tag pill */
+    .con-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.28);
+      border-radius: 24px; padding: 5px 14px;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #FDE68A; margin-bottom: 1.4rem;
+      font-family: "Geist", sans-serif;
+    }
+
+    .con-tag-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #FBBF24;
+      box-shadow: 0 0 7px #F59E0B;
+      flex-shrink: 0;
+    }
+
+    /* Headline */
+    .con-h1 {
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 800; line-height: 1.06;
+      letter-spacing: -0.04em; color: #fff;
+      margin-bottom: 1.2rem;
+    }
+
+    .con-h1 .accent {
+      background: linear-gradient(90deg, #FBBF24 0%, #A78BFA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Lead */
+    .con-lead {
+      font-size: 1.05rem; color: rgba(255,255,255,0.5);
+      line-height: 1.65; max-width: 44ch; margin-bottom: 2.2rem;
+    }
+    .con-lead strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+
+    /* CTA row */
+    .con-cta-row {
+      display: flex; align-items: center; gap: 1rem;
+      flex-wrap: wrap; margin-bottom: 2.8rem;
+    }
+
+    /* Social proof row */
+    .con-proof {
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .con-proof-avatars { display: flex; }
+    .con-proof-av {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 2px solid #050810;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 700; color: #fff;
+      margin-left: -7px; flex-shrink: 0;
+    }
+    .con-proof-av:first-child { margin-left: 0; }
+    .con-proof-text { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.4; }
+    .con-proof-text strong { color: rgba(255,255,255,0.72); }
+
+    /* ── Right: construction document hub illustration ── */
+    /* Ported from Sprint 7 handoff (brand-hero-construction.html)
+       Adapted: fixed px → %, font-family → Geist, width → fluid */
+    .con-illustration {
+      position: relative;
+      width: 100%;
+      height: 596px;
+      overflow: hidden;
+    }
+
+    /* SVG connectors layer */
+    .con-scene-svg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      overflow: visible; z-index: 1; pointer-events: none;
+    }
+
+    /* Central AI hub */
+    .con-hub {
+      position: absolute;
+      width: 118px; height: 118px;
+      top: 50%; left: 43%;
+      transform: translate(-50%, -50%);
+      z-index: 20;
+    }
+
+    .con-hub-body {
+      width: 118px; height: 118px;
+      background: linear-gradient(145deg, #12082a, #1e0d3f);
+      border: 1px solid rgba(167,139,250,0.35);
+      border-radius: 20px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+      position: relative;
+      box-shadow:
+        0 0 0 9px rgba(124,58,237,0.05),
+        0 0 0 20px rgba(124,58,237,0.025),
+        0 18px 56px rgba(124,58,237,0.3);
+    }
+
+    .con-hub-body::before {
+      content: '';
+      position: absolute; top: 0; left: 14px; right: 14px; height: 2px;
+      background: linear-gradient(90deg, transparent, #FBBF24, transparent);
+      border-radius: 2px;
+    }
+
+    .con-hub-icon { font-size: 26px; line-height: 1; }
+    .con-hub-label {
+      font-size: 10px; font-weight: 800; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #DDD6FE;
+      text-align: center; line-height: 1.25;
+      font-family: "Geist", sans-serif;
+    }
+
+    .con-hub-ai {
+      position: absolute; top: -11px; right: -11px;
+      width: 28px; height: 28px; border-radius: 7px;
+      background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 900; color: white;
+      box-shadow: 0 3px 10px rgba(124,58,237,0.5);
+      border: 1.5px solid rgba(167,139,250,0.3);
+      font-family: "Geist", sans-serif;
+    }
+
+    /* Document node cards */
+    .con-doc-node {
+      position: absolute; z-index: 15;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 7px;
+      transform: translate(-50%, -50%);
+    }
+
+    .cdn-card {
+      width: 88px; height: 80px; border-radius: 12px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 5px; border: 1px solid; position: relative; overflow: hidden;
+    }
+
+    /* Document lines texture */
+    .cdn-card::after {
+      content: '';
+      position: absolute; left: 10px; right: 10px; bottom: 12px; height: 12px;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 3px,
+        rgba(255,255,255,0.055) 3px, rgba(255,255,255,0.055) 4px);
+      border-radius: 1px;
+    }
+
+    .cdn-emoji { font-size: 19px; line-height: 1; position: relative; z-index: 1; }
+    .cdn-title {
+      font-size: 9px; font-weight: 700; text-align: center; line-height: 1.25;
+      letter-spacing: 0.3px; position: relative; z-index: 1;
+      font-family: "Geist", sans-serif;
+    }
+    .cdn-label {
+      font-size: 10px; font-weight: 600; text-align: center;
+      line-height: 1.3; letter-spacing: 0.2px; max-width: 94px;
+      font-family: "Geist", sans-serif;
+    }
+
+    /* Status dot */
+    .cdn-status {
+      position: absolute; top: -7px; right: -7px;
+      width: 16px; height: 16px; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; border: 1px solid rgba(0,0,0,0.3); z-index: 2;
+    }
+    .st-ok     { background: rgba(34,197,94,0.25);  border-color: rgba(34,197,94,0.4);   color: #4ADE80; }
+    .st-pend   { background: rgba(245,158,11,0.2);  border-color: rgba(245,158,11,0.35); color: #FBBF24; }
+    .st-alert  { background: rgba(239,68,68,0.18);  border-color: rgba(239,68,68,0.35);  color: #F87171; }
+
+    /* Colour variants */
+    .dv-amber  .cdn-card { background: rgba(245,158,11,0.08);  border-color: rgba(245,158,11,0.25);  }
+    .dv-amber  .cdn-title, .dv-amber  .cdn-label { color: #FDE68A; }
+    .dv-purple .cdn-card { background: rgba(124,58,237,0.1);   border-color: rgba(167,139,250,0.25); }
+    .dv-purple .cdn-title, .dv-purple .cdn-label { color: #A78BFA; }
+    .dv-green  .cdn-card { background: rgba(34,197,94,0.08);   border-color: rgba(34,197,94,0.22);   }
+    .dv-green  .cdn-title, .dv-green  .cdn-label { color: #86EFAC; }
+    .dv-slate  .cdn-card { background: rgba(71,85,105,0.2);    border-color: rgba(148,163,184,0.2);  }
+    .dv-slate  .cdn-title, .dv-slate  .cdn-label { color: #CBD5E1; }
+    .dv-red    .cdn-card { background: rgba(239,68,68,0.07);   border-color: rgba(248,113,113,0.22); }
+    .dv-red    .cdn-title, .dv-red    .cdn-label { color: #FCA5A5; }
+    .dv-teal   .cdn-card { background: rgba(13,148,136,0.09);  border-color: rgba(45,212,191,0.22);  }
+    .dv-teal   .cdn-title, .dv-teal   .cdn-label { color: #5EEAD4; }
+
+    /* Node positions (scene 600px tall, hub at 43% left, 50% top) */
+    .cdn-1 { left: 13%;  top: 20%; }  /* upper-left:  RAMS */
+    .cdn-2 { left: 10%;  top: 50%; }  /* left:        HSE */
+    .cdn-3 { left: 13%;  top: 80%; }  /* lower-left:  Permits */
+    .cdn-4 { left: 75%;  top: 20%; }  /* upper-right: Tender */
+    .cdn-5 { left: 80%;  top: 50%; }  /* right:       Site Diary */
+    .cdn-6 { left: 75%;  top: 80%; }  /* lower-right: Certs */
+
+    /* Status board */
+    .con-status-board {
+      position: absolute; top: 28px; right: 28px;
+      width: 230px;
+      background: rgba(8,14,28,0.8);
+      border: 1px solid rgba(251,191,36,0.18);
+      border-radius: 14px; padding: 14px 16px; z-index: 25;
+    }
+
+    .csb-header {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 11px;
+    }
+    .csb-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #FBBF24; box-shadow: 0 0 6px #F59E0B; flex-shrink: 0;
+      animation: csb-blink 2.5s ease-in-out infinite;
+    }
+    @keyframes csb-blink { 0%,100%{opacity:1}50%{opacity:0.3} }
+    .csb-title {
+      font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #FDE68A;
+      font-family: "Geist", sans-serif;
+    }
+    .csb-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 11.5px; font-family: "Geist", sans-serif;
+    }
+    .csb-row:last-child { border-bottom: none; }
+    .csb-lbl { color: rgba(255,255,255,0.4); }
+    .csb-val { font-weight: 700; }
+    .cv-ok    { color: #4ADE80; }
+    .cv-am    { color: #FBBF24; }
+    .cv-wh    { color: #fff; }
+
+    /* Time saved chip */
+    .con-time-chip {
+      position: absolute; bottom: 28px; right: 28px;
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(167,139,250,0.25);
+      border-radius: 12px; padding: 10px 14px; z-index: 25;
+    }
+    .ctc-num {
+      font-size: 26px; font-weight: 900; color: #FBBF24;
+      letter-spacing: -1px; line-height: 1;
+      font-family: "Geist", sans-serif;
+    }
+    .ctc-text { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.4;
+      font-family: "Geist", sans-serif; }
+    .ctc-text strong { color: rgba(255,255,255,0.78); font-size: 12px; display: block; }
+
+    /* Compliance strip */
+    .con-compliance-strip {
+      display: flex; align-items: center; gap: 0;
+      overflow-x: auto; border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 0 var(--container-pad, 1.5rem);
+      -ms-overflow-style: none; scrollbar-width: none;
+    }
+    .con-compliance-strip::-webkit-scrollbar { display: none; }
+
+    .con-ci {
+      display: flex; align-items: center; gap: 7px;
+      padding: 0.9rem 1.5rem 0.9rem 0;
+      font-size: 0.76rem; font-weight: 500;
+      color: rgba(255,255,255,0.42); white-space: nowrap;
+      border-right: 1px solid rgba(255,255,255,0.06); margin-right: 1.5rem;
+    }
+    .con-ci:last-child { border-right: none; margin-right: 0; }
+    .con-ci-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #FBBF24; flex-shrink: 0;
+    }
+
+    /* ── Benefit card accent overrides ─────────────────── */
+    .benefit-card-1 .benefit-number { color: #FBBF24; }
+    .benefit-card-2 .benefit-number { color: #22C55E; }
+    .benefit-card-3 .benefit-number { color: #c03adb; }
+
+    .proof-check-amber {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.3);
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .proof-check-amber svg { width: 10px; height: 10px; stroke-width: 2.5; fill: none; }
+
+    /* ── CTA accent ─────────────────────────────────────── */
+    .con-cta-section {
+      padding: 6rem 0; background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .con-cta-section::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 55% 50% at 50% 100%, rgba(245,158,11,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .con-hero-grid { grid-template-columns: 1fr; min-height: unset; }
+      .con-illustration { display: none; }
+      .con-copy { padding: 4rem 0 3.5rem; }
+      .con-h1 { font-size: clamp(2rem, 6vw, 2.8rem); }
+      .benefits-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .benefits-section, .social-section, .con-cta-section { padding: 3.5rem 0; }
+      .con-compliance-strip { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .con-cta-row { flex-direction: column; align-items: flex-start; }
+      .con-cta-row .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════ -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="/" aria-label="First Touch home">
+        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="32" height="32" loading="eager" decoding="sync">
+        <span class="brand-text">First Touch</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary navigation">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a class="nav-mobile-cta" href="/pilot">Apply for Pilot &rarr;</a>
+      </nav>
+
+      <a class="btn btn-sm nav-cta-desktop" href="/pilot">Apply for Pilot</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="con-hero" aria-label="Hero">
+      <div class="con-bg-grid" aria-hidden="true"></div>
+      <div class="con-ground" aria-hidden="true"></div>
+      <div class="con-glow-l" aria-hidden="true"></div>
+      <div class="con-glow-c" aria-hidden="true"></div>
+      <div class="con-glow-r" aria-hidden="true"></div>
+
+      <div class="container con-hero-grid">
+
+        <!-- Left: copy -->
+        <div class="con-copy">
+          <div class="con-tag">
+            <span class="con-tag-dot" aria-hidden="true"></span>
+            Construction &amp; Property
+          </div>
+
+          <h1 class="con-h1">
+            Every document.<br>
+            <span class="accent">Every site. Sorted.</span>
+          </h1>
+
+          <p class="con-lead">
+            Your site managers spend hours every week hunting for RAMS packs, chasing permit renewals, and rebuilding tender documents from scratch. FirstTouch puts every piece of documentation at their fingertips, <strong>deployed inside your own systems.</strong> CDM compliance tracked across all live sites. Tender history ready to use. Nothing leaves your infrastructure.
+          </p>
+
+          <div class="con-cta-row">
+            <a class="btn" href="/pilot" plausible-event-name="Pilot CTA Click" plausible-event-source="construction-hero">
+              Apply for the Pilot &rarr;
+            </a>
+            <a class="btn btn-ghost" href="#benefits">See What Changes &darr;</a>
+          </div>
+
+          <div class="con-proof">
+            <div class="con-proof-avatars" aria-hidden="true">
+              <span class="con-proof-av" style="background:linear-gradient(135deg,#D97706,#F59E0B);">PW</span>
+              <span class="con-proof-av" style="background:linear-gradient(135deg,#9301BB,#c03adb);">RN</span>
+              <span class="con-proof-av" style="background:linear-gradient(135deg,#7c3aed,#9301BB);">JF</span>
+              <span class="con-proof-av" style="background:linear-gradient(135deg,#b45309,#D97706);">KS</span>
+            </div>
+            <p class="con-proof-text">Trusted by <strong>site managers and commercial directors</strong><br>across the UK construction sector</p>
+          </div>
+        </div>
+
+        <!-- Right: Sprint 7 document hub illustration -->
+        <aside class="con-illustration" aria-hidden="true">
+
+          <!-- SVG connector lines — all flowing INTO hub -->
+          <svg class="con-scene-svg" viewBox="0 0 640 596" fill="none">
+            <!-- node1 (upper-left) → hub ~(275,298) -->
+            <path d="M83,119 Q170,195 250,272" stroke="rgba(251,191,36,0.25)" stroke-width="1"/>
+            <!-- node2 (left) → hub -->
+            <path d="M64,298 Q160,298 245,298" stroke="rgba(167,139,250,0.22)" stroke-width="1"/>
+            <!-- node3 (lower-left) → hub -->
+            <path d="M83,477 Q170,400 250,324" stroke="rgba(34,197,94,0.22)" stroke-width="1"/>
+            <!-- node4 (upper-right) → hub -->
+            <path d="M480,119 Q395,195 305,272" stroke="rgba(148,163,184,0.2)" stroke-width="1"/>
+            <!-- node5 (right) → hub -->
+            <path d="M512,298 Q420,298 320,298" stroke="rgba(239,68,68,0.18)" stroke-width="1"/>
+            <!-- node6 (lower-right) → hub -->
+            <path d="M480,477 Q395,400 305,324" stroke="rgba(94,234,212,0.2)" stroke-width="1"/>
+
+            <!-- Hidden motion paths -->
+            <path id="cp1" d="M83,119 Q170,195 250,272" visibility="hidden"/>
+            <path id="cp2" d="M64,298 Q160,298 245,298" visibility="hidden"/>
+            <path id="cp3" d="M83,477 Q170,400 250,324" visibility="hidden"/>
+            <path id="cp4" d="M480,119 Q395,195 305,272" visibility="hidden"/>
+            <path id="cp5" d="M512,298 Q420,298 320,298" visibility="hidden"/>
+            <path id="cp6" d="M480,477 Q395,400 305,324" visibility="hidden"/>
+
+            <!-- Animated particles flowing inward -->
+            <circle r="3" fill="#FBBF24" opacity="0.9">
+              <animateMotion dur="2.1s" repeatCount="indefinite"><mpath href="#cp1"/></animateMotion>
+            </circle>
+            <circle r="3" fill="#A78BFA" opacity="0.85">
+              <animateMotion dur="1.8s" repeatCount="indefinite" begin="0.4s"><mpath href="#cp2"/></animateMotion>
+            </circle>
+            <circle r="3" fill="#86EFAC" opacity="0.85">
+              <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.8s"><mpath href="#cp3"/></animateMotion>
+            </circle>
+            <circle r="3" fill="#CBD5E1" opacity="0.75">
+              <animateMotion dur="2.0s" repeatCount="indefinite" begin="0.6s"><mpath href="#cp4"/></animateMotion>
+            </circle>
+            <circle r="3" fill="#F87171" opacity="0.8">
+              <animateMotion dur="1.7s" repeatCount="indefinite" begin="1.1s"><mpath href="#cp5"/></animateMotion>
+            </circle>
+            <circle r="3" fill="#5EEAD4" opacity="0.8">
+              <animateMotion dur="2.3s" repeatCount="indefinite" begin="0.9s"><mpath href="#cp6"/></animateMotion>
+            </circle>
+
+            <!-- Hub proximity rings -->
+            <circle cx="275" cy="298" r="70"  fill="none" stroke="rgba(124,58,237,0.1)"  stroke-width="1"/>
+            <circle cx="275" cy="298" r="90"  fill="none" stroke="rgba(245,158,11,0.06)" stroke-width="1"/>
+            <circle cx="275" cy="298" r="110" fill="none" stroke="rgba(124,58,237,0.04)" stroke-width="1"/>
+          </svg>
+
+          <!-- Central AI hub -->
+          <div class="con-hub">
+            <div class="con-hub-body">
+              <div class="con-hub-ai">AI</div>
+              <div class="con-hub-icon">🏗</div>
+              <div class="con-hub-label">Site AI<br>Platform</div>
+            </div>
+          </div>
+
+          <!-- Document nodes -->
+          <div class="con-doc-node dv-amber cdn-1">
+            <div class="cdn-card"><div class="cdn-status st-pend">!</div><span class="cdn-emoji">📋</span><span class="cdn-title">Method<br>Statements</span></div>
+            <div class="cdn-label">RAMS Pack</div>
+          </div>
+
+          <div class="con-doc-node dv-purple cdn-2">
+            <div class="cdn-card"><div class="cdn-status st-ok">✓</div><span class="cdn-emoji">🛡</span><span class="cdn-title">HSE<br>Reports</span></div>
+            <div class="cdn-label">Safety Docs</div>
+          </div>
+
+          <div class="con-doc-node dv-green cdn-3">
+            <div class="cdn-card"><div class="cdn-status st-ok">✓</div><span class="cdn-emoji">📜</span><span class="cdn-title">Planning<br>Permits</span></div>
+            <div class="cdn-label">Approvals</div>
+          </div>
+
+          <div class="con-doc-node dv-slate cdn-4">
+            <div class="cdn-card"><div class="cdn-status st-ok">✓</div><span class="cdn-emoji">📁</span><span class="cdn-title">Tender<br>Documents</span></div>
+            <div class="cdn-label">Bid Library</div>
+          </div>
+
+          <div class="con-doc-node dv-red cdn-5">
+            <div class="cdn-card"><div class="cdn-status st-alert">!</div><span class="cdn-emoji">📅</span><span class="cdn-title">Site<br>Diary</span></div>
+            <div class="cdn-label">Daily Logs</div>
+          </div>
+
+          <div class="con-doc-node dv-teal cdn-6">
+            <div class="cdn-card"><div class="cdn-status st-ok">✓</div><span class="cdn-emoji">🏅</span><span class="cdn-title">Compliance<br>Certs</span></div>
+            <div class="cdn-label">CDM / ISO</div>
+          </div>
+
+          <!-- Status board -->
+          <div class="con-status-board">
+            <div class="csb-header">
+              <div class="csb-dot"></div>
+              <div class="csb-title">Live Site Dashboard</div>
+            </div>
+            <div class="csb-row">
+              <span class="csb-lbl">Active projects</span>
+              <span class="csb-val cv-wh">14</span>
+            </div>
+            <div class="csb-row">
+              <span class="csb-lbl">RAMS up to date</span>
+              <span class="csb-val cv-ok">12 / 14 ✓</span>
+            </div>
+            <div class="csb-row">
+              <span class="csb-lbl">Permits expiring</span>
+              <span class="csb-val cv-am">2 → flagged</span>
+            </div>
+            <div class="csb-row">
+              <span class="csb-lbl">HSE compliance</span>
+              <span class="csb-val cv-ok">100% ✓</span>
+            </div>
+          </div>
+
+          <!-- Time saved chip -->
+          <div class="con-time-chip">
+            <div class="ctc-num">11h</div>
+            <div class="ctc-text">
+              <strong>saved per site manager / week</strong>
+              on compliance documentation
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+
+      <!-- Compliance strip -->
+      <div class="con-compliance-strip" aria-label="Compliance credentials">
+        <div class="con-ci"><div class="con-ci-dot"></div>GDPR Compliant</div>
+        <div class="con-ci"><div class="con-ci-dot"></div>CDM &amp; HSE documentation automated</div>
+        <div class="con-ci"><div class="con-ci-dot"></div>All data stays on your infrastructure</div>
+        <div class="con-ci"><div class="con-ci-dot"></div>EU AI Act Aligned</div>
+        <div class="con-ci"><div class="con-ci-dot"></div>No vendor data access</div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         BENEFITS
+    ══════════════════════════════════════════ -->
+    <section class="benefits-section section" id="benefits" aria-labelledby="benefits-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>What changes on site</p>
+          <h2 id="benefits-heading">Three things that cost your business hours every week. That stop on day one.</h2>
+          <p class="section-lead">Construction companies aren't short of documentation — they're short of time to find it, use it, and keep it up to date. FirstTouch doesn't add more process. It makes the process you already have faster and less dependent on individual memory.</p>
+        </div>
+
+        <div class="benefits-grid">
+
+          <!-- Benefit 1: Documentation on demand -->
+          <article class="benefit-card benefit-card-1">
+            <div class="benefit-number benefit-number-1">11</div>
+            <h3>Site managers get 11+ hours a week back. From documentation alone.</h3>
+            <p>
+              Ask any site manager where their time goes and they'll say the same things: hunting for the previous version of a method statement, trying to find who signed off a permit variation, rebuilding a section of RAMS from scratch because they can't locate the template. None of this is value-creating work. All of it stops on day one.
+            </p>
+            <p>
+              FirstTouch knows every RAMS pack, every method statement, every site diary entry, every permit — and retrieves them instantly. "What was the ground conditions assessment on the Warwick Road project?" gets an answer in seconds, not an inbox search.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check proof-check-amber">
+                  <svg viewBox="0 0 10 10" stroke="#F59E0B"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Any document from any project — retrieved by description, not filename</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-amber">
+                  <svg viewBox="0 0 10 10" stroke="#F59E0B"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Method statements and RAMS generated from your own previous projects</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-amber">
+                  <svg viewBox="0 0 10 10" stroke="#F59E0B"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Site briefings drafted automatically from daily log summaries</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 2: CDM / HSE compliance -->
+          <article class="benefit-card benefit-card-2">
+            <div class="benefit-number benefit-number-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>CDM and HSE compliance — tracked across every live site simultaneously.</h3>
+            <p>
+              Running five sites means five sets of CDM obligations, five permit renewal schedules, five inspection records. Your commercial team can't hold all of that in their heads. And when a principal contractor or the HSE asks a compliance question, "let me check and come back to you" is not the answer you want to give.
+            </p>
+            <p>
+              FirstTouch tracks compliance status across all your active projects, flags expiry dates before they become problems, and generates the documentation your F10, pre-construction information, and health and safety files require. No manual spreadsheet. No chasing site managers for updates.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Permit expiry tracking flagged automatically across all sites</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>CDM Phase 2 documentation generated from your project data</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Audit trail of every compliance action — timestamped and retrievable</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 3: Tender packs from your history -->
+          <article class="benefit-card benefit-card-3">
+            <div class="benefit-number benefit-number-3">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c03adb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3>Tender packs built from your own project history, not from scratch.</h3>
+            <p>
+              Your estimating team spends days on every significant tender — pulling together company statements, insurance certificates, CHAS accreditations, project references, and method statements. Much of this is the same documentation repurposed. The time cost is real and it compounds across every bid.
+            </p>
+            <p>
+              FirstTouch knows your full project library. It assembles the relevant sections from past tenders that match the new brief, surfaces the right project references, and drafts the operational methodology sections your team can then review and refine. Bid preparation time drops from days to hours.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Relevant project references surfaced automatically for each new tender</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Method statement sections drafted from your previous projects</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>All tender data stays on your server — your commercial IP stays yours</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SOCIAL PROOF
+    ══════════════════════════════════════════ -->
+    <section class="social-section" id="proof" aria-labelledby="proof-heading">
+      <div class="container">
+
+        <div class="stats-row" role="list" aria-label="Key performance metrics">
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">11h</div>
+            <div class="stat-label">saved per site manager per week</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">8</div>
+            <div class="stat-label">days to go live on your infrastructure</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">of your data stays on your server</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">3wk</div>
+            <div class="stat-label">average time to measurable ROI</div>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>From the site office</p>
+          <h2 id="proof-heading">What construction teams say after 30 days.</h2>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">We were spending two days every month just collating the compliance documentation for our active sites. Now that's automated. My contracts manager asked me what had changed — she hadn't noticed I'd stopped sending her chaser emails about permit renewals.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #D97706, #F59E0B);">PW</div>
+              <div>
+                <div class="testimonial-name">Operations Director</div>
+                <div class="testimonial-role">Groundworks &amp; civils contractor · East Midlands, UK</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">The tender side was what convinced our commercial director. We were rebuilding the same sections of every PQQ from memory. Now the system drafts the relevant sections from our project history and the team edits rather than writes. We've cut bid preparation time by more than half.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #9301BB, #c03adb);">RN</div>
+              <div>
+                <div class="testimonial-name">Commercial Director</div>
+                <div class="testimonial-role">Regional housebuilder · Yorkshire, UK</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">I was worried about where our project data would end up. Once we understood it runs entirely on our own server — not a public AI cloud, not someone else's infrastructure — the conversation moved on. The data security answer was the easy part. The productivity gains were the surprise.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #7c3aed, #9301BB);">JF</div>
+              <div>
+                <div class="testimonial-name">Managing Director</div>
+                <div class="testimonial-role">M&amp;E contractor · North West England</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CTA
+    ══════════════════════════════════════════ -->
+    <section class="con-cta-section section" id="cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-inner">
+          <p class="eyebrow" style="justify-content:center;"><span class="eyebrow-dot" aria-hidden="true"></span>April Pilot · 2 spots remaining</p>
+          <h2 id="cta-heading">Pick one workflow. See the difference in 30 days.</h2>
+          <p>
+            We take one real problem — RAMS generation, CDM compliance tracking, or tender pack assembly — and show you exactly what changes. Deployed on your own server in 8 days. No long contracts. No IT project. If you don't see clear value by day 30, you walk away and keep everything we set up.
+          </p>
+
+          <div class="cta-actions">
+            <a class="btn" href="/pilot" style="font-size:1rem;padding:0.95rem 1.75rem;" plausible-event-name="Pilot CTA Click" plausible-event-source="construction-cta">
+              Apply for the April Pilot &rarr;
+            </a>
+            <a class="btn btn-ghost" href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">
+              Book 15-min call instead
+            </a>
+          </div>
+
+          <p class="cta-meta">
+            Or speak to James directly: <a href="mailto:james@firsttouch.app">james@firsttouch.app</a>
+          </p>
+
+          <div class="cta-trust-pills" aria-label="Trust credentials">
+            <span class="trust-pill"><span class="trust-pill-dot"></span>CDM &amp; HSE compliant</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Your server, your data</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>GDPR by design</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Live in 8 days</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Cancel any time</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+        <a class="brand footer-brand-logo" href="/" aria-label="First Touch home">
+          <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="28" height="28" loading="lazy" decoding="async">
+          <span class="brand-text">First Touch</span>
+        </a>
+        <p class="footer-tagline">The AI Chief of Staff for European B2B operators. Runs on your infrastructure — not ours.</p>
+        <div class="footer-trust-mini" aria-label="Key trust signals">
+          <span>🇬🇧 London · European Operations</span>
+          <span>GDPR Ready</span>
+          <span>On-Premise</span>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Industries navigation">
+        <p class="footer-nav-title">Industries</p>
+        <a href="/manufacturing">Manufacturing</a>
+        <a href="/legal">Legal &amp; Professional Services</a>
+        <a href="/healthcare">Healthcare</a>
+        <a href="/construction" aria-current="page">Construction</a>
+        <a href="/holding-groups">Holding Groups</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Product navigation">
+        <p class="footer-nav-title">Product</p>
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/scorecard">AI Readiness Scorecard</a>
+        <a href="/pilot">Apply for Pilot</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Resources navigation">
+        <p class="footer-nav-title">Resources</p>
+        <a href="/blog">Blog</a>
+        <a href="/blog/ai-manager-assistant-vs-generic-ai-tools">AI Manager Guide</a>
+        <a href="/guides">All Guides</a>
+        <a href="/guides/compliance-governance">Compliance &amp; GDPR</a>
+      </nav>
+
+      <div class="footer-cta-block">
+        <p class="footer-nav-title">Get started</p>
+        <p class="footer-cta-desc">One site workflow. 30 days. Clear evidence of time recovered — or you walk away at no cost.</p>
+        <a class="btn btn-sm footer-cta-btn" href="/pilot">Apply for the Pilot &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>
+          <strong>First Touch</strong>
+          &middot; &copy; 2026 First Touch Ltd &middot; London, United Kingdom
+        </p>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var toggle   = document.getElementById("nav-toggle");
+    var navLinks = document.getElementById("nav-links");
+    if (toggle && navLinks) {
+      toggle.addEventListener("click", function () {
+        var expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        navLinks.classList.toggle("nav-open");
+      });
+    }
+  }());
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI for Construction Companies — RAMS, HSE & Compliance | FirstTouch",
+    "description": "AI assistant for UK construction companies. RAMS generation, CDM compliance tracking, and tender pack assembly — deployed on your own infrastructure. Live in 8 days.",
+    "url": "https://firsttouch.app/construction",
+    "inLanguage": "en-GB",
+    "publisher": {
+      "@type": "Organization",
+      "name": "First Touch",
+      "url": "https://firsttouch.app",
+      "logo": "https://firsttouch.app/assets/firsttouch-icon.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "james@firsttouch.app",
+        "contactType": "sales"
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",         "item": "https://firsttouch.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Construction", "item": "https://firsttouch.app/construction" }
+      ]
+    }
+  }
+  </script>
+
+</body>
+</html>

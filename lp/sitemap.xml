@@ -43,6 +43,22 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Target: AI for construction, AI for site managers, CDM compliance AI — 520/mo combined -->
+  <url>
+    <loc>https://firsttouch.app/construction</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Target: proof of concept AI, AI pilot programme, free AI trial business — 290/mo combined -->
+  <url>
+    <loc>https://firsttouch.app/proof-of-concept</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- ===================== KEYWORD LANDING PAGES ===================== -->
   <!-- Primary: ai chief of staff — 2,900 searches/mo, Medium difficulty -->
   <url>
