@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>AI for Manufacturing Companies — GDPR-Compliant | FirstTouch</title>
+  <meta name="description" content="FirstTouch gives manufacturing operations directors back 10+ hours a week. Production data on demand, compliance covered, data stays on your server. Live in 8 days.">
+  <meta name="keywords" content="AI for manufacturing, AI assistant for manufacturing companies, GDPR compliant AI manufacturing, AI operations director, manufacturing AI productivity, on-premise AI manufacturing UK">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="First Touch">
+  <meta name="theme-color" content="#9301BB">
+
+  <link rel="canonical" href="https://firsttouch.app/manufacturing">
+  <link rel="alternate" hreflang="en-gb" href="https://firsttouch.app/manufacturing">
+  <link rel="alternate" hreflang="x-default" href="https://firsttouch.app/manufacturing">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="AI for Manufacturing — GDPR-Compliant, On-Premise | FirstTouch">
+  <meta property="og:description" content="Production data on demand. Compliance covered. Your data stays on your server. Manufacturing AI that works in 8 days.">
+  <meta property="og:url" content="https://firsttouch.app/manufacturing">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+  <meta property="og:locale" content="en_GB">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI for Manufacturing — GDPR-Compliant | FirstTouch">
+  <meta name="twitter:description" content="Give your operations directors back 10+ hours a week. Live in 8 days. Data never leaves your site.">
+  <meta name="twitter:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+
+  <meta name="geo.region" content="GB-ENG">
+  <meta name="geo.placename" content="London, United Kingdom">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Plausible Analytics — GDPR-compliant, no cookies -->
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    /* ══════════════════════════════════════════════════════
+       MANUFACTURING LP — PAGE-SCOPED STYLES
+    ══════════════════════════════════════════════════════ */
+
+    /* ── Hero (manufacturing) ─────────────────────────── */
+    .mfg-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      min-height: 640px;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #0c0318 0%, #120428 45%, #160830 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .mfg-hero-grid {
+      display: grid;
+      grid-template-columns: 520px 1fr;
+      align-items: center;
+      min-height: 596px;
+      gap: 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ── Ambient glows ── */
+    .mfg-glow-1 {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(147,1,187,0.14) 0%, transparent 65%);
+      right: -80px; top: -200px;
+      pointer-events: none;
+    }
+    .mfg-glow-2 {
+      position: absolute;
+      width: 450px; height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 65%);
+      right: 280px; bottom: -80px;
+      pointer-events: none;
+    }
+    .mfg-glow-3 {
+      position: absolute;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 65%);
+      left: 420px; top: 80px;
+      pointer-events: none;
+    }
+
+    /* ── Background grid ── */
+    .mfg-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(147,1,187,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(147,1,187,0.055) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    /* ── Left: copy ── */
+    .mfg-copy {
+      padding: 5.5rem 0 5.5rem 0;
+      position: relative;
+    }
+
+    .mfg-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.28);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FDE68A;
+      margin-bottom: 1.4rem;
+      font-family: "Geist", sans-serif;
+    }
+
+    .mfg-tag-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #F59E0B;
+      animation: pulse-amber 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-amber {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.45; transform: scale(0.8); }
+    }
+
+    .mfg-h1 {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: 1.2rem;
+    }
+
+    .mfg-h1 .accent {
+      background: linear-gradient(90deg, #F59E0B 0%, #A78BFA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .mfg-lead {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      max-width: 42ch;
+      margin-bottom: 2.2rem;
+    }
+
+    .mfg-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.8rem;
+    }
+
+    .mfg-proof {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mfg-proof-avatars {
+      display: flex;
+    }
+
+    .mfg-proof-av {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 2px solid #120428;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 700; color: #fff;
+      margin-left: -7px;
+      flex-shrink: 0;
+    }
+    .mfg-proof-av:first-child { margin-left: 0; }
+
+    .mfg-proof-text {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.4;
+    }
+    .mfg-proof-text strong { color: rgba(255,255,255,0.72); }
+
+    /* ── Right: factory illustration ── */
+    .mfg-illustration {
+      position: relative;
+      width: 100%;
+      height: 596px;
+      overflow: hidden;
+    }
+
+    /* Central AI hub */
+    .ai-hub {
+      position: absolute;
+      width: 88px; height: 88px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #9301BB, #c03adb);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 20;
+      box-shadow:
+        0 0 0 1px rgba(192,58,219,0.3),
+        0 20px 60px rgba(147,1,187,0.55),
+        0 0 100px rgba(147,1,187,0.2);
+    }
+
+    .ai-hub::before {
+      content: '';
+      position: absolute;
+      inset: -14px;
+      border-radius: 30px;
+      border: 1px solid rgba(147,1,187,0.25);
+      animation: hub-ring 3s ease-in-out infinite;
+    }
+    .ai-hub::after {
+      content: '';
+      position: absolute;
+      inset: -28px;
+      border-radius: 38px;
+      border: 1px solid rgba(147,1,187,0.12);
+      animation: hub-ring 3s ease-in-out 0.8s infinite;
+    }
+
+    @keyframes hub-ring {
+      0%   { transform: scale(1);   opacity: 1; }
+      100% { transform: scale(1.3); opacity: 0; }
+    }
+
+    .ai-label {
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 1px;
+      color: white; text-align: center; line-height: 1.2;
+      font-family: "Geist", sans-serif;
+    }
+    .ai-label span { display: block; font-size: 17px; letter-spacing: 0; }
+
+    /* Production cells */
+    .cell {
+      position: absolute;
+      border-radius: 13px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 7px;
+    }
+
+    .cell-icon { font-size: 20px; line-height: 1; }
+
+    .cell-label {
+      font-size: 9.5px; font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      text-align: center; line-height: 1.3;
+      font-family: "Geist", sans-serif;
+    }
+
+    .cell-idle {
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.35);
+    }
+    .cell-idle .cell-label { color: rgba(255,255,255,0.28); }
+
+    .cell-active {
+      background: linear-gradient(135deg, rgba(245,158,11,0.14), rgba(245,158,11,0.04));
+      border: 1px solid rgba(245,158,11,0.32);
+      color: #FDE68A;
+      box-shadow: 0 8px 24px rgba(245,158,11,0.1);
+      animation: cell-pulse 3s ease-in-out infinite;
+    }
+    .cell-active .cell-label { color: #FDE68A; }
+
+    .cell-processing {
+      background: linear-gradient(135deg, rgba(147,1,187,0.18), rgba(147,1,187,0.04));
+      border: 1px solid rgba(192,58,219,0.28);
+      color: #c03adb;
+      box-shadow: 0 8px 24px rgba(147,1,187,0.14);
+    }
+    .cell-processing .cell-label { color: #d580e8; }
+
+    @keyframes cell-pulse {
+      0%, 100% { box-shadow: 0 8px 24px rgba(245,158,11,0.1); }
+      50%       { box-shadow: 0 12px 36px rgba(245,158,11,0.24); }
+    }
+
+    /* Cell positions */
+    .cell-1 { width: 104px; height: 84px; top: 70px;    left: 100px; }
+    .cell-2 { width: 104px; height: 84px; top: 70px;    left: 240px; animation-delay: 0.5s; }
+    .cell-3 { width: 104px; height: 84px; top: 70px;    left: 380px; }
+    .cell-4 { width: 104px; height: 84px; bottom: 70px; left: 100px; animation-delay: 1s; }
+    .cell-5 { width: 104px; height: 84px; bottom: 70px; left: 240px; }
+    .cell-6 { width: 104px; height: 84px; bottom: 70px; left: 380px; animation-delay: 1.5s; }
+    .cell-7 { width: 94px;  height: 84px; top: 50%;     right: 36px; transform: translateY(-115%); }
+    .cell-8 { width: 94px;  height: 84px; top: 50%;     right: 36px; transform: translateY(15%); }
+
+    /* Connector lines */
+    .connectors { position: absolute; inset: 0; z-index: 1; }
+
+    .flow-line {
+      position: absolute;
+      background: linear-gradient(90deg, transparent, rgba(147,1,187,0.13), rgba(192,58,219,0.36), rgba(147,1,187,0.13), transparent);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .flow-line::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -56px;
+      width: 56px; height: 100%;
+      background: linear-gradient(90deg, transparent, #c03adb, #FDE68A, transparent);
+      animation: flow-particle 2.5s linear infinite;
+    }
+
+    @keyframes flow-particle {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(calc(100% + 112px)); }
+    }
+
+    .fl-h1 { height: 1px; width: 110px; top: 112px; left: 200px; }
+    .fl-h2 { height: 1px; width: 110px; top: 112px; left: 340px; animation-delay: 0.4s; }
+    .fl-h4 { height: 1px; width: 110px; bottom: 112px; left: 200px; animation-delay: 0.6s; }
+    .fl-h5 { height: 1px; width: 110px; bottom: 112px; left: 340px; animation-delay: 1.0s; }
+
+    .fl-v1 {
+      width: 1px; height: 190px; left: 152px; top: 154px;
+      background: linear-gradient(180deg, transparent, rgba(147,1,187,0.14), rgba(192,58,219,0.28), rgba(147,1,187,0.14), transparent);
+      animation-delay: 0.3s;
+    }
+    .fl-v1::after {
+      width: 100%; left: 0; top: -36px; height: 36px;
+      background: linear-gradient(180deg, transparent, #c03adb, transparent);
+      animation: flow-particle-v 2.5s linear 0.3s infinite;
+    }
+
+    .fl-v2 {
+      width: 1px; height: 190px; left: 292px; top: 154px;
+      background: linear-gradient(180deg, transparent, rgba(245,158,11,0.14), rgba(245,158,11,0.38), rgba(245,158,11,0.14), transparent);
+      animation-delay: 0.9s;
+    }
+    .fl-v2::after {
+      width: 100%; left: 0; top: -36px; height: 36px;
+      background: linear-gradient(180deg, transparent, #F59E0B, transparent);
+      animation: flow-particle-v 2.5s linear 0.9s infinite;
+    }
+
+    .fl-v3 {
+      width: 1px; height: 190px; left: 432px; top: 154px;
+      background: linear-gradient(180deg, transparent, rgba(147,1,187,0.14), rgba(192,58,219,0.28), rgba(147,1,187,0.14), transparent);
+      animation-delay: 0.6s;
+    }
+    .fl-v3::after {
+      width: 100%; left: 0; top: -36px; height: 36px;
+      background: linear-gradient(180deg, transparent, #c03adb, transparent);
+      animation: flow-particle-v 2.5s linear 0.6s infinite;
+    }
+
+    @keyframes flow-particle-v {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(calc(100% + 72px)); }
+    }
+
+    /* Throughput widget */
+    .throughput-bar {
+      position: absolute;
+      bottom: 128px; right: 48px;
+      width: 210px;
+      background: rgba(0,0,0,0.32);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 13px 15px;
+      z-index: 20;
+      font-family: "Geist", sans-serif;
+    }
+
+    .tbar-label {
+      font-size: 9.5px; font-weight: 700;
+      letter-spacing: 0.9px; text-transform: uppercase;
+      color: rgba(255,255,255,0.32); margin-bottom: 9px;
+    }
+
+    .tbar-metric {
+      font-size: 24px; font-weight: 800;
+      color: #FDE68A; letter-spacing: -0.5px; line-height: 1; margin-bottom: 5px;
+    }
+
+    .tbar-sub { font-size: 10px; color: rgba(255,255,255,0.38); margin-bottom: 9px; }
+
+    .tbar-progress {
+      height: 3px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden;
+    }
+
+    .tbar-fill {
+      height: 100%; width: 78%;
+      background: linear-gradient(90deg, #F59E0B, #FDE68A);
+      border-radius: 2px;
+      animation: bar-fill 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes bar-fill { from { width: 64%; } to { width: 84%; } }
+
+    /* Status chip */
+    .status-chip {
+      position: absolute; top: 40px; right: 40px;
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(34,197,94,0.28);
+      border-radius: 20px; padding: 6px 13px;
+      z-index: 20; font-family: "Geist", sans-serif;
+    }
+
+    .status-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #22C55E;
+      animation: status-blink 2s ease-in-out infinite;
+    }
+
+    @keyframes status-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .status-text { font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.2px; }
+
+    /* Insight bubble */
+    .insight-bubble {
+      position: absolute; top: 148px; right: 40px;
+      width: 194px;
+      background: linear-gradient(135deg, rgba(147,1,187,0.22), rgba(147,1,187,0.06));
+      border: 1px solid rgba(192,58,219,0.28);
+      border-radius: 12px; padding: 11px 13px;
+      z-index: 20; font-family: "Geist", sans-serif;
+    }
+
+    .bubble-title {
+      font-size: 9.5px; font-weight: 700; color: #d580e8;
+      letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 5px;
+    }
+
+    .bubble-body { font-size: 11.5px; color: rgba(255,255,255,0.6); line-height: 1.4; }
+    .bubble-body strong { color: #fff; }
+
+    /* Compliance footer of illustration */
+    .mfg-compliance-strip {
+      height: 44px;
+      background: rgba(0,0,0,0.22);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    .mfg-ci {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.7rem; font-weight: 500;
+      color: rgba(255,255,255,0.32);
+      white-space: nowrap;
+      font-family: "Geist", sans-serif;
+    }
+
+    .mfg-ci-dot { width: 5px; height: 5px; border-radius: 50%; background: #22C55E; flex-shrink: 0; }
+
+    /* ── Benefits section ─────────────────────────────── */
+    .benefits-section {
+      padding: 5.5rem 0;
+      background: var(--bg);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .benefit-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .benefit-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+    }
+
+    .benefit-card-1::before { background: linear-gradient(90deg, transparent, #F59E0B, transparent); }
+    .benefit-card-2::before { background: linear-gradient(90deg, transparent, #22C55E, transparent); }
+    .benefit-card-3::before { background: linear-gradient(90deg, transparent, #9301BB, transparent); }
+
+    .benefit-card:hover {
+      border-color: rgba(255,255,255,0.14);
+      box-shadow: var(--shadow-card);
+    }
+
+    .benefit-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      border-radius: var(--radius-sm);
+      font-size: 1.5rem;
+      font-weight: 900;
+      font-family: "Geist", sans-serif;
+      margin-bottom: 1.25rem;
+    }
+
+    .benefit-number-1 { background: rgba(245,158,11,0.1); color: #F59E0B; border: 1px solid rgba(245,158,11,0.2); }
+    .benefit-number-2 { background: rgba(34,197,94,0.08); color: #22C55E; border: 1px solid rgba(34,197,94,0.18); }
+    .benefit-number-3 { background: rgba(147,1,187,0.1); color: #c03adb; border: 1px solid rgba(147,1,187,0.22); }
+
+    .benefit-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink-1);
+      margin-bottom: 0.85rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .benefit-card p {
+      font-size: 0.92rem;
+      color: var(--ink-3);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .benefit-proof {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .proof-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.84rem;
+      color: var(--ink-2);
+      line-height: 1.45;
+    }
+
+    .proof-check {
+      flex-shrink: 0;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+
+    .proof-check-amber { background: rgba(245,158,11,0.12); }
+    .proof-check-green { background: rgba(34,197,94,0.1); }
+    .proof-check-violet { background: rgba(147,1,187,0.1); }
+
+    .proof-check svg {
+      width: 9px; height: 9px;
+      fill: none; stroke-width: 2.5;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── Social proof section ─────────────────────────── */
+    .social-section {
+      padding: 5rem 0;
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    .testimonial-quote {
+      font-size: 0.92rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .testimonial-quote::before { content: "\201C"; color: var(--violet); font-size: 1.2rem; line-height: 0; vertical-align: -0.25em; }
+    .testimonial-quote::after  { content: "\201D"; color: var(--violet); font-size: 1.2rem; line-height: 0; vertical-align: -0.25em; }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .testimonial-av {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 700; color: #fff;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink-1);
+      line-height: 1.2;
+    }
+
+    .testimonial-role {
+      font-size: 0.76rem;
+      color: var(--ink-4);
+      line-height: 1.3;
+      margin-top: 1px;
+    }
+
+    .testimonial-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.18);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #F59E0B;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-left: auto;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 3.5rem;
+    }
+
+    .stat-box {
+      background: var(--bg-2);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(135deg, var(--violet), #c03adb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--ink-3);
+      line-height: 1.4;
+    }
+
+    /* ── CTA section ──────────────────────────────────── */
+    .mfg-cta-section {
+      padding: 6rem 0;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mfg-cta-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 50% 100%, rgba(147,1,187,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .cta-inner h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--ink-1);
+      margin-bottom: 1.1rem;
+    }
+
+    .cta-inner p {
+      font-size: 1.05rem;
+      color: var(--ink-3);
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+      max-width: 52ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-meta {
+      font-size: 0.8rem;
+      color: var(--ink-4);
+    }
+
+    .cta-meta a { color: var(--violet); text-decoration: none; }
+    .cta-meta a:hover { text-decoration: underline; }
+
+    .cta-trust-pills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .trust-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.42rem;
+      padding: 0.38rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.76rem;
+      color: var(--ink-3);
+      background: var(--surface);
+    }
+
+    .trust-pill-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: #22C55E; flex-shrink: 0;
+    }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .mfg-hero-grid { grid-template-columns: 1fr; min-height: unset; }
+      .mfg-illustration { display: none; }
+      .mfg-copy { padding: 4rem 0 3.5rem; }
+      .mfg-h1 { font-size: clamp(2rem, 6vw, 2.8rem); }
+      .benefits-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .benefits-section, .social-section, .mfg-cta-section { padding: 3.5rem 0; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .mfg-compliance-strip { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .mfg-cta-row { flex-direction: column; align-items: flex-start; }
+      .mfg-cta-row .btn { width: 100%; justify-content: center; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════ -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="/" aria-label="First Touch home">
+        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="32" height="32" loading="eager" decoding="sync">
+        <span class="brand-text">First Touch</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary navigation">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a class="nav-mobile-cta" href="/pilot">Apply for Pilot &rarr;</a>
+      </nav>
+
+      <a class="btn btn-sm nav-cta-desktop" href="/pilot">Apply for Pilot</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="mfg-hero" aria-label="Hero">
+      <div class="mfg-bg-grid" aria-hidden="true"></div>
+      <div class="mfg-glow-1" aria-hidden="true"></div>
+      <div class="mfg-glow-2" aria-hidden="true"></div>
+      <div class="mfg-glow-3" aria-hidden="true"></div>
+
+      <div class="container mfg-hero-grid">
+
+        <!-- Left: copy -->
+        <div class="mfg-copy">
+          <div class="mfg-tag" aria-label="Industry vertical">
+            <span class="mfg-tag-dot" aria-hidden="true"></span>
+            Manufacturing
+          </div>
+
+          <h1 class="mfg-h1">
+            Your factory floor.<br>
+            <span class="accent">Thinking for itself.</span>
+          </h1>
+
+          <p class="mfg-lead">
+            When your shift manager asks "what happened on Line 3 this week?", it should take 10 seconds — not three emails and a spreadsheet. FirstTouch gives your ops team instant access to your own data, handles the routine admin, and keeps every report GDPR-compliant. Deployed in 8 days. Runs on your server.
+          </p>
+
+          <div class="mfg-cta-row">
+            <a class="btn" href="/pilot" plausible-event-name="Pilot CTA Click" plausible-event-source="manufacturing-hero">
+              Apply for the Pilot &rarr;
+            </a>
+            <a class="btn btn-ghost" href="#benefits">See What Changes &darr;</a>
+          </div>
+
+          <div class="mfg-proof" aria-label="Social proof">
+            <div class="mfg-proof-avatars" aria-hidden="true">
+              <span class="mfg-proof-av" style="background:#7c3aed;">MK</span>
+              <span class="mfg-proof-av" style="background:#9301BB;">SL</span>
+              <span class="mfg-proof-av" style="background:#c026d3;">AR</span>
+              <span class="mfg-proof-av" style="background:#6d28d9;">TF</span>
+            </div>
+            <p class="mfg-proof-text"><strong>Manufacturing companies</strong> across the UK<br>running live FirstTouch pilots this quarter</p>
+          </div>
+        </div>
+
+        <!-- Right: factory illustration (CSS-only, Sprint 2 visual) -->
+        <aside class="mfg-illustration" aria-label="AI-orchestrated factory floor diagram" aria-hidden="true">
+          <div class="status-chip">
+            <div class="status-dot"></div>
+            <span class="status-text">AI System Active</span>
+          </div>
+
+          <div class="insight-bubble">
+            <div class="bubble-title">AI Insight</div>
+            <div class="bubble-body">Line 3 efficiency up <strong>+18%</strong> since Tuesday. Recommend maintenance window Sunday 06:00.</div>
+          </div>
+
+          <!-- Flow lines -->
+          <div class="connectors">
+            <div class="flow-line fl-h1"></div>
+            <div class="flow-line fl-h2"></div>
+            <div class="flow-line fl-h4"></div>
+            <div class="flow-line fl-h5"></div>
+            <div class="flow-line fl-v1"></div>
+            <div class="flow-line fl-v2"></div>
+            <div class="flow-line fl-v3"></div>
+          </div>
+
+          <!-- AI hub -->
+          <div class="ai-hub">
+            <div class="ai-label"><span>⬡</span>AI</div>
+          </div>
+
+          <!-- Production cells -->
+          <div class="cell cell-1 cell-active">
+            <div class="cell-icon">⚙️</div>
+            <div class="cell-label">Line 1<br>Active</div>
+          </div>
+          <div class="cell cell-2 cell-processing">
+            <div class="cell-icon">📊</div>
+            <div class="cell-label">Quality<br>Check</div>
+          </div>
+          <div class="cell cell-3 cell-idle">
+            <div class="cell-icon">🔩</div>
+            <div class="cell-label">Assembly<br>B</div>
+          </div>
+          <div class="cell cell-4 cell-processing">
+            <div class="cell-icon">📦</div>
+            <div class="cell-label">Dispatch<br>Queue</div>
+          </div>
+          <div class="cell cell-5 cell-active">
+            <div class="cell-icon">⚡</div>
+            <div class="cell-label">Line 3<br>Optimised</div>
+          </div>
+          <div class="cell cell-6 cell-idle">
+            <div class="cell-icon">🔧</div>
+            <div class="cell-label">Maintenance<br>Sched.</div>
+          </div>
+          <div class="cell cell-7 cell-active">
+            <div class="cell-icon">📈</div>
+            <div class="cell-label">OEE<br>+18%</div>
+          </div>
+          <div class="cell cell-8 cell-processing">
+            <div class="cell-icon">🛡</div>
+            <div class="cell-label">Compliance<br>Check</div>
+          </div>
+
+          <!-- Throughput widget -->
+          <div class="throughput-bar">
+            <div class="tbar-label">Today's Throughput</div>
+            <div class="tbar-metric">2,847</div>
+            <div class="tbar-sub">units · AI-assisted scheduling</div>
+            <div class="tbar-progress">
+              <div class="tbar-fill"></div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+      <!-- Compliance strip -->
+      <div class="mfg-compliance-strip" aria-label="Compliance credentials">
+        <div class="mfg-ci"><div class="mfg-ci-dot"></div>GDPR Compliant</div>
+        <div class="mfg-ci"><div class="mfg-ci-dot"></div>Data stays on your infrastructure</div>
+        <div class="mfg-ci"><div class="mfg-ci-dot"></div>ISO 27001 Ready</div>
+        <div class="mfg-ci"><div class="mfg-ci-dot"></div>EU AI Act Aligned</div>
+        <div class="mfg-ci"><div class="mfg-ci-dot"></div>No vendor data access</div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         BENEFITS
+    ══════════════════════════════════════════ -->
+    <section class="benefits-section section" id="benefits" aria-labelledby="benefits-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>What actually changes on the floor</p>
+          <h2 id="benefits-heading">Three problems that pay for themselves in month one.</h2>
+          <p class="section-lead">These aren't technology features. They're operational outcomes — measured in hours recovered, decisions made faster, and audit trails you don't have to build by hand.</p>
+        </div>
+
+        <div class="benefits-grid">
+
+          <!-- Benefit 1: Time saved -->
+          <article class="benefit-card benefit-card-1">
+            <div class="benefit-number benefit-number-1">10</div>
+            <h3>Your ops team gets 10+ hours a week back.</h3>
+            <p>
+              Right now, your shift managers spend hours each week pulling together reports that nobody asked for, answering the same questions from different departments, and hunting through systems for data they know exists somewhere. That ends on day one.
+            </p>
+            <p>
+              Ask FirstTouch "what was our OEE on Line 2 last Tuesday?" and get the answer in your inbox in 30 seconds. No spreadsheet. No call to the QA manager. No waiting until Monday's review.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check proof-check-amber">
+                  <svg viewBox="0 0 10 10" stroke="#F59E0B"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Shift handover reports written automatically from production data</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-amber">
+                  <svg viewBox="0 0 10 10" stroke="#F59E0B"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Weekly ops summaries ready Monday morning, no prep required</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-amber">
+                  <svg viewBox="0 0 10 10" stroke="#F59E0B"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Customer delivery queries answered in under a minute</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 2: Compliance covered -->
+          <article class="benefit-card benefit-card-2">
+            <div class="benefit-number benefit-number-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Compliance covered. Audit ready. No extra work.</h3>
+            <p>
+              EU AI Act compliance, GDPR obligations, ISO audit trails — your legal and compliance team will ask where this data came from. The answer is: it's yours, it's structured, and it's been logged since day one.
+            </p>
+            <p>
+              Every query your team sends, every report the system generates, every decision it assists with — timestamped, attributed, and stored on your infrastructure. You own it. We never see it.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Full audit log of every AI-assisted decision and report</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>GDPR-compliant by design — no personal data processed without rules</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>EU AI Act documentation generated as part of standard setup</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 3: Data stays on-site -->
+          <article class="benefit-card benefit-card-3">
+            <div class="benefit-number benefit-number-3">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c03adb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3>Your production data never leaves your building.</h3>
+            <p>
+              Your supplier pricing, machine specs, quality reject rates, and production schedules are commercially sensitive. You wouldn't print them and leave them in a café. You shouldn't send them to a public AI cloud service either.
+            </p>
+            <p>
+              FirstTouch runs on your server — on-premise, or in a private cloud you control. Your data doesn't pass through our systems. We configure and support it. You own everything.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Deployed on your server — on-premise or private cloud</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>No FirstTouch personnel ever access your production data</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Cancel any time — you keep all data and configuration</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SOCIAL PROOF
+    ══════════════════════════════════════════ -->
+    <section class="social-section" id="proof" aria-labelledby="proof-heading">
+      <div class="container">
+
+        <div class="stats-row" role="list" aria-label="Key performance metrics">
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">10h</div>
+            <div class="stat-label">saved per ops manager per week</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">8</div>
+            <div class="stat-label">days to go live on your infrastructure</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">of your data stays on your server</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">3wk</div>
+            <div class="stat-label">average time to measurable ROI</div>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>From the floor</p>
+          <h2 id="proof-heading">What operations directors say after 30 days.</h2>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">We used to spend two hours every Monday morning pulling together the production report. Now it's in everyone's inbox by 07:30. My ops manager has stopped going in early just for that.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #7c3aed, #9301BB);">MK</div>
+              <div>
+                <div class="testimonial-name">Operations Director</div>
+                <div class="testimonial-role">Precision parts manufacturer · West Midlands, UK</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">The data security question was the first thing our board asked. When we explained it runs on our own server and nobody outside the company can access it, the conversation moved on very quickly.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #9301BB, #c03adb);">SL</div>
+              <div>
+                <div class="testimonial-name">COO</div>
+                <div class="testimonial-role">Industrial equipment · North of England</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">I was sceptical about AI — we'd tried tools before that nobody used after week two. This one stuck because it answered questions about our actual products, our actual line data. It wasn't generic.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #6d28d9, #9301BB);">AR</div>
+              <div>
+                <div class="testimonial-name">Plant Manager</div>
+                <div class="testimonial-role">Food processing · East Midlands, UK</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CTA
+    ══════════════════════════════════════════ -->
+    <section class="mfg-cta-section section" id="cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-inner">
+          <p class="eyebrow" style="justify-content:center;"><span class="eyebrow-dot" aria-hidden="true"></span>April Pilot · 2 spots remaining</p>
+          <h2 id="cta-heading">See it running on your data in 30 days.</h2>
+          <p>
+            We take one real workflow — something that costs your team time every week — and show you exactly what changes. No long contracts. No IT project. If you don't see clear value by day 30, you walk away and keep everything we set up.
+          </p>
+
+          <div class="cta-actions">
+            <a class="btn" href="/pilot" style="font-size:1rem;padding:0.95rem 1.75rem;" plausible-event-name="Pilot CTA Click" plausible-event-source="manufacturing-cta">
+              Apply for the April Pilot &rarr;
+            </a>
+            <a class="btn btn-ghost" href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">
+              Book 15-min call instead
+            </a>
+          </div>
+
+          <p class="cta-meta">
+            Or email James directly: <a href="mailto:james@firsttouch.app">james@firsttouch.app</a>
+          </p>
+
+          <div class="cta-trust-pills" aria-label="Trust credentials">
+            <span class="trust-pill"><span class="trust-pill-dot"></span>GDPR compliant</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Your server, your data</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Live in 8 days</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Cancel any time</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>London, UK</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+        <a class="brand footer-brand-logo" href="/" aria-label="First Touch home">
+          <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="28" height="28" loading="lazy" decoding="async">
+          <span class="brand-text">First Touch</span>
+        </a>
+        <p class="footer-tagline">The AI Chief of Staff for European B2B operators. Runs on your infrastructure — not ours.</p>
+        <div class="footer-trust-mini" aria-label="Key trust signals">
+          <span>🇬🇧 London · European Operations</span>
+          <span>GDPR Ready</span>
+          <span>On-Premise</span>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Industries navigation">
+        <p class="footer-nav-title">Industries</p>
+        <a href="/manufacturing">Manufacturing</a>
+        <a href="/#teams">Logistics</a>
+        <a href="/#teams">Legal</a>
+        <a href="/#teams">Consulting</a>
+        <a href="/healthcare">Healthcare</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Product navigation">
+        <p class="footer-nav-title">Product</p>
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/scorecard">AI Readiness Scorecard</a>
+        <a href="/pilot">Apply for Pilot</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Resources navigation">
+        <p class="footer-nav-title">Resources</p>
+        <a href="/blog">Blog</a>
+        <a href="/blog/ai-manager-assistant-vs-generic-ai-tools">AI Manager Guide</a>
+        <a href="/guides">All Guides</a>
+        <a href="/guides/compliance-governance">Compliance &amp; GDPR</a>
+      </nav>
+
+      <div class="footer-cta-block">
+        <p class="footer-nav-title">Get started</p>
+        <p class="footer-cta-desc">One workflow. 30 days. You see the difference or you walk away — no penalty.</p>
+        <a class="btn btn-sm footer-cta-btn" href="/pilot">Apply for the Pilot &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>
+          <strong>First Touch</strong>
+          &middot; &copy; 2026 First Touch Ltd &middot; London, United Kingdom
+        </p>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    // Mobile nav toggle
+    var toggle = document.getElementById("nav-toggle");
+    var navLinks = document.getElementById("nav-links");
+    if (toggle && navLinks) {
+      toggle.addEventListener("click", function () {
+        var expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        navLinks.classList.toggle("nav-open");
+      });
+    }
+  }());
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI for Manufacturing Companies — GDPR-Compliant | FirstTouch",
+    "description": "FirstTouch gives manufacturing operations directors back 10+ hours a week. Production data on demand, full GDPR compliance, data stays on your server. Live in 8 days.",
+    "url": "https://firsttouch.app/manufacturing",
+    "inLanguage": "en-GB",
+    "publisher": {
+      "@type": "Organization",
+      "name": "First Touch",
+      "url": "https://firsttouch.app",
+      "logo": "https://firsttouch.app/assets/firsttouch-icon.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "james@firsttouch.app",
+        "contactType": "sales"
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://firsttouch.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Manufacturing", "item": "https://firsttouch.app/manufacturing" }
+      ]
+    }
+  }
+  </script>
+
+</body>
+</html>

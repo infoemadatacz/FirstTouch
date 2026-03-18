@@ -51,7 +51,7 @@ export async function onRequestPost(context) {
     return json({ error: "Invalid JSON body." }, 400, cors);
   }
 
-  const { email, name, company, role, message, source, page_url, timestamp } =
+  const { email, name, company, role, company_size, message, source, page_url, timestamp } =
     body || {};
 
   // Only email and role are required — name/company removed from form (Fix 2)
@@ -93,6 +93,8 @@ export async function onRequestPost(context) {
         <td style="padding:8px 12px;border-bottom:1px solid #eee;">${esc(name)}</td></tr>` : ""}
     ${company ? `<tr><td style="padding:8px 12px;background:#f5f5f5;font-weight:600;">Company</td>
         <td style="padding:8px 12px;border-bottom:1px solid #eee;">${esc(company)}</td></tr>` : ""}
+    ${company_size ? `<tr><td style="padding:8px 12px;background:#f5f5f5;font-weight:600;">Company size</td>
+        <td style="padding:8px 12px;border-bottom:1px solid #eee;">${esc(company_size)} employees</td></tr>` : ""}
     ${
       message
         ? `<tr><td style="padding:8px 12px;background:#f5f5f5;font-weight:600;vertical-align:top;">Message</td>
@@ -124,9 +126,10 @@ export async function onRequestPost(context) {
     "---",
     `Email:   ${email}`,
     `Role:    ${role}`,
-    name    ? `Name:    ${name}`    : null,
-    company ? `Company: ${company}` : null,
-    message ? `Message: ${message}` : null,
+    name         ? `Name:    ${name}`         : null,
+    company      ? `Company: ${company}`      : null,
+    company_size ? `Size:    ${company_size}` : null,
+    message      ? `Message: ${message}`      : null,
     `Time:    ${timestamp || new Date().toISOString()}`,
     page_url ? `Page:    ${page_url}` : null,
   ]
@@ -265,6 +268,7 @@ export async function onRequestPost(context) {
       role,
       name: name ? name.trim() : "",
       company: company ? company.trim() : "",
+      company_size: company_size || "",
       message: message || "",
       source: source || "lp-lead-form",
       page_url: page_url || "",

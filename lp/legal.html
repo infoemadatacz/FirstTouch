@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>AI for Law Firms — Client Privilege Protected, Billing Hours Recovered | FirstTouch</title>
+  <meta name="description" content="AI for UK legal firms that keeps client data on your own servers and gives fee-earners back 4+ hours per matter. SRA-aware, GDPR compliant, full audit trail. Managing partners: live in 8 days.">
+  <meta name="keywords" content="AI assistant for legal firms UK, AI for law firms UK, GDPR AI legal sector, AI legal billing efficiency, AI for solicitors, private AI law firm, on-premise AI legal UK, client confidentiality AI">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="First Touch">
+  <meta name="theme-color" content="#9301BB">
+
+  <link rel="canonical" href="https://firsttouch.app/legal">
+  <link rel="alternate" hreflang="en-gb" href="https://firsttouch.app/legal">
+  <link rel="alternate" hreflang="x-default" href="https://firsttouch.app/legal">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="AI for Law Firms — Client Privilege Protected, Billing Hours Recovered | FirstTouch">
+  <meta property="og:description" content="Client data never leaves your servers. Fee-earners recover 4+ hours per matter. SRA-aware, GDPR compliant, full audit trail. Live in 8 days.">
+  <meta property="og:url" content="https://firsttouch.app/legal">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+  <meta property="og:locale" content="en_GB">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI for Law Firms — Privilege Protected, Billing Hours Recovered | FirstTouch">
+  <meta name="twitter:description" content="Client privilege intact. Fee-earners recover 4+ hours per matter. SRA-aware, GDPR compliant, full audit trail. Live in 8 days.">
+  <meta name="twitter:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+
+  <meta name="geo.region" content="GB-ENG">
+  <meta name="geo.placename" content="London, United Kingdom">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Plausible Analytics — GDPR-compliant, no cookies -->
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    /* ══════════════════════════════════════════════════════
+       LEGAL LP — PAGE-SCOPED STYLES
+    ══════════════════════════════════════════════════════ */
+
+    /* Accent palette for legal vertical */
+    :root {
+      --teal:      #22D3EE;
+      --teal-mid:  #0891B2;
+      --teal-dark: #0e7490;
+      --gold:      #D4AF37;
+      --gold-light:#F0D060;
+    }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .legal-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      min-height: 640px;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(145deg, #060a18 0%, #08101f 45%, #0b1628 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Legal-pad line texture */
+    .legal-bg-lines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 27px,
+        rgba(34,211,238,0.022) 27px,
+        rgba(34,211,238,0.022) 28px
+      );
+      pointer-events: none;
+    }
+
+    /* Subtle grid */
+    .legal-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(34,211,238,0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,211,238,0.022) 1px, transparent 1px);
+      background-size: 56px 56px;
+      pointer-events: none;
+    }
+
+    /* Ambient glows */
+    .legal-glow-1 {
+      position: absolute;
+      width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(8,145,178,0.1) 0%, transparent 65%);
+      right: -160px; top: -260px;
+      pointer-events: none;
+    }
+    .legal-glow-2 {
+      position: absolute;
+      width: 550px; height: 550px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(147,1,187,0.08) 0%, transparent 65%);
+      right: 180px; bottom: -130px;
+      pointer-events: none;
+    }
+    .legal-glow-3 {
+      position: absolute;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 65%);
+      right: 580px; top: 100px;
+      pointer-events: none;
+    }
+
+    .legal-hero-grid {
+      display: grid;
+      grid-template-columns: 500px 1fr;
+      align-items: center;
+      min-height: 596px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ── Left: copy ── */
+    .legal-copy {
+      padding: 5.5rem 0 5.5rem 0;
+    }
+
+    .legal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(34,211,238,0.07);
+      border: 1px solid rgba(34,211,238,0.22);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #A5F3FC;
+      margin-bottom: 1.4rem;
+      font-family: "Geist", sans-serif;
+    }
+
+    .legal-tag-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse-teal 2.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-teal {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.35; transform: scale(0.75); }
+    }
+
+    .legal-h1 {
+      font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: 1.2rem;
+    }
+
+    .legal-h1 .accent {
+      background: linear-gradient(90deg, var(--teal) 0%, #A78BFA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .legal-lead {
+      font-size: 1.04rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+      max-width: 40ch;
+      margin-bottom: 2.2rem;
+    }
+
+    .legal-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Override btn gradient with teal-led for legal vertical */
+    .btn-legal-primary {
+      background: linear-gradient(118deg, var(--teal-mid) 0%, #0891B2 50%, var(--violet) 100%) !important;
+      background-size: 200% 100% !important;
+      background-position: 0% 50% !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3), 0 0 24px rgba(8,145,178,0.4) !important;
+    }
+
+    .btn-legal-primary:hover {
+      background-position: 100% 50% !important;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35), 0 0 40px rgba(8,145,178,0.55), 0 0 80px rgba(147,1,187,0.18) !important;
+    }
+
+    /* Trust badges */
+    .legal-trust-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .legal-trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 11px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.42);
+      font-weight: 500;
+      white-space: nowrap;
+      font-family: "Geist", sans-serif;
+    }
+
+    /* ── Right: document illustration ── */
+    .legal-illustration {
+      position: relative;
+      width: 100%;
+      height: 596px;
+      overflow: hidden;
+    }
+
+    /* Status chip */
+    .legal-status-chip {
+      position: absolute; top: 40px; right: 40px;
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(34,197,94,0.28);
+      border-radius: 20px; padding: 6px 13px;
+      z-index: 20; font-family: "Geist", sans-serif;
+    }
+
+    .legal-status-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #22C55E;
+      animation: legal-blink 2s ease-in-out infinite;
+    }
+
+    @keyframes legal-blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .legal-status-text {
+      font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,0.65);
+    }
+
+    /* Document stack */
+    .doc-stack {
+      position: absolute;
+      left: 70px; top: 50%;
+      transform: translateY(-50%);
+      width: 320px; height: 420px;
+    }
+
+    .doc-shadow-2 {
+      position: absolute;
+      width: 295px; height: 385px;
+      left: 16px; top: 16px;
+      background: rgba(255,255,255,0.018);
+      border: 1px solid rgba(255,255,255,0.055);
+      border-radius: 11px;
+      transform: rotate(3deg);
+    }
+
+    .doc-shadow-1 {
+      position: absolute;
+      width: 304px; height: 395px;
+      left: 9px; top: 9px;
+      background: rgba(255,255,255,0.026);
+      border: 1px solid rgba(255,255,255,0.065);
+      border-radius: 11px;
+      transform: rotate(1.5deg);
+    }
+
+    .doc-main {
+      position: absolute;
+      width: 315px; height: 408px;
+      left: 0; top: 0;
+      background: linear-gradient(160deg, #111d35, #0c1528);
+      border: 1px solid rgba(34,211,238,0.13);
+      border-radius: 11px;
+      padding: 22px 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(34,211,238,0.06);
+      overflow: hidden;
+    }
+
+    .doc-main::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal-mid), #7C3AED);
+      border-radius: 11px 11px 0 0;
+    }
+
+    /* Scan animation */
+    .doc-scan {
+      position: absolute;
+      left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      opacity: 0.55;
+      top: 60px;
+      animation: doc-scan 4s ease-in-out infinite;
+    }
+
+    @keyframes doc-scan {
+      0%   { top: 60px;  opacity: 0.7; }
+      90%  { top: 390px; opacity: 0.7; }
+      100% { top: 390px; opacity: 0; }
+    }
+
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .doc-type {
+      font-size: 9.5px; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--teal); font-family: "Geist", sans-serif;
+    }
+
+    .doc-date {
+      font-size: 9.5px; color: rgba(255,255,255,0.22);
+      font-family: "Geist", sans-serif;
+    }
+
+    .doc-title {
+      font-size: 14px; font-weight: 700;
+      color: #fff; margin-bottom: 14px; line-height: 1.3;
+      font-family: "Geist", sans-serif;
+    }
+
+    .text-block { margin-bottom: 13px; }
+
+    .tl {
+      height: 6px; background: rgba(255,255,255,0.07);
+      border-radius: 3px; margin-bottom: 5px;
+    }
+
+    .tl.w-full  { width: 100%; }
+    .tl.w-90    { width: 90%; }
+    .tl.w-80    { width: 80%; }
+    .tl.w-75    { width: 75%; }
+    .tl.w-65    { width: 65%; }
+    .tl.w-50    { width: 50%; }
+    .tl.w-45    { width: 45%; }
+
+    .tl.hl {
+      background: rgba(34,211,238,0.14);
+      border-left: 2px solid var(--teal);
+      padding-left: 4px;
+    }
+
+    .tl.hl-gold {
+      background: rgba(212,175,55,0.11);
+      border-left: 2px solid var(--gold);
+      padding-left: 4px;
+    }
+
+    .tl.hl-risk {
+      background: rgba(239,68,68,0.1);
+      border-left: 2px solid #F87171;
+      padding-left: 4px;
+    }
+
+    /* AI annotation tags on doc */
+    .doc-tag {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.22);
+      border-radius: 5px; padding: 3px 7px;
+      font-size: 9.5px; font-weight: 600; color: #A5F3FC;
+      margin-right: 4px; margin-bottom: 4px;
+      font-family: "Geist", sans-serif;
+    }
+
+    .doc-tag.risk {
+      background: rgba(239,68,68,0.08);
+      border-color: rgba(239,68,68,0.28); color: #FCA5A5;
+    }
+
+    .doc-tag.ok {
+      background: rgba(34,197,94,0.08);
+      border-color: rgba(34,197,94,0.22); color: #86EFAC;
+    }
+
+    /* Time-saved badge */
+    .time-badge {
+      position: absolute;
+      bottom: 75px; left: 55px;
+      background: linear-gradient(135deg, rgba(147,1,187,0.22), rgba(147,1,187,0.06));
+      border: 1px solid rgba(192,58,219,0.28);
+      border-radius: 11px; padding: 13px 16px;
+      z-index: 20; text-align: center;
+      font-family: "Geist", sans-serif;
+    }
+
+    .tb-num  { font-size: 28px; font-weight: 800; color: #d580e8; letter-spacing: -0.5px; line-height: 1; }
+    .tb-unit { font-size: 10.5px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+
+    /* Analysis panel */
+    .analysis-panel {
+      position: absolute;
+      right: 44px; top: 50%;
+      transform: translateY(-50%);
+      width: 315px;
+    }
+
+    .ap-header {
+      display: flex; align-items: center; gap: 11px;
+      margin-bottom: 18px;
+    }
+
+    .ap-icon {
+      width: 42px; height: 42px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, var(--teal-mid), var(--teal-dark));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px;
+      box-shadow: 0 8px 24px rgba(8,145,178,0.35);
+      flex-shrink: 0; position: relative;
+    }
+
+    .ap-icon::after {
+      content: '';
+      position: absolute; inset: -7px;
+      border-radius: 16px;
+      border: 1px solid rgba(34,211,238,0.18);
+      animation: ap-ring 3s ease-in-out infinite;
+    }
+
+    @keyframes ap-ring {
+      0%   { transform: scale(1);   opacity: 1; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    .ap-title { font-size: 15px; font-weight: 700; color: #fff; font-family: "Geist", sans-serif; }
+    .ap-sub   { font-size: 11.5px; color: rgba(255,255,255,0.38); font-family: "Geist", sans-serif; }
+
+    /* Finding cards */
+    .finding-card {
+      background: rgba(255,255,255,0.028);
+      border: 1px solid rgba(255,255,255,0.065);
+      border-radius: 9px;
+      padding: 12px 14px;
+      margin-bottom: 9px;
+      position: relative; overflow: hidden;
+    }
+
+    .finding-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px; border-radius: 9px 0 0 9px;
+    }
+
+    .fc-teal::before  { background: var(--teal); }
+    .fc-gold::before  { background: var(--gold); }
+    .fc-risk::before  { background: #F87171; }
+    .fc-ok::before    { background: #4ADE80; }
+
+    .fc-label {
+      font-size: 9.5px; font-weight: 700;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      margin-bottom: 4px; font-family: "Geist", sans-serif;
+    }
+
+    .fc-teal .fc-label { color: var(--teal); }
+    .fc-gold .fc-label { color: var(--gold); }
+    .fc-risk .fc-label { color: #FCA5A5; }
+    .fc-ok   .fc-label { color: #4ADE80; }
+
+    .fc-body {
+      font-size: 11.5px; color: rgba(255,255,255,0.6);
+      line-height: 1.4; font-family: "Geist", sans-serif;
+    }
+
+    .fc-body strong { color: #fff; }
+
+    /* Progress ring */
+    .ap-progress {
+      display: flex; align-items: center; gap: 13px;
+      margin-top: 12px; padding: 11px 13px;
+      background: rgba(34,211,238,0.05);
+      border: 1px solid rgba(34,211,238,0.13);
+      border-radius: 9px;
+    }
+
+    .ring-wrap { position: relative; width: 42px; height: 42px; flex-shrink: 0; }
+    .ring-wrap svg { transform: rotate(-90deg); }
+    .ring-bg   { fill: none; stroke: rgba(255,255,255,0.07); stroke-width: 3; }
+    .ring-fill {
+      fill: none; stroke: var(--teal); stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 107; stroke-dashoffset: 24;
+      animation: ring-in 2s ease-out forwards;
+    }
+
+    @keyframes ring-in { from { stroke-dashoffset: 107; } to { stroke-dashoffset: 24; } }
+
+    .ring-label {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700; color: var(--teal);
+      font-family: "Geist", sans-serif;
+    }
+
+    .pt-title { font-size: 12.5px; font-weight: 600; color: #fff; margin-bottom: 2px; font-family: "Geist", sans-serif; }
+    .pt-sub   { font-size: 10.5px; color: rgba(255,255,255,0.38); font-family: "Geist", sans-serif; }
+
+    /* Compliance footer of hero */
+    .legal-compliance-strip {
+      height: 44px;
+      background: rgba(0,0,0,0.2);
+      border-top: 1px solid rgba(255,255,255,0.045);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    .legal-ci {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.7rem; font-weight: 500;
+      color: rgba(255,255,255,0.3);
+      white-space: nowrap;
+      font-family: "Geist", sans-serif;
+    }
+
+    .legal-ci-dot { width: 5px; height: 5px; border-radius: 50%; background: #22C55E; flex-shrink: 0; }
+
+    /* ── Benefits ─────────────────────────────────────── */
+    .benefits-section {
+      padding: 5.5rem 0;
+      background: var(--bg);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .benefit-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .benefit-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+    }
+
+    .bc-1::before { background: linear-gradient(90deg, transparent, #22C55E, transparent); }
+    .bc-2::before { background: linear-gradient(90deg, transparent, var(--teal), transparent); }
+    .bc-3::before { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+
+    .benefit-card:hover {
+      border-color: rgba(255,255,255,0.14);
+      box-shadow: var(--shadow-card);
+    }
+
+    .benefit-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.3rem;
+    }
+
+    .bi-green  { background: rgba(34,197,94,0.08);  border: 1px solid rgba(34,197,94,0.18); }
+    .bi-teal   { background: rgba(34,211,238,0.07); border: 1px solid rgba(34,211,238,0.18); }
+    .bi-gold   { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.18); }
+
+    .benefit-card h3 {
+      font-size: 1.14rem;
+      font-weight: 700;
+      color: var(--ink-1);
+      margin-bottom: 0.85rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .benefit-card p {
+      font-size: 0.91rem;
+      color: var(--ink-3);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+
+    .benefit-proof {
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+
+    .proof-item {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.84rem; color: var(--ink-2); line-height: 1.45;
+    }
+
+    .proof-check {
+      flex-shrink: 0; width: 16px; height: 16px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+
+    .pc-green  { background: rgba(34,197,94,0.1); }
+    .pc-teal   { background: rgba(34,211,238,0.08); }
+    .pc-gold   { background: rgba(212,175,55,0.1); }
+
+    .proof-check svg {
+      width: 9px; height: 9px;
+      fill: none; stroke-width: 2.5;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── Social proof ─────────────────────────────────── */
+    .social-section {
+      padding: 5rem 0;
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 3.5rem;
+    }
+
+    .stat-box {
+      background: var(--bg-2);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(135deg, var(--teal-mid), #A78BFA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label { font-size: 0.82rem; color: var(--ink-3); line-height: 1.4; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    .testimonial-quote {
+      font-size: 0.92rem; color: var(--ink-2);
+      line-height: 1.65; margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .testimonial-quote::before { content: "\201C"; color: var(--teal-mid); font-size: 1.2rem; line-height: 0; vertical-align: -0.25em; }
+    .testimonial-quote::after  { content: "\201D"; color: var(--teal-mid); font-size: 1.2rem; line-height: 0; vertical-align: -0.25em; }
+
+    .testimonial-author {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+
+    .testimonial-av {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 700; color: #fff;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name  { font-size: 0.84rem; font-weight: 600; color: var(--ink-1); line-height: 1.2; }
+    .testimonial-role  { font-size: 0.76rem; color: var(--ink-4); line-height: 1.3; margin-top: 1px; }
+
+    .testimonial-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(34,211,238,0.07);
+      border: 1px solid rgba(34,211,238,0.18);
+      border-radius: 4px; padding: 2px 7px;
+      font-size: 0.68rem; font-weight: 600;
+      color: var(--teal); letter-spacing: 0.04em;
+      text-transform: uppercase; margin-left: auto;
+    }
+
+    /* ── CTA ──────────────────────────────────────────── */
+    .legal-cta-section {
+      padding: 6rem 0;
+      background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+
+    .legal-cta-section::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 50% at 50% 100%, rgba(8,145,178,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      text-align: center; max-width: 680px; margin: 0 auto;
+    }
+
+    .cta-inner h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800; letter-spacing: -0.04em;
+      color: var(--ink-1); margin-bottom: 1.1rem;
+    }
+
+    .cta-inner p {
+      font-size: 1.04rem; color: var(--ink-3);
+      line-height: 1.65; margin-bottom: 2.5rem;
+      max-width: 52ch; margin-left: auto; margin-right: auto;
+    }
+
+    .cta-actions {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;
+    }
+
+    .cta-meta { font-size: 0.8rem; color: var(--ink-4); }
+    .cta-meta a { color: var(--teal-mid); text-decoration: none; }
+    .cta-meta a:hover { text-decoration: underline; }
+
+    .cta-trust-pills {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; flex-wrap: wrap; margin-top: 2rem;
+    }
+
+    .trust-pill {
+      display: flex; align-items: center; gap: 0.42rem;
+      padding: 0.38rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.76rem; color: var(--ink-3);
+      background: var(--surface);
+    }
+
+    .trust-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: #22C55E; flex-shrink: 0; }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 1080px) {
+      .legal-hero-grid { grid-template-columns: 1fr; min-height: unset; }
+      .legal-illustration { display: none; }
+      .legal-copy { padding: 4rem 0 3.5rem; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .benefits-section, .social-section, .legal-cta-section { padding: 3.5rem 0; }
+      .legal-compliance-strip { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .legal-cta-row { flex-direction: column; align-items: flex-start; }
+      .legal-cta-row .btn { width: 100%; justify-content: center; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════
+       HEADER
+  ════════════════════════════════ -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="/" aria-label="First Touch home">
+        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="32" height="32" loading="eager" decoding="sync">
+        <span class="brand-text">First Touch</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary navigation">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a class="nav-mobile-cta" href="/pilot">Apply for Pilot &rarr;</a>
+      </nav>
+
+      <a class="btn btn-sm nav-cta-desktop btn-legal-primary" href="/pilot">Apply for Pilot</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ════════════════════════════════
+         HERO
+    ════════════════════════════════ -->
+    <section class="legal-hero" aria-label="Hero">
+      <div class="legal-bg-lines" aria-hidden="true"></div>
+      <div class="legal-bg-grid"  aria-hidden="true"></div>
+      <div class="legal-glow-1"   aria-hidden="true"></div>
+      <div class="legal-glow-2"   aria-hidden="true"></div>
+      <div class="legal-glow-3"   aria-hidden="true"></div>
+
+      <div class="container legal-hero-grid">
+
+        <!-- Left: copy -->
+        <div class="legal-copy">
+          <div class="legal-tag">
+            <span class="legal-tag-dot" aria-hidden="true"></span>
+            Legal &amp; Professional Services
+          </div>
+
+          <h1 class="legal-h1">
+            Client privilege<br>intact. Billing hours<br>
+            <span class="accent">back on the clock.</span>
+          </h1>
+
+          <p class="legal-lead">
+            Your SRA obligations and your profit margin both depend on the same thing: work done right, without wasted time. FirstTouch runs entirely on your own infrastructure — client matter files never leave your control — and gives your fee-earners back 4+ hours per matter that currently disappear into admin. No compliance exposure. No margin leak.
+          </p>
+
+          <div class="legal-cta-row">
+            <a class="btn btn-legal-primary" href="/pilot" plausible-event-name="Pilot CTA Click" plausible-event-source="legal-hero">
+              Apply for the Pilot &rarr;
+            </a>
+            <a class="btn btn-ghost" href="#benefits">See What Changes &darr;</a>
+          </div>
+
+          <div class="legal-trust-row" aria-label="Compliance credentials">
+            <span class="legal-trust-badge">⚖️ SRA-Aware</span>
+            <span class="legal-trust-badge">🛡 GDPR by Design</span>
+            <span class="legal-trust-badge">🔒 Privilege Protected</span>
+            <span class="legal-trust-badge">📋 Full Audit Trail</span>
+          </div>
+        </div>
+
+        <!-- Right: document illustration (Sprint 2 visual, CSS-only) -->
+        <aside class="legal-illustration" aria-label="AI legal document review diagram" aria-hidden="true">
+
+          <div class="legal-status-chip">
+            <div class="legal-status-dot"></div>
+            <span class="legal-status-text">Reviewing 3 documents</span>
+          </div>
+
+          <!-- Document stack -->
+          <div class="doc-stack">
+            <div class="doc-shadow-2"></div>
+            <div class="doc-shadow-1"></div>
+            <div class="doc-main">
+              <div class="doc-scan"></div>
+
+              <div class="doc-header">
+                <div class="doc-type">Service Agreement</div>
+                <div class="doc-date">18 Mar 2026</div>
+              </div>
+              <div class="doc-title">Master Services Agreement<br>— Enterprise Licence</div>
+
+              <div class="text-block">
+                <div class="tl w-full hl"></div>
+                <div class="tl w-90"></div>
+                <div class="tl w-80 hl-gold"></div>
+                <div class="tl w-75"></div>
+                <div class="tl w-full"></div>
+              </div>
+
+              <div class="text-block">
+                <div class="tl w-90"></div>
+                <div class="tl w-full hl-risk"></div>
+                <div class="tl w-65"></div>
+                <div class="tl w-80"></div>
+              </div>
+
+              <div style="margin: 9px 0 11px;">
+                <div class="doc-tag">⚡ Liability Cap</div>
+                <div class="doc-tag risk">⚠ Auto-Renew Clause</div>
+                <div class="doc-tag ok">✓ GDPR Compliant</div>
+              </div>
+
+              <div class="text-block">
+                <div class="tl w-full"></div>
+                <div class="tl w-80 hl"></div>
+                <div class="tl w-75"></div>
+                <div class="tl w-65"></div>
+                <div class="tl w-50"></div>
+              </div>
+
+              <div class="text-block">
+                <div class="tl w-full"></div>
+                <div class="tl w-65"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time saved badge -->
+          <div class="time-badge">
+            <div class="tb-num">4h</div>
+            <div class="tb-unit">saved per review</div>
+          </div>
+
+          <!-- Analysis panel -->
+          <div class="analysis-panel">
+            <div class="ap-header">
+              <div class="ap-icon">⚖</div>
+              <div>
+                <div class="ap-title">AI Legal Review</div>
+                <div class="ap-sub">Master Services Agreement</div>
+              </div>
+            </div>
+
+            <div class="finding-card fc-risk">
+              <div class="fc-label">Attention Required</div>
+              <div class="fc-body">Auto-renewal clause at <strong>cl. 14.3</strong> — 90-day notice window. Current notice period is <strong>shorter than standard</strong>.</div>
+            </div>
+
+            <div class="finding-card fc-gold">
+              <div class="fc-label">Negotiate</div>
+              <div class="fc-body">Liability cap set at <strong>£50k</strong> — below contract value. Recommend requesting uplift to <strong>12-month fees</strong>.</div>
+            </div>
+
+            <div class="finding-card fc-teal">
+              <div class="fc-label">Note</div>
+              <div class="fc-body">Data processing terms in <strong>Schedule 3</strong> are GDPR-compliant. DPA references current SCCs.</div>
+            </div>
+
+            <div class="finding-card fc-ok">
+              <div class="fc-label">Cleared</div>
+              <div class="fc-body"><strong>18 of 22 clauses</strong> reviewed and cleared. 4 require partner sign-off before execution.</div>
+            </div>
+
+            <div class="ap-progress">
+              <div class="ring-wrap">
+                <svg width="42" height="42" viewBox="0 0 42 42">
+                  <circle class="ring-bg" cx="21" cy="21" r="17"/>
+                  <circle class="ring-fill" cx="21" cy="21" r="17"/>
+                </svg>
+                <div class="ring-label">78%</div>
+              </div>
+              <div class="ap-progress-text">
+                <div class="pt-title">Review Complete</div>
+                <div class="pt-sub">4 items pending · Est. 12 min</div>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+
+      <!-- Compliance strip -->
+      <div class="legal-compliance-strip" aria-label="Compliance credentials">
+        <div class="legal-ci"><div class="legal-ci-dot"></div>GDPR Compliant</div>
+        <div class="legal-ci"><div class="legal-ci-dot"></div>Attorney-client privilege preserved</div>
+        <div class="legal-ci"><div class="legal-ci-dot"></div>Data stays on your infrastructure</div>
+        <div class="legal-ci"><div class="legal-ci-dot"></div>EU AI Act Aligned</div>
+        <div class="legal-ci"><div class="legal-ci-dot"></div>No vendor data access</div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════
+         BENEFITS
+    ════════════════════════════════ -->
+    <section class="benefits-section section" id="benefits" aria-labelledby="benefits-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>What changes for the partnership</p>
+          <h2 id="benefits-heading">Three outcomes a managing partner can take to the partnership meeting.</h2>
+          <p class="section-lead">Not a technology pitch. Three clear answers to the questions your partnership will ask: where does client data go, how does this know our practice, and what happens when the SRA comes calling. Each one measured in hours, risk, and pounds.</p>
+        </div>
+
+        <div class="benefits-grid">
+
+          <!-- Benefit 1: Data never leaves -->
+          <article class="benefit-card bc-1">
+            <div class="benefit-icon bi-green">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Client data never leaves your infrastructure. Ever.</h3>
+            <p>
+              Client confidentiality is not a preference — it is a professional obligation. Sending client matter data to a public AI service without explicit consent and lawful basis is a potential breach of both your SRA obligations and UK GDPR. FirstTouch eliminates that risk entirely.
+            </p>
+            <p>
+              The system runs on servers you control — on-premise or in a private cloud your firm owns. Your matter files, client correspondence, fee arrangements, and commercial data do not pass through our infrastructure. We configure it. You own it. Your clients' privilege is preserved.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check pc-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>No matter data ever processed by third-party AI infrastructure</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check pc-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Matter-level access controls — fee-earners see only their matters</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check pc-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Your data is never used to train any model</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 2: Knows your matter types -->
+          <article class="benefit-card bc-2">
+            <div class="benefit-icon bi-teal">⚖️</div>
+            <h3>AI that knows your matter types, your precedents, your firm.</h3>
+            <p>
+              A generic AI assistant doesn't know your standard NDA, your preferred liability cap position, or which clauses your senior partner always flags. FirstTouch is configured against your own documents — your precedent library, your matter files, your know-how.
+            </p>
+            <p>
+              A fee earner asks "what's our standard position on IP ownership in contractor agreements?" and gets the answer from your own precedents — not a generic template from the internet. That's the difference between a tool that saves time and one that creates rework.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check pc-teal">
+                  <svg viewBox="0 0 10 10" stroke="#22D3EE"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Connected to your document management system and precedent library</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check pc-teal">
+                  <svg viewBox="0 0 10 10" stroke="#22D3EE"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Matter summaries pulled from your own file notes in seconds</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check pc-teal">
+                  <svg viewBox="0 0 10 10" stroke="#22D3EE"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>First drafts of standard letters using your firm's own templates</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 3: Audit trail -->
+          <article class="benefit-card bc-3">
+            <div class="benefit-icon bi-gold">📋</div>
+            <h3>A complete audit trail for every action. Ready for any review.</h3>
+            <p>
+              The SRA has been clear: firms using AI must maintain adequate supervision, understand how tools process data, and be able to demonstrate it. "I didn't know where the data was going" will not satisfy a professional conduct review.
+            </p>
+            <p>
+              FirstTouch logs every query, every document accessed, every AI-assisted draft produced — timestamped, attributed to the fee earner, and stored on your infrastructure. When your next PII review comes around, or a client raises a question about how their matter was handled, the record is there.
+            </p>
+            <div class="benefit-proof">
+              <div class="proof-item">
+                <span class="proof-check pc-gold">
+                  <svg viewBox="0 0 10 10" stroke="#D4AF37"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Every query and AI-assisted output timestamped and attributed</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check pc-gold">
+                  <svg viewBox="0 0 10 10" stroke="#D4AF37"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Supervision-ready records satisfying SRA AI guidance requirements</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-check pc-gold">
+                  <svg viewBox="0 0 10 10" stroke="#D4AF37"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>UK GDPR accountability documentation generated automatically</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════
+         SOCIAL PROOF
+    ════════════════════════════════ -->
+    <section class="social-section" id="proof" aria-labelledby="proof-heading">
+      <div class="container">
+
+        <div class="stats-row" role="list" aria-label="Key performance metrics">
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">4h</div>
+            <div class="stat-label">saved per contract review</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">8</div>
+            <div class="stat-label">days to go live on your infrastructure</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">of client data stays on your servers</div>
+          </div>
+          <div class="stat-box" role="listitem">
+            <div class="stat-number">3wk</div>
+            <div class="stat-label">to first measurable billing efficiency gain</div>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>From managing partners and senior partners</p>
+          <h2 id="proof-heading">The partnership questions we hear most — and how they got answered.</h2>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">The first question our partnership raised was data protection. When we explained the system runs on our own servers and nothing leaves our environment, that conversation was over very quickly. The board approved the pilot the same week.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #0891B2, #22D3EE);">SW</div>
+              <div>
+                <div class="testimonial-name">Managing Partner</div>
+                <div class="testimonial-role">Regional commercial law firm · Midlands, UK</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">Our fee earners were spending 30 minutes per matter just finding the right precedent and adapting the opening letter. That's gone. The AI pulls from our own document library and produces a draft in under a minute. They edit it — they don't write from scratch.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #0e7490, #0891B2);">PH</div>
+              <div>
+                <div class="testimonial-name">Head of Commercial</div>
+                <div class="testimonial-role">Full-service firm · London, UK</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p class="testimonial-quote">We'd looked at three AI tools before FirstTouch. Every one of them required data to leave our environment. That was a non-starter for a firm handling confidential commercial matters. This was the only option that actually met our professional obligations.</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-av" style="background: linear-gradient(135deg, #7c3aed, #9301BB);">RK</div>
+              <div>
+                <div class="testimonial-name">Senior Partner</div>
+                <div class="testimonial-role">Dispute resolution practice · North of England</div>
+              </div>
+              <span class="testimonial-tag">Pilot</span>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════
+         CTA
+    ════════════════════════════════ -->
+    <section class="legal-cta-section section" id="cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-inner">
+          <p class="eyebrow" style="justify-content:center;"><span class="eyebrow-dot" aria-hidden="true"></span>April Pilot · 2 spots remaining for UK firms</p>
+          <h2 id="cta-heading">One matter type. Thirty days. A number you can put in front of the partnership.</h2>
+          <p>
+            We start with one workflow you choose — contract review, matter onboarding, client update letters — and deliver a clear before/after on hours recovered and fee-earner capacity freed. Full compliance documentation included so the COLP can sign it off. If the pilot doesn't produce numbers worth presenting to the partnership, you walk away and keep everything we set up.
+          </p>
+
+          <div class="cta-actions">
+            <a class="btn btn-legal-primary" href="/pilot" style="font-size:1rem;padding:0.95rem 1.75rem;" plausible-event-name="Pilot CTA Click" plausible-event-source="legal-cta">
+              Apply for the April Pilot &rarr;
+            </a>
+            <a class="btn btn-ghost" href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">
+              Book 15-min call instead
+            </a>
+          </div>
+
+          <p class="cta-meta">
+            Or speak to James directly: <a href="mailto:james@firsttouch.app">james@firsttouch.app</a>
+          </p>
+
+          <div class="cta-trust-pills" aria-label="Trust credentials">
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Privilege preserved</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>SRA-aware deployment</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>GDPR compliant</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Full audit trail</span>
+            <span class="trust-pill"><span class="trust-pill-dot"></span>Live in 8 days</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════
+       FOOTER
+  ════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+        <a class="brand footer-brand-logo" href="/" aria-label="First Touch home">
+          <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="28" height="28" loading="lazy" decoding="async">
+          <span class="brand-text">First Touch</span>
+        </a>
+        <p class="footer-tagline">The AI Chief of Staff for European B2B operators. Runs on your infrastructure — not ours.</p>
+        <div class="footer-trust-mini" aria-label="Key trust signals">
+          <span>🇬🇧 London · European Operations</span>
+          <span>GDPR Ready</span>
+          <span>On-Premise</span>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Industries navigation">
+        <p class="footer-nav-title">Industries</p>
+        <a href="/manufacturing">Manufacturing</a>
+        <a href="/legal">Legal &amp; Professional Services</a>
+        <a href="/#teams">Logistics</a>
+        <a href="/#teams">Consulting</a>
+        <a href="/#teams">Healthcare</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Product navigation">
+        <p class="footer-nav-title">Product</p>
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/scorecard">AI Readiness Scorecard</a>
+        <a href="/pilot">Apply for Pilot</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Resources navigation">
+        <p class="footer-nav-title">Resources</p>
+        <a href="/blog">Blog</a>
+        <a href="/guides/compliance-governance">Compliance &amp; GDPR</a>
+        <a href="/guides">All Guides</a>
+        <a href="/guides/manager-os-capabilities">AI Chief of Staff Capabilities</a>
+      </nav>
+
+      <div class="footer-cta-block">
+        <p class="footer-nav-title">Get started</p>
+        <p class="footer-cta-desc">One matter type. 30 days. Clear evidence of time recovered — or you walk away with no penalty.</p>
+        <a class="btn btn-sm footer-cta-btn" href="/pilot">Apply for the Pilot &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>
+          <strong>First Touch</strong>
+          &middot; &copy; 2026 First Touch Ltd &middot; London, United Kingdom
+        </p>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var toggle   = document.getElementById("nav-toggle");
+    var navLinks = document.getElementById("nav-links");
+    if (toggle && navLinks) {
+      toggle.addEventListener("click", function () {
+        var expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        navLinks.classList.toggle("nav-open");
+      });
+    }
+  }());
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI for Law Firms — Client Confidentiality Protected | FirstTouch",
+    "description": "AI assistant for UK legal firms. Client data never leaves your infrastructure. SRA-aware, GDPR compliant, full audit trail. Managing partners save 10+ hours a week.",
+    "url": "https://firsttouch.app/legal",
+    "inLanguage": "en-GB",
+    "publisher": {
+      "@type": "Organization",
+      "name": "First Touch",
+      "url": "https://firsttouch.app",
+      "logo": "https://firsttouch.app/assets/firsttouch-icon.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "james@firsttouch.app",
+        "contactType": "sales"
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",  "item": "https://firsttouch.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Legal", "item": "https://firsttouch.app/legal" }
+      ]
+    }
+  }
+  </script>
+
+</body>
+</html>

@@ -1,81 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ===================== HOMEPAGE ===================== -->
+  <!-- Primary: ai chief of staff (2,900/mo) + ai executive assistant europe (590/mo) -->
   <url>
     <loc>https://firsttouch.app/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- ===================== INDUSTRY LANDING PAGES ===================== -->
+  <!-- Target: AI for manufacturing, AI assistant for manufacturing companies — 880/mo -->
   <url>
-    <loc>https://firsttouch.app/thank-you.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://firsttouch.app/manufacturing</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.85</priority>
   </url>
+
+  <!-- Target: AI for healthcare, GDPR compliant AI for private practice, CQC AI — 640/mo combined -->
   <url>
-    <loc>https://firsttouch.app/guides/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://firsttouch.app/guides/autonomous-actions.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://firsttouch.app/healthcare</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.85</priority>
   </url>
+
+  <!-- Target: AI for law firms UK, AI legal billing efficiency — 720/mo combined -->
   <url>
-    <loc>https://firsttouch.app/guides/compliance-governance.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://firsttouch.app/legal</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.85</priority>
   </url>
+
+  <!-- ===================== KEYWORD LANDING PAGES ===================== -->
+  <!-- Primary: ai chief of staff — 2,900 searches/mo, Medium difficulty -->
   <url>
-    <loc>https://firsttouch.app/guides/assistant-experience.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://firsttouch.app/ai-chief-of-staff</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
+
+  <!-- Primary: ai manager assistant — 1,600 searches/mo, Medium difficulty -->
   <url>
-    <loc>https://firsttouch.app/guides/integration-scale.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://firsttouch.app/ai-manager-assistant</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
+
+  <!-- Primary: gdpr compliant ai assistant — 480 searches/mo, Very Low difficulty (fastest win) -->
   <url>
-    <loc>https://firsttouch.app/guides/manager-os-capabilities.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://firsttouch.app/gdpr-ai-assistant</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
+
+  <!-- ===================== BLOG ===================== -->
   <url>
     <loc>https://firsttouch.app/blog/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Target: ai manager assistant — 1,600/mo -->
   <url>
     <loc>https://firsttouch.app/blog/ai-manager-assistant-vs-generic-ai-tools</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
+
+  <!-- Target: private ai assistant for business — 310/mo; gdpr compliant ai assistant — 480/mo -->
   <url>
     <loc>https://firsttouch.app/blog/private-ai-assistant-data-sovereignty</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- ===================== GUIDES ===================== -->
+  <url>
+    <loc>https://firsttouch.app/guides/</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Target: ai chief of staff capabilities — informational -->
+  <url>
+    <loc>https://firsttouch.app/guides/manager-os-capabilities</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Target: gdpr ai assistant, ai assistant compliance europe -->
+  <url>
+    <loc>https://firsttouch.app/guides/compliance-governance</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Target: ai assistant autonomous actions -->
+  <url>
+    <loc>https://firsttouch.app/guides/autonomous-actions</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Target: ai assistant for managers experience -->
+  <url>
+    <loc>https://firsttouch.app/guides/assistant-experience</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Target: enterprise ai assistant deployment, integration scale -->
+  <url>
+    <loc>https://firsttouch.app/guides/integration-scale</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ===================== TOOLS / CONVERSION ===================== -->
+  <!-- AI Readiness Scorecard — high-intent conversion page -->
+  <url>
+    <loc>https://firsttouch.app/scorecard</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <!-- ===================== LEGAL ===================== -->
   <url>
     <loc>https://firsttouch.app/privacy</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
+
   <url>
     <loc>https://firsttouch.app/terms</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
+
 </urlset>

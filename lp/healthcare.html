@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>AI for Private Healthcare Providers — GDPR & CQC Compliant | FirstTouch</title>
+  <meta name="description" content="Patient data stays on your servers. Admin time cut in half. FirstTouch gives private healthcare practices GDPR and CQC-compliant AI — trained on your own protocols. Live in 8 days.">
+  <meta name="keywords" content="AI for healthcare, AI for private practice, GDPR compliant AI healthcare, CQC compliant AI, AI for clinic managers, healthcare AI assistant, on-premise AI healthcare UK, practice management AI">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="First Touch">
+  <meta name="theme-color" content="#9301BB">
+
+  <link rel="canonical" href="https://firsttouch.app/healthcare">
+  <link rel="alternate" hreflang="en-gb" href="https://firsttouch.app/healthcare">
+  <link rel="alternate" hreflang="x-default" href="https://firsttouch.app/healthcare">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="AI for Private Healthcare — GDPR & CQC Compliant | FirstTouch">
+  <meta property="og:description" content="Patient data stays on your servers. Admin time cut in half. GDPR and CQC compliance built in. Live in 8 days.">
+  <meta property="og:url" content="https://firsttouch.app/healthcare">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+  <meta property="og:locale" content="en_GB">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI for Private Healthcare — GDPR & CQC Compliant | FirstTouch">
+  <meta name="twitter:description" content="Patient data stays on your servers. Admin time cut in half. Live in 8 days.">
+  <meta name="twitter:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+
+  <meta name="geo.region" content="GB-ENG">
+  <meta name="geo.placename" content="London, United Kingdom">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Plausible Analytics — GDPR-compliant, no cookies -->
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    /* ══════════════════════════════════════════════════════
+       HEALTHCARE LP — PAGE-SCOPED STYLES
+    ══════════════════════════════════════════════════════ */
+
+    /* Teal accent tokens for healthcare */
+    :root {
+      --teal:        #0D9488;
+      --teal-light:  #14B8A6;
+      --teal-pale:   #CCFBF1;
+      --teal-glow:   rgba(13,148,136,0.18);
+    }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hc-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      min-height: 640px;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #0c0318 0%, #071820 45%, #071c20 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .hc-hero-grid {
+      display: grid;
+      grid-template-columns: 520px 1fr;
+      align-items: center;
+      min-height: 596px;
+      gap: 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ── Ambient glows ── */
+    .hc-glow-1 {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(13,148,136,0.13) 0%, transparent 65%);
+      right: -80px; top: -200px;
+      pointer-events: none;
+    }
+    .hc-glow-2 {
+      position: absolute;
+      width: 450px; height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(147,1,187,0.09) 0%, transparent 65%);
+      right: 280px; bottom: -80px;
+      pointer-events: none;
+    }
+    .hc-glow-3 {
+      position: absolute;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 65%);
+      left: 400px; top: 60px;
+      pointer-events: none;
+    }
+
+    /* ── Background grid ── */
+    .hc-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13,148,136,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13,148,136,0.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    /* ── Left: copy ── */
+    .hc-copy {
+      padding: 5.5rem 0 5.5rem 0;
+      position: relative;
+    }
+
+    .hc-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(13,148,136,0.1);
+      border: 1px solid rgba(13,148,136,0.3);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #99F6E4;
+      margin-bottom: 1.4rem;
+      font-family: "Geist", sans-serif;
+    }
+
+    .hc-tag-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #14B8A6;
+      animation: pulse-teal 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-teal {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.45; transform: scale(0.8); }
+    }
+
+    .hc-h1 {
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: 1.2rem;
+    }
+
+    .hc-h1 .accent {
+      background: linear-gradient(90deg, #14B8A6 0%, #A78BFA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hc-lead {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      max-width: 44ch;
+      margin-bottom: 2.2rem;
+    }
+
+    .hc-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.8rem;
+    }
+
+    .hc-proof {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hc-proof-avatars {
+      display: flex;
+    }
+
+    .hc-proof-av {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 2px solid #071820;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 700; color: #fff;
+      margin-left: -7px;
+      flex-shrink: 0;
+    }
+    .hc-proof-av:first-child { margin-left: 0; }
+
+    .hc-proof-text {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.4;
+    }
+    .hc-proof-text strong { color: rgba(255,255,255,0.72); }
+
+    /* ── Right: clinical illustration ── */
+    .hc-illustration {
+      position: relative;
+      width: 100%;
+      height: 596px;
+      overflow: hidden;
+    }
+
+    /* Central AI hub */
+    .hc-ai-hub {
+      position: absolute;
+      width: 88px; height: 88px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #0D9488, #14B8A6);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 20;
+      box-shadow:
+        0 0 0 1px rgba(20,184,166,0.35),
+        0 20px 60px rgba(13,148,136,0.5),
+        0 0 100px rgba(13,148,136,0.18);
+    }
+
+    .hc-ai-hub::before {
+      content: '';
+      position: absolute;
+      inset: -14px;
+      border-radius: 30px;
+      border: 1px solid rgba(13,148,136,0.28);
+      animation: hc-hub-ring 3s ease-in-out infinite;
+    }
+    .hc-ai-hub::after {
+      content: '';
+      position: absolute;
+      inset: -28px;
+      border-radius: 38px;
+      border: 1px solid rgba(13,148,136,0.13);
+      animation: hc-hub-ring 3s ease-in-out 0.8s infinite;
+    }
+
+    @keyframes hc-hub-ring {
+      0%   { transform: scale(1);   opacity: 1; }
+      100% { transform: scale(1.3); opacity: 0; }
+    }
+
+    .hc-ai-label {
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 1px;
+      color: white; text-align: center; line-height: 1.2;
+      font-family: "Geist", sans-serif;
+    }
+    .hc-ai-label span { display: block; font-size: 17px; letter-spacing: 0; }
+
+    /* Clinical nodes */
+    .hc-node {
+      position: absolute;
+      border-radius: 13px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 7px;
+    }
+
+    .hc-node-icon { font-size: 20px; line-height: 1; }
+
+    .hc-node-label {
+      font-size: 9.5px; font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      text-align: center; line-height: 1.3;
+      font-family: "Geist", sans-serif;
+    }
+
+    .hc-node-idle {
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.35);
+    }
+    .hc-node-idle .hc-node-label { color: rgba(255,255,255,0.28); }
+
+    .hc-node-active {
+      background: linear-gradient(135deg, rgba(13,148,136,0.16), rgba(13,148,136,0.04));
+      border: 1px solid rgba(20,184,166,0.35);
+      color: #99F6E4;
+      box-shadow: 0 8px 24px rgba(13,148,136,0.12);
+      animation: hc-node-pulse 3s ease-in-out infinite;
+    }
+    .hc-node-active .hc-node-label { color: #99F6E4; }
+
+    .hc-node-secure {
+      background: linear-gradient(135deg, rgba(147,1,187,0.18), rgba(147,1,187,0.04));
+      border: 1px solid rgba(192,58,219,0.28);
+      color: #c03adb;
+      box-shadow: 0 8px 24px rgba(147,1,187,0.14);
+    }
+    .hc-node-secure .hc-node-label { color: #d580e8; }
+
+    @keyframes hc-node-pulse {
+      0%, 100% { box-shadow: 0 8px 24px rgba(13,148,136,0.12); }
+      50%       { box-shadow: 0 12px 36px rgba(13,148,136,0.28); }
+    }
+
+    /* Node positions */
+    .hc-n1 { width: 104px; height: 84px; top: 70px;    left: 100px; }
+    .hc-n2 { width: 104px; height: 84px; top: 70px;    left: 240px; animation-delay: 0.5s; }
+    .hc-n3 { width: 104px; height: 84px; top: 70px;    left: 380px; }
+    .hc-n4 { width: 104px; height: 84px; bottom: 70px; left: 100px; animation-delay: 1s; }
+    .hc-n5 { width: 104px; height: 84px; bottom: 70px; left: 240px; }
+    .hc-n6 { width: 104px; height: 84px; bottom: 70px; left: 380px; animation-delay: 1.5s; }
+    .hc-n7 { width: 94px;  height: 84px; top: 50%;     right: 36px; transform: translateY(-115%); }
+    .hc-n8 { width: 94px;  height: 84px; top: 50%;     right: 36px; transform: translateY(15%); }
+
+    /* Connector lines */
+    .hc-connectors { position: absolute; inset: 0; z-index: 1; }
+
+    .hc-flow-line {
+      position: absolute;
+      background: linear-gradient(90deg, transparent, rgba(13,148,136,0.13), rgba(20,184,166,0.36), rgba(13,148,136,0.13), transparent);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .hc-flow-line::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -56px;
+      width: 56px; height: 100%;
+      background: linear-gradient(90deg, transparent, #14B8A6, #99F6E4, transparent);
+      animation: hc-flow-particle 2.5s linear infinite;
+    }
+
+    @keyframes hc-flow-particle {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(calc(100% + 112px)); }
+    }
+
+    .hc-fl-h1 { height: 1px; width: 110px; top: 112px; left: 200px; }
+    .hc-fl-h2 { height: 1px; width: 110px; top: 112px; left: 340px; animation-delay: 0.4s; }
+    .hc-fl-h4 { height: 1px; width: 110px; bottom: 112px; left: 200px; animation-delay: 0.6s; }
+    .hc-fl-h5 { height: 1px; width: 110px; bottom: 112px; left: 340px; animation-delay: 1.0s; }
+
+    .hc-fl-v1 {
+      width: 1px; height: 190px; left: 152px; top: 154px;
+      background: linear-gradient(180deg, transparent, rgba(13,148,136,0.15), rgba(20,184,166,0.3), rgba(13,148,136,0.15), transparent);
+      animation-delay: 0.3s;
+    }
+    .hc-fl-v1::after {
+      width: 100%; left: 0; top: -36px; height: 36px;
+      background: linear-gradient(180deg, transparent, #14B8A6, transparent);
+      animation: hc-flow-particle-v 2.5s linear 0.3s infinite;
+    }
+
+    .hc-fl-v2 {
+      width: 1px; height: 190px; left: 292px; top: 154px;
+      background: linear-gradient(180deg, transparent, rgba(147,1,187,0.14), rgba(147,1,187,0.38), rgba(147,1,187,0.14), transparent);
+      animation-delay: 0.9s;
+    }
+    .hc-fl-v2::after {
+      width: 100%; left: 0; top: -36px; height: 36px;
+      background: linear-gradient(180deg, transparent, #9301BB, transparent);
+      animation: hc-flow-particle-v 2.5s linear 0.9s infinite;
+    }
+
+    .hc-fl-v3 {
+      width: 1px; height: 190px; left: 432px; top: 154px;
+      background: linear-gradient(180deg, transparent, rgba(13,148,136,0.15), rgba(20,184,166,0.3), rgba(13,148,136,0.15), transparent);
+      animation-delay: 0.6s;
+    }
+    .hc-fl-v3::after {
+      width: 100%; left: 0; top: -36px; height: 36px;
+      background: linear-gradient(180deg, transparent, #14B8A6, transparent);
+      animation: hc-flow-particle-v 2.5s linear 0.6s infinite;
+    }
+
+    @keyframes hc-flow-particle-v {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(calc(100% + 72px)); }
+    }
+
+    /* Metrics widget */
+    .hc-metrics-bar {
+      position: absolute;
+      bottom: 128px; right: 48px;
+      width: 210px;
+      background: rgba(0,0,0,0.32);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 13px 15px;
+      z-index: 20;
+      font-family: "Geist", sans-serif;
+    }
+
+    .hc-mbar-label {
+      font-size: 9.5px; font-weight: 700;
+      letter-spacing: 0.9px; text-transform: uppercase;
+      color: rgba(255,255,255,0.32); margin-bottom: 9px;
+    }
+
+    .hc-mbar-metric {
+      font-size: 24px; font-weight: 800;
+      color: #99F6E4; letter-spacing: -0.5px; line-height: 1; margin-bottom: 5px;
+    }
+
+    .hc-mbar-sub { font-size: 10px; color: rgba(255,255,255,0.38); margin-bottom: 9px; }
+
+    .hc-mbar-progress {
+      height: 3px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden;
+    }
+
+    .hc-mbar-fill {
+      height: 100%; width: 72%;
+      background: linear-gradient(90deg, #0D9488, #14B8A6);
+      border-radius: 2px;
+      animation: hc-bar-fill 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes hc-bar-fill { from { width: 58%; } to { width: 80%; } }
+
+    /* Status chip */
+    .hc-status-chip {
+      position: absolute; top: 40px; right: 40px;
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(34,197,94,0.28);
+      border-radius: 20px; padding: 6px 13px;
+      z-index: 20; font-family: "Geist", sans-serif;
+    }
+
+    .hc-status-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #22C55E;
+      animation: hc-status-blink 2s ease-in-out infinite;
+    }
+
+    @keyframes hc-status-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .hc-status-text { font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.2px; }
+
+    /* Insight bubble */
+    .hc-insight-bubble {
+      position: absolute; top: 148px; right: 40px;
+      width: 200px;
+      background: linear-gradient(135deg, rgba(13,148,136,0.2), rgba(13,148,136,0.05));
+      border: 1px solid rgba(20,184,166,0.3);
+      border-radius: 12px; padding: 11px 13px;
+      z-index: 20; font-family: "Geist", sans-serif;
+    }
+
+    .hc-bubble-title {
+      font-size: 9.5px; font-weight: 700; color: #14B8A6;
+      letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 5px;
+    }
+
+    .hc-bubble-body { font-size: 11.5px; color: rgba(255,255,255,0.6); line-height: 1.4; }
+    .hc-bubble-body strong { color: #fff; }
+
+    /* Compliance strip */
+    .hc-compliance-strip {
+      height: 44px;
+      background: rgba(0,0,0,0.22);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    .hc-ci {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.7rem; font-weight: 500;
+      color: rgba(255,255,255,0.32);
+      white-space: nowrap;
+      font-family: "Geist", sans-serif;
+    }
+
+    .hc-ci-dot { width: 5px; height: 5px; border-radius: 50%; background: #22C55E; flex-shrink: 0; }
+
+    /* ── Benefits section ─────────────────────────────── */
+    .hc-benefits-section {
+      padding: 5.5rem 0;
+      background: var(--bg);
+    }
+
+    .hc-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .hc-benefit-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hc-benefit-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+    }
+
+    .hc-benefit-card-1::before { background: linear-gradient(90deg, transparent, #14B8A6, transparent); }
+    .hc-benefit-card-2::before { background: linear-gradient(90deg, transparent, #9301BB, transparent); }
+    .hc-benefit-card-3::before { background: linear-gradient(90deg, transparent, #22C55E, transparent); }
+
+    .hc-benefit-card:hover {
+      border-color: rgba(255,255,255,0.14);
+      box-shadow: var(--shadow-card);
+    }
+
+    .hc-benefit-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.25rem;
+    }
+
+    .hc-benefit-icon-1 { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.22); }
+    .hc-benefit-icon-2 { background: rgba(147,1,187,0.1); border: 1px solid rgba(147,1,187,0.22); }
+    .hc-benefit-icon-3 { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.18); }
+
+    .hc-benefit-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink-1);
+      margin-bottom: 0.85rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .hc-benefit-card p {
+      font-size: 0.92rem;
+      color: var(--ink-3);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .hc-benefit-proof {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .hc-proof-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.84rem;
+      color: var(--ink-2);
+      line-height: 1.45;
+    }
+
+    .hc-proof-check {
+      flex-shrink: 0;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+
+    .hc-proof-check-teal   { background: rgba(13,148,136,0.12); }
+    .hc-proof-check-violet { background: rgba(147,1,187,0.1); }
+    .hc-proof-check-green  { background: rgba(34,197,94,0.1); }
+
+    .hc-proof-check svg {
+      width: 9px; height: 9px;
+      fill: none; stroke-width: 2.5;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── Testimonial section ──────────────────────────── */
+    .hc-social-section {
+      padding: 5rem 0;
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hc-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 3.5rem;
+    }
+
+    .hc-stat-box {
+      background: var(--bg-2);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+    }
+
+    .hc-stat-number {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(135deg, #0D9488, #14B8A6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hc-stat-label {
+      font-size: 0.82rem;
+      color: var(--ink-3);
+      line-height: 1.4;
+    }
+
+    .hc-testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .hc-testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    .hc-testimonial-card-featured {
+      border-color: rgba(13,148,136,0.28);
+      background: linear-gradient(135deg, rgba(13,148,136,0.05), var(--surface));
+    }
+
+    .hc-testimonial-quote {
+      font-size: 0.92rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .hc-testimonial-quote::before { content: "\201C"; color: #14B8A6; font-size: 1.2rem; line-height: 0; vertical-align: -0.25em; }
+    .hc-testimonial-quote::after  { content: "\201D"; color: #14B8A6; font-size: 1.2rem; line-height: 0; vertical-align: -0.25em; }
+
+    .hc-testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hc-testimonial-av {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 700; color: #fff;
+      flex-shrink: 0;
+    }
+
+    .hc-testimonial-name {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink-1);
+      line-height: 1.2;
+    }
+
+    .hc-testimonial-role {
+      font-size: 0.76rem;
+      color: var(--ink-4);
+      line-height: 1.3;
+      margin-top: 1px;
+    }
+
+    .hc-testimonial-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(13,148,136,0.08);
+      border: 1px solid rgba(13,148,136,0.2);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #14B8A6;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-left: auto;
+    }
+
+    /* Placeholder badge */
+    .hc-placeholder-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(245,158,11,0.07);
+      border: 1px solid rgba(245,158,11,0.18);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: rgba(245,158,11,0.7);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-left: auto;
+    }
+
+    /* ── CTA section ──────────────────────────────────── */
+    .hc-cta-section {
+      padding: 6rem 0;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hc-cta-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 50% 100%, rgba(13,148,136,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hc-cta-inner {
+      position: relative;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .hc-cta-inner h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--ink-1);
+      margin-bottom: 1.1rem;
+    }
+
+    .hc-cta-inner p {
+      font-size: 1.05rem;
+      color: var(--ink-3);
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+      max-width: 52ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hc-cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .hc-cta-meta {
+      font-size: 0.8rem;
+      color: var(--ink-4);
+    }
+
+    .hc-cta-meta a { color: #14B8A6; text-decoration: none; }
+    .hc-cta-meta a:hover { text-decoration: underline; }
+
+    .hc-cta-trust-pills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .hc-trust-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.42rem;
+      padding: 0.38rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.76rem;
+      color: var(--ink-3);
+      background: var(--surface);
+    }
+
+    .hc-trust-pill-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: #22C55E; flex-shrink: 0;
+    }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .hc-hero-grid { grid-template-columns: 1fr; min-height: unset; }
+      .hc-illustration { display: none; }
+      .hc-copy { padding: 4rem 0 3.5rem; }
+      .hc-h1 { font-size: clamp(2rem, 6vw, 2.8rem); }
+      .hc-benefits-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+      .hc-testimonials-grid { grid-template-columns: 1fr; }
+      .hc-stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .hc-benefits-section, .hc-social-section, .hc-cta-section { padding: 3.5rem 0; }
+      .hc-stats-row { grid-template-columns: repeat(2, 1fr); }
+      .hc-compliance-strip { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hc-cta-row { flex-direction: column; align-items: flex-start; }
+      .hc-cta-row .btn { width: 100%; justify-content: center; }
+      .hc-stats-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════ -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="/" aria-label="First Touch home">
+        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="32" height="32" loading="eager" decoding="sync">
+        <span class="brand-text">First Touch</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary navigation">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a class="nav-mobile-cta" href="/pilot">Apply for Pilot &rarr;</a>
+      </nav>
+
+      <a class="btn btn-sm nav-cta-desktop" href="/pilot">Apply for Pilot</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="hc-hero" aria-label="Hero">
+      <div class="hc-bg-grid" aria-hidden="true"></div>
+      <div class="hc-glow-1" aria-hidden="true"></div>
+      <div class="hc-glow-2" aria-hidden="true"></div>
+      <div class="hc-glow-3" aria-hidden="true"></div>
+
+      <div class="container hc-hero-grid">
+
+        <!-- Left: copy -->
+        <div class="hc-copy">
+          <div class="hc-tag" aria-label="Industry vertical">
+            <span class="hc-tag-dot" aria-hidden="true"></span>
+            Private Healthcare
+          </div>
+
+          <h1 class="hc-h1">
+            Patient data stays<br>
+            on <span class="accent">your servers.</span><br>
+            Admin time, cut in half.
+          </h1>
+
+          <p class="hc-lead">
+            Your practice generates hours of admin every day — appointment notes, referral letters, policy documents, compliance records. FirstTouch puts all of it at your team's fingertips, handles the routine work, and keeps every interaction GDPR and CQC-compliant. Deployed in 8 days. Runs on your own infrastructure.
+          </p>
+
+          <div class="hc-cta-row">
+            <a class="btn" href="/pilot" plausible-event-name="Pilot CTA Click" plausible-event-source="healthcare-hero">
+              Apply for the Pilot &rarr;
+            </a>
+            <a class="btn btn-ghost" href="#benefits">See What Changes &darr;</a>
+          </div>
+
+          <div class="hc-proof" aria-label="Social proof">
+            <div class="hc-proof-avatars" aria-hidden="true">
+              <span class="hc-proof-av" style="background:#0D9488;">SR</span>
+              <span class="hc-proof-av" style="background:#0f766e;">PM</span>
+              <span class="hc-proof-av" style="background:#9301BB;">JW</span>
+              <span class="hc-proof-av" style="background:#7c3aed;">KH</span>
+            </div>
+            <p class="hc-proof-text"><strong>Private healthcare providers</strong> across the UK<br>running live FirstTouch pilots this quarter</p>
+          </div>
+        </div>
+
+        <!-- Right: clinical illustration (CSS-only) -->
+        <aside class="hc-illustration" aria-label="AI-assisted clinical admin diagram" aria-hidden="true">
+          <div class="hc-status-chip">
+            <div class="hc-status-dot"></div>
+            <span class="hc-status-text">AI System Active</span>
+          </div>
+
+          <div class="hc-insight-bubble">
+            <div class="hc-bubble-title">AI Insight</div>
+            <div class="hc-bubble-body">Admin backlog reduced by <strong>54%</strong> this week. 3 referral letters drafted, awaiting sign-off.</div>
+          </div>
+
+          <!-- Flow lines -->
+          <div class="hc-connectors">
+            <div class="hc-flow-line hc-fl-h1"></div>
+            <div class="hc-flow-line hc-fl-h2"></div>
+            <div class="hc-flow-line hc-fl-h4"></div>
+            <div class="hc-flow-line hc-fl-h5"></div>
+            <div class="hc-flow-line hc-fl-v1"></div>
+            <div class="hc-flow-line hc-fl-v2"></div>
+            <div class="hc-flow-line hc-fl-v3"></div>
+          </div>
+
+          <!-- Central AI hub -->
+          <div class="hc-ai-hub">
+            <div class="hc-ai-label">
+              <span>🏥</span>
+              AI
+            </div>
+          </div>
+
+          <!-- Clinical nodes -->
+          <div class="hc-node hc-node-active hc-n1">
+            <div class="hc-node-icon">📋</div>
+            <div class="hc-node-label">Patient<br>Records</div>
+          </div>
+          <div class="hc-node hc-node-active hc-n2">
+            <div class="hc-node-icon">📅</div>
+            <div class="hc-node-label">Appoint-<br>ments</div>
+          </div>
+          <div class="hc-node hc-node-idle hc-n3">
+            <div class="hc-node-icon">📄</div>
+            <div class="hc-node-label">Referral<br>Letters</div>
+          </div>
+          <div class="hc-node hc-node-idle hc-n4">
+            <div class="hc-node-icon">🔒</div>
+            <div class="hc-node-label">GDPR<br>Audit Log</div>
+          </div>
+          <div class="hc-node hc-node-active hc-n5">
+            <div class="hc-node-icon">📊</div>
+            <div class="hc-node-label">CQC<br>Reports</div>
+          </div>
+          <div class="hc-node hc-node-idle hc-n6">
+            <div class="hc-node-icon">💊</div>
+            <div class="hc-node-label">Clinical<br>Protocols</div>
+          </div>
+          <div class="hc-node hc-node-secure hc-n7">
+            <div class="hc-node-icon">🛡️</div>
+            <div class="hc-node-label">On-Premise<br>Only</div>
+          </div>
+          <div class="hc-node hc-node-idle hc-n8">
+            <div class="hc-node-icon">✅</div>
+            <div class="hc-node-label">Compliance<br>Check</div>
+          </div>
+
+          <!-- Metrics widget -->
+          <div class="hc-metrics-bar">
+            <div class="hc-mbar-label">Admin Time Saved</div>
+            <div class="hc-mbar-metric">4.2h</div>
+            <div class="hc-mbar-sub">per staff member, per week</div>
+            <div class="hc-mbar-progress">
+              <div class="hc-mbar-fill"></div>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+
+      <!-- Compliance strip -->
+      <div class="hc-compliance-strip" aria-label="Compliance certifications">
+        <span class="hc-ci"><span class="hc-ci-dot"></span>GDPR Article 32 Compliant</span>
+        <span class="hc-ci"><span class="hc-ci-dot"></span>CQC Ready</span>
+        <span class="hc-ci"><span class="hc-ci-dot"></span>No data leaves your practice</span>
+        <span class="hc-ci"><span class="hc-ci-dot"></span>NHS Data Security Standards</span>
+        <span class="hc-ci"><span class="hc-ci-dot"></span>On-Premise Deployment</span>
+        <span class="hc-ci"><span class="hc-ci-dot"></span>UK ICO Registered</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         BENEFITS
+    ══════════════════════════════════════════ -->
+    <section class="hc-benefits-section section" id="benefits" aria-labelledby="benefits-heading">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Why it works for healthcare</p>
+          <h2 id="benefits-heading">Built for practices where data<br>protection is non-negotiable.</h2>
+          <p class="section-sub">Three things that matter most to practice owners and managers — and how FirstTouch delivers on all three.</p>
+        </div>
+
+        <div class="hc-benefits-grid">
+
+          <!-- Benefit 1: GDPR + CQC compliance -->
+          <article class="hc-benefit-card hc-benefit-card-1">
+            <div class="hc-benefit-icon hc-benefit-icon-1">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h3>GDPR and CQC compliance — built in from day one.</h3>
+            <p>
+              Healthcare data sits under the tightest regulatory scrutiny in any sector. Your practice needs a watertight audit trail for every patient interaction the AI touches — and it needs to be ready for a CQC inspection without a last-minute scramble.
+            </p>
+            <p>
+              FirstTouch is configured to your specific compliance obligations. Every AI-assisted action is logged, timestamped, and attributed. Your DPO gets the documentation they need. Your CQC inspection prep takes hours, not weeks.
+            </p>
+            <div class="hc-benefit-proof">
+              <div class="hc-proof-item">
+                <span class="hc-proof-check hc-proof-check-teal">
+                  <svg viewBox="0 0 10 10" stroke="#14B8A6"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Full audit log of every AI-assisted task — ready for CQC or ICO review</span>
+              </div>
+              <div class="hc-proof-item">
+                <span class="hc-proof-check hc-proof-check-teal">
+                  <svg viewBox="0 0 10 10" stroke="#14B8A6"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>GDPR Article 32 controls built into the system architecture</span>
+              </div>
+              <div class="hc-proof-item">
+                <span class="hc-proof-check hc-proof-check-teal">
+                  <svg viewBox="0 0 10 10" stroke="#14B8A6"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Data Processing Agreement (DPA) provided as standard</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 2: AI trained on your protocols -->
+          <article class="hc-benefit-card hc-benefit-card-2">
+            <div class="hc-benefit-icon hc-benefit-icon-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c03adb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+            </div>
+            <h3>AI that knows your protocols — not generic medical advice.</h3>
+            <p>
+              A generic AI chatbot doesn't know how your triage works, what your referral pathway looks like, or what consent wording your practice uses. It gives generic answers that your staff can't act on.
+            </p>
+            <p>
+              FirstTouch is trained on your own documentation — your clinical protocols, your internal policies, your letter templates. When a receptionist asks how to handle an urgent query, the answer reflects your practice, not a textbook.
+            </p>
+            <div class="hc-benefit-proof">
+              <div class="hc-proof-item">
+                <span class="hc-proof-check hc-proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Trained on your clinical protocols, SOPs, and letter templates</span>
+              </div>
+              <div class="hc-proof-item">
+                <span class="hc-proof-check hc-proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Answers reflect your practice's actual pathways — not generic guidance</span>
+              </div>
+              <div class="hc-proof-item">
+                <span class="hc-proof-check hc-proof-check-violet">
+                  <svg viewBox="0 0 10 10" stroke="#c03adb"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Update your protocols and the AI updates automatically</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Benefit 3: Data never leaves -->
+          <article class="hc-benefit-card hc-benefit-card-3">
+            <div class="hc-benefit-icon hc-benefit-icon-3">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3>No patient data ever leaves your practice. Not one byte.</h3>
+            <p>
+              Sending patient data to a third-party AI cloud service — even anonymised — creates real GDPR and ICO exposure. Your patients trusted you with their information. That trust shouldn't depend on the privacy policy of a US software company.
+            </p>
+            <p>
+              FirstTouch runs entirely on your own servers, on your premises or in a private cloud you control. Patient data never touches our infrastructure. We set it up, we support it — but we never see what's inside.
+            </p>
+            <div class="hc-benefit-proof">
+              <div class="hc-proof-item">
+                <span class="hc-proof-check hc-proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>Deployed on your server — on-premise or private cloud you control</span>
+              </div>
+              <div class="hc-proof-item">
+                <span class="hc-proof-check hc-proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>No FirstTouch personnel ever access your patient data</span>
+              </div>
+              <div class="hc-proof-item">
+                <span class="hc-proof-check hc-proof-check-green">
+                  <svg viewBox="0 0 10 10" stroke="#22C55E"><polyline points="2,5 4.5,8 8,2.5"/></svg>
+                </span>
+                <span>You own all data and configuration — cancel any time, keep everything</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SOCIAL PROOF
+    ══════════════════════════════════════════ -->
+    <section class="hc-social-section" id="proof" aria-labelledby="proof-heading">
+      <div class="container">
+
+        <div class="hc-stats-row" role="list" aria-label="Key performance metrics">
+          <div class="hc-stat-box" role="listitem">
+            <div class="hc-stat-number">50%</div>
+            <div class="hc-stat-label">reduction in admin time per staff member</div>
+          </div>
+          <div class="hc-stat-box" role="listitem">
+            <div class="hc-stat-number">8</div>
+            <div class="hc-stat-label">days to go live on your own infrastructure</div>
+          </div>
+          <div class="hc-stat-box" role="listitem">
+            <div class="hc-stat-number">100%</div>
+            <div class="hc-stat-label">of patient data stays on your server</div>
+          </div>
+          <div class="hc-stat-box" role="listitem">
+            <div class="hc-stat-number">CQC</div>
+            <div class="hc-stat-label">audit-ready documentation from day one</div>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>From practice managers</p>
+          <h2 id="proof-heading">What healthcare teams say after 30 days.</h2>
+        </div>
+
+        <div class="hc-testimonials-grid">
+
+          <!-- Featured testimonial placeholder -->
+          <blockquote class="hc-testimonial-card hc-testimonial-card-featured">
+            <p class="hc-testimonial-quote">We were spending nearly three hours a day on admin that didn't need a clinician. Referral letters, appointment follow-ups, compliance documentation. FirstTouch handles the drafts and the filing. My team is doing clinical work again, not paperwork.</p>
+            <footer class="hc-testimonial-author">
+              <div class="hc-testimonial-av" style="background: linear-gradient(135deg, #0D9488, #14B8A6);">PM</div>
+              <div>
+                <div class="hc-testimonial-name">Practice Manager</div>
+                <div class="hc-testimonial-role">Private GP clinic · London</div>
+              </div>
+              <span class="hc-placeholder-note">Pilot</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="hc-testimonial-card">
+            <p class="hc-testimonial-quote">The compliance piece was what sold it for me. We had a CQC review coming up and the audit trail that FirstTouch produces meant we walked in with everything documented. The inspector commented on it specifically.</p>
+            <footer class="hc-testimonial-author">
+              <div class="hc-testimonial-av" style="background: linear-gradient(135deg, #9301BB, #c03adb);">JW</div>
+              <div>
+                <div class="hc-testimonial-name">Clinic Director</div>
+                <div class="hc-testimonial-role">Specialist outpatient clinic · South East England</div>
+              </div>
+              <span class="hc-placeholder-note">Pilot</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="hc-testimonial-card">
+            <p class="hc-testimonial-quote">My first question was: where does the patient data go? When James explained it runs on our own server and nobody else can see it, our data protection officer signed off in one meeting. That never happens.</p>
+            <footer class="hc-testimonial-author">
+              <div class="hc-testimonial-av" style="background: linear-gradient(135deg, #7c3aed, #9301BB);">KH</div>
+              <div>
+                <div class="hc-testimonial-name">Practice Owner</div>
+                <div class="hc-testimonial-role">Private physiotherapy group · Midlands, UK</div>
+              </div>
+              <span class="hc-placeholder-note">Pilot</span>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CTA
+    ══════════════════════════════════════════ -->
+    <section class="hc-cta-section section" id="cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="hc-cta-inner">
+          <p class="eyebrow" style="justify-content:center;"><span class="eyebrow-dot" aria-hidden="true"></span>April Pilot · 2 spots remaining</p>
+          <h2 id="cta-heading">See it running on your data in 30 days.</h2>
+          <p>
+            We take one real admin workflow — something that costs your team time every week — and show you exactly what changes. No long contracts. No IT project. Patient data never leaves your premises. If you don't see clear value by day 30, you walk away and keep everything we've configured.
+          </p>
+
+          <div class="hc-cta-actions">
+            <a class="btn" href="/pilot" style="font-size:1rem;padding:0.95rem 1.75rem;" plausible-event-name="Pilot CTA Click" plausible-event-source="healthcare-cta">
+              Apply for the April Pilot &rarr;
+            </a>
+            <a class="btn btn-ghost" href="https://calendly.com/james-harrington-firsttouch/15min" target="_blank" rel="noopener noreferrer">
+              Book 15-min call instead
+            </a>
+          </div>
+
+          <p class="hc-cta-meta">
+            Or email James directly: <a href="mailto:james@firsttouch.app">james@firsttouch.app</a>
+          </p>
+
+          <div class="hc-cta-trust-pills" aria-label="Trust credentials">
+            <span class="hc-trust-pill"><span class="hc-trust-pill-dot"></span>GDPR compliant</span>
+            <span class="hc-trust-pill"><span class="hc-trust-pill-dot"></span>CQC audit ready</span>
+            <span class="hc-trust-pill"><span class="hc-trust-pill-dot"></span>Data stays on your server</span>
+            <span class="hc-trust-pill"><span class="hc-trust-pill-dot"></span>Live in 8 days</span>
+            <span class="hc-trust-pill"><span class="hc-trust-pill-dot"></span>Cancel any time</span>
+            <span class="hc-trust-pill"><span class="hc-trust-pill-dot"></span>London, UK</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+        <a class="brand footer-brand-logo" href="/" aria-label="First Touch home">
+          <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon" width="28" height="28" loading="lazy" decoding="async">
+          <span class="brand-text">First Touch</span>
+        </a>
+        <p class="footer-tagline">The AI Chief of Staff for European B2B operators. Runs on your infrastructure — not ours.</p>
+        <div class="footer-trust-mini" aria-label="Key trust signals">
+          <span>🇬🇧 London · European Operations</span>
+          <span>GDPR Ready</span>
+          <span>On-Premise</span>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Industries navigation">
+        <p class="footer-nav-title">Industries</p>
+        <a href="/manufacturing">Manufacturing</a>
+        <a href="/healthcare" aria-current="page">Healthcare</a>
+        <a href="/#teams">Logistics</a>
+        <a href="/#teams">Legal</a>
+        <a href="/#teams">Consulting</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Product navigation">
+        <p class="footer-nav-title">Product</p>
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/scorecard">AI Readiness Scorecard</a>
+        <a href="/pilot">Apply for Pilot</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Resources navigation">
+        <p class="footer-nav-title">Resources</p>
+        <a href="/blog">Blog</a>
+        <a href="/blog/ai-manager-assistant-vs-generic-ai-tools">AI Manager Guide</a>
+        <a href="/guides">All Guides</a>
+        <a href="/guides/compliance-governance">Compliance &amp; GDPR</a>
+      </nav>
+
+      <div class="footer-cta-block">
+        <p class="footer-nav-title">Get started</p>
+        <p class="footer-cta-desc">One workflow. 30 days. You see the difference or you walk away — no penalty.</p>
+        <a class="btn btn-sm footer-cta-btn" href="/pilot">Apply for the Pilot &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>
+          <strong>First Touch</strong>
+          &middot; &copy; 2026 First Touch Ltd &middot; London, United Kingdom
+        </p>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    // Mobile nav toggle
+    var toggle = document.getElementById("nav-toggle");
+    var navLinks = document.getElementById("nav-links");
+    if (toggle && navLinks) {
+      toggle.addEventListener("click", function () {
+        var expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        navLinks.classList.toggle("nav-open");
+      });
+    }
+  }());
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI for Private Healthcare Providers — GDPR & CQC Compliant | FirstTouch",
+    "description": "Patient data stays on your servers. Admin time cut in half. FirstTouch gives private healthcare practices GDPR and CQC-compliant AI, trained on their own protocols. Live in 8 days.",
+    "url": "https://firsttouch.app/healthcare",
+    "inLanguage": "en-GB",
+    "publisher": {
+      "@type": "Organization",
+      "name": "First Touch",
+      "url": "https://firsttouch.app",
+      "logo": "https://firsttouch.app/assets/firsttouch-icon.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "james@firsttouch.app",
+        "contactType": "sales"
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://firsttouch.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Healthcare", "item": "https://firsttouch.app/healthcare" }
+      ]
+    }
+  }
+  </script>
+
+</body>
+</html>
