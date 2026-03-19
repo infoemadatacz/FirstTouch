@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>The Holding Group AI Playbook: One System, Every Subsidiary, Zero Data Leakage | First Touch</title>
+  <meta name="description" content="Holding groups want AI productivity across all portfolio companies — without Subsidiary A ever seeing Subsidiary B's data. Here's the architecture that makes it work.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="First Touch">
+
+  <link rel="canonical" href="https://firsttouch.app/blog/holding-groups-multi-entity-ai">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="The Holding Group AI Playbook: One System, Every Subsidiary, Zero Data Leakage">
+  <meta property="og:description" content="Deploying AI across a portfolio of companies sounds complicated. With tenant isolation, it's simpler than running separate subscriptions — and far safer.">
+  <meta property="og:url" content="https://firsttouch.app/blog/holding-groups-multi-entity-ai">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+  <meta property="article:published_time" content="2026-03-30T00:00:00Z">
+  <meta property="article:author" content="James Harrington">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Holding Group AI Playbook: One System, Every Subsidiary, Zero Data Leakage",
+    "description": "Deploying AI across a portfolio of companies sounds complicated. With tenant isolation, it's simpler than running separate subscriptions — and far safer.",
+    "datePublished": "2026-03-30",
+    "dateModified": "2026-03-30",
+    "author": { "@type": "Person", "name": "James Harrington" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "First Touch",
+      "url": "https://firsttouch.app"
+    },
+    "url": "https://firsttouch.app/blog/holding-groups-multi-entity-ai",
+    "mainEntityOfPage": "https://firsttouch.app/blog/holding-groups-multi-entity-ai"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://firsttouch.app" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://firsttouch.app/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Holding Groups & Multi-Entity AI", "item": "https://firsttouch.app/blog/holding-groups-multi-entity-ai" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can a holding group deploy one AI system across all subsidiaries?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — using a tenant-isolated architecture. Each subsidiary operates in a separate, logically isolated environment within the same AI infrastructure. A member of staff at Subsidiary A cannot access, query, or retrieve data belonging to Subsidiary B. The holding group centre can access aggregated operational data across all entities, without seeing subsidiary-level confidential content."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the GDPR risk of a shared AI platform across multiple portfolio companies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If separate legal entities within a holding structure use a shared AI platform without proper data isolation, data from one entity may be inadvertently accessible by staff of another. Each subsidiary is a separate data controller under UK GDPR. Commingling their data — even accidentally — can create unlawful data sharing between controllers, with ICO enforcement risk for each entity involved."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the holding group centre access performance data without breaching subsidiary data rules?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The group centre access layer operates on aggregated, anonymised operational metrics — KPIs, productivity indices, output volumes — rather than on raw subsidiary data. Group-level reporting is generated within the AI system using pre-defined aggregation rules, ensuring the centre sees performance insight without accessing individual staff communications, client data, or operational records belonging to subsidiaries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it cheaper to run one shared AI system than separate subscriptions per subsidiary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Significantly cheaper. A single dedicated AI infrastructure deployment scales across all subsidiaries without per-seat or per-entity SaaS cost multiplication. A holding group running five portfolio companies on separate enterprise SaaS AI subscriptions typically pays five times the licensing cost, five times the admin overhead, and has no consolidated governance view. A shared private deployment eliminates that duplication."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: rgba(255,255,255,0.03);
+      --surface-2: rgba(255,255,255,0.055);
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.13);
+      --text: #e8e8e8;
+      --muted: #9ca3af;
+      --accent: #c05df0;
+      --accent-dark: #9301bb;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .bg-noise {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+    }
+    .bg-gradient {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse 80% 45% at 50% -5%, rgba(147,1,187,0.14) 0%, transparent 70%);
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    }
+    .nav-wrap {
+      max-width: 960px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none; color: var(--text);
+      font-weight: 700; font-size: 1.05rem;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.55rem 1.25rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; transition: all 0.2s;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      color: #fff; white-space: nowrap; border: none; cursor: pointer;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-sm { padding: 0.45rem 1rem; font-size: 0.85rem; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      padding: 1.25rem 0 0; font-size: 0.82rem; color: var(--muted);
+    }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { margin: 0 0.4rem; }
+
+    /* ── HERO ── */
+    .article-hero { padding: 2.5rem 0 1.75rem; }
+    .article-tag {
+      display: inline-block; font-size: 0.78rem; font-weight: 600;
+      color: var(--accent); text-transform: uppercase;
+      letter-spacing: 0.07em; margin-bottom: 1rem;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.7rem, 4.5vw, 2.55rem);
+      font-weight: 800; line-height: 1.18; letter-spacing: -0.025em;
+      margin-bottom: 1.25rem; color: #f2f2f2;
+    }
+    .article-lead {
+      font-size: 1.1rem; color: #c4c4c4; line-height: 1.7;
+      max-width: 640px; margin-bottom: 1.5rem;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 1.25rem;
+      font-size: 0.82rem; color: var(--muted);
+      padding-top: 1.25rem; border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .meta-author { display: flex; align-items: center; gap: 0.5rem; }
+    .author-pip {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.68rem; font-weight: 700; color: #fff;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body { padding: 0 0 3rem; }
+    .article-body h2 {
+      font-size: 1.45rem; font-weight: 700; margin: 2.75rem 0 1rem;
+      letter-spacing: -0.015em; color: #f0f0f0;
+    }
+    .article-body h3 {
+      font-size: 1.1rem; font-weight: 600; margin: 1.75rem 0 0.75rem; color: #e0e0e0;
+    }
+    .article-body p { margin-bottom: 1.2rem; color: #ccc; }
+    .article-body ul, .article-body ol { margin: 0.75rem 0 1.25rem 1.5rem; color: #ccc; }
+    .article-body li { margin-bottom: 0.5rem; line-height: 1.65; }
+    .article-body strong { color: #f0f0f0; font-weight: 600; }
+    .article-body a { color: var(--accent); text-decoration: none; }
+    .article-body a:hover { text-decoration: underline; }
+    .article-body hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+    /* ── STAT GRID ── */
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+      gap: 1rem; margin: 2rem 0;
+    }
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.25rem 1rem; text-align: center;
+    }
+    .stat-number {
+      display: block; font-size: 1.95rem; font-weight: 800;
+      color: var(--accent); line-height: 1; margin-bottom: 0.45rem;
+    }
+    .stat-label { font-size: 0.79rem; color: var(--muted); line-height: 1.4; }
+
+    /* ── TENANT DIAGRAM ── */
+    .tenant-diagram {
+      margin: 2rem 0; border: 1px solid var(--border-strong);
+      border-radius: 12px; overflow: hidden;
+      background: rgba(255,255,255,0.02);
+    }
+    .diagram-header {
+      background: rgba(147,1,187,0.1); border-bottom: 1px solid rgba(147,1,187,0.25);
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .diagram-body { padding: 1.25rem; }
+    .diagram-row {
+      display: flex; align-items: stretch; gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .diagram-row:last-child { margin-bottom: 0; }
+    .diagram-label {
+      width: 100px; flex-shrink: 0; display: flex; align-items: center;
+      font-size: 0.78rem; color: var(--muted); font-weight: 500;
+    }
+    .diagram-tenants { flex: 1; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tenant-block {
+      flex: 1; min-width: 80px;
+      border: 1px solid var(--border); border-radius: 7px;
+      padding: 0.65rem 0.75rem; text-align: center;
+      font-size: 0.8rem; font-weight: 600; color: #e0e0e0;
+    }
+    .tenant-block.active {
+      border-color: rgba(192,93,240,0.35);
+      background: rgba(147,1,187,0.07);
+      color: #d4a0f5;
+    }
+    .tenant-block.centre {
+      border-color: rgba(192,93,240,0.6);
+      background: rgba(147,1,187,0.14);
+      color: var(--accent); font-weight: 700;
+    }
+    .diagram-wall {
+      border-top: 1px dashed rgba(255,255,255,0.12); margin: 0.5rem 0;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0.3rem 0;
+    }
+    .diagram-wall span {
+      background: var(--bg); padding: 0 0.75rem;
+      font-size: 0.72rem; color: rgba(255,255,255,0.25); letter-spacing: 0.04em;
+    }
+
+    /* ── RISK CALLOUT ── */
+    .risk-callout {
+      background: rgba(220,38,38,0.07); border: 1px solid rgba(220,38,38,0.22);
+      border-left: 3px solid rgba(220,38,38,0.7);
+      border-radius: 8px; padding: 1.1rem 1.25rem;
+      margin: 1.5rem 0; font-size: 0.91rem;
+      color: #f0c0c0; line-height: 1.65;
+    }
+    .risk-callout strong { color: #fca5a5; }
+
+    .info-callout {
+      background: rgba(147,1,187,0.07); border: 1px solid rgba(147,1,187,0.22);
+      border-left: 3px solid rgba(192,93,240,0.7);
+      border-radius: 8px; padding: 1.1rem 1.25rem;
+      margin: 1.5rem 0; font-size: 0.91rem;
+      color: #ddc8f0; line-height: 1.65;
+    }
+    .info-callout strong { color: #e4b5fa; }
+
+    /* ── SCENARIO CARDS ── */
+    .scenario-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin: 1.75rem 0;
+    }
+    .scenario-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem;
+    }
+    .scenario-icon { font-size: 1.35rem; margin-bottom: 0.5rem; display: block; }
+    .scenario-title { font-weight: 700; font-size: 0.9rem; color: #f0f0f0; margin-bottom: 0.35rem; }
+    .scenario-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.75rem 0; }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; min-width: 560px; }
+    .compare-table thead tr {
+      background: var(--surface-2); border-bottom: 1px solid var(--border);
+    }
+    .compare-table th {
+      padding: 0.75rem 1rem; text-align: left;
+      font-weight: 600; color: #e0e0e0; white-space: nowrap;
+    }
+    .compare-table td {
+      padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--muted); vertical-align: top; line-height: 1.5;
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table td:first-child { color: #e0e0e0; font-weight: 500; }
+    .icon-x { color: #f87171; }
+    .icon-ok { color: #6ee7b7; }
+
+    /* ── BENEFIT LIST ── */
+    .benefit-list { display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0; }
+    .benefit-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.25rem;
+    }
+    .benefit-num {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 700; color: #fff;
+    }
+    .benefit-content { flex: 1; min-width: 0; }
+    .benefit-title { font-weight: 600; color: #f0f0f0; margin-bottom: 0.2rem; font-size: 0.94rem; }
+    .benefit-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── CTA BOX ── */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(147,1,187,0.13), rgba(147,1,187,0.06));
+      border: 1px solid rgba(147,1,187,0.3);
+      border-radius: 14px; padding: 2.25rem 2rem;
+      margin: 2.5rem 0; text-align: center;
+    }
+    .cta-box h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.65rem; color: #f0f0f0; }
+    .cta-box p {
+      font-size: 0.92rem; color: var(--muted); margin-bottom: 1.35rem;
+      max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.65;
+    }
+    .cta-box .btn { display: inline-flex; }
+
+    /* ── AUTHOR BOX ── */
+    .author-box {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem; margin: 2.5rem 0;
+    }
+    .author-avatar-lg {
+      width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+    }
+    .author-name { font-weight: 700; color: #f0f0f0; margin-bottom: 0.2rem; }
+    .author-role { font-size: 0.82rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .author-bio { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── FAQ ── */
+    .faq-section { margin: 2.5rem 0; }
+    .faq-section > h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; color: #f0f0f0; }
+    .faq-item {
+      border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden; margin-bottom: 0.75rem;
+    }
+    .faq-q {
+      padding: 1rem 1.25rem; font-weight: 600; font-size: 0.95rem;
+      color: #e8e8e8; background: var(--surface);
+      display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;
+    }
+    .faq-q::after { content: "+"; color: var(--accent); font-size: 1.2rem; flex-shrink: 0; }
+    .faq-a {
+      padding: 1rem 1.25rem; font-size: 0.9rem;
+      color: var(--muted); line-height: 1.65; border-top: 1px solid var(--border);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--border); padding: 2rem 0;
+      margin-top: 3rem; position: relative; z-index: 1;
+    }
+    .footer-inner {
+      max-width: 960px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+
+    @media (max-width: 640px) {
+      .article-hero h1 { font-size: 1.6rem; }
+      .article-lead { font-size: 1rem; }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .scenario-grid { grid-template-columns: 1fr; }
+      .diagram-row { flex-direction: column; }
+      .diagram-label { width: 100%; }
+      .author-box { flex-direction: column; }
+      .cta-box { padding: 1.5rem 1.25rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="nav-wrap">
+      <a class="brand" href="https://firsttouch.app" aria-label="First Touch home">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="url(#hg1)"/>
+          <path d="M10 16 L16 10 L22 16 L16 22 Z" fill="white" opacity="0.9"/>
+          <defs>
+            <linearGradient id="hg1" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#9301bb"/><stop offset="1" stop-color="#c05df0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        First Touch
+      </a>
+      <a class="btn btn-sm" href="https://firsttouch.app#pricing" data-plausible-event-name="nav_cta_click">Book 15-min Assessment</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="https://firsttouch.app">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="https://firsttouch.app/blog">Blog</a>
+        <span aria-hidden="true">›</span>
+        <span>Holding Groups &amp; Multi-Entity AI</span>
+      </nav>
+
+      <article>
+        <header class="article-hero">
+          <span class="article-tag">Holding Groups &amp; Multi-Entity AI</span>
+          <h1>The Holding Group AI Playbook: One System, Every Subsidiary, Zero Data Leakage</h1>
+          <p class="article-lead">Holding groups face a unique AI challenge: the group centre wants visibility and efficiency gains across the whole portfolio — but each subsidiary is a separate legal entity with separate data, separate clients, and separate compliance obligations. Here is the deployment model that delivers both.</p>
+          <div class="article-meta">
+            <div class="meta-author">
+              <div class="author-pip" aria-hidden="true">JH</div>
+              <span>James Harrington</span>
+            </div>
+            <time datetime="2026-03-30">30 March 2026</time>
+            <span>9 min read</span>
+          </div>
+        </header>
+
+        <div class="stat-grid" aria-label="Key statistics">
+          <div class="stat-card">
+            <span class="stat-number">5×</span>
+            <span class="stat-label">average number of operating subsidiaries in a mid-market UK holding group</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">£0</span>
+            <span class="stat-label">marginal cost to add a new subsidiary tenant to existing AI infrastructure</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">Art. 26</span>
+            <span class="stat-label">UK GDPR joint controller rules apply when subsidiaries share data processing</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">1 DPA</span>
+            <span class="stat-label">single Data Processing Agreement covers all entities in a tenant-isolated deployment</span>
+          </div>
+        </div>
+
+        <div class="article-body">
+
+          <p>The CFO at a holding group asked us a direct question last year: "We have six operating companies. Can I give all of them the same AI system without one company being able to see another's numbers?" The answer is yes — and the architecture to do it is simpler than most group finance directors expect.</p>
+
+          <p>The challenge holding groups face with AI is structurally different from what a single-entity business faces. It is not just about compliance. It is about governance, cost allocation, consolidated oversight, and the awkward fact that subsidiaries often compete with each other, or serve clients who compete with each other, or simply have confidentiality obligations that mean their data must never commingle — regardless of common ownership.</p>
+
+          <p>This post sets out how multi-entity AI deployment works for holding groups: the architecture, the governance model, the compliance framework, and the concrete operational benefits at both subsidiary and group level.</p>
+
+          <hr>
+
+          <h2>Why Holding Groups Cannot Use a Standard Shared AI Subscription</h2>
+
+          <p>The instinct of most IT managers in a holding group is to buy one enterprise SaaS subscription and share it across subsidiaries. Same login domain, shared licences, one invoice. This creates three problems that only appear once the system is in use.</p>
+
+          <div class="risk-callout">
+            <strong>The data commingling problem:</strong> When multiple legal entities use the same AI workspace — even on an enterprise tier — their data shares the same underlying processing environment. Queries from Subsidiary A can, in certain configurations, surface in context or suggestions for users at Subsidiary B. Document libraries overlap. Conversation history is not isolated. For subsidiaries operating in different sectors, serving different clients, or subject to different NDAs, this is not a tolerable risk. Each subsidiary is a separate data controller under UK GDPR. Data flowing between them without a lawful basis is unlawful data sharing — regardless of whether any visible breach occurs.
+          </div>
+
+          <p>Second problem: group-level visibility becomes impossible in the right way. The group centre either has full access to everything — which is too much — or no cross-entity visibility at all, which defeats the operational governance purpose. A standard shared subscription gives no middle path.</p>
+
+          <p>Third problem: cost and administration scale linearly. Six subsidiaries on enterprise Microsoft Copilot is six times the per-seat cost. User management is replicated six times. Onboarding, offboarding, and IT support multiply accordingly.</p>
+
+          <hr>
+
+          <h2>The Tenant-Isolated Architecture</h2>
+
+          <p>The model that resolves all three problems is tenant isolation on a single private AI infrastructure. The principle is straightforward: one AI system, logically divided into separate, fully isolated environments — one per subsidiary, plus a group centre tier with defined aggregation access.</p>
+
+          <div class="tenant-diagram" aria-label="Tenant isolation architecture diagram">
+            <div class="diagram-header">
+              <span aria-hidden="true">🏗️</span> Multi-tenant isolation architecture
+            </div>
+            <div class="diagram-body">
+              <div class="diagram-row">
+                <div class="diagram-label">Group centre</div>
+                <div class="diagram-tenants">
+                  <div class="tenant-block centre">Group HQ<br><small style="font-size:0.7rem;font-weight:400;opacity:0.8">Aggregated KPIs only</small></div>
+                </div>
+              </div>
+              <div class="diagram-wall"><span>ISOLATION LAYER — no cross-tenant data access</span></div>
+              <div class="diagram-row">
+                <div class="diagram-label">Subsidiaries</div>
+                <div class="diagram-tenants">
+                  <div class="tenant-block active">Sub A<br><small style="font-size:0.7rem;font-weight:400;opacity:0.7">Own data only</small></div>
+                  <div class="tenant-block active">Sub B<br><small style="font-size:0.7rem;font-weight:400;opacity:0.7">Own data only</small></div>
+                  <div class="tenant-block active">Sub C<br><small style="font-size:0.7rem;font-weight:400;opacity:0.7">Own data only</small></div>
+                  <div class="tenant-block active">Sub D<br><small style="font-size:0.7rem;font-weight:400;opacity:0.7">Own data only</small></div>
+                  <div class="tenant-block">Sub E<br><small style="font-size:0.7rem;font-weight:400;opacity:0.5">Future</small></div>
+                </div>
+              </div>
+              <div class="diagram-wall"><span>SHARED INFRASTRUCTURE — one server, one DPA, one monthly cost</span></div>
+              <div class="diagram-row">
+                <div class="diagram-label">Infrastructure</div>
+                <div class="diagram-tenants">
+                  <div class="tenant-block" style="text-align:left;padding: 0.65rem 1rem;">
+                    <span style="color:#e0e0e0;font-weight:600;">Dedicated UK server</span><br>
+                    <small style="color:var(--muted);font-size:0.76rem;">Single AI model instance · Role-based access per tenant · Centralised audit logging · One DPA</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p>Within this architecture, a staff member at Subsidiary A has no technical ability to query, retrieve, or even discover that data belonging to Subsidiary B exists on the same system. Tenants are isolated at the data layer — not just at the UI layer. There is no configuration error or permission escalation that bridges them.</p>
+
+          <p>The group centre operates through a separate access tier that sees only pre-defined aggregated metrics — operational KPIs, productivity indices, output volumes. The group centre cannot read subsidiary-level documents, client data, or internal communications. It sees dashboards, not databases.</p>
+
+          <hr>
+
+          <h2>What Each Layer of the Holding Group Gets</h2>
+
+          <div class="scenario-grid" aria-label="Access by group level">
+            <div class="scenario-card">
+              <span class="scenario-icon" aria-hidden="true">🏢</span>
+              <div class="scenario-title">Group Centre</div>
+              <div class="scenario-desc">Consolidated operational dashboards across all subsidiaries. Anonymised performance comparisons. Group-level policy document generation. Board reporting drafts. No access to subsidiary-level raw data.</div>
+            </div>
+            <div class="scenario-card">
+              <span class="scenario-icon" aria-hidden="true">🏭</span>
+              <div class="scenario-title">Subsidiary Management</div>
+              <div class="scenario-desc">Full AI assistant for their entity: document drafting, client communications, operational reporting, internal knowledge base — configured with their sector, processes, and data. Cannot see other subsidiaries.</div>
+            </div>
+            <div class="scenario-card">
+              <span class="scenario-icon" aria-hidden="true">👩‍💼</span>
+              <div class="scenario-title">Subsidiary Staff</div>
+              <div class="scenario-desc">AI assistant for day-to-day tasks within their role and permissions. Access scoped by function — commercial staff see commercial context; operations staff see operational context. No cross-departmental data leakage.</div>
+            </div>
+            <div class="scenario-card">
+              <span class="scenario-icon" aria-hidden="true">⚙️</span>
+              <div class="scenario-title">Group IT / Admin</div>
+              <div class="scenario-desc">Centralised user management for all tenants from a single admin panel. Add users, change roles, onboard new subsidiaries, run audit log reviews — without needing to manage separate subscriptions.</div>
+            </div>
+          </div>
+
+          <hr>
+
+          <h2>The GDPR Position for Holding Groups Using Shared AI</h2>
+
+          <p>UK GDPR treats each subsidiary as a separate data controller — even when they are 100% owned by the same parent. This has direct implications for how data can be shared between entities, and how joint processing arrangements must be documented.</p>
+
+          <p>When subsidiaries share an AI infrastructure with tenant isolation, they are not sharing data — they are sharing infrastructure. This is the same as subsidiaries sharing a data centre, shared IT management, or a common email platform. The legal position is clean: each subsidiary processes its own data, using infrastructure provided under a shared service arrangement, governed by the DPA between the holding group and the AI provider.</p>
+
+          <div class="info-callout">
+            <strong>What this means for your Article 28 DPA:</strong> A single Data Processing Agreement between the holding group entity and First Touch covers all subsidiary tenants. The DPA documents the processing activities, data categories, retention periods, and security measures at the infrastructure level. Subsidiaries do not need separate DPAs. Group legal teams consistently find this significantly simpler than managing five or six separate DPAs with five or six separate SaaS vendors.
+          </div>
+
+          <p>The one scenario that requires additional documentation: if the group centre access tier aggregates data that includes personal data from subsidiaries — for example, HR metrics at entity level — a joint controller arrangement under Article 26 may apply, requiring a documented arrangement between the group entity and each subsidiary covering the scope of joint processing. In most operational deployments, group-centre aggregation is limited to non-personal operational KPIs, which avoids this entirely.</p>
+
+          <hr>
+
+          <h2>Five Operational Benefits That Are Specific to Holding Groups</h2>
+
+          <div class="benefit-list" role="list">
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-num" aria-hidden="true">1</div>
+              <div class="benefit-content">
+                <div class="benefit-title">Standardised Capability Across the Portfolio</div>
+                <div class="benefit-desc">Every subsidiary gets the same AI capability baseline simultaneously — not sequentially, not based on which entity has the most capable IT team. New acquisitions are onboarded as a new tenant in hours, not months. The holding group can drive productivity improvement portfolio-wide from a single deployment decision.</div>
+              </div>
+            </div>
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-num" aria-hidden="true">2</div>
+              <div class="benefit-content">
+                <div class="benefit-title">Consolidated Governance Without Micromanagement</div>
+                <div class="benefit-desc">The group centre can see that AI is being used productively across entities — usage volumes, task categories, output rates — without reading subsidiary communications or accessing client data. This gives group governance the oversight it needs without the compliance complications of full access.</div>
+              </div>
+            </div>
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-num" aria-hidden="true">3</div>
+              <div class="benefit-content">
+                <div class="benefit-title">Shared Knowledge That Doesn't Violate Confidentiality</div>
+                <div class="benefit-desc">Group-wide knowledge — company policies, compliance frameworks, HR procedures, shared methodologies — can be deployed to all subsidiary tenants simultaneously, without subsidiaries seeing each other's operating data. Group updates to shared knowledge propagate instantly across the portfolio.</div>
+              </div>
+            </div>
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-num" aria-hidden="true">4</div>
+              <div class="benefit-content">
+                <div class="benefit-title">Significantly Lower Total Cost Than Per-Entity SaaS</div>
+                <div class="benefit-desc">Adding a new subsidiary tenant to an existing private AI deployment costs nothing in additional licensing. Compare this to adding another 50-seat enterprise SaaS subscription, with another billing relationship, another admin overhead, another renewal negotiation. The cost advantage compounds with every entity added to the portfolio.</div>
+              </div>
+            </div>
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-num" aria-hidden="true">5</div>
+              <div class="benefit-content">
+                <div class="benefit-title">M&amp;A Readiness — Onboard Acquisitions Without IT Projects</div>
+                <div class="benefit-desc">When the group acquires a new company, giving them AI capability is a configuration task, not an IT project. A new tenant is provisioned with the acquisition's sector knowledge, operating procedures, and team access in the same deployment. Due diligence can immediately begin using the AI to process documents, not waiting for separate tooling to be procured.</div>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <h2>Tenant Isolation vs. Separate Deployments: The Practical Comparison</h2>
+
+          <div class="compare-wrap">
+            <table class="compare-table" aria-label="Tenant isolation vs separate deployments">
+              <thead>
+                <tr>
+                  <th>Factor</th>
+                  <th>Separate SaaS per entity</th>
+                  <th>Tenant-isolated private deployment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Data isolation</td>
+                  <td><span class="icon-x">✗</span> Depends on provider configuration; not guaranteed</td>
+                  <td><span class="icon-ok">✓</span> Enforced at data layer; architecturally guaranteed</td>
+                </tr>
+                <tr>
+                  <td>Group-level visibility</td>
+                  <td><span class="icon-x">✗</span> None — separate systems, no consolidated view</td>
+                  <td><span class="icon-ok">✓</span> Aggregated KPI tier built in</td>
+                </tr>
+                <tr>
+                  <td>Cost as portfolio grows</td>
+                  <td><span class="icon-x">✗</span> Linear — each entity pays full subscription cost</td>
+                  <td><span class="icon-ok">✓</span> Fixed infrastructure cost; tenants add at zero marginal cost</td>
+                </tr>
+                <tr>
+                  <td>DPA management</td>
+                  <td><span class="icon-x">✗</span> One DPA per entity per vendor</td>
+                  <td><span class="icon-ok">✓</span> Single DPA covers all entities</td>
+                </tr>
+                <tr>
+                  <td>Shared knowledge deployment</td>
+                  <td><span class="icon-x">✗</span> Manual — update each entity separately</td>
+                  <td><span class="icon-ok">✓</span> Group layer propagates to all tenants simultaneously</td>
+                </tr>
+                <tr>
+                  <td>New acquisition onboarding</td>
+                  <td><span class="icon-x">✗</span> New procurement, contract, admin setup</td>
+                  <td><span class="icon-ok">✓</span> New tenant provisioned in hours</td>
+                </tr>
+                <tr>
+                  <td>Data residency control</td>
+                  <td><span class="icon-x">✗</span> Varies per vendor</td>
+                  <td><span class="icon-ok">✓</span> Single UK/EU server; total control</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr>
+
+          <h2>A Typical Holding Group Deployment Timeline</h2>
+
+          <p>A holding group with four to six subsidiaries typically goes from initial conversation to full portfolio deployment in three to four weeks. The process runs in parallel across entities rather than sequentially.</p>
+
+          <p><strong>Week 1 — Infrastructure and group configuration:</strong> Dedicated UK server provisioned, DPA executed, group centre access tier configured, shared knowledge layer loaded with group-wide policies and frameworks.</p>
+
+          <p><strong>Week 2 — Subsidiary tenant configuration:</strong> Each subsidiary tenant configured in parallel — sector knowledge, operating procedures, role-based access controls, initial document libraries. Subsidiary management invited for review.</p>
+
+          <p><strong>Week 3 — Staff onboarding across entities:</strong> Phased rollout by function across subsidiaries. Each entity's management team leads their own adoption. Group IT has consolidated user management visibility from day one.</p>
+
+          <p><strong>Week 4 onwards — Group governance activated:</strong> Group centre begins receiving aggregated operational reports. New subsidiaries or divisions onboarded as additional tenants as needed.</p>
+
+          <div class="cta-box">
+            <h3>One AI system across your entire portfolio</h3>
+            <p>First Touch designs and deploys tenant-isolated AI infrastructure for UK holding groups — full subsidiary data isolation, group-level governance visibility, single DPA, UK data residency. Ready to discuss your portfolio structure.</p>
+            <a class="btn" href="https://firsttouch.app#pricing" data-plausible-event-name="cta_click" data-plausible-props='{"location":"blog_holding_groups_multi_entity"}'>Book a Group Assessment Call</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+              <div class="faq-q">Can a holding group deploy one AI system across all subsidiaries?</div>
+              <div class="faq-a">Yes — using a tenant-isolated architecture. Each subsidiary operates in a separate, logically isolated environment within the same AI infrastructure. A member of staff at Subsidiary A cannot access, query, or retrieve data belonging to Subsidiary B. The holding group centre can access aggregated operational data across all entities, without seeing subsidiary-level confidential content.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">What is the GDPR risk of a shared AI platform across multiple portfolio companies?</div>
+              <div class="faq-a">If separate legal entities within a holding structure use a shared AI platform without proper data isolation, data from one entity may be inadvertently accessible by staff of another. Each subsidiary is a separate data controller under UK GDPR. Commingling their data — even accidentally — can create unlawful data sharing between controllers, with ICO enforcement risk for each entity involved.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">How does the holding group centre access performance data without breaching subsidiary data rules?</div>
+              <div class="faq-a">The group centre access layer operates on aggregated, anonymised operational metrics — KPIs, productivity indices, output volumes — rather than on raw subsidiary data. Group-level reporting is generated within the AI system using pre-defined aggregation rules, ensuring the centre sees performance insight without accessing individual staff communications, client data, or operational records belonging to subsidiaries.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Is it cheaper to run one shared AI system than separate subscriptions per subsidiary?</div>
+              <div class="faq-a">Significantly cheaper. A single dedicated AI infrastructure deployment scales across all subsidiaries without per-seat or per-entity SaaS cost multiplication. A holding group running five portfolio companies on separate enterprise SaaS AI subscriptions typically pays five times the licensing cost, five times the admin overhead, and has no consolidated governance view. A shared private deployment eliminates that duplication.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">What happens when the group acquires a new company?</div>
+              <div class="faq-a">A new subsidiary tenant is provisioned on the existing infrastructure — typically within a working day. The new entity receives its own isolated environment, configured with their sector and operating context. No new vendor contracts, no new procurement process, no separate DPA required. Group IT retains consolidated management visibility from the first day of operation.</div>
+            </div>
+          </div>
+
+          <div class="author-box">
+            <div class="author-avatar-lg" aria-hidden="true">JH</div>
+            <div>
+              <div class="author-name">James Harrington</div>
+              <div class="author-role">Founder, First Touch</div>
+              <div class="author-bio">James works with UK holding groups, private equity portfolio companies, and multi-entity businesses to deploy AI infrastructure that scales across the portfolio without creating data governance or compliance exposure. Reach him directly at <a href="mailto:james@firsttouch.app">james@firsttouch.app</a>.</div>
+            </div>
+          </div>
+
+        </div><!-- /.article-body -->
+      </article>
+    </div><!-- /.container -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="brand" href="https://firsttouch.app" aria-label="First Touch home">
+        <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="url(#hgf)"/>
+          <path d="M10 16 L16 10 L22 16 L16 22 Z" fill="white" opacity="0.9"/>
+          <defs>
+            <linearGradient id="hgf" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#9301bb"/><stop offset="1" stop-color="#c05df0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        First Touch
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://firsttouch.app/case-studies">Case Studies</a>
+        <a href="https://firsttouch.app/pilot">Pilot Programme</a>
+        <a href="https://firsttouch.app/blog">Blog</a>
+        <a href="https://firsttouch.app/privacy.html">Privacy</a>
+        <a href="https://firsttouch.app/terms.html">Terms</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 First Touch. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
