@@ -198,6 +198,14 @@
     <priority>0.65</priority>
   </url>
 
+  <!-- Target: ai for consulting firms, management consulting client data, private ai for consultants uk — 840/mo combined -->
+  <url>
+    <loc>https://firsttouch.app/blog/consulting-firms-ai-client-data</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- Target: ai for freight operators uk, logistics ai compliance, dvsa compliance ai, cmr documentation ai — 780/mo combined -->
   <url>
     <loc>https://firsttouch.app/blog/logistics-freight-ai-compliance</loc>
