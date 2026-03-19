@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Why Data Sovereignty Is Non-Negotiable for UK Professional Services Firms | First Touch</title>
+  <meta name="description" content="UK professional services firms hold some of the most commercially sensitive client data in existence. Here's why data sovereignty matters — and how on-premise AI protects it.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="First Touch">
+
+  <link rel="canonical" href="https://firsttouch.app/blog/professional-services-data-sovereign-ai">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="Why Data Sovereignty Is Non-Negotiable for UK Professional Services Firms">
+  <meta property="og:description" content="Client confidentiality is contractual, legal, and reputational. Most public AI tools aren't built for it. Here's the data-sovereign alternative.">
+  <meta property="og:url" content="https://firsttouch.app/blog/professional-services-data-sovereign-ai">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+  <meta property="article:published_time" content="2026-03-28T00:00:00Z">
+  <meta property="article:author" content="James Harrington">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why Data Sovereignty Is Non-Negotiable for UK Professional Services Firms",
+    "description": "Client confidentiality is contractual, legal, and reputational. Most public AI tools aren't built for it. Here's the data-sovereign alternative.",
+    "datePublished": "2026-03-28",
+    "dateModified": "2026-03-28",
+    "author": { "@type": "Person", "name": "James Harrington" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "First Touch",
+      "url": "https://firsttouch.app"
+    },
+    "url": "https://firsttouch.app/blog/professional-services-data-sovereign-ai",
+    "mainEntityOfPage": "https://firsttouch.app/blog/professional-services-data-sovereign-ai"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://firsttouch.app" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://firsttouch.app/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Data Sovereignty for Professional Services", "item": "https://firsttouch.app/blog/professional-services-data-sovereign-ai" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why can't professional services firms use ChatGPT for client work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Public AI platforms process inputs on external servers. For professional services firms, client data is protected by NDAs, GDPR data processor obligations, and professional conduct rules. Transmitting client information to a platform without a signed Data Processing Agreement is a breach of those obligations — regardless of intent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is data sovereignty in the context of AI tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Data sovereignty means your data stays within infrastructure you control — not processed on shared external cloud platforms. For professional services firms, this means an AI assistant that runs on a dedicated server in a UK or EU data centre, never transmitting client data outside your environment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does on-premise AI differ from Microsoft Copilot for professional services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Microsoft Copilot processes data within Microsoft's cloud infrastructure under Microsoft's data handling terms. It does not provide per-client data isolation, meaning data from multiple engagements may co-mingle. An on-premise AI assistant runs entirely within your own infrastructure, with full audit control and per-engagement data separation."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.08);
+      --text: #e8e8e8;
+      --muted: #9ca3af;
+      --accent: #c05df0;
+      --accent-dark: #9301bb;
+      --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Geist Mono', ui-monospace, monospace;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .bg-noise {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+    }
+    .bg-gradient {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(147,1,187,0.15) 0%, transparent 70%);
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+    .container--wide { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+
+    /* HEADER */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-wrap {
+      max-width: 960px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--text); font-weight: 700; font-size: 1.05rem; }
+    .brand-icon { width: 28px; height: 28px; flex-shrink: 0; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.55rem 1.25rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      color: #fff; white-space: nowrap;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-sm { padding: 0.45rem 1rem; font-size: 0.85rem; }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      padding: 1.25rem 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { margin: 0 0.4rem; }
+
+    /* ARTICLE HERO */
+    .article-hero { padding: 2.5rem 0 2rem; }
+    .article-tag {
+      display: inline-block;
+      font-size: 0.78rem; font-weight: 600; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.65rem, 4vw, 2.4rem);
+      font-weight: 800; line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .article-lead {
+      font-size: 1.1rem; color: #c8c8c8; line-height: 1.7;
+      max-width: 640px; margin-bottom: 1.5rem;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 1.25rem;
+      font-size: 0.82rem; color: var(--muted);
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .article-meta-author { display: flex; align-items: center; gap: 0.5rem; }
+    .author-avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+
+    /* ARTICLE BODY */
+    .article-body { padding: 0 0 3rem; }
+    .article-body h2 {
+      font-size: 1.4rem; font-weight: 700; margin: 2.5rem 0 1rem;
+      letter-spacing: -0.01em; color: #f0f0f0;
+    }
+    .article-body h3 {
+      font-size: 1.1rem; font-weight: 600; margin: 1.75rem 0 0.75rem;
+      color: #e0e0e0;
+    }
+    .article-body p { margin-bottom: 1.2rem; color: #d0d0d0; }
+    .article-body ul, .article-body ol {
+      margin: 0.75rem 0 1.25rem 1.5rem; color: #d0d0d0;
+    }
+    .article-body li { margin-bottom: 0.5rem; line-height: 1.65; }
+    .article-body strong { color: #f0f0f0; font-weight: 600; }
+    .article-body hr {
+      border: none; border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* STAT GRID */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .stat-number {
+      display: block;
+      font-size: 1.9rem; font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.8rem; color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* OBLIGATION LIST */
+    .obligation-list {
+      margin: 1.5rem 0;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .obligation-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+    .obligation-num {
+      flex-shrink: 0;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; color: #fff;
+    }
+    .obligation-content { flex: 1; min-width: 0; }
+    .obligation-title { font-weight: 600; color: #f0f0f0; margin-bottom: 0.2rem; font-size: 0.95rem; }
+    .obligation-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+
+    /* RISK CALLOUT */
+    .risk-callout {
+      background: rgba(220, 38, 38, 0.07);
+      border: 1px solid rgba(220, 38, 38, 0.25);
+      border-left: 3px solid rgba(220, 38, 38, 0.7);
+      border-radius: 8px;
+      padding: 1.1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+      color: #f0c0c0;
+      line-height: 1.6;
+    }
+    .risk-callout strong { color: #fca5a5; }
+
+    /* SOLUTION GRID */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.75rem 0;
+    }
+    .solution-item {
+      background: rgba(147,1,187,0.06);
+      border: 1px solid rgba(147,1,187,0.2);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+    }
+    .solution-icon {
+      font-size: 1.3rem; margin-bottom: 0.5rem; display: block;
+    }
+    .solution-title { font-weight: 600; font-size: 0.9rem; color: #f0f0f0; margin-bottom: 0.35rem; }
+    .solution-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+
+    /* CTA BOX */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(147,1,187,0.12), rgba(147,1,187,0.06));
+      border: 1px solid rgba(147,1,187,0.3);
+      border-radius: 14px;
+      padding: 2rem 2rem;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .cta-box h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; color: #f0f0f0; }
+    .cta-box p { font-size: 0.92rem; color: var(--muted); margin-bottom: 1.25rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-box .btn { display: inline-flex; }
+
+    /* AUTHOR BOX */
+    .author-box {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .author-avatar-lg {
+      width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+    }
+    .author-name { font-weight: 700; color: #f0f0f0; margin-bottom: 0.2rem; }
+    .author-role { font-size: 0.82rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .author-bio { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+
+    /* FAQ */
+    .faq-section { margin: 2.5rem 0; }
+    .faq-section h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; color: #f0f0f0; }
+    .faq-item {
+      border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden; margin-bottom: 0.75rem;
+    }
+    .faq-q {
+      padding: 1rem 1.25rem; font-weight: 600; font-size: 0.95rem;
+      color: #e8e8e8; background: var(--surface);
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      list-style: none;
+    }
+    .faq-q::after { content: "+"; color: var(--accent); font-size: 1.2rem; flex-shrink: 0; margin-left: 0.75rem; }
+    .faq-a {
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem; color: var(--muted); line-height: 1.65;
+      border-top: 1px solid var(--border);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 3rem;
+      position: relative; z-index: 1;
+    }
+    .footer-inner {
+      max-width: 960px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+
+    @media (max-width: 600px) {
+      .article-hero h1 { font-size: 1.55rem; }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+      .author-box { flex-direction: column; }
+      .cta-box { padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="nav-wrap">
+      <a class="brand" href="https://firsttouch.app" aria-label="First Touch home">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="url(#g)"/>
+          <path d="M10 16 L16 10 L22 16 L16 22 Z" fill="white" opacity="0.9"/>
+          <defs><linearGradient id="g" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#9301bb"/><stop offset="1" stop-color="#c05df0"/></linearGradient></defs>
+        </svg>
+        <span class="brand-text">First Touch</span>
+      </a>
+      <a class="btn btn-sm" href="https://firsttouch.app#pricing">Book 15-min Assessment</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="https://firsttouch.app">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="https://firsttouch.app/blog">Blog</a>
+        <span aria-hidden="true">›</span>
+        <span>Data Sovereignty for Professional Services</span>
+      </nav>
+    </div>
+
+    <article class="article-body">
+      <div class="container">
+        <header class="article-hero">
+          <span class="article-tag">Professional Services &amp; Data Sovereignty</span>
+          <h1>Why Data Sovereignty Is Non-Negotiable for UK Professional Services Firms</h1>
+          <p class="article-lead">Your clients trust you with their most sensitive commercial data. Public AI tools weren't built for that responsibility. Here's why data sovereignty belongs at the centre of any AI decision your firm makes — and what it looks like in practice.</p>
+          <div class="article-meta">
+            <div class="article-meta-author">
+              <div class="author-avatar" aria-hidden="true">JH</div>
+              <span>James Harrington</span>
+            </div>
+            <time datetime="2026-03-28">28 March 2026</time>
+            <span>8 min read</span>
+          </div>
+        </header>
+
+        <div class="stat-grid" aria-label="Key statistics">
+          <div class="stat-card">
+            <span class="stat-number">73%</span>
+            <span class="stat-label">of professional services firms have no formal AI data policy</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">£17.5M</span>
+            <span class="stat-label">maximum ICO fine for serious UK GDPR breaches</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">of public AI platforms retain session data under standard terms</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">3 mins</span>
+            <span class="stat-label">for a staff member to inadvertently expose NDA-protected client data</span>
+          </div>
+        </div>
+
+        <p>Professional services firms — management consultants, financial advisers, strategy houses, HR consultancies, IT service providers — are, almost by definition, custodians of other organisations' confidential information. Contracts, restructuring plans, financial models, employee data, M&amp;A strategy: the entire business model depends on clients trusting you with things they would not share freely.</p>
+
+        <p>AI tools change the risk profile of that custodianship dramatically. Not because AI is inherently risky — but because the way most firms are adopting AI today creates a gap between what they promise clients and what their systems actually do with client data.</p>
+
+        <p>This post sets out why data sovereignty must be the governing principle for any AI deployment in a professional services firm, what UK law requires, and how the problem is solved without sacrificing the productivity gains AI delivers.</p>
+
+        <hr>
+
+        <h2>What Happens When Staff Use Public AI Tools for Client Work</h2>
+
+        <p>The adoption pattern is consistent across firms. A consultant discovers that Claude, ChatGPT, or Microsoft Copilot can draft a client report section, summarise a competitor analysis, or restructure a financial model narrative in minutes. They use it. Then their colleagues use it. Within weeks, client data is moving through public AI infrastructure — without the firm's knowledge, without a DPA in place, and without any record of what was sent where.</p>
+
+        <div class="risk-callout">
+          <strong>What actually happens to the data:</strong> When a staff member pastes a client's internal financial projections, board paper extract, or employee survey results into a public AI platform, that information is transmitted to and processed on the platform provider's servers. Under standard terms, the provider may retain inputs for model training or abuse monitoring, may process data in jurisdictions outside the UK, and gives no contractual guarantee about how long the data is retained or who can access it internally.
+        </div>
+
+        <p>For a consulting firm operating under NDAs, engagement letters, and UK GDPR as data controller, this is not an acceptable baseline — regardless of how convenient the tool is.</p>
+
+        <hr>
+
+        <h2>Three Legal Obligations That Public AI Fails to Meet</h2>
+
+        <div class="obligation-list" role="list">
+          <div class="obligation-item" role="listitem">
+            <div class="obligation-num" aria-hidden="true">1</div>
+            <div class="obligation-content">
+              <div class="obligation-title">Data Processing Agreements</div>
+              <div class="obligation-desc">Under UK GDPR Article 28, if your firm sends client personal data to a third-party processor, you must have a signed DPA before processing begins. Standard consumer and SME tiers of public AI platforms do not offer DPAs to individual users or small business accounts. You cannot lawfully process client personal data through them.</div>
+            </div>
+          </div>
+          <div class="obligation-item" role="listitem">
+            <div class="obligation-num" aria-hidden="true">2</div>
+            <div class="obligation-content">
+              <div class="obligation-title">Contractual Confidentiality Obligations</div>
+              <div class="obligation-desc">Most professional services engagements are governed by NDAs and confidentiality clauses. When a staff member transmits client data to an external platform, those contractual obligations are breached — regardless of whether a breach is ever discovered or whether harm results. Exposure does not require a headline-grabbing incident; it requires a clause being violated.</div>
+            </div>
+          </div>
+          <div class="obligation-item" role="listitem">
+            <div class="obligation-num" aria-hidden="true">3</div>
+            <div class="obligation-content">
+              <div class="obligation-title">International Data Transfer Restrictions</div>
+              <div class="obligation-desc">UK GDPR restricts transfers of personal data to countries outside the UK/EEA unless specific safeguards apply. Most major AI platforms are US-based. While Standard Contractual Clauses can address transfers, public AI consumer services do not routinely provide these. Firms using them for client data processing may have no lawful transfer mechanism in place.</div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <h2>The Enterprise Tier Does Not Fully Solve This</h2>
+
+        <p>A common response from firms that have thought about this is: "We use the enterprise version — that's compliant."</p>
+
+        <p>Enterprise tiers of public AI platforms offer improvements: typically a commitment not to use your data for model training, and sometimes a DPA available on request. They do not resolve every problem professional services firms face.</p>
+
+        <ul>
+          <li><strong>Data still leaves your environment.</strong> Even enterprise-tier SaaS AI processes data on the provider's cloud infrastructure. You have a contractual commitment about how it's handled — not architectural control over where it goes.</li>
+          <li><strong>No per-client isolation.</strong> If your firm uses a shared enterprise AI subscription, data from different client engagements passes through the same infrastructure. For firms where client A must never know what client B is working on, shared infrastructure creates commingling risk — even if it's not visible.</li>
+          <li><strong>Your DPA is with the provider, not your client.</strong> Your client's confidentiality expectation is not satisfied by your agreement with Microsoft or Anthropic. Your client expects their data stays with you — not that it's being processed by a third party they've never contracted with.</li>
+          <li><strong>Audit trail is limited.</strong> When clients or regulators ask what happened to their data, enterprise SaaS terms give you limited ability to produce a complete audit trail of what was processed, when, and by whom.</li>
+        </ul>
+
+        <hr>
+
+        <h2>What Data Sovereignty Actually Looks Like in Practice</h2>
+
+        <p>Data sovereignty in the context of professional services AI means one thing: your client data is processed on infrastructure you control, not on infrastructure a third party operates on your behalf.</p>
+
+        <p>In practice, this means deploying an AI assistant on a dedicated server — either in your own data centre or in a UK or EU cloud instance that runs exclusively for your firm — with no data leaving that environment to be processed externally.</p>
+
+        <div class="solution-grid" aria-label="Data-sovereign AI capabilities">
+          <div class="solution-item">
+            <span class="solution-icon" aria-hidden="true">🏗️</span>
+            <div class="solution-title">Dedicated infrastructure</div>
+            <div class="solution-desc">Runs on a server allocated solely to your firm. No shared compute, no commingling with other organisations' data.</div>
+          </div>
+          <div class="solution-item">
+            <span class="solution-icon" aria-hidden="true">🔒</span>
+            <div class="solution-title">Full DPA coverage</div>
+            <div class="solution-desc">A signed Data Processing Agreement is executed before any configuration begins, covering Article 28 obligations, retention, and sub-processors.</div>
+          </div>
+          <div class="solution-item">
+            <span class="solution-icon" aria-hidden="true">📁</span>
+            <div class="solution-title">Per-engagement isolation</div>
+            <div class="solution-desc">Role-based access controls ensure that work product for Client A is only accessible to the team working on Client A — never visible to other engagements.</div>
+          </div>
+          <div class="solution-item">
+            <span class="solution-icon" aria-hidden="true">🧠</span>
+            <div class="solution-title">Firm knowledge layer</div>
+            <div class="solution-desc">The assistant can be configured with your own methodologies, templates, frameworks, and sector knowledge — producing output that reflects your firm's approach, not generic internet content.</div>
+          </div>
+          <div class="solution-item">
+            <span class="solution-icon" aria-hidden="true">📋</span>
+            <div class="solution-title">Audit trail</div>
+            <div class="solution-desc">Every query and response is logged within your infrastructure. When a client or regulator asks what happened with their data, you can answer precisely.</div>
+          </div>
+          <div class="solution-item">
+            <span class="solution-icon" aria-hidden="true">🌍</span>
+            <div class="solution-title">UK/EU data residency</div>
+            <div class="solution-desc">Data stays in UK or EU jurisdiction by default — eliminating international transfer compliance complexity entirely.</div>
+          </div>
+        </div>
+
+        <hr>
+
+        <h2>The Competitive Argument, Not Just the Compliance Argument</h2>
+
+        <p>Data sovereignty is not just a risk management question. It is increasingly a commercial differentiator.</p>
+
+        <p>Enterprise clients — particularly those in regulated industries — are beginning to ask their professional services providers directly: "What AI tools does your firm use, and where does our data go?" Firms that can answer this question precisely, with a documented architecture and signed DPA, are winning that conversation. Firms that can't are losing mandates to competitors who can.</p>
+
+        <p>A data-sovereign AI deployment lets your firm tell clients honestly that their data never leaves your controlled environment — and back that claim with documentation. That is not a minor compliance checkbox. For clients in financial services, healthcare, or legal, it is a material factor in supplier selection.</p>
+
+        <p>The productivity benefit is separate from and additional to the compliance benefit. A private AI assistant configured with your firm's methodology, sector knowledge, and document templates gives your consultants, analysts, and advisers a tool that actually knows your business — not a generic chatbot they have to re-explain their context to every session.</p>
+
+        <div class="cta-box">
+          <h3>Deploy AI your clients can trust</h3>
+          <p>First Touch deploys private, data-sovereign AI assistants for UK professional services firms. Full DPA on day one, UK data residency, per-engagement isolation, and your firm's knowledge baked in.</p>
+          <a class="btn" href="https://firsttouch.app#pricing" data-plausible-event-name="cta_click" data-plausible-props='{"location":"blog_ps_data_sovereignty"}'>Book a 15-Minute Assessment</a>
+        </div>
+
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <div class="faq-q">Why can't professional services firms use ChatGPT for client work?</div>
+            <div class="faq-a">Public AI platforms process inputs on external servers. For professional services firms, client data is protected by NDAs, GDPR data processor obligations, and professional conduct rules. Transmitting client information to a platform without a signed Data Processing Agreement is a breach of those obligations — regardless of intent.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What is data sovereignty in the context of AI tools?</div>
+            <div class="faq-a">Data sovereignty means your data stays within infrastructure you control — not processed on shared external cloud platforms. For professional services firms, this means an AI assistant that runs on a dedicated server in a UK or EU data centre, never transmitting client data outside your environment.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How does on-premise AI differ from Microsoft Copilot for professional services?</div>
+            <div class="faq-a">Microsoft Copilot processes data within Microsoft's cloud infrastructure under Microsoft's data handling terms. It does not provide per-client data isolation, meaning data from multiple engagements may co-mingle. An on-premise AI assistant runs entirely within your own infrastructure, with full audit control and per-engagement data separation.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Do we need to tell clients we're using AI?</div>
+            <div class="faq-a">Where client personal data is processed using AI tools, UK GDPR transparency obligations apply — clients should be informed about processing activities. A data-sovereign deployment makes this conversation straightforward: you can describe exactly what runs, where, and under what controls, rather than directing clients to a third-party platform's privacy policy.</div>
+          </div>
+        </div>
+
+        <div class="author-box">
+          <div class="author-avatar-lg" aria-hidden="true">JH</div>
+          <div>
+            <div class="author-name">James Harrington</div>
+            <div class="author-role">Founder, First Touch</div>
+            <div class="author-bio">James works with UK professional services firms, holding groups, and regulated businesses to deploy private AI infrastructure that meets their compliance obligations without compromising on capability. Contact him directly at <a href="mailto:james@firsttouch.app" style="color: var(--accent); text-decoration: none;">james@firsttouch.app</a>.</div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="brand" href="https://firsttouch.app">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" height="24">
+          <rect width="32" height="32" rx="8" fill="url(#gf)"/>
+          <path d="M10 16 L16 10 L22 16 L16 22 Z" fill="white" opacity="0.9"/>
+          <defs><linearGradient id="gf" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#9301bb"/><stop offset="1" stop-color="#c05df0"/></linearGradient></defs>
+        </svg>
+        <span class="brand-text">First Touch</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://firsttouch.app/case-studies">Case Studies</a>
+        <a href="https://firsttouch.app/pilot">Pilot Programme</a>
+        <a href="https://firsttouch.app/privacy.html">Privacy</a>
+        <a href="https://firsttouch.app/terms.html">Terms</a>
+        <a href="https://firsttouch.app/blog">Blog</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 First Touch. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

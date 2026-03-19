@@ -198,6 +198,14 @@
     <priority>0.65</priority>
   </url>
 
+  <!-- Target: data sovereignty professional services, private ai for consultants uk — 720/mo combined -->
+  <url>
+    <loc>https://firsttouch.app/blog/professional-services-data-sovereign-ai</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- ===================== LEGAL ===================== -->
   <url>
     <loc>https://firsttouch.app/privacy</loc>
