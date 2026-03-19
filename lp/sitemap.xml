@@ -124,6 +124,14 @@
     <priority>0.75</priority>
   </url>
 
+  <!-- Target: gdpr compliant ai for uk healthcare, ai for private clinics uk — 640/mo combined -->
+  <url>
+    <loc>https://firsttouch.app/blog/ai-for-uk-healthcare</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- ===================== GUIDES ===================== -->
   <url>
     <loc>https://firsttouch.app/guides/</loc>
