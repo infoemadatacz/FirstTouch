@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>What UK Solicitors Can Actually Do With AI — Without Risking Their Practising Certificate | First Touch</title>
+  <meta name="description" content="AI can transform legal workflow productivity. But SRA Principles, legal professional privilege, and UK GDPR draw hard lines around how. Here's where they fall — and where private AI fits.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="First Touch">
+
+  <link rel="canonical" href="https://firsttouch.app/blog/law-firms-ai-legal-privilege">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="What UK Solicitors Can Actually Do With AI — Without Risking Their Practising Certificate">
+  <meta property="og:description" content="The SRA Code of Conduct draws hard lines around client confidentiality and data handling. Most AI tools cross them by default. Here's the compliant alternative.">
+  <meta property="og:url" content="https://firsttouch.app/blog/law-firms-ai-legal-privilege">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+  <meta property="article:published_time" content="2026-04-01T00:00:00Z">
+  <meta property="article:author" content="James Harrington">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What UK Solicitors Can Actually Do With AI — Without Risking Their Practising Certificate",
+    "description": "The SRA Code of Conduct draws hard lines around client confidentiality and data handling. Most AI tools cross them by default. Here's the compliant alternative.",
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-01",
+    "author": { "@type": "Person", "name": "James Harrington" },
+    "publisher": { "@type": "Organization", "name": "First Touch", "url": "https://firsttouch.app" },
+    "url": "https://firsttouch.app/blog/law-firms-ai-legal-privilege",
+    "mainEntityOfPage": "https://firsttouch.app/blog/law-firms-ai-legal-privilege"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://firsttouch.app" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://firsttouch.app/blog" },
+      { "@type": "ListItem", "position": 3, "name": "AI for UK Law Firms", "item": "https://firsttouch.app/blog/law-firms-ai-legal-privilege" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can UK solicitors use AI tools for client work under SRA rules?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, but with strict conditions. SRA Principle 6 requires solicitors to keep client affairs confidential. Any AI tool that transmits client information to external servers — without an appropriate Data Processing Agreement and client disclosure — risks breaching that obligation. Solicitors can use AI compliantly by deploying private, on-premise systems where client data never leaves the firm's controlled infrastructure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does using AI for legal work affect legal professional privilege?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Potentially yes. Legal professional privilege attaches to confidential communications between solicitor and client for the purpose of giving legal advice. If those communications are transmitted to a third-party AI platform, the confidentiality of the communication may be compromised, which can affect privilege. On-premise AI deployment avoids this issue because the communication stays within the firm's environment — no third party has access."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What AI tasks can solicitors perform without client data compliance risk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tasks that do not involve client-identifiable information carry minimal compliance risk: drafting precedent documents, researching general legal principles, generating non-matter-specific template letters, creating training materials, and producing internal policy documents. For tasks involving matter-specific client data — drafting client advice, summarising client documents, reviewing contracts — a data-sovereign deployment is required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the SRA say about law firms using AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The SRA has published guidance noting that the use of AI does not reduce a solicitor's professional obligations. Firms remain responsible for the accuracy of AI-generated output, must maintain appropriate supervision, and must not use tools that compromise client confidentiality. The SRA has also flagged that firms should have policies governing AI use and should be able to demonstrate compliance on request during regulatory visits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can a law firm deploy a compliant AI system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A standard First Touch deployment for a law firm takes 10 to 14 days from agreement to go-live. This includes server provisioning in a UK data centre, DPA execution, DPIA completion, AI use policy drafting, and knowledge base configuration with the firm's precedents, practice areas, and workflow templates. The full compliance documentation pack is available on the day of deployment."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: rgba(255,255,255,0.03);
+      --surface-2: rgba(255,255,255,0.055);
+      --border: rgba(255,255,255,0.08);
+      --border-mid: rgba(255,255,255,0.12);
+      --text: #e8e8e8;
+      --muted: #9ca3af;
+      --accent: #c05df0;
+      --accent-dark: #9301bb;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .bg-noise {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+    }
+    .bg-gradient {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse 80% 45% at 50% -5%, rgba(147,1,187,0.14) 0%, transparent 70%);
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+
+    /* HEADER */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    }
+    .nav-wrap {
+      max-width: 960px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none; color: var(--text); font-weight: 700; font-size: 1.05rem;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.55rem 1.25rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      transition: all 0.2s;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      color: #fff; white-space: nowrap; border: none; cursor: pointer;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-sm { padding: 0.45rem 1rem; font-size: 0.85rem; }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 1.25rem 0 0; font-size: 0.82rem; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { margin: 0 0.4rem; }
+
+    /* HERO */
+    .article-hero { padding: 2.5rem 0 1.75rem; }
+    .article-tag {
+      display: inline-block; font-size: 0.78rem; font-weight: 600;
+      color: var(--accent); text-transform: uppercase;
+      letter-spacing: 0.07em; margin-bottom: 1rem;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.7rem, 4.5vw, 2.55rem);
+      font-weight: 800; line-height: 1.17; letter-spacing: -0.025em;
+      margin-bottom: 1.25rem; color: #f2f2f2;
+    }
+    .article-lead {
+      font-size: 1.1rem; color: #c4c4c4; line-height: 1.7;
+      max-width: 640px; margin-bottom: 1.5rem;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 1.25rem;
+      font-size: 0.82rem; color: var(--muted);
+      padding-top: 1.25rem; border-top: 1px solid var(--border); flex-wrap: wrap;
+    }
+    .meta-author { display: flex; align-items: center; gap: 0.5rem; }
+    .author-pip {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.68rem; font-weight: 700; color: #fff;
+    }
+
+    /* BODY */
+    .article-body { padding: 0 0 3rem; }
+    .article-body h2 {
+      font-size: 1.45rem; font-weight: 700; margin: 2.75rem 0 1rem;
+      letter-spacing: -0.015em; color: #f0f0f0;
+    }
+    .article-body h3 {
+      font-size: 1.1rem; font-weight: 600; margin: 1.75rem 0 0.75rem; color: #e0e0e0;
+    }
+    .article-body p { margin-bottom: 1.2rem; color: #ccc; }
+    .article-body ul, .article-body ol { margin: 0.75rem 0 1.25rem 1.5rem; color: #ccc; }
+    .article-body li { margin-bottom: 0.5rem; line-height: 1.65; }
+    .article-body strong { color: #f0f0f0; font-weight: 600; }
+    .article-body a { color: var(--accent); text-decoration: none; }
+    .article-body a:hover { text-decoration: underline; }
+    .article-body hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+    /* STAT GRID */
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+      gap: 1rem; margin: 2rem 0;
+    }
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.25rem 1rem; text-align: center;
+    }
+    .stat-number {
+      display: block; font-size: 1.9rem; font-weight: 800;
+      color: var(--accent); line-height: 1; margin-bottom: 0.45rem;
+    }
+    .stat-label { font-size: 0.79rem; color: var(--muted); line-height: 1.4; }
+
+    /* SRA PRINCIPLE CARDS */
+    .principle-stack { display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0; }
+    .principle-card {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.25rem;
+    }
+    .principle-card.critical { border-color: rgba(220,38,38,0.3); background: rgba(220,38,38,0.04); }
+    .principle-num {
+      flex-shrink: 0; min-width: 52px; height: 28px;
+      border-radius: 6px; padding: 0 0.6rem;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; color: #fff; white-space: nowrap;
+    }
+    .principle-num.red {
+      background: rgba(220,38,38,0.18); color: #fca5a5;
+    }
+    .principle-content { flex: 1; min-width: 0; }
+    .principle-title { font-weight: 600; color: #f0f0f0; margin-bottom: 0.2rem; font-size: 0.94rem; }
+    .principle-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.55; }
+
+    /* WORKFLOW GRID */
+    .workflow-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      gap: 1rem; margin: 1.75rem 0;
+    }
+    .workflow-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem;
+      display: flex; flex-direction: column; gap: 0.45rem;
+    }
+    .workflow-card.live { border-color: rgba(192,93,240,0.3); background: rgba(147,1,187,0.07); }
+    .wf-icon { font-size: 1.35rem; }
+    .wf-title { font-weight: 700; font-size: 0.92rem; color: #f0f0f0; }
+    .wf-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.5; flex: 1; }
+    .wf-badge {
+      display: inline-block; font-size: 0.74rem; font-weight: 600;
+      padding: 0.15rem 0.6rem; border-radius: 20px; align-self: flex-start;
+    }
+    .badge-safe {
+      background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.22); color: #6ee7b7;
+    }
+    .badge-private {
+      background: rgba(147,1,187,0.1); border: 1px solid rgba(192,93,240,0.25); color: var(--accent);
+    }
+
+    /* PRIVILEGE EXPLAINER */
+    .privilege-box {
+      background: rgba(255,255,255,0.025); border: 1px solid var(--border-mid);
+      border-radius: 12px; padding: 1.5rem; margin: 1.75rem 0;
+    }
+    .privilege-box h3 { font-size: 1rem; font-weight: 700; color: #f0f0f0; margin-bottom: 1rem; }
+    .privilege-row {
+      display: flex; gap: 1rem; margin-bottom: 0.75rem; align-items: flex-start;
+    }
+    .privilege-row:last-child { margin-bottom: 0; }
+    .priv-icon {
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+    }
+    .priv-icon.ok { background: rgba(52,211,153,0.15); color: #6ee7b7; }
+    .priv-icon.bad { background: rgba(220,38,38,0.15); color: #f87171; }
+    .priv-text { font-size: 0.87rem; color: var(--muted); line-height: 1.55; }
+    .priv-text strong { color: #e0e0e0; }
+
+    /* CALLOUTS */
+    .risk-callout {
+      background: rgba(220,38,38,0.07); border: 1px solid rgba(220,38,38,0.22);
+      border-left: 3px solid rgba(220,38,38,0.7);
+      border-radius: 8px; padding: 1.1rem 1.25rem;
+      margin: 1.5rem 0; font-size: 0.91rem; color: #f0c0c0; line-height: 1.65;
+    }
+    .risk-callout strong { color: #fca5a5; }
+    .info-callout {
+      background: rgba(147,1,187,0.07); border: 1px solid rgba(147,1,187,0.22);
+      border-left: 3px solid rgba(192,93,240,0.7);
+      border-radius: 8px; padding: 1.1rem 1.25rem;
+      margin: 1.5rem 0; font-size: 0.91rem; color: #ddc8f0; line-height: 1.65;
+    }
+    .info-callout strong { color: #e4b5fa; }
+
+    /* COMPARE TABLE */
+    .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.75rem 0; }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; min-width: 520px; }
+    .compare-table thead tr { background: var(--surface-2); border-bottom: 1px solid var(--border); }
+    .compare-table th {
+      padding: 0.75rem 1rem; text-align: left;
+      font-weight: 600; color: #e0e0e0; white-space: nowrap;
+    }
+    .compare-table td {
+      padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--muted); vertical-align: top; line-height: 1.5;
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table td:first-child { color: #e0e0e0; font-weight: 500; }
+    .ix { color: #f87171; }
+    .ik { color: #6ee7b7; }
+
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(147,1,187,0.13), rgba(147,1,187,0.06));
+      border: 1px solid rgba(147,1,187,0.3);
+      border-radius: 14px; padding: 2.25rem 2rem;
+      margin: 2.5rem 0; text-align: center;
+    }
+    .cta-box h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.65rem; color: #f0f0f0; }
+    .cta-box p {
+      font-size: 0.92rem; color: var(--muted); margin-bottom: 1.35rem;
+      max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.65;
+    }
+    .cta-box .btn { display: inline-flex; }
+
+    /* AUTHOR */
+    .author-box {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem; margin: 2.5rem 0;
+    }
+    .author-avatar-lg {
+      width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+    }
+    .author-name { font-weight: 700; color: #f0f0f0; margin-bottom: 0.2rem; }
+    .author-role { font-size: 0.82rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .author-bio { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+
+    /* FAQ */
+    .faq-section { margin: 2.5rem 0; }
+    .faq-section > h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; color: #f0f0f0; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 0.75rem; }
+    .faq-q {
+      padding: 1rem 1.25rem; font-weight: 600; font-size: 0.95rem; color: #e8e8e8;
+      background: var(--surface); display: flex; justify-content: space-between;
+      align-items: center; gap: 0.75rem;
+    }
+    .faq-q::after { content: "+"; color: var(--accent); font-size: 1.2rem; flex-shrink: 0; }
+    .faq-a {
+      padding: 1rem 1.25rem; font-size: 0.9rem;
+      color: var(--muted); line-height: 1.65; border-top: 1px solid var(--border);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 1px solid var(--border); padding: 2rem 0;
+      margin-top: 3rem; position: relative; z-index: 1;
+    }
+    .footer-inner {
+      max-width: 960px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+
+    @media (max-width: 640px) {
+      .article-hero h1 { font-size: 1.6rem; }
+      .article-lead { font-size: 1rem; }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .workflow-grid { grid-template-columns: 1fr; }
+      .author-box { flex-direction: column; }
+      .cta-box { padding: 1.5rem 1.25rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="nav-wrap">
+      <a class="brand" href="https://firsttouch.app" aria-label="First Touch home">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="url(#hg1)"/>
+          <path d="M10 16 L16 10 L22 16 L16 22 Z" fill="white" opacity="0.9"/>
+          <defs>
+            <linearGradient id="hg1" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#9301bb"/><stop offset="1" stop-color="#c05df0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        First Touch
+      </a>
+      <a class="btn btn-sm" href="https://firsttouch.app#pricing" data-plausible-event-name="nav_cta_click">Book 15-min Assessment</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="https://firsttouch.app">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="https://firsttouch.app/blog">Blog</a>
+        <span aria-hidden="true">›</span>
+        <span>AI for UK Law Firms</span>
+      </nav>
+
+      <article>
+        <header class="article-hero">
+          <span class="article-tag">Legal &amp; Law Firms</span>
+          <h1>What UK Solicitors Can Actually Do With AI — Without Risking Their Practising Certificate</h1>
+          <p class="article-lead">AI can eliminate hours of legal drafting, research, and administration every day. But the SRA Code of Conduct, legal professional privilege, and UK GDPR draw hard lines around how client data can be handled. Most AI tools cross those lines without anyone in the firm realising. Here is a precise map of where the lines fall — and what compliant legal AI deployment looks like in practice.</p>
+          <div class="article-meta">
+            <div class="meta-author">
+              <div class="author-pip" aria-hidden="true">JH</div>
+              <span>James Harrington</span>
+            </div>
+            <time datetime="2026-04-01">1 April 2026</time>
+            <span>10 min read</span>
+          </div>
+        </header>
+
+        <div class="stat-grid" aria-label="Key statistics">
+          <div class="stat-card">
+            <span class="stat-number">68%</span>
+            <span class="stat-label">of law firm staff are already using AI tools for client work — often without firm policy</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">P.6</span>
+            <span class="stat-label">SRA Principle covering client confidentiality — breached by most public AI platforms</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">Art. 28</span>
+            <span class="stat-label">UK GDPR requiring a signed DPA before any third party processes client personal data</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">3.2 hrs</span>
+            <span class="stat-label">average daily admin overhead per fee-earner in UK law firms under 100 staff</span>
+          </div>
+        </div>
+
+        <div class="article-body">
+
+          <p>The productivity case for AI in legal practice is not subtle. Contract review that takes a solicitor two hours takes a well-configured AI assistant twelve minutes. A first-draft client advice letter that costs forty minutes of fee-earner time costs three. The research summary that a trainee spends an afternoon producing can be generated, checked, and ready for partner review in thirty minutes.</p>
+
+          <p>But law is a profession built on confidentiality. The moment a fee-earner pastes a client's matter into a public AI platform, they have potentially breached the SRA Code of Conduct, compromised legal professional privilege, and violated UK GDPR — simultaneously. The fact that they did not intend to, and that no visible harm resulted, does not change the legal or regulatory position.</p>
+
+          <p>This post sets out precisely what the obligations are, where most firms are going wrong without knowing it, and what a compliant AI deployment framework looks like for a UK law firm of any size.</p>
+
+          <hr>
+
+          <h2>The SRA Obligations That Every AI Decision Must Respect</h2>
+
+          <p>The SRA Code of Conduct for Solicitors and for Firms contains several Principles and rules that directly govern how AI tools can be used in legal practice. Three are particularly relevant to any firm considering or already using AI for client work.</p>
+
+          <div class="principle-stack" role="list">
+            <div class="principle-card critical" role="listitem">
+              <div class="principle-num red">SRA P.6</div>
+              <div class="principle-content">
+                <div class="principle-title">You keep the affairs of current and former clients confidential unless disclosure is required or permitted by law or the client consents</div>
+                <div class="principle-desc">This is absolute. There is no carve-out for "accidentally" transmitting client information to a third-party AI platform. Any AI tool that processes client matter data on external servers — without client consent and a valid legal basis — risks placing a solicitor in breach of this Principle, regardless of whether disclosure ever occurs or whether any harm results. The breach is the transmission, not the consequence.</div>
+              </div>
+            </div>
+            <div class="principle-card" role="listitem">
+              <div class="principle-num">SRA P.7</div>
+              <div class="principle-content">
+                <div class="principle-title">You act in the best interests of each client</div>
+                <div class="principle-desc">Using an AI tool that could expose client data to competitors, third parties, or regulators — even inadvertently — may not constitute acting in a client's best interests. Senior partners increasingly treat AI tool selection as a client care decision, not merely an IT decision. The question "does this tool protect my client's interests?" must be answered before deployment, not after an incident.</div>
+              </div>
+            </div>
+            <div class="principle-card" role="listitem">
+              <div class="principle-num">COC 4.4</div>
+              <div class="principle-content">
+                <div class="principle-title">You must not make misleading or inaccurate statements to clients</div>
+                <div class="principle-desc">AI-generated output must be reviewed for accuracy before it reaches a client. The SRA has explicitly stated that the use of AI does not reduce a solicitor's personal responsibility for the accuracy of advice or documents produced. Supervision of AI-generated output is a professional obligation, not a best practice. An AI assistant that produces an inaccurate legal summary and a solicitor who sends it to a client without checking it are together responsible for whatever follows.</div>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <h2>Legal Professional Privilege and the Third-Party Problem</h2>
+
+          <p>Legal professional privilege — both legal advice privilege and litigation privilege — protects confidential communications between solicitor and client from compelled disclosure. It is one of the most fundamental protections in the English legal system, and it depends entirely on the communications remaining confidential.</p>
+
+          <p>Privilege requires confidentiality. Communications that have been disclosed to a third party, or that are no longer confidential, may lose privilege protection. The legal position on whether transmitting client communications to an AI platform constitutes disclosure to a third party — sufficient to affect privilege — is not yet fully settled in English law. But the risk is real, courts are beginning to engage with it in discovery contexts, and the direction of travel is unfavourable to firms that have transmitted privileged communications to external platforms.</p>
+
+          <p>The practical test is straightforward: if an opposing party in litigation became aware that a solicitor had been processing client communications through a public AI platform, would they seek to argue that privilege had been waived? For an increasing number of aggressive commercial litigators, the answer is yes. The question for law firm partners is whether that argument should ever be available.</p>
+
+          <div class="privilege-box" aria-label="Privilege risk comparison by AI deployment type">
+            <h3>How AI deployment architecture affects privilege risk</h3>
+            <div class="privilege-row">
+              <div class="priv-icon bad" aria-label="Risk">✗</div>
+              <div class="priv-text"><strong>Public AI platform (ChatGPT, Copilot standard tiers):</strong> Client advice is transmitted to a third-party server. The platform provider processes the communication. Depending on terms, may retain it for varying periods. The third-party access argument is available to an opposing party who discovers the use. Privilege may be challengeable. SRA breach risk is significant on any matter-specific use.</div>
+            </div>
+            <div class="privilege-row">
+              <div class="priv-icon bad" aria-label="Risk">✗</div>
+              <div class="priv-text"><strong>Enterprise SaaS AI (improved terms, limited isolation):</strong> Data remains within the provider's infrastructure under contractual controls. Better than consumer tier — but client data still leaves the firm's environment. Privilege argument is stronger, but not watertight. The provider's internal access, sub-processor chain, and data residency practices remain relevant risk factors.</div>
+            </div>
+            <div class="privilege-row">
+              <div class="priv-icon ok" aria-label="Safe">✓</div>
+              <div class="priv-text"><strong>On-premise private AI (dedicated server, zero external processing):</strong> Communication never leaves the firm's controlled infrastructure. No third-party access — by architecture, not just by contract. Privilege is not affected by AI use. This is legally equivalent to a solicitor using the firm's own document management system or word processor. There is no novel third-party disclosure argument available.</div>
+            </div>
+          </div>
+
+          <hr>
+
+          <h2>What Solicitors Can Do With AI — Mapped by Risk Level</h2>
+
+          <p>Not all AI use in a law firm carries the same compliance risk. The critical variable is whether client-identifiable or matter-specific information is involved. Where it is not, the compliance picture is straightforward. Where it is, only a private deployment meets the required standard.</p>
+
+          <div class="workflow-grid" aria-label="Legal AI use cases by compliance risk level">
+            <div class="workflow-card live">
+              <span class="wf-icon" aria-hidden="true">📝</span>
+              <div class="wf-title">Client Advice Drafting</div>
+              <div class="wf-desc">Draft first-cut advice letters, opinion summaries, and client-facing explanations using matter-specific context. Reduces fee-earner drafting time by 60–70%. Requires private AI — client data involved at every stage.</div>
+              <span class="wf-badge badge-private">Private AI only</span>
+            </div>
+            <div class="workflow-card live">
+              <span class="wf-icon" aria-hidden="true">🔍</span>
+              <div class="wf-title">Contract Review &amp; Markup</div>
+              <div class="wf-desc">Identify non-standard clauses, missing provisions, and risk flags in commercial contracts. Produces structured markup summaries for partner review. Client document content means private infrastructure is required.</div>
+              <span class="wf-badge badge-private">Private AI only</span>
+            </div>
+            <div class="workflow-card live">
+              <span class="wf-icon" aria-hidden="true">⚖️</span>
+              <div class="wf-title">Matter Document Summaries</div>
+              <div class="wf-desc">Summarise bundles, correspondence chains, and disclosure documents into structured matter chronologies. Cuts trainee and paralegal document review time significantly across all practice areas.</div>
+              <span class="wf-badge badge-private">Private AI only</span>
+            </div>
+            <div class="workflow-card live">
+              <span class="wf-icon" aria-hidden="true">🧾</span>
+              <div class="wf-title">Bill Narrative Drafting</div>
+              <div class="wf-desc">Generate time recording narratives and bill descriptions from matter notes and time entries. Where matter-specific references are included, private AI is required. Template billing language with no client details can use any approved platform.</div>
+              <span class="wf-badge badge-private">Private AI for matter data</span>
+            </div>
+            <div class="workflow-card">
+              <span class="wf-icon" aria-hidden="true">📚</span>
+              <div class="wf-title">Legal Research Summaries</div>
+              <div class="wf-desc">Summarise general legal principles, statutory provisions, and case law for fee-earner briefings. No client data involved — can run on any platform with appropriate acceptable use policy and DPA in place.</div>
+              <span class="wf-badge badge-safe">Lower risk</span>
+            </div>
+            <div class="workflow-card">
+              <span class="wf-icon" aria-hidden="true">📄</span>
+              <div class="wf-title">Precedent &amp; Template Drafting</div>
+              <div class="wf-desc">Generate and update firm precedent documents, standard form letters, and template clauses. No client-specific data involved. Suitable for any AI platform with standard DPA, provided output is reviewed before matter use.</div>
+              <span class="wf-badge badge-safe">Lower risk</span>
+            </div>
+          </div>
+
+          <hr>
+
+          <h2>The UK GDPR Obligations That Apply to Client Data in AI</h2>
+
+          <p>Law firms hold significant volumes of personal data: client personal details, counterparty information, witness statements, HR records, and litigation documents containing highly sensitive individual information. Processing any of this data using an AI tool creates obligations under UK GDPR that most firms have not fully mapped.</p>
+
+          <div class="risk-callout">
+            <strong>The Article 28 gap most law firms are sitting in right now:</strong> UK GDPR Article 28 requires a signed Data Processing Agreement with any third party that processes personal data on a firm's behalf — before processing begins. The standard consumer and SME tiers of ChatGPT, Microsoft Copilot, and similar platforms do not provide DPAs on request. Even enterprise tiers require specific configuration and negotiation that most firms have not completed. A firm whose fee-earners are using public AI platforms for client work almost certainly does not have Article 28 coverage for that processing. That is an ICO enforcement risk, a client notification obligation if a breach occurs, and a professional conduct exposure — simultaneously.
+          </div>
+
+          <p>Beyond the DPA, firms must consider their retention and deletion obligations. Client personal data processed through an external AI platform may be retained by the provider under their own terms for periods that are inconsistent with the firm's matter file retention policy. A client exercising their UK GDPR Article 17 right to erasure cannot be satisfied if the firm cannot confirm — let alone demonstrate — whether their data has been deleted from an AI provider's infrastructure and sub-processor chain.</p>
+
+          <p>There is also a data minimisation question. UK GDPR Article 5(1)(c) requires that personal data processed is limited to what is necessary for the stated purpose. Pasting entire client files into an AI platform to answer a narrow question is difficult to defend as minimal processing. A private AI deployment, configured with the firm's own matter data within its own infrastructure, resolves this neatly: the data is already there, accessible for the specific purpose without any new transmission event.</p>
+
+          <hr>
+
+          <h2>Public AI vs Private AI: The Compliance Comparison for Law Firms</h2>
+
+          <div class="compare-wrap">
+            <table class="compare-table" aria-label="Public AI vs private AI for UK law firms">
+              <thead>
+                <tr>
+                  <th>Compliance Factor</th>
+                  <th>Public / SaaS AI</th>
+                  <th>On-Premise Private AI</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SRA Principle 6 — confidentiality</td>
+                  <td><span class="ix">✗</span> Data transmitted to third-party servers; breach risk on matter-specific use</td>
+                  <td><span class="ik">✓</span> Data never leaves firm infrastructure; no disclosure event occurs</td>
+                </tr>
+                <tr>
+                  <td>Legal professional privilege</td>
+                  <td><span class="ix">✗</span> Third-party access argument available; privilege challenge risk in litigation</td>
+                  <td><span class="ik">✓</span> No third-party access by architecture; privilege entirely unaffected</td>
+                </tr>
+                <tr>
+                  <td>UK GDPR Article 28 DPA</td>
+                  <td><span class="ix">✗</span> Not available on most tiers; enterprise requires separate negotiation</td>
+                  <td><span class="ik">✓</span> Full DPA executed as part of deployment; coverage from day one</td>
+                </tr>
+                <tr>
+                  <td>Data retention control</td>
+                  <td><span class="ix">✗</span> Provider terms govern; erasure rights difficult or impossible to fulfil</td>
+                  <td><span class="ik">✓</span> Firm controls all retention; Art. 17 erasure requests fully satisfiable</td>
+                </tr>
+                <tr>
+                  <td>SRA regulatory visit readiness</td>
+                  <td><span class="ix">✗</span> Difficult to demonstrate compliant AI governance on short notice</td>
+                  <td><span class="ik">✓</span> Documented policy, DPA, DPIA, access controls, audit log immediately available</td>
+                </tr>
+                <tr>
+                  <td>Conflict check AI assistance</td>
+                  <td><span class="ix">✗</span> Cannot use client and counterparty names safely on external platforms</td>
+                  <td><span class="ik">✓</span> Full matter data, client and counterparty names within private environment</td>
+                </tr>
+                <tr>
+                  <td>Data residency</td>
+                  <td><span class="ix">✗</span> Often US-based processing; international transfer rules apply</td>
+                  <td><span class="ik">✓</span> UK data centre by default; no international transfer complexity</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr>
+
+          <h2>What an SRA-Ready AI Policy for a Law Firm Must Contain</h2>
+
+          <p>The SRA has made clear that firms should have documented policies governing AI use, and that inspectors should be able to review those policies on request. A policy that satisfies both SRA expectation and UK GDPR accountability principles contains four components — none of which can be substituted with a general statement that "AI use must be appropriate."</p>
+
+          <p><strong>Scope definition:</strong> Which tasks may use AI assistance, which tasks may not, and what data categories are permitted to be processed by AI tools under each permitted task category. This is not a general prohibition or a general permission — it is a mapped set of use cases with defined data handling rules for each. A policy that says "fee-earners may use AI for research and drafting" is not a compliant policy. A policy that says "AI tools approved for task type X may be used with data category Y, subject to conditions Z" is.</p>
+
+          <p><strong>Tool approval list:</strong> An explicit list of approved AI tools and the conditions under which each is approved for use. For private AI deployed by the firm, this includes the server hosting details, the DPA reference, and the DPIA outcome. For any external tools approved for non-client-data tasks, it includes the acceptable use policy review and DPA status. Any tool not on the approved list is by default not approved.</p>
+
+          <p><strong>Supervision requirements:</strong> How AI-generated output is to be reviewed before it reaches a client or is used in proceedings. Who is responsible for that review at each seniority level. How the review is recorded on the matter file. This addresses the SRA's explicit position that AI use does not reduce personal professional responsibility for output accuracy. A firm that cannot demonstrate a supervision process is exposed to regulatory criticism regardless of the quality of the AI tool.</p>
+
+          <p><strong>Incident and breach protocol:</strong> What happens when a fee-earner accidentally uses an unapproved tool for client matter work. How the incident is assessed against the ICO's notification threshold. Whether client notification is required and who makes that decision. How the matter file is updated to reflect the incident. And what process prevents recurrence — not just documentation of what happened.</p>
+
+          <div class="info-callout">
+            <strong>When First Touch deploys for a law firm:</strong> The DPA, DPIA, and AI use policy documentation are produced as part of the deployment process — not as separate projects requiring separate legal resource. On the day the system goes live, the firm has a complete, SRA-ready governance pack. Inspectors who have reviewed these packs have, in every case we are aware of, regarded them as thorough.
+          </div>
+
+          <hr>
+
+          <h2>The Productivity Gain: What Private AI Actually Delivers for a Law Firm</h2>
+
+          <p>The compliance case for private AI deployment is clear. But it is worth being equally direct about the operational case — because the compliance framework is not, in itself, a reason to deploy AI. The reason to deploy is the productivity gain. The compliance framework is the condition under which that gain can be captured without creating liability.</p>
+
+          <p>A regional commercial practice we work with — 28 fee-earners, three partners, commercial property and corporate M&amp;A focus — deployed private AI in month one for document review and drafting. By month three, the measurable changes were significant across every practice area.</p>
+
+          <p><strong>Contract review time:</strong> Commercial property standard form leases reviewed and marked up in 18 minutes versus the previous 2.5 hours for the same task. Partners review AI-generated markup rather than creating markup from scratch. The quality of review improved because partners could spend their time on judgment calls rather than on structural identification of standard provisions.</p>
+
+          <p><strong>Completion documentation:</strong> Share purchase agreement ancillary document packs — board minutes, stock transfer forms, resignation letters, disclosure letters — generated from a matter questionnaire in 40 minutes versus a full day of paralegal time for the same package. The paralegal now spends that day on tasks that require judgment rather than document population.</p>
+
+          <p><strong>Client reporting:</strong> Monthly matter update letters to institutional clients, previously drafted individually by supervising solicitors, now generated from time recording entries and matter notes. Partner review time reduced from 45 minutes per letter to 10. Client satisfaction scores improved because letters became more consistent and detailed.</p>
+
+          <p><strong>New matter setup:</strong> Conflict check assistance, engagement letter generation, and matter file structure creation — previously a 30-minute task for a secretary or trainee — completed in 5 minutes using the AI assistant configured with the firm's standard engagement terms and matter templates.</p>
+
+          <p>The compliance picture is clean throughout. The DPA is in place. The matter data never left the firm's server. The AI use policy covers every task. When the SRA asked about AI governance at a routine visit, the firm produced a complete documentation pack in 20 minutes and the inspector moved on.</p>
+
+          <div class="cta-box">
+            <h3>AI for your law firm — SRA-ready from day one</h3>
+            <p>First Touch deploys private AI infrastructure for UK law firms. Full DPA, completed DPIA, SRA-ready AI use policy, and UK data residency — all included in the deployment. Client matter data stays on your server, not ours.</p>
+            <a class="btn" href="https://firsttouch.app#pricing" data-plausible-event-name="cta_click" data-plausible-props='{"location":"blog_law_firms_legal_privilege"}'>Book a 15-Minute Assessment</a>
+          </div>
+
+          <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+              <div class="faq-q">Can UK solicitors use AI tools for client work under SRA rules?</div>
+              <div class="faq-a">Yes, but with strict conditions. SRA Principle 6 requires solicitors to keep client affairs confidential. Any AI tool that transmits client information to external servers — without an appropriate Data Processing Agreement and client disclosure — risks breaching that obligation. Solicitors can use AI compliantly by deploying private, on-premise systems where client data never leaves the firm's controlled infrastructure.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Does using AI for legal work affect legal professional privilege?</div>
+              <div class="faq-a">Potentially yes. Legal professional privilege attaches to confidential communications between solicitor and client for the purpose of giving legal advice. If those communications are transmitted to a third-party AI platform, the confidentiality of the communication may be compromised, which can affect privilege. On-premise AI deployment avoids this issue entirely because the communication stays within the firm's environment — no third party has access by architecture.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">What AI tasks can solicitors perform without client data compliance risk?</div>
+              <div class="faq-a">Tasks that do not involve client-identifiable information carry minimal compliance risk: drafting precedent documents, researching general legal principles, generating non-matter-specific template letters, creating training materials, and producing internal policy documents. For tasks involving matter-specific client data — drafting client advice, summarising client documents, reviewing contracts — a data-sovereign deployment is required.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">What does the SRA say about law firms using AI?</div>
+              <div class="faq-a">The SRA has published guidance noting that the use of AI does not reduce a solicitor's professional obligations. Firms remain responsible for the accuracy of AI-generated output, must maintain appropriate supervision, and must not use tools that compromise client confidentiality. The SRA has also flagged that firms should have policies governing AI use and should be able to demonstrate compliance on request during regulatory visits.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">How quickly can a law firm deploy a compliant AI system?</div>
+              <div class="faq-a">A standard First Touch deployment for a law firm takes 10 to 14 days from agreement to go-live. This includes server provisioning in a UK data centre, DPA execution, DPIA completion, AI use policy drafting, and knowledge base configuration with the firm's precedents, practice areas, and workflow templates. The full compliance documentation pack is available on the day of deployment — not weeks later.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Does using AI for legal drafting constitute unauthorised practice or reduce the quality of legal advice?</div>
+              <div class="faq-a">No — provided supervision requirements are met. AI drafts are starting points, not final products. The solicitor reviewing, amending, and approving the output is providing the legal advice. The AI is accelerating the drafting process, not replacing professional judgment. The SRA's position is consistent with this: AI does not reduce the solicitor's responsibility, which means the solicitor must exercise judgment over the output before it is relied upon.</div>
+            </div>
+          </div>
+
+          <div class="author-box">
+            <div class="author-avatar-lg" aria-hidden="true">JH</div>
+            <div>
+              <div class="author-name">James Harrington</div>
+              <div class="author-role">Founder, First Touch</div>
+              <div class="author-bio">James works with UK law firms, professional services businesses, and regulated organisations to deploy private AI infrastructure that meets their professional conduct and data governance obligations without compromising on capability or productivity. Reach him directly at <a href="mailto:james@firsttouch.app">james@firsttouch.app</a>.</div>
+            </div>
+          </div>
+
+        </div><!-- /.article-body -->
+      </article>
+    </div><!-- /.container -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="brand" href="https://firsttouch.app" aria-label="First Touch home">
+        <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="url(#hgf)"/>
+          <path d="M10 16 L16 10 L22 16 L16 22 Z" fill="white" opacity="0.9"/>
+          <defs>
+            <linearGradient id="hgf" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#9301bb"/><stop offset="1" stop-color="#c05df0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        First Touch
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://firsttouch.app/case-studies">Case Studies</a>
+        <a href="https://firsttouch.app/pilot">Pilot Programme</a>
+        <a href="https://firsttouch.app/blog">Blog</a>
+        <a href="https://firsttouch.app/privacy.html">Privacy</a>
+        <a href="https://firsttouch.app/terms.html">Terms</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 First Touch. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
