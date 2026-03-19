@@ -116,6 +116,14 @@
     <priority>0.75</priority>
   </url>
 
+  <!-- Target: ai for uk law firms, ai assistant legal firms uk, ai for solicitors — 720/mo combined -->
+  <url>
+    <loc>https://firsttouch.app/blog/ai-for-uk-law-firms</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- ===================== GUIDES ===================== -->
   <url>
     <loc>https://firsttouch.app/guides/</loc>
