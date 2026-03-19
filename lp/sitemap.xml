@@ -198,6 +198,14 @@
     <priority>0.65</priority>
   </url>
 
+  <!-- Target: ai for holding groups uk, multi entity ai deployment, subsidiary data isolation — 880/mo combined -->
+  <url>
+    <loc>https://firsttouch.app/blog/holding-groups-multi-entity-ai</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- Target: ai for healthcare operations uk, gdpr compliant ai patient data, cqc ai governance — 810/mo combined -->
   <url>
     <loc>https://firsttouch.app/blog/healthcare-ai-patient-data-gdpr</loc>
