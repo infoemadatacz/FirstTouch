@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>How UK Holding Groups Give Each Subsidiary Its Own AI — Without Mixing Data | First Touch</title>
+  <meta name="description" content="A shared AI tool across subsidiaries sounds efficient. It creates serious data isolation and GDPR risk. Here's how UK holding groups deploy AI across their entire portfolio without mixing subsidiary data.">
+  <meta name="keywords" content="ai for holding groups uk, multi-entity ai deployment, subsidiary ai data isolation, gdpr compliant ai holding company, ai for portfolio companies uk">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="James Harrington, First Touch">
+
+  <link rel="canonical" href="https://firsttouch.app/blog/ai-for-uk-holding-groups">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="First Touch">
+  <meta property="og:title" content="How UK Holding Groups Give Each Subsidiary Its Own AI — Without Mixing Data | First Touch">
+  <meta property="og:description" content="A shared AI tool across subsidiaries sounds efficient. It creates serious data isolation and GDPR risk. Here's the architecture that solves it.">
+  <meta property="og:url" content="https://firsttouch.app/blog/ai-for-uk-holding-groups">
+  <meta property="og:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+  <meta property="article:published_time" content="2026-03-24T09:00:00+00:00">
+  <meta property="article:modified_time" content="2026-03-24T09:00:00+00:00">
+  <meta property="article:author" content="James Harrington">
+  <meta property="article:tag" content="Holding Groups">
+  <meta property="article:tag" content="Multi-Entity AI">
+  <meta property="article:tag" content="GDPR Compliance">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How UK Holding Groups Give Each Subsidiary Its Own AI — Without Mixing Data | First Touch">
+  <meta name="twitter:description" content="Shared AI tools across subsidiaries mix data that should never mix. Here's the tenant isolation architecture UK holding groups are using instead.">
+  <meta name="twitter:image" content="https://firsttouch.app/assets/og-firsttouch.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "How UK Holding Groups Give Each Subsidiary Its Own AI — Without Mixing Data",
+        "description": "A shared AI tool across subsidiaries sounds efficient. It creates serious data isolation and GDPR risk. Here's how UK holding groups deploy AI across their entire portfolio without mixing subsidiary data.",
+        "author": {
+          "@type": "Person",
+          "name": "James Harrington",
+          "jobTitle": "CEO",
+          "worksFor": { "@type": "Organization", "name": "First Touch", "url": "https://firsttouch.app" }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "First Touch",
+          "url": "https://firsttouch.app",
+          "logo": { "@type": "ImageObject", "url": "https://firsttouch.app/assets/firsttouch-icon.svg" }
+        },
+        "datePublished": "2026-03-24",
+        "dateModified": "2026-03-24",
+        "url": "https://firsttouch.app/blog/ai-for-uk-holding-groups",
+        "image": "https://firsttouch.app/assets/og-firsttouch.jpg",
+        "mainEntityOfPage": "https://firsttouch.app/blog/ai-for-uk-holding-groups",
+        "keywords": ["ai for holding groups uk", "multi-entity ai deployment", "subsidiary ai data isolation", "gdpr compliant ai holding company"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://firsttouch.app" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://firsttouch.app/blog" },
+          { "@type": "ListItem", "position": 3, "name": "AI for UK Holding Groups", "item": "https://firsttouch.app/blog/ai-for-uk-holding-groups" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can a holding group deploy one AI system across all its subsidiaries?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — but only if each subsidiary has its own isolated environment within that system. A single shared AI tool where all subsidiaries access the same data pool is both a GDPR risk and a commercial confidentiality problem. The correct architecture gives each subsidiary its own tenant: separate data, separate access controls, separate audit logs. The holding group can still get consolidated reporting at the top level without any subsidiary seeing another's data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is tenant isolation and why does it matter for holding groups?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tenant isolation means each subsidiary operates in a completely separate data environment, even though the underlying AI infrastructure is shared. A staff member at Subsidiary A cannot access Subsidiary B's documents, queries, or outputs — even if they are on the same physical system. This matters for holding groups because subsidiaries often operate in different sectors, serve different customers, and have separate GDPR obligations. Data mixing between them is both a compliance breach and a commercial risk."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the holding group get oversight without accessing subsidiary data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Through aggregated reporting at the holding level. The central system can show the group how many queries each subsidiary processed, which departments are most active, and where productivity gains are occurring — without exposing the content of any subsidiary's data. The holding group sees performance metrics. Each subsidiary retains full control of its own information."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    .blog-article { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+    .blog-hero { padding: 6rem 0 3rem; }
+    .blog-meta {
+      display: flex; align-items: center; gap: 1.5rem;
+      font-size: 0.875rem; color: var(--color-muted, #9ca3af);
+      margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+    .blog-meta time { font-variant-numeric: tabular-nums; }
+    .blog-byline { font-weight: 500; }
+    .blog-tag {
+      background: rgba(147,1,187,0.12); color: #c05df0;
+      padding: 0.2rem 0.65rem; border-radius: 99px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em;
+    }
+    .blog-article h1 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.2;
+      font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1.5rem;
+    }
+    .blog-lead {
+      font-size: 1.2rem; line-height: 1.7;
+      color: var(--color-muted, #9ca3af); margin-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 2rem;
+    }
+    .blog-article h2 {
+      font-size: 1.45rem; font-weight: 700;
+      margin: 2.5rem 0 1rem; letter-spacing: -0.01em;
+    }
+    .blog-article h3 { font-size: 1.1rem; font-weight: 600; margin: 1.75rem 0 0.6rem; }
+    .blog-article p { line-height: 1.8; margin-bottom: 1.2rem; }
+    .blog-article ul, .blog-article ol { padding-left: 1.4rem; margin-bottom: 1.4rem; }
+    .blog-article li { line-height: 1.8; margin-bottom: 0.5rem; }
+    .blog-article strong { color: #fff; }
+    .blog-cta-box {
+      background: linear-gradient(135deg, rgba(147,1,187,0.15) 0%, rgba(147,1,187,0.05) 100%);
+      border: 1px solid rgba(147,1,187,0.3); border-radius: 12px;
+      padding: 2rem; margin: 3rem 0 2rem; text-align: center;
+    }
+    .blog-cta-box h3 { margin-top: 0; font-size: 1.25rem; }
+    .blog-cta-box p { color: var(--color-muted, #9ca3af); margin-bottom: 1.25rem; }
+    .blog-author-box {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.5rem; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;
+      margin-top: 3rem; font-size: 0.9rem;
+    }
+    .blog-author-box .author-info strong { display: block; margin-bottom: 0.25rem; }
+    .breadcrumb { font-size: 0.85rem; color: var(--color-muted, #9ca3af); margin-bottom: 2rem; }
+    .breadcrumb a { color: var(--color-muted, #9ca3af); text-decoration: none; }
+    .breadcrumb a:hover { color: #fff; }
+    .breadcrumb span { margin: 0 0.4rem; }
+    blockquote {
+      border-left: 3px solid rgba(147,1,187,0.6); margin: 1.5rem 0;
+      padding: 0.8rem 1.2rem; background: rgba(147,1,187,0.05);
+      border-radius: 0 6px 6px 0; font-style: italic;
+      color: var(--color-muted, #9ca3af);
+    }
+    blockquote strong { color: #d0d0d0; font-style: normal; }
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem; margin: 1.5rem 0 2rem;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 1.25rem 1rem; text-align: center;
+    }
+    .stat-card .stat-num {
+      font-size: 1.9rem; font-weight: 800; color: #fff;
+      letter-spacing: -0.03em; display: block; line-height: 1; margin-bottom: 0.3rem;
+    }
+    .stat-card .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.4; }
+    .tenant-diagram {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin: 1.75rem 0 2rem;
+    }
+    .tenant-diagram .diagram-title {
+      font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.4);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem;
+    }
+    .tenant-row {
+      display: flex; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap;
+    }
+    .tenant-box {
+      flex: 1; min-width: 120px;
+      border: 1px solid rgba(147,1,187,0.25);
+      background: rgba(147,1,187,0.06);
+      border-radius: 8px; padding: 0.75rem 1rem;
+      font-size: 0.85rem; font-weight: 600; color: #c05df0;
+      text-align: center;
+    }
+    .tenant-box.holding {
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.82rem;
+    }
+    .diagram-arrow {
+      text-align: center; color: rgba(255,255,255,0.2);
+      font-size: 1.1rem; margin: 0.25rem 0;
+    }
+    .diagram-note {
+      font-size: 0.8rem; color: rgba(255,255,255,0.35);
+      margin-top: 0.75rem; text-align: center;
+    }
+  </style>
+</head>
+<body class="guide-page">
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="https://firsttouch.app" aria-label="First Touch home">
+        <img class="brand-icon" src="../assets/firsttouch-icon.svg" alt="First Touch icon" width="32" height="32" loading="eager">
+        <span class="brand-text">First Touch</span>
+      </a>
+      <a class="btn btn-sm" href="https://firsttouch.app/pilot">Apply for Pilot</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero section">
+      <div class="container">
+        <article class="blog-article">
+
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://firsttouch.app">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="https://firsttouch.app/blog">Blog</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">AI for UK Holding Groups</span>
+          </nav>
+
+          <div class="blog-meta">
+            <span class="blog-tag">Holding Groups &amp; Multi-Entity</span>
+            <time datetime="2026-03-24">March 24, 2026</time>
+            <span class="blog-byline">By James Harrington, CEO at First Touch</span>
+            <span>7 min read</span>
+          </div>
+
+          <h1>How UK Holding Groups Give Each Subsidiary Its Own AI — Without Mixing Data</h1>
+
+          <p class="blog-lead">A holding group that runs six subsidiaries has six sets of employees, six sets of customers, six sets of commercially sensitive data — and, increasingly, six separate GDPR obligations. Deploying AI across a portfolio is an obvious efficiency play. Doing it with a single shared tool and a shared data pool is a compliance problem waiting to surface.</p>
+
+          <h2>The Problem With Shared AI Tools Across Subsidiaries</h2>
+
+          <p>When a holding group decides to roll out AI, the instinct is often to centralise: one tool, one subscription, everyone uses it. It looks like the simplest and cheapest path.</p>
+
+          <p>The problem is what happens to the data.</p>
+
+          <p>In a shared AI environment without proper isolation, a user at Subsidiary A can — depending on how the system is configured — query documents, records, or outputs that belong to Subsidiary B. In some tools this happens through shared conversation history. In others it happens through shared document indexes. In others still it happens because the AI was trained or fine-tuned on data from across the whole organisation without clear boundaries.</p>
+
+          <p>For a holding group, this creates three immediate problems:</p>
+
+          <p><strong>Commercial confidentiality.</strong> Two subsidiaries in similar markets — or subsidiaries with commercial relationships with each other — should not have access to each other's pricing, supplier arrangements, staffing plans, or customer data. A shared tool without data isolation removes that boundary.</p>
+
+          <p><strong>GDPR data controller obligations.</strong> Each subsidiary is typically a separate legal entity and a separate data controller under UK GDPR. The personal data processed by Subsidiary A — employee records, customer data, supplier contacts — is not the same pool as Subsidiary B's, and the two cannot be mixed without both entities having a documented lawful basis for that combined processing. A shared AI tool that indexes all data together does exactly that.</p>
+
+          <p><strong>Audit and accountability.</strong> If a data subject makes a Subject Access Request to one subsidiary, that subsidiary must be able to say clearly what data it holds and how it has been processed. If that data has been mixed into a shared AI system alongside other subsidiaries' data, the answer becomes genuinely difficult to give — and potentially exposes other subsidiaries in the process.</p>
+
+          <blockquote>
+            <strong>A shared AI tool with a shared data pool isn't a group-wide solution. It's a group-wide liability.</strong>
+          </blockquote>
+
+          <h2>What Tenant Isolation Actually Means</h2>
+
+          <p>The solution is an architecture built around tenant isolation. It sounds technical but the concept is straightforward.</p>
+
+          <p>Think of it like a building with separate offices. The building shares the same foundation, the same heating system, the same security infrastructure. But each office has its own locked door. A person in Office 3 cannot walk into Office 5 and read what's on the desks. The shared infrastructure makes everything more efficient. The separate doors ensure nothing crosses over that shouldn't.</p>
+
+          <p>In practice, tenant isolation for a holding group means:</p>
+
+          <ul>
+            <li>Each subsidiary has its own data environment — its own document index, its own query history, its own AI configuration</li>
+            <li>Users at one subsidiary have no technical ability to access another subsidiary's data, even if they're on the same underlying system</li>
+            <li>The AI assistant for Subsidiary A answers questions using only Subsidiary A's materials — its own SOPs, contracts, records, and documents</li>
+            <li>Each subsidiary's data is subject to its own retention, access, and audit controls — fully separable for GDPR purposes</li>
+            <li>If a subsidiary is sold or spun out, its data environment can be cleanly separated from the rest of the group</li>
+          </ul>
+
+          <div class="tenant-diagram">
+            <div class="diagram-title">Tenant isolation — how the architecture works</div>
+            <div class="tenant-row">
+              <div class="tenant-box holding">Holding Group<br><small style="font-weight:400;color:rgba(255,255,255,0.4);">Aggregated reporting only</small></div>
+            </div>
+            <div class="diagram-arrow">↓ oversight (no data access)</div>
+            <div class="tenant-row">
+              <div class="tenant-box">Subsidiary A<br><small style="font-weight:400;">Own data only</small></div>
+              <div class="tenant-box">Subsidiary B<br><small style="font-weight:400;">Own data only</small></div>
+              <div class="tenant-box">Subsidiary C<br><small style="font-weight:400;">Own data only</small></div>
+            </div>
+            <div class="diagram-note">Each tenant: isolated documents, isolated queries, isolated audit log — on shared infrastructure</div>
+          </div>
+
+          <h2>What the Holding Group Gets: Consolidated Reporting Without Data Access</h2>
+
+          <p>The natural concern from a holding group perspective is: if each subsidiary is siloed, how does the group get visibility?</p>
+
+          <p>The answer is aggregated reporting — performance metrics that show the group what is happening across the portfolio without exposing the content of any subsidiary's data.</p>
+
+          <p>A holding group can see, at a central level:</p>
+
+          <ul>
+            <li>How many AI interactions each subsidiary processed this week</li>
+            <li>Which subsidiaries are most actively using the system (and which are under-utilising it)</li>
+            <li>Where productivity gains are being realised, by department and function</li>
+            <li>System health and uptime across all tenants</li>
+            <li>Rollout progress as new subsidiaries are onboarded</li>
+          </ul>
+
+          <p>What the holding group does not see: the content of any subsidiary's queries, the documents they've indexed, their customer or employee data, or any commercially sensitive information. The reporting stays at the metrics level. The data stays where it belongs.</p>
+
+          <div class="stat-grid">
+            <div class="stat-card">
+              <span class="stat-num">1</span>
+              <span class="stat-label">shared infrastructure — one system to manage, one cost base</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">N</span>
+              <span class="stat-label">isolated tenants — each subsidiary fully separated, GDPR-ready</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">Zero</span>
+              <span class="stat-label">cross-subsidiary data leakage — by architecture, not policy</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">Full</span>
+              <span class="stat-label">group reporting — performance metrics without data exposure</span>
+            </div>
+          </div>
+
+          <h2>The Practical Rollout Approach</h2>
+
+          <p>The holding groups that deploy AI most successfully don't try to roll out across the entire portfolio at once. They start with one or two subsidiaries, prove the value, then expand using the same architecture.</p>
+
+          <p>A typical sequence:</p>
+
+          <p><strong>Month 1–2:</strong> Deploy to the largest or most AI-ready subsidiary. This is usually the one with the most administrative burden and the clearest use case — document search, report drafting, compliance query handling. Build the tenant architecture correctly from day one, even for a single subsidiary. Doing this right at the start means every subsequent tenant slots in cleanly.</p>
+
+          <p><strong>Month 3–4:</strong> Review the results. Quantify the time savings, the adoption rate, the specific use cases delivering most value. Use this data internally — it becomes the business case for the next subsidiary rollout and, if appropriate, for the board.</p>
+
+          <p><strong>Month 5+:</strong> Onboard additional subsidiaries one at a time, each in its own isolated tenant. The infrastructure is already in place. Each new subsidiary gets a configured environment in days, not months.</p>
+
+          <div class="blog-cta-box">
+            <h3>Running a UK holding group and evaluating AI for your portfolio?</h3>
+            <p>Our pilot is designed to start with one subsidiary, prove the value, and give you a clear architecture for rolling out across the group. We handle the technical setup, compliance documentation, and onboarding for each entity.</p>
+            <a class="btn" href="https://firsttouch.app/pilot" data-plausible-event="blog_holding_cta_pilot">Apply for the Pilot Programme &rarr;</a>
+          </div>
+
+          <h2>The Right Architecture From Day One</h2>
+
+          <p>The most common mistake holding groups make with AI is starting with a shared tool that wasn't designed for multi-entity use, accumulating data mixing problems across months of use, and then trying to retrofit isolation after the fact. At that point, the data is already mixed, the audit trail is already compromised, and the clean separation required by GDPR is very difficult to achieve.</p>
+
+          <p>Building tenant isolation correctly from day one costs almost nothing extra — it's an architectural decision, not a significant cost premium. But retrofitting it later is genuinely hard.</p>
+
+          <p>Our <a href="https://firsttouch.app/holding-groups">dedicated page for UK holding groups</a> covers the full architecture, typical deployment timelines across a portfolio, and how consolidated reporting works in practice. If you're evaluating AI for a multi-entity structure, it is the right starting point before any procurement decision.</p>
+
+          <blockquote>
+            <strong>Each subsidiary gets its own AI. The group gets the oversight. Nobody's data touches anyone else's. That's how it should work — and it's not complicated to build correctly.</strong>
+          </blockquote>
+
+          <p><a href="https://firsttouch.app/pilot">Apply for the FirstTouch Pilot &rarr;</a></p>
+
+          <div class="blog-author-box" itemscope itemtype="https://schema.org/Person">
+            <div class="author-info">
+              <strong itemprop="name">James Harrington</strong>
+              <span itemprop="jobTitle">CEO, First Touch</span>
+              <p style="margin:0.5rem 0 0; color:rgba(255,255,255,0.5);">James helps UK holding groups, private equity-backed businesses, and multi-entity organisations deploy AI with full data isolation and GDPR compliance across their entire portfolio. First Touch handles the technology so each subsidiary gets the benefits without any of the data risk.</p>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="https://firsttouch.app">
+        <img class="brand-icon" src="../assets/firsttouch-icon.svg" alt="First Touch" width="24" height="24">
+        <span class="brand-text">First Touch</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://firsttouch.app/holding-groups">Holding Groups</a>
+        <a href="https://firsttouch.app/pilot">Pilot Programme</a>
+        <a href="https://firsttouch.app/blog">Blog</a>
+        <a href="https://firsttouch.app/privacy.html">Privacy</a>
+        <a href="https://firsttouch.app/terms.html">Terms</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 First Touch. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
