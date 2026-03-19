@@ -1705,6 +1705,65 @@
     </section>
   </main>
 
+  <!-- ── Social proof strip (Sprint 15) ── -->
+  <div class="proof-strip" role="complementary" aria-label="Trusted sectors">
+    <div class="strip-inner">
+      <span class="strip-label">Trusted by UK businesses in</span>
+      <div class="sep"></div>
+      <div class="verticals">
+        <div class="vert-item">
+          <div class="vert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.789-1.08 2.657L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 18.761 18 20 18 20l2-2-1.484-1.737 1.098-2.652 2.386-.62V11l-2.378-.605Z"/></svg></div>
+          <span class="vert-name">Manufacturing</span>
+        </div>
+        <div class="vert-dot"></div>
+        <div class="vert-item">
+          <div class="vert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8Z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <span class="vert-name">Logistics</span>
+        </div>
+        <div class="vert-dot"></div>
+        <div class="vert-item">
+          <div class="vert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 12h9m2 0h9"/></svg></div>
+          <span class="vert-name">Professional Services</span>
+        </div>
+        <div class="vert-dot"></div>
+        <div class="vert-item">
+          <div class="vert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <span class="vert-name">Construction</span>
+        </div>
+        <div class="vert-dot"></div>
+        <div class="vert-item">
+          <div class="vert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <span class="vert-name">Healthcare</span>
+        </div>
+        <div class="vert-dot"></div>
+        <div class="vert-item">
+          <div class="vert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <span class="vert-name">Legal</span>
+        </div>
+      </div>
+      <div class="strip-right">
+        <a class="cs-link" href="/proof-of-concept">Free PoC <span class="cs-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+  <style>
+    .proof-strip{width:100%;height:60px;background:linear-gradient(180deg,rgba(255,255,255,.025) 0%,rgba(255,255,255,0) 100%),rgba(255,255,255,.018);border-top:1px solid rgba(255,255,255,.055);border-bottom:1px solid rgba(255,255,255,.055);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+    .proof-strip::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(124,58,237,.25) 20%,rgba(6,182,212,.3) 50%,rgba(124,58,237,.25) 80%,transparent 100%);}
+    .strip-inner{display:flex;align-items:center;gap:0;max-width:1200px;width:100%;padding:0 40px;}
+    .strip-label{font-size:12px;font-weight:600;color:rgba(255,255,255,.32);letter-spacing:.3px;white-space:nowrap;padding-right:28px;flex-shrink:0;}
+    .sep{width:1px;height:24px;background:rgba(255,255,255,.07);flex-shrink:0;margin-right:28px;}
+    .verticals{display:flex;align-items:center;gap:20px;flex:1;flex-wrap:wrap;}
+    .vert-item{display:flex;align-items:center;gap:9px;white-space:nowrap;}
+    .vert-icon{width:20px;height:20px;flex-shrink:0;opacity:.55;display:flex;align-items:center;justify-content:center;}
+    .vert-name{font-size:13px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:-.1px;}
+    .vert-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.12);flex-shrink:0;}
+    .strip-right{flex-shrink:0;margin-left:auto;padding-left:28px;border-left:1px solid rgba(255,255,255,.06);}
+    .cs-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:rgba(167,139,250,.65);text-decoration:none;letter-spacing:.2px;}
+    .cs-link:hover{color:#A78BFA;}
+    .cs-arrow{font-size:11px;opacity:.7;}
+    @media(max-width:720px){.proof-strip{height:auto;padding:12px 0;}.strip-inner{flex-wrap:wrap;gap:10px;padding:0 20px;}.strip-label{display:none;}.sep{display:none;}.strip-right{margin-left:0;padding-left:0;border-left:none;}}
+  </style>
+
   <footer class="site-footer">
     <div class="container footer-main">
 
