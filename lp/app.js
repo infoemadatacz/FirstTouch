@@ -141,7 +141,7 @@
         iframe.src = cfg.bookingUrl +
           "?embed_domain=firsttouch.app&embed_type=Inline" +
           "&hide_landing_page_details=1&hide_gdpr_banner=1&background_color=16161A&text_color=ffffff&primary_color=9301BB";
-        iframe.title = "Book a 15-min strategy call with First Touch";
+        iframe.title = "Book a free strategy call with FirstTouch";
         iframe.setAttribute("allowfullscreen", "");
         iframe.style.opacity = "0";
         iframe.style.transition = "opacity 0.3s ease";
@@ -483,7 +483,7 @@
     function setLoading(loading) {
       if (!submitBtn) return;
       submitBtn.disabled = loading;
-      submitBtn.textContent = loading ? "Sending…" : "Send me the Toolkit";
+      submitBtn.textContent = loading ? "Sending…" : "Send me the Playbook";
     }
 
     function setStatus(text, isError) {
@@ -553,16 +553,16 @@
         url: cfg.siteUrl,
         logo: "https://firsttouch.app/assets/firsttouch-logo.svg",
         email: cfg.contactEmail,
-        foundingDate: "2024",
+        foundingDate: "2025",
         legalName: cfg.legalCompanyName,
         address: {
           "@type": "PostalAddress",
-          addressLocality: "London",
-          addressCountry: "GB"
+          addressLocality: "Prague",
+          addressCountry: "CZ"
         },
         founder: {
           "@type": "Person",
-          name: "James Harrington",
+          name: "Jan Kluz",
           email: cfg.contactEmail
         },
         sameAs: [cfg.linkedinUrl]
@@ -575,31 +575,31 @@
         "@type": "SoftwareApplication",
         name: cfg.primaryBrand,
         applicationCategory: "BusinessApplication",
-        applicationSubCategory: "AI Assistant",
+        applicationSubCategory: "AI Personal Brand Manager",
         operatingSystem: "Web, Telegram",
         description: cfg.seoDescription,
         url: cfg.siteUrl,
         screenshot: cfg.ogImageUrl,
         featureList: [
-          "AI agent orchestration",
-          "Meeting transcription and action items",
-          "Autonomous workflow automation",
-          "Multi-model AI routing (Claude, GPT-4, Gemini)",
-          "Role-level access control",
-          "Compliance-ready data handling",
-          "Recurring management reporting",
-          "Telegram interface",
-          "Document and knowledge base integration"
+          "AI content generation in your voice",
+          "Multi-platform publishing (LinkedIn, X, Instagram)",
+          "Telegram approve/edit interface",
+          "Smart content calendar with gap detection",
+          "Real-time industry research via web search",
+          "Carousel and visual content generation",
+          "Voice message feedback",
+          "Reply and comment drafting",
+          "Enterprise team brand management"
         ],
         offers: {
           "@type": "Offer",
-          price: "500",
+          price: "299",
           priceCurrency: "EUR",
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: "500",
+            price: "299",
             priceCurrency: "EUR",
-            name: "Pilot"
+            name: "Starter"
           },
           url: cfg.bookingUrl,
           availability: "https://schema.org/InStock"
@@ -948,7 +948,7 @@
   mobileCta.className = 'nav-mobile-cta';
   mobileCta.setAttribute('data-book-link', '');
   mobileCta.href = '#';
-  mobileCta.textContent = 'Book 15-min Assessment →';
+  mobileCta.textContent = 'Book Free Strategy Call →';
   links.appendChild(mobileCta);
 
   // Backdrop: semi-transparent overlay behind the nav drawer.

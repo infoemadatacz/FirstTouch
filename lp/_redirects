@@ -1,0 +1,12 @@
+# Redirect old AI Chief of Staff pages to homepage
+/blog/* / 301
+/guides/* / 301
+/case-studies/* / 301
+/proof-of-concept / 301
+/pilot / 301
+/scorecard / 301
+/construction.html / 301
+/healthcare.html / 301
+/holding-groups.html / 301
+/manufacturing.html / 301
+/legal.html / 301

@@ -1,35 +1,38 @@
 window.FIRST_TOUCH_CONFIG = {
-  brandOwner: "First Touch",
-  primaryBrand: "First Touch",
-  offerName: "First Touch",
-  siteName: "First Touch",
+  brandOwner: "FirstTouch",
+  primaryBrand: "FirstTouch",
+  offerName: "Personal Brand Manager",
+  siteName: "FirstTouch",
   siteUrl: "https://firsttouch.app/",
 
-  // Calendly 15-min assessment booking — update slug here if URL changes
-  bookingUrl: "https://calendly.com/james-harrington-firsttouch/15min",
+  // Calendly 15-min strategy call
+  bookingUrl: "https://calendly.com/jan-kluz/15min",
   // Lead form backend — Cloudflare Pages Function (functions/api/leads.js)
-  // Requires RESEND_API_KEY set in Cloudflare Pages > Settings > Env Vars
   leadFormEndpoint: "/api/leads",
-  leadMagnetUrl: "./assets/jana-offer-pack.md",
+  leadMagnetUrl: "./assets/personal-brand-playbook.pdf",
 
-  contactEmail: "james@firsttouch.app",
-  legalCompanyName: "First Touch",
-  legalLocation: "London, United Kingdom",
-  linkedinUrl: "https://www.linkedin.com/company/firsttouch-ai/",
+  contactEmail: "jan@firsttouch.app",
+  legalCompanyName: "FirstTouch",
+  legalLocation: "Prague, Czech Republic",
+  linkedinUrl: "https://www.linkedin.com/in/jankluz/",
+  founderLinkedinUrl: "https://www.linkedin.com/in/jankluz/",
 
-  seoTitle: "First Touch | All-in-One AI Manager OS for Execution",
-  seoDescription: "First Touch is an all-in-one AI manager operating system: global context, best-model orchestration, action workflows, meeting transcription, planning, coding support, and recurring reporting.",
+  seoTitle: "FirstTouch | AI Personal Brand Manager for Busy Professionals",
+  seoDescription: "Your LinkedIn and X on autopilot. AI-powered content creation, scheduling, and publishing — done for you. Built for startup founders, corporate managers, and enterprise teams across Europe.",
   seoKeywords: [
-    "AI manager assistant",
-    "all in one AI operating system",
-    "AI agent orchestration",
-    "autonomous workflow automation",
-    "meeting transcription and action items",
-    "executive AI assistant",
-    "model agnostic AI platform",
-    "no vendor lock in AI",
-    "business compliant AI assistant",
-    "AI planning writing coding reporting"
+    "AI personal brand manager",
+    "LinkedIn content automation",
+    "personal branding for executives",
+    "AI social media manager",
+    "thought leadership automation",
+    "LinkedIn ghostwriter AI",
+    "personal brand for founders",
+    "content manager for professionals",
+    "AI content creation LinkedIn",
+    "executive personal branding Europe"
   ],
-  ogImageUrl: "https://firsttouch.app/assets/og-firsttouch.jpg"
+  ogImageUrl: "https://firsttouch.app/assets/og-firsttouch.jpg",
+
+  // Google Analytics 4
+  ga4MeasurementId: "G-XXXXXXXXXX"
 };

@@ -1,17 +1,17 @@
 window.FIRST_TOUCH_CONFIG = {
-  brandOwner: "Jan Kluz",
-  primaryBrand: "EMA AI",
+  brandOwner: "James Harrington",
+  primaryBrand: "FirstTouch",
   offerName: "First Touch",
   siteName: "First Touch",
   siteUrl: "https://firsttouch.app/",
 
   bookingUrl: "https://calendly.com/your-handle/first-touch-strategy-call",
   leadFormEndpoint: "",
-  leadMagnetUrl: "./assets/jana-offer-pack.md",
+  leadMagnetUrl: "./assets/strategy-toolkit.md",
 
-  contactEmail: "jan@yourdomain.com",
-  legalCompanyName: "EMA AI",
-  legalLocation: "Prague, Czech Republic",
+  contactEmail: "james@firsttouch.app",
+  legalCompanyName: "FirstTouch",
+  legalLocation: "London, United Kingdom",
   linkedinUrl: "https://www.linkedin.com/in/your-linkedin/",
 
   seoTitle: "First Touch | All-in-One AI Manager OS for Execution",

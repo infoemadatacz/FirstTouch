@@ -2,7 +2,7 @@
  * Cloudflare Pages Function — POST /api/leads
  *
  * Receives lead form submissions from firsttouch.app, validates them,
- * sends an email notification to james@firsttouch.app via Resend API,
+ * sends an email notification to jan@firsttouch.app via Resend API,
  * sends a confirmation email to the submitter,
  * forwards the lead to the ai-firm CRM webhook, and returns a JSON response.
  *
@@ -10,7 +10,7 @@
  *   RESEND_API_KEY    — from resend.com
  *
  * Optional env vars:
- *   NOTIFY_EMAIL      — override recipient (default: james@firsttouch.app)
+ *   NOTIFY_EMAIL      — override recipient (default: jan@firsttouch.app)
  *   FROM_EMAIL        — override sender    (default: leads@firsttouch.app)
  *   CRM_WEBHOOK_URL   — ai-firm webhook endpoint, e.g. https://vps.firsttouch.app:3847/webhook/contact
  *   CRM_WEBHOOK_SECRET — shared secret matching WEBHOOK_CONTACT_SECRET on the VPS
@@ -68,7 +68,7 @@ export async function onRequestPost(context) {
   }
 
   // ── Build internal notification email ─────────────────────────────────────
-  const notifyTo = env.NOTIFY_EMAIL || "james@firsttouch.app";
+  const notifyTo = env.NOTIFY_EMAIL || "jan@firsttouch.app";
   const fromEmail = env.FROM_EMAIL || "leads@firsttouch.app";
   const fromName = "FirstTouch Leads";
 
@@ -172,7 +172,7 @@ export async function onRequestPost(context) {
 
   <p style="font-size:12px;color:#888;margin-top:24px;">
     You're receiving this because you requested the AI Workflow Strategy Toolkit at firsttouch.app.<br>
-    Questions? Reply to this email or reach James directly at <a href="mailto:james@firsttouch.app" style="color:#9301BB;">james@firsttouch.app</a>
+    Questions? Reply to this email or reach James directly at <a href="mailto:jan@firsttouch.app" style="color:#9301BB;">jan@firsttouch.app</a>
   </p>
 
   <p style="font-size:11px;color:#aaa;margin-top:8px;">First Touch · London, United Kingdom · firsttouch.app</p>
@@ -186,7 +186,7 @@ export async function onRequestPost(context) {
     "",
     "Best next step: book a free 15-min call — https://calendly.com/james-harrington-firsttouch/15min",
     "",
-    "Questions? Reply to this email or write to james@firsttouch.app",
+    "Questions? Reply to this email or write to jan@firsttouch.app",
     "",
     "First Touch · London, United Kingdom · firsttouch.app",
   ].join("\n");
@@ -204,7 +204,7 @@ export async function onRequestPost(context) {
     return json({ ok: true, warn: "email_not_configured" }, 200, cors);
   }
 
-  // Send internal notification to james@firsttouch.app
+  // Send internal notification to jan@firsttouch.app
   const resendRes = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {

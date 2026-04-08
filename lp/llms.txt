@@ -1,62 +1,47 @@
-# FirstTouch — AI Manager Operating System
+# FirstTouch — AI Personal Brand Manager
 
-> An AI-powered execution layer for B2B companies. On-premise deployment, GDPR-compliant, model-agnostic.
+> AI-powered content creation, scheduling, and publishing for busy professionals. Done-for-you personal brand management across LinkedIn, X, and Instagram.
 
 ## What is FirstTouch?
 
-FirstTouch is an AI manager operating system that handles recurring management tasks: meeting transcription, action item extraction, weekly reporting, cross-department updates, and workflow automation. It deploys on your infrastructure — no data leaves your servers.
+FirstTouch is an AI personal brand manager that autonomously creates, schedules, and publishes social media content in your voice. It handles the full content lifecycle: industry research, post generation, platform-optimized formatting, and auto-publishing at optimal times. You approve everything via Telegram in under 5 minutes per day.
 
 ## Core Capabilities
 
-- **Meeting Intelligence** — transcription, action items, follow-up tracking
-- **Automated Reporting** — weekly status reports generated from actual work data
-- **Knowledge Base** — ingests company docs, SOPs, policies; queryable via Telegram
-- **Multi-Model Orchestration** — works with Claude, GPT-4, Ollama, any LLM
-- **Role-Based Access** — Admin/Manager/User/Read-only with full audit log
-- **On-Premise Deployment** — runs on your servers, EU data residency guaranteed
+- **AI Content Generation** — Claude AI writes posts in your voice using your expertise pillars and real-time industry research
+- **Telegram Interface** — approve, edit, or skip posts with one tap; voice message feedback supported
+- **Multi-Platform Publishing** — LinkedIn, X (Twitter), Instagram with platform-native formatting
+- **Smart Content Calendar** — 2-week rolling schedule with automatic gap detection and pillar balancing
+- **Voice & Style Learning** — AI builds a voice model from your existing content and learns from every edit
+- **Carousel & Visual Content** — AI-generated carousel images with your brand colors
+- **Reply & Comment Engine** — draft thoughtful replies to posts in your feed
+- **Enterprise Team Mode** — manage personal brands for entire leadership teams from one dashboard
 
-## Target Market
+## Who It's For
 
-- B2B companies in Europe (starting CZ/SK, expanding EU-wide)
-- Company size: 20-200 employees
-- Industries: SaaS, manufacturing, e-commerce, professional services
-- Buyer: CEO, COO, VP Operations
+- **Startup Founders** — need visibility but no marketing team
+- **Corporate Managers** — want thought leadership without the time investment
+- **Enterprise Teams** — consistent personal branding across 5-50 team members
 
-## Pricing Tiers
+## Pricing
 
-- **Starter** — 5 users, core features, Telegram access
-- **Pro** — 25 users, all features, custom integrations, priority support
-- **Enterprise** — Unlimited users, on-premise deployment, SLA, dedicated support
+- **Starter** (€299/month) — 3 posts/week on LinkedIn, AI voice calibration, Telegram interface
+- **Professional** (€499/month) — LinkedIn + X, reply management, real-time research, video scripts
+- **Enterprise** (Custom) — 5-50 profiles, LinkedIn + X + Instagram, coordinated themes, admin dashboard
 
 ## Architecture
 
-- API-first integration layer
-- Model-agnostic orchestration (swap LLMs without code changes)
-- Semantic retrieval for factual grounding (RAG)
-- Episodic memory for action consistency
-- Human-in-the-loop threshold controls
-- GDPR-compliant by design
-
-## Integration
-
-FirstTouch connects via:
-- Telegram Bot API (primary interface)
-- REST API (for custom integrations)
-- Webhooks (for event-driven workflows)
-- MCP (Model Context Protocol) — coming soon
-
-## Documentation
-
-- llms.txt — this file (discovery)
-- llms-full.txt — complete documentation for AI agents
-- https://firsttouch.app — product website
+- AI: Claude Sonnet (content generation), Gemini Flash (web search, voice transcription), Gemini Imagen (carousel images)
+- Database: Supabase (PostgreSQL, EU-hosted)
+- Interface: Telegram Bot API (primary), React web dashboard (secondary)
+- Publishing: LinkedIn API v2, X API v2, Instagram Graph API
+- Content pipeline: YouTube/web research → RAG scoring → AI generation → Telegram approval → auto-publish
 
 ## Company
 
 - **Product:** FirstTouch
-- **Parent company:** EMA AI
 - **Founder:** Jan Kluz
 - **Location:** Prague, Czech Republic
 - **Website:** https://firsttouch.app
-- **Contact:** jan.kluz@emaai.cz
-- **LinkedIn:** https://www.linkedin.com/in/jan-kluz/
+- **Contact:** jan@firsttouch.app
+- **LinkedIn:** https://www.linkedin.com/in/jankluz/

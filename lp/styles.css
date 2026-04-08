@@ -673,7 +673,7 @@ h3 {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 2rem;
   align-items: center;
 }
@@ -703,6 +703,12 @@ h3 {
   margin-top: 0.6rem;
   color: var(--ink-3);
   font-size: 0.93rem;
+  line-height: 1.5;
+}
+
+.hero-subline-check {
+  color: #22c55e;
+  font-style: normal;
 }
 
 .hero-actions {
@@ -763,6 +769,8 @@ h3 {
   color: var(--ink-3);
   text-decoration: underline;
   text-underline-offset: 2px;
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 .hero-cta-fallback a:hover {
   color: var(--brand);
@@ -837,8 +845,8 @@ h3 {
 }
 
 @keyframes hero-cta-pulse {
-  0%, 100% { box-shadow: 0 2px 8px rgba(0,0,0,0.3), 0 0 24px rgba(147,1,187,0.35); }
-  50%       { box-shadow: 0 4px 12px rgba(0,0,0,0.35), 0 0 48px rgba(147,1,187,0.65), 0 0 70px rgba(255,106,0,0.22); }
+  0%, 100% { box-shadow: 0 2px 10px rgba(0,0,0,0.35), 0 0 28px rgba(147,1,187,0.4); }
+  50%       { box-shadow: 0 6px 16px rgba(0,0,0,0.4), 0 0 56px rgba(147,1,187,0.72), 0 0 80px rgba(255,106,0,0.26); }
 }
 
 .btn-hero-cta:hover,
@@ -1267,6 +1275,71 @@ h3 {
   font-size: var(--type-card-body);
   line-height: var(--lh-card);
   color: var(--ink-3);
+}
+
+/* === PILOT ENTRY CALLOUT === */
+.pilot-entry-callout {
+  margin-bottom: 2rem;
+}
+
+.pilot-entry-callout__inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 1.25rem;
+  background: rgba(147, 1, 187, 0.08);
+  border: 1px solid rgba(147, 1, 187, 0.3);
+  border-radius: var(--radius-sm);
+}
+
+.pilot-entry-callout__badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: rgba(147, 1, 187, 0.18);
+  border: 1px solid rgba(147, 1, 187, 0.4);
+  border-radius: 4px;
+  color: #c97de8;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pilot-entry-callout__text {
+  color: var(--ink-2);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex: 1;
+  min-width: 200px;
+}
+
+.pilot-entry-callout__text strong {
+  color: var(--ink-1);
+}
+
+.pilot-entry-callout__link {
+  color: #c97de8;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.pilot-entry-callout__link:hover {
+  color: var(--ink-1);
+}
+
+@media (max-width: 640px) {
+  .pilot-entry-callout__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
 }
 
 /* === PRICING === */
@@ -2385,6 +2458,66 @@ h3 {
 .trust-badge-highlight:hover {
   background: rgba(147,1,187,0.12);
   box-shadow: 0 0 12px rgba(147,1,187,0.18);
+}
+
+/* === INDUSTRY VERTICALS BAR === */
+.industry-bar {
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.industry-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.industry-bar-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.industry-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.industry-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: border-color 0.18s, background 0.18s, color 0.18s;
+}
+
+a.industry-chip:hover {
+  border-color: var(--brand);
+  background: rgba(147,1,187,0.07);
+  color: var(--ink-1);
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .industry-bar-inner { gap: 0.75rem; }
+  .industry-bar-label { display: none; }
 }
 
 /* === LOGOS BAR / CLIENT COHORT === */
@@ -6289,5 +6422,1086 @@ body.modal-open {
   }
   .hero-email-btn {
     width: 100%;
+  }
+}
+
+/* ── Hero email label — contextual bridge text above the form ── */
+.hero-email-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  /* Hidden on desktop — the form section heading handles context there */
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .hero-email-label {
+    display: block;
+  }
+}
+
+/* ============================================================
+   HERO CTA + MOBILE RESPONSIVENESS — sprint 2026-03-17
+   ============================================================ */
+
+/* ── btn-hero-cta: larger font + padding on desktop for
+   better visual weight and readability. The CTA is the most
+   important conversion element; a little more presence helps. */
+.btn-hero-cta {
+  font-size: 1.06rem;
+  padding: 1rem 1.9rem;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+/* ── Ghost CTA: add visible border so it reads as a real action,
+   not just a text link. On dark bg a borderless ghost disappears. */
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Hero email form: add a subtle top divider on desktop to
+   visually separate it from the CTA group above. */
+.hero-email-form {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 1.2rem;
+  margin-top: 1.6rem;
+}
+
+/* ── Mobile ≤640px: show email form as a lower-friction alternative
+   to booking a call. Shown below the primary CTA with reduced margin. */
+@media (max-width: 640px) {
+  .hero-email-form {
+    display: block;
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+  }
+}
+
+/* ── Mobile ≤640px: hero-cta-fallback (email link) stays visible
+   so users who won't book a call still have a contact path. */
+@media (max-width: 640px) {
+  .hero-cta-fallback {
+    display: block;
+    margin-top: 0.45rem;
+  }
+}
+
+/* ── Tablet single-col hero (641–1100px): centre hero-copy
+   for better symmetry when the visual sits below. */
+@media (min-width: 641px) and (max-width: 1100px) {
+  .hero-copy {
+    text-align: left; /* keep left — single col but not centered, reads better */
+  }
+
+  /* Give hero visual a max-height cap that works on iPad landscape */
+  .visual-hero img {
+    max-height: 300px;
+    object-position: top center;
+  }
+}
+
+/* ── Mobile ≤480px: tighten hero-actions gap further; the stacked
+   buttons already have flex gap but the wrapper margin adds extra space. */
+@media (max-width: 480px) {
+  .hero-actions {
+    gap: 0.5rem;
+  }
+
+  /* Reduce CTA padding slightly for compact fit above fold */
+  .btn-hero-cta {
+    padding: 0.9rem 1.4rem;
+    font-size: 1rem;
+  }
+
+  /* Hide ghost "See How It Works" on small mobile — keep single CTA focus */
+  .hero-actions .btn-ghost {
+    display: none;
+  }
+
+  /* Hero cta-fallback: tiny size on narrow screens */
+  .hero-cta-fallback {
+    font-size: 0.73rem;
+  }
+}
+
+/* ── Mobile ≤480px: hero-visual — restore but cap tighter so copy
+   and CTA stay comfortably above fold on iPhone SE/8 (375×667). */
+@media (max-width: 480px) {
+  .hero-visual {
+    display: grid;
+    margin-top: 0.25rem;
+  }
+
+  .visual-hero img {
+    max-height: 160px;
+    object-position: top center;
+    border-radius: var(--radius-md);
+  }
+
+  /* Fade the bottom edge of the hero image on mobile for a clean cut */
+  .visual-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+  }
+
+  .visual-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    pointer-events: none;
+  }
+}
+
+/* ── Ultra-narrow ≤360px: single-column hero — hide visual entirely
+   to avoid cramping the copy. Proof strip remains visible. */
+@media (max-width: 360px) {
+  .hero-visual {
+    display: none;
+  }
+}
+
+/* ── Ensure hero-email-input font-size ≥ 16px on all mobile to
+   prevent iOS auto-zoom on focus (already set but explicit here). */
+@media (max-width: 768px) {
+  .hero-email-input {
+    font-size: 1rem;
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* ============================================================
+   HERO CTA URGENCY BADGE + MOBILE RESPONSIVENESS — 2026-03-17
+   ============================================================ */
+
+/* ── Urgency pill — appears above the primary CTA button ─────── */
+.hero-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(147, 1, 187, 0.15);
+  border: 1px solid rgba(147, 1, 187, 0.4);
+  border-radius: 999px;
+  padding: 0.28rem 0.75rem;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.3rem;
+  /* Subtle fade-in so it doesn't feel jarring */
+  animation: urgency-fadein 0.6s ease 0.3s both;
+}
+
+@keyframes urgency-fadein {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero-urgency-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  /* Pulse to signal live/real-time */
+  animation: urgency-dot-pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+}
+
+@keyframes urgency-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(34, 197, 94, 0); }
+}
+
+/* ── Mobile ≤640px: urgency pill full-width centered ─────────── */
+@media (max-width: 640px) {
+  .hero-urgency {
+    align-self: center;
+  }
+}
+
+/* ── Ghost CTA: tighter min-width so it doesn't stretch awkwardly
+   at narrow tablet widths (641–768px) ─────────────────────────── */
+@media (min-width: 641px) and (max-width: 900px) {
+  .hero-actions .btn-ghost {
+    align-self: flex-start;
+  }
+}
+
+/* ── Hero cap-strip: center on ≤640px for cleaner symmetry ────── */
+@media (max-width: 640px) {
+  .hero-cap-strip {
+    justify-content: center;
+  }
+}
+
+/* ── Ensure hero-cta-group urgency badge doesn't overflow on 320px ── */
+@media (max-width: 360px) {
+  .hero-urgency {
+    font-size: 0.7rem;
+    padding: 0.18rem 0.5rem;
+  }
+}
+
+/* ── Tablet 641–1100px: reduce hero vertical padding for better
+   above-fold balance when copy + image are stacked ─────────────── */
+@media (min-width: 641px) and (max-width: 1100px) {
+  .hero {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-grid {
+    gap: 1.25rem;
+  }
+}
+
+/* ── Visual frame border-radius on tablet for clean edge-to-edge ── */
+@media (min-width: 481px) and (max-width: 1100px) {
+  .visual-hero {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .visual-hero img {
+    border-radius: var(--radius-md);
+  }
+}
+
+/* ============================================================
+   HERO CTA + MOBILE IMPROVEMENTS — 2026-03-17 sprint
+   - Center hero content on single-col mobile (≤640px)
+   - Stronger urgency pill treatment
+   - Improved hero CTA button desktop visual
+   - Email form full-width on ≤480px
+   ============================================================ */
+
+/* Desktop: slightly stronger urgency pill border for visibility */
+.hero-urgency {
+  border-color: rgba(147, 1, 187, 0.55);
+  background: rgba(147, 1, 187, 0.12);
+}
+
+/* ── Single-column breakpoint (≤640px): center all hero copy ── */
+@media (max-width: 640px) {
+  .hero-copy {
+    text-align: center;
+  }
+
+  /* Eyebrow centered */
+  .hero-copy .eyebrow {
+    justify-content: center;
+  }
+
+  /* h1 balance centering — override max-width constrain so line wraps nicely */
+  .hero-copy h1 {
+    max-width: 100%;
+  }
+
+  /* Lead and subline centered */
+  .hero-lead,
+  .hero-subline {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  /* CTA group: center items so stacked buttons look intentional */
+  .hero-cta-group {
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Urgency pill: center within the column */
+  .hero-urgency {
+    align-self: center;
+    justify-content: center;
+  }
+
+  /* Micro-copy and fallback: centered */
+  .hero-cta-micro,
+  .hero-cta-fallback {
+    text-align: center;
+  }
+
+  /* Social proof row: center the cluster */
+  .hero-social-proof {
+    justify-content: center;
+  }
+}
+
+/* ── ≤480px: email form takes full width, input font stays ≥16px ── */
+@media (max-width: 480px) {
+  .hero-email-form {
+    max-width: 100%;
+  }
+
+  .hero-email-input {
+    font-size: 1rem; /* prevent iOS zoom on tap */
+  }
+}
+
+/* ── Desktop: stronger CTA glow and shimmer on primary button ── */
+@media (min-width: 1101px) {
+  .btn-hero-cta {
+    padding: 1.1rem 2.4rem;
+    font-size: 1.08rem;
+  }
+
+  /* Urgency pill: slightly larger on wide screens for prominence */
+  .hero-urgency {
+    font-size: 0.82rem;
+    padding: 0.32rem 0.85rem;
+  }
+}
+
+/* ── Tablet (641–1100px): tighten cta-group gap ── */
+@media (min-width: 641px) and (max-width: 1100px) {
+  .hero-cta-group {
+    gap: 0.4rem;
+  }
+}
+
+/* ============================================================
+   HERO EMAIL FORM MOBILE STACK + MISC FIXES — 2026-03-17
+   ============================================================ */
+
+/* Stack email input + button vertically on ≤520px.
+   Side-by-side at 375px leaves ~120px for the button — too cramped. */
+@media (max-width: 520px) {
+  .hero-email-row {
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .hero-email-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-email-input {
+    width: 100%;
+  }
+}
+
+/* Restore row layout at ≥521px (tablet portrait and up) */
+@media (min-width: 521px) {
+  .hero-email-row {
+    align-items: stretch;
+  }
+
+  .hero-email-btn {
+    flex-shrink: 0;
+    align-self: stretch;
+  }
+}
+
+/* Hero subline: allow wrapping gracefully on narrow screens */
+@media (max-width: 480px) {
+  .hero-subline {
+    font-size: 0.85rem;
+  }
+}
+
+/* Hero subline centered at ≤640px (matches rest of centered copy) */
+@media (max-width: 640px) {
+  .hero-subline {
+    text-align: center;
+  }
+}
+
+/* Prevent hero-cta-fallback overflow on 320px screens */
+@media (max-width: 360px) {
+  .hero-cta-fallback {
+    font-size: 0.7rem;
+  }
+}
+
+/* Tablet (481–1100px): add slight object-fit cover so hero image
+   fills the frame without letterboxing on mid-sized screens */
+@media (min-width: 481px) and (max-width: 1100px) {
+  .visual-hero img {
+    object-fit: cover;
+    object-position: top left;
+  }
+}
+
+/* ============================================================
+   PERSONAL BRAND BUILDER — NEW COMPONENTS
+   ============================================================ */
+
+/* === HERO DEMO CARD (Telegram mockup) === */
+.hero-demo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card), 0 20px 60px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  max-width: 420px;
+  margin-left: auto;
+}
+
+.demo-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.demo-card-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.demo-card-dot.green {
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+}
+
+.demo-card-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.demo-card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.demo-msg {
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.demo-msg.bot {
+  background: rgba(147, 1, 187, 0.08);
+  border: 1px solid rgba(147, 1, 187, 0.15);
+  border-radius: 12px 12px 12px 4px;
+}
+
+.demo-msg.user {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 12px 12px 4px 12px;
+  margin-left: 2rem;
+  color: var(--ink-2);
+}
+
+.demo-msg p {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+.demo-msg strong {
+  color: var(--ink-1);
+}
+
+.demo-msg-preview {
+  font-style: italic;
+  color: var(--ink-3) !important;
+  margin-top: 0.25rem !important;
+}
+
+.demo-msg-meta {
+  font-size: 0.75rem;
+  color: var(--ink-4);
+  margin-top: 0.35rem;
+}
+
+.demo-actions {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.1rem 0;
+}
+
+.demo-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.demo-btn.approve {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ADE80;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.demo-btn.approve.active {
+  background: rgba(34, 197, 94, 0.2);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.3);
+}
+
+.demo-btn.edit {
+  background: rgba(255, 193, 7, 0.1);
+  color: #FFC107;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.demo-btn.skip {
+  background: var(--surface);
+  color: var(--ink-3);
+  border: 1px solid var(--border);
+}
+
+/* === BENTO GRID VARIANTS === */
+.bento-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bento-2-1 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 860px) {
+  .bento-3 {
+    grid-template-columns: 1fr;
+  }
+  .bento-2-1 {
+    grid-template-columns: 1fr;
+  }
+  .bento-2-1 .bento-wide {
+    grid-column: span 1;
+  }
+}
+
+/* === COMPARISON GRID (Before / After) === */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 900px;
+}
+
+.comparison-col {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--card-pad-lg);
+}
+
+.comparison-col h3 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.comparison-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.comparison-col ul li {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.comparison-col.before {
+  border-color: rgba(255, 92, 114, 0.15);
+}
+
+.comparison-col.before h3 {
+  color: #ff5c72;
+}
+
+.comparison-col.before li::before {
+  content: "\2717";
+  position: absolute;
+  left: 0;
+  color: #ff5c72;
+  font-weight: 700;
+}
+
+.comparison-col.before li {
+  color: var(--ink-3);
+}
+
+.comparison-col.after {
+  border-color: rgba(34, 197, 94, 0.2);
+  background: rgba(34, 197, 94, 0.03);
+}
+
+.comparison-col.after h3 {
+  color: #4ADE80;
+}
+
+.comparison-col.after li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: #4ADE80;
+  font-weight: 700;
+}
+
+.comparison-col.after li {
+  color: var(--ink-2);
+}
+
+@media (max-width: 640px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === PRICING — additional styles for new LP === */
+.pricing-price {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--ink-1);
+  letter-spacing: -0.03em;
+  margin: 0.5rem 0;
+}
+
+.pricing-period {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink-3);
+}
+
+.pricing-desc {
+  font-size: 0.92rem;
+  color: var(--ink-3);
+  margin: 0 0 1.25rem;
+  line-height: 1.5;
+}
+
+.pricing-featured {
+  background: linear-gradient(
+    145deg,
+    rgba(147, 1, 187, 0.12),
+    rgba(255, 106, 0, 0.06),
+    var(--surface)
+  );
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+/* === LEAD CAPTURE CARD === */
+.lead-capture-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 2.5rem;
+}
+
+.lead-capture-copy h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+.lead-capture-copy p {
+  margin-top: 0.75rem;
+  color: var(--ink-3);
+  line-height: 1.65;
+}
+
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ink-1);
+  min-height: 44px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: rgba(147, 1, 187, 0.55);
+  background: rgba(147, 1, 187, 0.04);
+  box-shadow: 0 0 0 3px rgba(147, 1, 187, 0.14);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--ink-4);
+}
+
+.form-field input[aria-invalid="true"],
+.form-field select[aria-invalid="true"] {
+  border-color: #ff5c72;
+  box-shadow: 0 0 0 3px rgba(255, 92, 114, 0.15);
+}
+
+.field-error {
+  font-size: 0.82rem;
+  color: #ff5c72;
+}
+
+.form-status {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.form-status.error {
+  color: #ff5c72;
+}
+
+.form-status.ok {
+  color: #4ADE80;
+}
+
+@media (max-width: 860px) {
+  .lead-capture-card {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+}
+
+/* === STATS STRIP — layout fix for 4 items === */
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 1.8rem 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--ink-1);
+  font-family: "Geist Mono", "Geist", monospace;
+  letter-spacing: -0.03em;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .stats-row {
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+  }
+  .stat-value {
+    font-size: 1.6rem;
+  }
+}
+
+/* === FAQ — styles for details/summary === */
+.faq-list {
+  max-width: 780px;
+  display: grid;
+  gap: 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item summary {
+  padding: 1.1rem 0;
+  font-size: 1.06rem;
+  font-weight: 600;
+  color: var(--ink-1);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: color 0.2s;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--ink-3);
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+
+.faq-item[open] summary::after {
+  content: "\2212";
+  transform: rotate(180deg);
+}
+
+.faq-item summary:hover {
+  color: var(--violet);
+}
+
+.faq-answer {
+  padding: 0 0 1.1rem;
+}
+
+.faq-answer p {
+  font-size: 0.95rem;
+  color: var(--ink-3);
+  line-height: 1.65;
+  max-width: 64ch;
+}
+
+/* === CTA SECTION === */
+.cta-section {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  background: linear-gradient(135deg, #FFFFFF 30%, #d882f5 65%, var(--violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === FOOTER — simplified for new LP === */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+  padding: 3rem 0 2rem;
+}
+
+.footer-brand p {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--ink-3);
+  max-width: 32ch;
+}
+
+.footer-links h4 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-2);
+  margin: 0 0 0.75rem;
+}
+
+.footer-links a {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--ink-3);
+  text-decoration: none;
+  padding: 0.2rem 0;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--ink-1);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--ink-4);
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+/* === HERO VISUAL RESPONSIVE === */
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-demo-card {
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+/* === CALENDLY MODAL === */
+.calendly-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendly-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.calendly-modal__container {
+  position: relative;
+  width: min(680px, 95vw);
+  height: min(720px, 90vh);
+  background: var(--surface-solid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.calendly-modal__embed {
+  width: 100%;
+  height: 100%;
+}
+
+.calendly-modal__embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.calendly-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.calendly-modal__close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--ink-1);
+}
+
+.calendly-modal__loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  color: var(--ink-3);
+  font-size: 0.9rem;
+}
+
+.calendly-modal__loader-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--violet);
+  border-radius: 50%;
+  animation: btn-spinner 0.7s linear infinite;
+}
+
+/* Body lock when modal open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* === STICKY CTA === */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(10, 10, 11, 0.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.sticky-cta.is-visible {
+  transform: translateY(0);
+}
+
+.sticky-cta-close {
+  background: none;
+  border: none;
+  color: var(--ink-3);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+@media (min-width: 861px) {
+  .sticky-cta {
+    display: none;
   }
 }

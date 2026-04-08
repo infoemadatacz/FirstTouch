@@ -3,63 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Thank You | First Touch</title>
-  <meta name="description" content="Thank you for requesting the Strategy Toolkit. Book your strategy call with First Touch.">
+  <title>Thank You | FirstTouch</title>
+  <meta name="description" content="Thank you for requesting the Personal Brand Playbook. Book your strategy call with FirstTouch.">
   <meta name="robots" content="noindex, follow">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 
-  <!-- Plausible Analytics — GDPR-compliant, no cookie consent required (EU-safe) -->
   <script defer data-domain="firsttouch.app" src="https://plausible.io/js/script.tagged-events.js"></script>
   <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
 <body>
-  <div class="bg-noise" aria-hidden="true"></div>
-  <div class="bg-gradient" aria-hidden="true"></div>
+  <main style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;">
+    <div style="max-width:560px;text-align:center;">
+      <span class="brand-text" style="font-size:1.2rem;">FirstTouch</span>
 
-  <main class="thank-you-page">
-    <div class="container thank-you-card reveal">
-      <a class="brand" href="./index.html">
-        <img class="brand-icon" src="./assets/firsttouch-icon.svg" alt="First Touch icon">
-        <span class="brand-text">First Touch</span>
-      </a>
+      <p class="eyebrow" style="margin-top:2rem;"><span class="eyebrow-dot"></span>Request received</p>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);margin-top:0.5rem;">Your Personal Brand Playbook is ready.</h1>
+      <p id="thanks-message" style="margin-top:1rem;color:var(--ink-3);line-height:1.65;">Check your inbox in a minute. If it doesn't arrive, download it directly below.</p>
 
-      <p class="eyebrow">Request received</p>
-      <h1>Your Strategy Toolkit is ready.</h1>
-      <p id="thanks-message">Check your inbox in a minute. If it does not arrive, download it directly below.</p>
-
-      <div class="hero-actions">
-        <a id="direct-download" class="btn" href="./assets/strategy-toolkit.md" download="strategy-toolkit.md" rel="noopener">Download Strategy Toolkit</a>
-        <a class="btn btn-ghost" data-book-link href="#">Book strategy call</a>
+      <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;">
+        <a id="direct-download" class="btn" href="./assets/personal-brand-playbook.pdf" download rel="noopener">Download Playbook</a>
+        <a class="btn btn-ghost" data-book-link href="#">Book Strategy Call</a>
       </div>
 
-      <p>
-        Best next step: bring one real workflow to the call. We will map the bottleneck,
-        set governance thresholds, and define your pilot measurement plan.
+      <p style="margin-top:2rem;font-size:0.92rem;color:var(--ink-3);line-height:1.65;">
+        Best next step: think about your 3 core topics and bring them to the call.
+        We'll map your content pillars and build your first content calendar on the spot.
       </p>
 
-      <a class="tiny-back" href="./index.html">Back to landing page</a>
+      <a style="display:inline-block;margin-top:1.5rem;font-size:0.85rem;color:var(--ink-4);" href="./index.html">Back to homepage</a>
     </div>
   </main>
 
-  <!-- Calendly inline booking modal — opened by any [data-book-link] CTA -->
-  <div id="calendly-modal" class="calendly-modal" role="dialog" aria-modal="true" aria-label="Book a 15-min strategy call" hidden>
-    <div class="calendly-modal__backdrop" id="calendly-modal-backdrop"></div>
-    <div class="calendly-modal__panel">
-      <div class="calendly-modal__header">
-        <span class="calendly-modal__title">Book a Free 15-Min Strategy Call</span>
-        <button class="calendly-modal__close" id="calendly-modal-close" aria-label="Close booking modal">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
-      <div class="calendly-modal__embed" id="calendly-embed">
-        <!-- iframe injected on first open to avoid render-blocking Calendly on page load -->
-      </div>
+  <div id="calendly-modal" class="calendly-modal" hidden>
+    <div id="calendly-modal-backdrop" class="calendly-modal__backdrop"></div>
+    <div class="calendly-modal__container">
+      <button id="calendly-modal-close" class="calendly-modal__close" aria-label="Close">&times;</button>
+      <div id="calendly-embed" class="calendly-modal__embed"></div>
     </div>
   </div>
 
